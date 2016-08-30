@@ -37,24 +37,23 @@ void ST7735_sDecOut3(int32_t num) {
 	
 	// INT_TO_CHAR_OFFSET: Digits in decimal are (digit + 0x30) in ASCII (e.g. '3' --> 0x33).
 	// NUM_OUTPUT_CHARS:   As specified by the function, the number of chars to output is always 6.
-	// divisor:            The initial divisor will always be 1000.
 	// out_buffer:         There will be an output buffer containing 6 chars.
 	// count:              Count keeps track of how many chars have been written to the buffer.
-	// 		               Start at one to save a spot for the decimal point.
+	// 		               Decrement count until greater than one to save a spot for the decimal point.
 	static int INT_TO_CHAR_OFFSET = 0x30;
 	static int NUM_OUTPUT_CHARS = 6;
-	int divisor = 1000;
-	int out_buffer[NUM_OUTPUT_CHARS];
-	int count = 1;
+	char out_buffer[NUM_OUTPUT_CHARS];
+	int count = NUM_OUTPUT_CHARS;
 
 	// Write the chars to be displayed to a buffer.
-	while (count < NUM_OUTPUT_CHARS) { // save one spot to write in the decimal point
-		out_buffer[count] = num / divisor + INT_TO_CHAR_OFFSET);
-		num %= divisor;
-		divisor /= 10;
-		NUM_OUTPUT_CHARS -= 1;
+	// Write the LSB into the buffer until only one spot left for the decimal point
+	while (count > 1) {
+		out_buffer[count] = num % 10 + INT_TO_CHAR_OFFSET;
+		num /= 10;
+		count -= 1;
 	}
 	
+	ST7735_OutString(out_buffer);
 	ST7735_OutChar('\n'); // output a new line
 }
 
@@ -88,19 +87,19 @@ void ST7735_uBinOut8(uint32_t num) {
 	// digits in decimal are (digit + 0x30) in ASCII (e.g. '3' --> 0x33)
 	// the initial divisor will always be 1000
 	static int INT_TO_CHAR_OFFSET = 0x30;
-	int num_shifts = 
+//	int num_shifts = 
 	
 	// output the most significant digit first, then the decimal point
-	ST7735_OutChar(num / divisor + INT_TO_CHAR_OFFSET);
-	num %= divisor;
-	divisor /= 10;
-	ST7735_OutChar('.');
+//	ST7735_OutChar(num / divisor + INT_TO_CHAR_OFFSET);
+//	num %= divisor;
+//	divisor /= 10;
+//	ST7735_OutChar('.');
 	
 	// output the rest of the digits
 	while (num > 0) {
-			ST7735_OutChar(num / divisor + INT_TO_CHAR_OFFSET);
-			num %= divisor;
-			divisor /= 10;
+//			ST7735_OutChar(num / divisor + INT_TO_CHAR_OFFSET);
+//			num %= divisor;
+//			divisor /= 10;
 	}
 	
 	ST7735_OutChar('\n'); // output a new line

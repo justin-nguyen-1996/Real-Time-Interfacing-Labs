@@ -788,7 +788,7 @@ void TestBinOut() {
 int main() {
 	PLL_Init(Bus80MHz); // set system clock to 80 MHz
 	ST7735_InitR(INITR_REDTAB);
-//	TestDecOut();
-	TestBinOut();
+	TestDecOut();
+//	TestBinOut();
 }
 
