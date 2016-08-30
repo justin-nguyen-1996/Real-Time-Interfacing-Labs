@@ -72,6 +72,7 @@
 #include <stdint.h>
 #include "../h/ST7735.h"
 #include "../h/PLL.h"
+#include "../h/fixed.h"
 #include "../inc/tm4c123gh6pm.h"
 
 void DelayWait10ms(uint32_t n);
@@ -532,7 +533,7 @@ int main7(void){ int i; // main 7
   while(1){
   }
 }
-int main(void){  // main 2
+int main2(void){  // main 2
   int x, y, dx, dy;
 //  uint8_t red, green, blue;
   PLL_Init(Bus80MHz);                  // set system clock to 80 MHz
@@ -753,3 +754,23 @@ void DelayWait10ms(uint32_t n){uint32_t volatile time;
     n--;
   }
 }
+
+void TestDecOut() {
+	ST7735_sDecOut3(-100000);
+	ST7735_sDecOut3(-10000);
+	ST7735_sDecOut3(-9999);
+	ST7735_sDecOut3(-999);
+	ST7735_sDecOut3(-1);
+	ST7735_sDecOut3(0);
+	ST7735_sDecOut3(123);
+	ST7735_sDecOut3(1234);
+	ST7735_sDecOut3(9999);
+	ST7735_sDecOut3(10000);
+}
+
+int main() {
+	PLL_Init(Bus80MHz); // set system clock to 80 MHz
+	ST7735_InitR(INITR_REDTAB);
+	TestDecOut();
+}
+
