@@ -766,11 +766,29 @@ void TestDecOut() {
 	ST7735_sDecOut3(1234);
 	ST7735_sDecOut3(9999);
 	ST7735_sDecOut3(10000);
+	ST7735_sDecOut3(1000000);
+	ST7735_sDecOut3(-1924);
+	ST7735_sDecOut3(1);
+	ST7735_sDecOut3(4422);
+}
+
+void TestBinOut() {
+	ST7735_uBinOut8(0);
+	ST7735_uBinOut8(2);
+	ST7735_uBinOut8(64);
+	ST7735_uBinOut8(100);
+	ST7735_uBinOut8(500);
+	ST7735_uBinOut8(512);
+	ST7735_uBinOut8(5000);
+	ST7735_uBinOut8(30000);
+	ST7735_uBinOut8(255997);
+	ST7735_uBinOut8(256000);
 }
 
 int main() {
 	PLL_Init(Bus80MHz); // set system clock to 80 MHz
 	ST7735_InitR(INITR_REDTAB);
-	TestDecOut();
+//	TestDecOut();
+	TestBinOut();
 }
 

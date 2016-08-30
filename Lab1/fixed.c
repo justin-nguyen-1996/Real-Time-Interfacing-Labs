@@ -78,7 +78,9 @@ void ST7735_sDecOut3(int32_t num) {
        256000	  "***.**"
  */
 void ST7735_uBinOut8(uint32_t num) {
- 
+	if (num > 255999) {
+		ST7735_OutString("***.**");
+	}
 }
 
 // This function will configure the plot and clear the drawing area
