@@ -784,6 +784,8 @@ void TestBinOut() {
 	ST7735_uBinOut8(255997);
 	ST7735_uBinOut8(256000);
 	ST7735_uBinOut8(123456); // --> 482.25
+	ST7735_uBinOut8(123457); // --> 482.25
+	ST7735_uBinOut8(123458); // --> 482.26
 }
 
 int main() {

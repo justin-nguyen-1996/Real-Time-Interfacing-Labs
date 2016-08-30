@@ -124,14 +124,19 @@ void ST7735_uBinOut8(uint32_t num) {
 	}
 	
 	// Find the scaling factor (dependent on how many decimal places are desired)
+	// Loop condition is (i < NUM_DECIMAL_PLACES + 1) to account for rounding
 	int scaling_factor = 1;
-	for (int i = 0; i < NUM_DECIMAL_PLACES; ++i) {
+	for (int i = 0; i < NUM_DECIMAL_PLACES + 1; ++i) {
 		scaling_factor *= 10;
 	}
 	
+	// By multiplying by an exra factor of 10, the digit that determines rounding is no longer truncated.
+	// If we need to round, simply add one to the original value
 	int scaled_num = num * scaling_factor >> num_shifts;
+	if (scaled_num % 10 >= 5) { scaled_num = (scaled_num / 10) + 1; } 
+	else { scaled_num /= 10; }
 	
-	char out_buffer[NUM_OUTPUT_CHARS + 1] = {'a','a','a','a','a','a','a'};
+	char out_buffer[NUM_OUTPUT_CHARS + 1];
 	int write_index = NUM_OUTPUT_CHARS - 1;
 	for (int count = NUM_OUTPUT_CHARS; count > 1; --count) {
 		out_buffer[write_index] = scaled_num % 10 + INT_TO_CHAR_OFFSET;
