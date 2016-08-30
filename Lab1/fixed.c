@@ -41,14 +41,14 @@ void ST7735_sDecOut3(int32_t num) {
 	// out_buffer:         There will be an output buffer containing 7 chars (6 values to output, 1 null character)
 	// count:              Count keeps track of how many chars have been written to the buffer.
 	// 		               Decrement count until greater than two to save a spot for the decimal point and negative sign.
-	static int INT_TO_CHAR_OFFSET = 0x30;
-	static int NUM_OUTPUT_CHARS = 6;
+	const int INT_TO_CHAR_OFFSET = 0x30;
+	const int NUM_OUTPUT_CHARS = 6;
 	char out_buffer[NUM_OUTPUT_CHARS + 1];
 	int count = NUM_OUTPUT_CHARS;
 	int write_index = NUM_OUTPUT_CHARS - 1;
 	
 	// Append the null zero.
-	out_buffer[NUM_OUTPUT_CHARS + 1] = 0;
+	out_buffer[NUM_OUTPUT_CHARS] = 0;
 
 	// Write the chars to be displayed to a buffer.
 	// Write the LSB into the buffer but make sure to save two spots for the decimal point and negative sign
@@ -107,13 +107,30 @@ void ST7735_uBinOut8(uint32_t num) {
 		ST7735_OutString("***.**");
 	}
 	
-	int scaled_num = num * 100 >> 8;
-	
 	// digits in decimal are (digit + 0x30) in ASCII (e.g. '3' --> 0x33)
-	static int INT_TO_CHAR_OFFSET = 0x30;
-	static int ONE_OVER_RESOLUTION = 256;
+	const int INT_TO_CHAR_OFFSET = 0x30;
+	const int ONE_OVER_RESOLUTION = 256;
+	const int NUM_OUTPUT_CHARS = 6;
+	const int DECIMAL_INDEX = 3;
+	const int NUM_DECIMAL_PLACES = NUM_OUTPUT_CHARS - DECIMAL_INDEX - 1;
 	
-	while (scaled_num> 0) {
+	// Find the number of times to shift num to make scaled_num
+	// Num * Resolution should equal (Num >> num_shifts)
+	int num_shifts = 0; int temp = 1;
+	while (temp != ONE_OVER_RESOLUTION) {
+		num_shifts += 1;
+		temp = temp << 1;
+	}
+	
+	// Find the scaling factor (dependent on how many decimal places are desired)
+	int scaling_factor = 1;
+	for (int i = 0; i < NUM_DECIMAL_PLACES; ++i) {
+		scaling_factor *= 10;
+	}
+	
+	int scaled_num = num * scaling_factor >> num_shifts;
+	
+	while (scaled_num > 0) {
 		ST7735_OutChar(scaled_num % 10 + INT_TO_CHAR_OFFSET);
 		scaled_num /= 10;
 	}
