@@ -39,7 +39,7 @@ void ST7735_sDecOut3(int32_t num) {
 	// INT_TO_CHAR_OFFSET: Digits in decimal are (digit + 0x30) in ASCII (e.g. '3' --> 0x33).
 	// NUM_OUTPUT_CHARS:   As specified by the function, the number of chars to output is always 6.
 	// out_buffer:         There will be an output buffer containing 7 chars (6 values to output, 1 null character)
-	// count:              Count keeps track of how many chars have been written to the buffer.
+	// count:              Count keeps track of how many chars have not been written to the buffer.
 	// 		               Decrement count until greater than two to save a spot for the decimal point and negative sign.
 	const int INT_TO_CHAR_OFFSET = 0x30;
 	const int NUM_OUTPUT_CHARS = 6;
@@ -130,10 +130,32 @@ void ST7735_uBinOut8(uint32_t num) {
 	
 	int scaled_num = num * scaling_factor >> num_shifts;
 	
-	while (scaled_num > 0) {
-		ST7735_OutChar(scaled_num % 10 + INT_TO_CHAR_OFFSET);
+	char out_buffer[NUM_OUTPUT_CHARS + 1] = {'a','a','a','a','a','a','a'};
+	int write_index = NUM_OUTPUT_CHARS - 1;
+	for (int count = NUM_OUTPUT_CHARS; count > 1; --count) {
+		out_buffer[write_index] = scaled_num % 10 + INT_TO_CHAR_OFFSET;
 		scaled_num /= 10;
+		write_index -= 1;
 	}
+	
+	// Shift the characters in the buffer to make room for the decimal point.
+	for (int i = 0; i < DECIMAL_INDEX; ++i) {
+		out_buffer[i] = out_buffer[i + 1];
+	}
+	
+	// Write the decimal point and append a null zero
+	out_buffer[DECIMAL_INDEX] = '.';
+	out_buffer[NUM_OUTPUT_CHARS] = 0;
+	
+	// Replace extraneous leading zeroes with ' '
+	int first_valid_zero_index = DECIMAL_INDEX - 1;
+	for (int i = 0; i < first_valid_zero_index ; ++i) {
+		if (out_buffer[i] == '0') {
+			out_buffer[i] = ' ';
+		}
+	}
+	
+	ST7735_OutString(out_buffer);
 	
 	ST7735_OutChar('\n'); // output a new line
 }

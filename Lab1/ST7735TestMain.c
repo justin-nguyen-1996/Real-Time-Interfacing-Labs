@@ -773,16 +773,17 @@ void TestDecOut() {
 }
 
 void TestBinOut() {
-	ST7735_uBinOut8(0);
-	ST7735_uBinOut8(2);
-	ST7735_uBinOut8(64);
-	ST7735_uBinOut8(100);
-	ST7735_uBinOut8(500);
-	ST7735_uBinOut8(512);
-	ST7735_uBinOut8(5000);
-	ST7735_uBinOut8(30000);
-	ST7735_uBinOut8(255997);
-	ST7735_uBinOut8(256000);
+//	ST7735_uBinOut8(0);
+//	ST7735_uBinOut8(2);
+//	ST7735_uBinOut8(64);
+//	ST7735_uBinOut8(100);
+//	ST7735_uBinOut8(500);
+//	ST7735_uBinOut8(512);
+//	ST7735_uBinOut8(5000);
+//	ST7735_uBinOut8(30000);
+//	ST7735_uBinOut8(255997);
+//	ST7735_uBinOut8(256000);
+	ST7735_uBinOut8(123456); // --> 482.25
 }
 
 int main() {
