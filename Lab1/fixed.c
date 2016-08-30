@@ -9,6 +9,13 @@
 #include "../h/fixed.h"
 #include "../h/ST7735.h" 
 
+/* Input:
+ * 		num is the decimal number to write to the buffer
+ * 		out_buffer is the buffer we are writing to
+ * 		NUM_OUTPUT_CHARS is the number of characters to write to the buffer
+ * Output: none
+ * Description: write the given decimal number to the buffer
+ */
 void outDecToBuffer(int num, char out_buffer[], int NUM_OUTPUT_CHARS){
 	// Start writing at (NUM_OUTPUT_CHARS - 1) because we need room for the null terminator
 	int write_index = NUM_OUTPUT_CHARS - 1;
@@ -24,6 +31,14 @@ void outDecToBuffer(int num, char out_buffer[], int NUM_OUTPUT_CHARS){
 	}
 }
 
+/* Input:
+ * 		out_buffer is the buffer we are writing to
+ * 		DECIMAL_INDEX is where we are going to write the decimal point
+ * Output: none
+ * Description: 
+ * 		Format the buffer to include the decimal point in the write location.
+ *		Also remove any extra leading zeroes (Example: 000.23 --> 0.23, 0.23 --> 0.23)
+ */
 void formatBuffer(char out_buffer[], int DECIMAL_INDEX) {
 	// Shift the characters in the buffer to make room for the decimal point.
 	for (int i = 0; i < DECIMAL_INDEX; ++i) {
