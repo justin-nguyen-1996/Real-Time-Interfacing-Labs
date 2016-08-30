@@ -104,7 +104,8 @@ void ST7735_sDecOut3(int32_t num) {
  */
 void ST7735_uBinOut8(uint32_t num) {
 	if (num > 255999) {
-		ST7735_OutString("***.**");
+		ST7735_OutString("***.**\n");
+		return;
 	}
 	
 	// digits in decimal are (digit + 0x30) in ASCII (e.g. '3' --> 0x33)
