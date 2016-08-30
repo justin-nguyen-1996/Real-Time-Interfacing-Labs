@@ -46,11 +46,26 @@ void ST7735_sDecOut3(int32_t num) {
 	int count = NUM_OUTPUT_CHARS;
 
 	// Write the chars to be displayed to a buffer.
-	// Write the LSB into the buffer until only one spot left for the decimal point
+	// Write the LSB into the buffer until only one spot left for the decimal point.
 	while (count > 1) {
 		out_buffer[count] = num % 10 + INT_TO_CHAR_OFFSET;
 		num /= 10;
 		count -= 1;
+	}
+	
+	// Write the decimal point in.
+	int DECIMAL_INDEX = 2;
+	for (int i = 0; i < DECIMAL_INDEX; ++i) {
+		out_buffer[i] = out_buffer[i + 1];
+	}
+	out_buffer[DECIMAL_INDEX] = '.';
+	
+	// Replace extraneous leading zeroes with ' '
+	int first_valid_zero_index = DECIMAL_INDEX - 1;
+	for (int i = 0; i < first_valid_zero_index ; ++i) {
+		if (out_buffer[i] == '0') {
+			out_buffer[i] = ' ';
+		}
 	}
 	
 	ST7735_OutString(out_buffer);
