@@ -756,20 +756,20 @@ void DelayWait10ms(uint32_t n){uint32_t volatile time;
 }
 
 void TestDecOut() {
-	ST7735_sDecOut3(-100000);
-	ST7735_sDecOut3(-10000);
-	ST7735_sDecOut3(-9999);
+//	ST7735_sDecOut3(-100000);
+//	ST7735_sDecOut3(-10000);
+//	ST7735_sDecOut3(-9999);
 	ST7735_sDecOut3(-999);
-	ST7735_sDecOut3(-1);
-	ST7735_sDecOut3(0);
+//	ST7735_sDecOut3(-1);
+//	ST7735_sDecOut3(0);
 	ST7735_sDecOut3(123);
-	ST7735_sDecOut3(1234);
-	ST7735_sDecOut3(9999);
-	ST7735_sDecOut3(10000);
-	ST7735_sDecOut3(1000000);
-	ST7735_sDecOut3(-1924);
-	ST7735_sDecOut3(1);
-	ST7735_sDecOut3(4422);
+//	ST7735_sDecOut3(1234);
+//	ST7735_sDecOut3(9999);
+//	ST7735_sDecOut3(10000);
+//	ST7735_sDecOut3(1000000);
+//	ST7735_sDecOut3(-1924);
+//	ST7735_sDecOut3(1);
+//	ST7735_sDecOut3(4422);
 }
 
 void TestBinOut() {
