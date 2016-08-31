@@ -188,9 +188,9 @@ void ST7735_XYplotInit(char *title, int32_t minX, int32_t maxX, int32_t minY, in
 	g_minX = minX; g_maxX = maxX;
 	g_minY = minY; g_maxY = maxY;
 	
-	// Draw the title and clear the plot area.
-	ST7735_OutString(title);
+	// Clear the plot area and draw the title
 	ST7735_FillScreen(0);
+	ST7735_OutString(title);
 }
 
 /*
@@ -208,19 +208,14 @@ void ST7735_XYplot(uint32_t num, int32_t bufX[], int32_t bufY[]) {
 	for (int i = 0; i < num; ++i) {
 		if (bufX[i] < g_minX   ||   bufX[i] > g_maxX   ||   bufY[i] < g_minY   ||   bufY[i] > g_maxY) {
 			continue;
-		} else {
-			int32_t x = (bufX[i] + 2000) / 100;
-			int32_t y = (bufY[i] + 2000) / 100;
-			int32_t j = y;
-			// X goes from 0 to 127
-			// j goes from 159 to 32
-			// y=Ymax maps to j=32
-			// y=Ymin maps to j=159
-//			j = 32+(127*(Ymax-y))/Yrange;
-			ST7735_DrawPixel(x,   j,   ST7735_CYAN);
-			ST7735_DrawPixel(x+1, j,   ST7735_CYAN);
-			ST7735_DrawPixel(x,   j+1, ST7735_CYAN);
-			ST7735_DrawPixel(x+1, j+1, ST7735_CYAN);
+		} else {			
+			int x = (g_maxX - bufX[i]) * 128 / (g_maxX - g_minX);
+			int y = (g_maxY - bufY[i]) * 128 / (g_maxY - g_minY) + 32;
+			
+			ST7735_DrawPixel(x,   y,   ST7735_CYAN);
+			ST7735_DrawPixel(x+1, y,   ST7735_CYAN);
+			ST7735_DrawPixel(x,   y+1, ST7735_CYAN);
+			ST7735_DrawPixel(x+1, y+1, ST7735_CYAN);
 		}
 	}
 }
