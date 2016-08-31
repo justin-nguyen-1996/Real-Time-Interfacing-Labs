@@ -76,13 +76,17 @@ outTestCaseType2 outTests2[14]={
 #define PF4   (*((volatile uint32_t *)0x40025040))
 
 void Pause(void){
-  while(PF4==0x00){ 
-    DelayWait10ms(10);
-  }
   while(PF4==0x10){
     DelayWait10ms(10);
   }
 }
+
+void PauseReset(void) {
+	Pause();
+	ST7735_FillScreen(0);  // set screen to black
+    ST7735_SetCursor(0,0);
+}
+
 // 180 points on a circle of radius 2.000
 const int32_t CircleXbuf[180] = { 2000, 1999, 1995, 1989, 1981, 1970, 1956, 1941, 1923, 1902, 1879, 1854, 1827, 1798, 1766, 1732, 1696, 1658, 1618, 1576, 1532, 1486, 1439, 1389, 1338, 1286, 1231, 1176, 1118, 1060, 1000, 939, 877, 813, 749, 684, 618, 551, 484, 416, 347, 278, 209, 140, 70, 0, -70, -140, -209, -278, -347, -416, -484, -551, -618, -684, -749, -813, -877, -939, -1000, -1060, -1118, -1176, -1231, -1286, -1338, -1389, -1439, -1486, -1532, -1576, -1618, -1658, -1696, -1732, -1766, -1798, -1827, -1854, -1879, -1902, -1923, -1941, -1956, -1970, -1981, -1989, -1995, -1999, -2000, -1999, -1995, -1989, -1981, -1970, -1956, -1941, -1923, -1902, -1879, -1854, -1827, -1798, -1766, -1732, -1696, -1658, -1618, -1576, -1532, -1486, -1439, -1389, -1338, -1286, -1231, -1176, -1118, -1060, -1000, -939, -877, -813, -749, -684, -618, -551, -484, -416, -347, -278, -209, -140, -70, 0, 70, 140, 209, 278, 347, 416, 484, 551, 618, 684, 749, 813, 877, 939, 1000, 1060, 1118, 1176, 1231, 1286, 1338, 1389, 1439, 1486, 1532, 1576, 1618, 1658, 1696, 1732, 1766, 1798, 1827, 1854, 1879, 1902, 1923, 1941, 1956, 1970, 1981, 1989, 1995, 1999
 };
@@ -100,29 +104,35 @@ int main(void){uint32_t i;
   while(1){
     ST7735_FillScreen(0);  // set screen to black
     ST7735_SetCursor(0,0);
-    printf("Lab 1\rST7735_sDecOut3\r");
+	  
+    printf("Lab 1\r");
+	PauseReset();
+	  
+	printf("ST7735_sDecOut3\r");
     for(i=0; i<13; i++){
       ST7735_sDecOut3(outTests1[i].InNumber);  // your solution
       ST7735_OutString((char*)outTests1[i].OutBuffer); // expected solution
+	  if (i == 6) { PauseReset(); }
     }
-    Pause();
-  
-    ST7735_FillScreen(0);  // set screen to black
-    ST7735_SetCursor(0,0);
+    PauseReset();
+	
     printf("ST7735_uBinOut8\r");
     for(i=0; i<14; i++){
+	  if (i == 9) {
       ST7735_uBinOut8(outTests2[i].InNumber);  // your solution
       ST7735_OutString((char*)outTests2[i].OutBuffer); // expected solution
+	  if (i == 6) { PauseReset(); }
+  }
     }
-    Pause();
+	PauseReset();
     
 //    ST7735_XYplotInit("Circle",-2500, 2500, -2500, 2500);
 //    ST7735_XYplot(180,(int32_t *)CircleXbuf,(int32_t *)CircleYbuf);
-    Pause();
+//    Pause();
     
 //    ST7735_XYplotInit("Star- upper right",-450, 150, -400, 200);
 //    ST7735_XYplot(50,(int32_t *)StarXbuf,(int32_t *)StarYbuf);
-    Pause(); 
+//    Pause(); 
   } 
 } 
 

@@ -16,19 +16,19 @@
  * Output: none
  * Description: write the given decimal number to the buffer
  */
-void outDecToBuffer(int num, char out_buffer[], int NUM_OUTPUT_CHARS){
-	// Start writing at (NUM_OUTPUT_CHARS - 1) because we need room for the null terminator
-	int write_index = NUM_OUTPUT_CHARS - 1;
-	
+void outDecToBuffer(int num, char out_buffer[], int NUM_OUTPUT_CHARS, int DECIMAL_INDEX){
 	// Digits in decimal are (digit + 0x30) in ASCII. (Example: '3' --> 0x33).
 	static int INT_TO_CHAR_OFFSET = 0x30;
 	
-	// Loop condition is (count > 1) because we need room for the decimal point
-	for (int count = NUM_OUTPUT_CHARS; count > 1; --count) {
+	// Write the characters into the buffer.
+	for (int write_index = NUM_OUTPUT_CHARS - 1; write_index >= 0; --write_index) {
+		if (write_index == DECIMAL_INDEX) { out_buffer[write_index] = '.'; continue; }
 		out_buffer[write_index] = num % 10 + INT_TO_CHAR_OFFSET;
 		num /= 10;
-		write_index -= 1;
 	}
+	
+	// Append the null-terminating zero.
+	out_buffer[NUM_OUTPUT_CHARS] = 0;
 }
 
 /* Input:
@@ -36,19 +36,16 @@ void outDecToBuffer(int num, char out_buffer[], int NUM_OUTPUT_CHARS){
  * 		DECIMAL_INDEX is where we are going to write the decimal point
  * Output: none
  * Description: 
- * 		Format the buffer to include the decimal point in the write location.
- *		Also remove any extra leading zeroes (Example: 000.23 --> 0.23, 0.23 --> 0.23)
+ *		Replace any extra leading zeroes with ' ' 
+ *      Example: 000.23 --> 0.23
+ *               101.23 --> 101.23
+ *                 0.23 --> 0.23
  */
-void formatBuffer(char out_buffer[], int DECIMAL_INDEX) {
-	// Shift the characters in the buffer to make room for the decimal point.
-	for (int i = 0; i < DECIMAL_INDEX; ++i) {
-		out_buffer[i] = out_buffer[i + 1];
-	}
+void removeExtraLeadingZeroes(char out_buffer[], int DECIMAL_INDEX) {
+	// If the first character is not zero, there will not be any leading zeroes.
+	if (out_buffer[0] != '0') { return; }
 	
-	// Write in the decimal point.
-	out_buffer[DECIMAL_INDEX] = '.';
-	
-	// Replace extraneous leading zeroes with ' '
+	// Only remove invalid leading zeroes, so walk down the buffer until first_valid_zero_index.
 	int first_valid_zero_index = DECIMAL_INDEX - 1;
 	for (int i = 0; i < first_valid_zero_index ; ++i) {
 		if (out_buffer[i] == '0') {
@@ -91,17 +88,16 @@ void ST7735_sDecOut3(int32_t num) {
 	const int DECIMAL_INDEX = 2;
 	char out_buffer[NUM_OUTPUT_CHARS + 1];
 
-	// Write the chars to be displayed to a buffer. Append the terminating null zero.
-	outDecToBuffer(num, out_buffer, NUM_OUTPUT_CHARS);
-	out_buffer[NUM_OUTPUT_CHARS] = 0;
+	// Write the chars to be displayed to a buffer.
+	outDecToBuffer(num, out_buffer, NUM_OUTPUT_CHARS, DECIMAL_INDEX);
 	
-	// Format the buffer to include a decimal point and to remove extra leading zeroes.
-	formatBuffer(out_buffer, DECIMAL_INDEX);
+	// Remove extra leading zeroes. Example: 000.34 --> 0.34
+	removeExtraLeadingZeroes(out_buffer, DECIMAL_INDEX);
 	
 	// Write in the potential negative sign.
 	if (num_was_negative) { out_buffer[0] = '-'; }
 	
-	// Write out the buffer.
+	// Display to the LCD
 	ST7735_OutString(out_buffer);
 	ST7735_OutChar('\n');
 }
@@ -140,7 +136,7 @@ void ST7735_uBinOut8(uint32_t num) {
 	const int NUM_OUTPUT_CHARS = 6;
 	const int DECIMAL_INDEX = 3;
 	const int NUM_DECIMAL_PLACES = NUM_OUTPUT_CHARS - DECIMAL_INDEX - 1;
-	char out_buffer[NUM_OUTPUT_CHARS + 1];
+	char out_buffer[NUM_OUTPUT_CHARS + 1] = {'a', 'a', 'a', 'a', 'a', 'a'};
 	
 	// Find the number of times to shift num to make scaled_num
 	// Num * Resolution should equal (Num >> num_shifts)
@@ -164,10 +160,10 @@ void ST7735_uBinOut8(uint32_t num) {
 	else { scaled_num /= 10; }
 	
 	// Write the chars to be displayed to a buffer. Append the terminating null zero.
-	outDecToBuffer(scaled_num, out_buffer, NUM_OUTPUT_CHARS);
+	outDecToBuffer(scaled_num, out_buffer, NUM_OUTPUT_CHARS, DECIMAL_INDEX);
 	
 	// Format the buffer to include a decimal point and to remove extra leading zeroes.
-	formatBuffer(out_buffer, DECIMAL_INDEX);
+	removeExtraLeadingZeroes(out_buffer, DECIMAL_INDEX);
 	
 	// Output to the LCD
 	ST7735_OutString(out_buffer);
