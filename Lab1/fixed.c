@@ -9,12 +9,13 @@
 #include "../h/fixed.h"
 #include "../h/ST7735.h" 
 
-/* Input:
- * 		num is the decimal number to write to the buffer
- * 		out_buffer is the buffer we are writing to
- * 		NUM_OUTPUT_CHARS is the number of characters to write to the buffer
- * Output: none
- * Description: write the given decimal number to the buffer
+/* Input:   num is the decimal number to write to the buffer
+ * 		    out_buffer is the buffer we are writing to
+ * 		    NUM_OUTPUT_CHARS is the number of characters to write to the buffer
+ *
+ * Output:  none
+ *
+ * Summary: write the given decimal number to the buffer
  */
 void outDecToBuffer(int num, char out_buffer[], int NUM_OUTPUT_CHARS, int DECIMAL_INDEX){
 	// Digits in decimal are (digit + 0x30) in ASCII. (Example: '3' --> 0x33).
@@ -31,15 +32,13 @@ void outDecToBuffer(int num, char out_buffer[], int NUM_OUTPUT_CHARS, int DECIMA
 	out_buffer[NUM_OUTPUT_CHARS] = 0;
 }
 
-/* Input:
- * 		out_buffer is the buffer we are writing to
- * 		DECIMAL_INDEX is where we are going to write the decimal point
- * Output: none
- * Description: 
- *		Replace any extra leading zeroes with ' ' 
- *      Example: 000.23 --> 0.23
- *               101.23 --> 101.23
- *                 0.23 --> 0.23
+/* Input:   out_buffer is the buffer we are writing to
+ * 		    DECIMAL_INDEX is where we are going to write the decimal point
+ *
+ * Output:  none
+ *
+ * Summary: Replace any extra leading zeroes with ' ' 
+ *          Example: 000.23 --> 0.23
  */
 void removeExtraLeadingZeroes(char out_buffer[], int DECIMAL_INDEX) {
 	// If the first character is not zero, there will not be any leading zeroes.
@@ -170,12 +169,58 @@ void ST7735_uBinOut8(uint32_t num) {
 	ST7735_OutChar('\n');
 }
 
-// This function will configure the plot and clear the drawing area
-void ST7735_XYplotInit() {
+/*
+ * Input:   title   ASCII string to label the plot, null-terminated
+ *          minX    smallest X data value allowed, resolution= 0.001
+ *          maxX    largest X data value allowed, resolution= 0.001
+ *          minY    smallest Y data value allowed, resolution= 0.001
+ *          maxY    largest Y data value allowed, resolution= 0.001
+ *
+ * Output:  none
+ *
+ * Summary: Specifies the X and Y axes for an x-y scatter plot.
+ *          Draws the title and clear the plot area.
+ *          Assumes minX < maxX, and miny < maxY.
+ */
+int g_minX, g_maxX, g_minY, g_maxY;
+void ST7735_XYplotInit(char *title, int32_t minX, int32_t maxX, int32_t minY, int32_t maxY) {
+	// Set the X and Y axes.
+	g_minX = minX; g_maxX = maxX;
+	g_minY = minY; g_maxY = maxY;
 	
+	// Draw the title and clear the plot area.
+	ST7735_OutString(title);
+	ST7735_FillScreen(0);
 }
 
-// Actually plot the X-Y scatter plot
-void ST7735_XYplot() {
- 
+/*
+ * Input:   num    number of data points in the two arrays
+ *          bufX   array of 32-bit fixed-point data, resolution= 0.001
+ *          bufY   array of 32-bit fixed-point data, resolution= 0.001
+ *
+ * Output:  none
+ *
+ * Summary: Plots an array of (x,y) data
+ *          Assumes ST7735_XYplotInit has been previously called.
+ *          Neglects any points outside the minX maxY minY maxY bounds.
+ */
+void ST7735_XYplot(uint32_t num, int32_t bufX[], int32_t bufY[]) {
+	for (int i = 0; i < num; ++i) {
+		if (bufX[i] < g_minX   ||   bufX[i] > g_maxX   ||   bufY[i] < g_minY   ||   bufY[i] > g_maxY) {
+			continue;
+		} else {
+			int32_t x = (bufX[i] + 2000) / 100;
+			int32_t y = (bufY[i] + 2000) / 100;
+			int32_t j = y;
+			// X goes from 0 to 127
+			// j goes from 159 to 32
+			// y=Ymax maps to j=32
+			// y=Ymin maps to j=159
+//			j = 32+(127*(Ymax-y))/Yrange;
+			ST7735_DrawPixel(x,   j,   ST7735_CYAN);
+			ST7735_DrawPixel(x+1, j,   ST7735_CYAN);
+			ST7735_DrawPixel(x,   j+1, ST7735_CYAN);
+			ST7735_DrawPixel(x+1, j+1, ST7735_CYAN);
+		}
+	}
 }

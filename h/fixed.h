@@ -46,7 +46,7 @@ void ST7735_sDecOut3(int32_t num);
 void ST7735_uBinOut8(uint32_t num);
 
 // This function will configure the plot and clear the drawing area
-void ST7735_XYplotInit(void);
+void ST7735_XYplotInit(char *title, int32_t minX, int32_t maxX, int32_t minY, int32_t maxY);
 
 // Actually plot the X-Y scatter plot
-void ST7735_XYplot(void); 
+void ST7735_XYplot(uint32_t num, int32_t bufX[], int32_t bufY[]);
