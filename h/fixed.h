@@ -1,6 +1,7 @@
 /*
  * Author:  Justin Nguyen
  * Created: 8/29/2016
+ * Last Revised: 9/1/2016
  * Description: Contains functions for outputting numbers in fixed decimal format.
  *              Also contains functions for plotting data.
  */
