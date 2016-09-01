@@ -33,15 +33,15 @@
  *          numOutputChars is the number of characters to write to the buffer
  * Output:  none
  */
-static void outDecToBuffer(int num, char outBuffer[],
-                    int numOutputChars, int decimalIndex) {
+static void outDecToBuffer(int32_t num, char outBuffer[],
+                    uint8_t numOutputChars, uint8_t decimalIndex) {
 
   // Digits in decimal are (digit + 0x30) in ASCII. 
   // (Example: '3' --> 0x33 in ASCII).
-  const static int INT_TO_CHAR_OFFSET = 0x30;
+  const static int8_t INT_TO_CHAR_OFFSET = 0x30;
 
   // Write the characters into the buffer.
-  int writeIndex;
+  uint8_t writeIndex;
   for (writeIndex = numOutputChars - 1; 
           writeIndex > decimalIndex; --writeIndex) 
   {
@@ -72,7 +72,7 @@ static void outDecToBuffer(int num, char outBuffer[],
  */
 void ST7735_sDecOut3(int32_t num) {
   // Take care of invalid input and negative numbers
-  int numWasNegative = 0;
+  uint8_t numWasNegative = 0;
   if (num < -9999   ||   num > 9999) {
     ST7735_OutString(" *.***\n");
     return;
@@ -83,12 +83,12 @@ void ST7735_sDecOut3(int32_t num) {
 
   // Change these if you want to display a different number of characters.
   // Or if you want to put the fixed decimal point at some other index.
-  int numOutputChars = 6;
-  int decimalIndex = 2;
+  uint8_t numOutputChars = 6;
+  uint8_t decimalIndex = 2;
 
   // Initialize the output buffer to contain these values by default.
   // Using spaces makes it easier to remove extra leading zeroes.
-  char outBuffer[numOutputChars + 1]; int i;
+  char outBuffer[numOutputChars + 1]; uint8_t i;
   for (i = 0; i < numOutputChars; ++i) {
     outBuffer[i] = ' ';
   }
@@ -135,14 +135,14 @@ void ST7735_uBinOut8(uint32_t num) {
 
   // Change these if you want to display a different number of characters.
   // Or if you want to put the fixed decimal point at some other index.
-  int oneOverResolution = 256;
-  int numOutputChars = 6;
-  int decimalIndex = 3;
-  int numDecimalPlaces = numOutputChars - decimalIndex - 1;
+  uint8_t oneOverResolution = 256;
+  uint8_t numOutputChars = 6;
+  uint8_t decimalIndex = 3;
+  uint8_t numDecimalPlaces = numOutputChars - decimalIndex - 1;
 
   // Initialize the output buffer to contain these values by default.
   // Using spaces makes it easier to remove extra leading zeroes.
-  char outBuffer[numOutputChars + 1]; int i;
+  char outBuffer[numOutputChars + 1]; uint8_t i;
   for (i = 0; i < numOutputChars; ++i) {
     outBuffer[i] = ' ';
   }
@@ -151,7 +151,7 @@ void ST7735_uBinOut8(uint32_t num) {
 
   // Find the number of times to shift num to make scaledNum
   // Num * Resolution should equal (Num >> numShifts)
-  int numShifts = 0; int findResolution = 1;
+  uint8_t numShifts = 0; uint32_t findResolution = 1;
   while (findResolution != oneOverResolution) {
     numShifts += 1;
     findResolution = findResolution << 1;
@@ -159,15 +159,15 @@ void ST7735_uBinOut8(uint32_t num) {
 
   // Find the scaling factor (dependent on how many decimal places are desired)
   // Loop condition is (i < numDecimalPlaces + 1) to account for rounding
-  int scalingFactor = 1;
-  for (int i = 0; i < numDecimalPlaces + 1; ++i) {
+  uint32_t scalingFactor = 1;
+  for (uint8_t i = 0; i < numDecimalPlaces + 1; ++i) {
     scalingFactor *= 10;
   }
 
   // By multiplying by an exra factor of 10, 
   //   the digit that determines rounding is no longer truncated.
   // If we need to round, simply add one to the original value.
-  int scaledNum = num * scalingFactor >> numShifts;
+  int32_t scaledNum = num * scalingFactor >> numShifts;
   if (scaledNum % 10 >= 5) { scaledNum = (scaledNum / 10) + 1; }
   else { scaledNum /= 10; }
 
@@ -189,7 +189,7 @@ void ST7735_uBinOut8(uint32_t num) {
  *          maxY    largest Y data value allowed, resolution = 0.001
  * Output:  none
  */
-int MinX, MaxX, MinY, MaxY;
+int32_t MinX, MaxX, MinY, MaxY;
 void ST7735_XYplotInit(char *title, int32_t minX, int32_t maxX, 
                        int32_t minY, int32_t maxY) {
     
@@ -211,12 +211,12 @@ void ST7735_XYplotInit(char *title, int32_t minX, int32_t maxX,
  * Output:  none
  */
 void ST7735_XYplot(uint32_t num, int32_t bufX[], int32_t bufY[]) {
-  for (int i = 0; i < num; ++i) {
+  for (int32_t i = 0; i < num; ++i) {
     if (bufX[i] < MinX   ||   bufX[i] > MaxX   ||   
         bufY[i] < MinY   ||   bufY[i] > MaxY) { continue; } 
     else {
-      int x = (MaxX - bufX[i]) * 128 / (MaxX - MinX);
-      int y = (MaxY - bufY[i]) * 128 / (MaxY - MinY) + 32;
+      int32_t x = (MaxX - bufX[i]) * 128 / (MaxX - MinX);
+      int32_t y = (MaxY - bufY[i]) * 128 / (MaxY - MinY) + 32;
 
       ST7735_DrawPixel(x,   y,   ST7735_CYAN);
       ST7735_DrawPixel(x+1, y,   ST7735_CYAN);
