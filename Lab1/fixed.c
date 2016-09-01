@@ -29,40 +29,40 @@
 
 /* Summary: Write the given decimal number to the buffer.
  * Input:   num is the decimal number to write to the buffer
- *          out_buffer is the buffer we are writing to
- *          NUM_OUTPUT_CHARS is the number of characters to write to the buffer
+ *          outBuffer is the buffer we are writing to
+ *          numOutputChars is the number of characters to write to the buffer
  * Output:  none
  */
-void outDecToBuffer(int num, char out_buffer[], int NUM_OUTPUT_CHARS, int DECIMAL_INDEX){
+void outDecToBuffer(int num, char outBuffer[], int numOutputChars, int decimalIndex){
   // Digits in decimal are (digit + 0x30) in ASCII. (Example: '3' --> 0x33).
-  static int INT_TO_CHAR_OFFSET = 0x30;
+  const static int INT_TO_CHAR_OFFSET = 0x30;
   
   // Write the characters into the buffer.
-  for (int write_index = NUM_OUTPUT_CHARS - 1; write_index >= 0; --write_index) {
-    if (write_index == DECIMAL_INDEX) { out_buffer[write_index] = '.'; continue; }
-    out_buffer[write_index] = num % 10 + INT_TO_CHAR_OFFSET;
+  for (int writeIndex = numOutputChars - 1; writeIndex >= 0; --writeIndex) {
+    if (writeIndex == decimalIndex) { outBuffer[writeIndex] = '.'; continue; }
+    outBuffer[writeIndex] = num % 10 + INT_TO_CHAR_OFFSET;
     num /= 10;
   }
   
   // Append the null-terminating zero.
-  out_buffer[NUM_OUTPUT_CHARS] = 0;
+  outBuffer[numOutputChars] = 0;
 }
 
 /* Summary: Replace any extra leading zeroes with ' ' 
  *          Example: 000.23 -->   0.23
- * Input:   out_buffer is the buffer we are writing to
- *          DECIMAL_INDEX is where we are going to write the decimal point
+ * Input:   outBuffer is the buffer we are writing to
+ *          decimalIndex is where we are going to write the decimal point
  * Output:  none
  */
-void removeExtraLeadingZeroes(char out_buffer[], int DECIMAL_INDEX) {
+void removeExtraLeadingZeroes(char outBuffer[], int decimalIndex) {
   // If the first character is not zero, there will not be any leading zeroes.
-  if (out_buffer[0] != '0') { return; }
+  if (outBuffer[0] != '0') { return; }
   
-  // Only remove invalid leading zeroes, so walk down the buffer until first_valid_zero_index.
-  int first_valid_zero_index = DECIMAL_INDEX - 1;
-  for (int i = 0; i < first_valid_zero_index ; ++i) {
-    if (out_buffer[i] == '0') {
-      out_buffer[i] = ' ';
+  // Only remove invalid leading zeroes, so walk down the buffer until firstValidZeroIndex.
+  int firstValidZeroIndex = decimalIndex - 1;
+  for (int i = 0; i < firstValidZeroIndex ; ++i) {
+    if (outBuffer[i] == '0') {
+      outBuffer[i] = ' ';
     }
   }
 }
@@ -84,33 +84,41 @@ void removeExtraLeadingZeroes(char out_buffer[], int DECIMAL_INDEX) {
  */
 void ST7735_sDecOut3(int32_t num) {
   // Take care of invalid input and negative numbers
-  int num_was_negative = 0;
+  int numWasNegative = 0;
   if (num < -9999   ||   num > 9999) {
     ST7735_OutString(" *.***\n");
     return;
   } else if (num < 0) {
     num *= -1;
-    num_was_negative = 1;
+    numWasNegative = 1;
   }
   
-  // NUM_OUTPUT_CHARS:   As specified by the function, the number of chars to output is always 6.
-  // DECIMAL_INDEX:      Simply indicates where the decimal point will be written
-  // out_buffer:         Buffer the output --> call ST7735_OutString() once instead of ST7735_OutChar() multiple times
-  const int NUM_OUTPUT_CHARS = 6;
-  const int DECIMAL_INDEX = 2;
-  char out_buffer[NUM_OUTPUT_CHARS + 1];
+  // numOutputChars:   As specified by the function, the number of chars to output is always 6.
+  // decimalIndex:      Simply indicates where the decimal point will be written
+  // outBuffer:         Buffer the output --> call ST7735_OutString() once instead of ST7735_OutChar() multiple times
+  int numOutputChars = 6;
+  int decimalIndex = 2;
+  
+  // example default outBuffer (numOutputChars = 4, decimalIndex = 2)
+  // --> [' ', ' ', '.', ' ', 0]
+  char outBuffer[numOutputChars + 1]; int i;
+  for (i = 0; i < numOutputChars; ++i) {
+    outBuffer[i] = ' ';    
+  }
+  outBuffer[decimalIndex] = '.'
+  outBuffer[i] = 0; // null termination
 
   // Write the chars to be displayed to a buffer.
-  outDecToBuffer(num, out_buffer, NUM_OUTPUT_CHARS, DECIMAL_INDEX);
+  outDecToBuffer(num, outBuffer, numOutputChars, decimalIndex);
   
   // Remove extra leading zeroes. Example: 000.34 --> 0.34
-  removeExtraLeadingZeroes(out_buffer, DECIMAL_INDEX);
+  removeExtraLeadingZeroes(outBuffer, decimalIndex);
   
   // Write in the potential negative sign.
-  if (num_was_negative) { out_buffer[0] = '-'; }
+  if (numWasNegative) { outBuffer[0] = '-'; }
   
   // Display to the LCD
-  ST7735_OutString(out_buffer);
+  ST7735_OutString(outBuffer);
   ST7735_OutChar('\n');
 }
 
@@ -140,44 +148,44 @@ void ST7735_uBinOut8(uint32_t num) {
     return;
   }
   
-  // NUM_OUTPUT_CHARS:   As specified by the function, the number of chars to output is always 6.
-  // DECIMAL_INDEX:      Simply indicates where the decimal point will be written
-  // out_buffer:         Buffer the output --> call ST7735_OutString() once instead of ST7735_OutChar() multiple times
-  const int ONE_OVER_RESOLUTION = 256;
-  const int NUM_OUTPUT_CHARS = 6;
-  const int DECIMAL_INDEX = 3;
-  const int NUM_DECIMAL_PLACES = NUM_OUTPUT_CHARS - DECIMAL_INDEX - 1;
-  char out_buffer[NUM_OUTPUT_CHARS + 1];
+  // numOutputChars:   As specified by the function, the number of chars to output is always 6.
+  // decimalIndex:      Simply indicates where the decimal point will be written
+  // outBuffer:         Buffer the output --> call ST7735_OutString() once instead of ST7735_OutChar() multiple times
+  int oneOverResolution = 256;
+  int numOutputChars = 6;
+  int decimalIndex = 3;
+  int numDecimalPlaces = numOutputChars - decimalIndex - 1;
+  char outBuffer[numOutputChars + 1];
   
-  // Find the number of times to shift num to make scaled_num
-  // Num * Resolution should equal (Num >> num_shifts)
-  int num_shifts = 0; int find_resolution = 1;
-  while (find_resolution != ONE_OVER_RESOLUTION) {
-    num_shifts += 1;
-    find_resolution = find_resolution << 1;
+  // Find the number of times to shift num to make scaledNum
+  // Num * Resolution should equal (Num >> numShifts)
+  int numShifts = 0; int findResolution = 1;
+  while (findResolution != oneOverResolution) {
+    numShifts += 1;
+    findResolution = findResolution << 1;
   }
   
   // Find the scaling factor (dependent on how many decimal places are desired)
-  // Loop condition is (i < NUM_DECIMAL_PLACES + 1) to account for rounding
-  int scaling_factor = 1;
-  for (int i = 0; i < NUM_DECIMAL_PLACES + 1; ++i) {
-    scaling_factor *= 10;
+  // Loop condition is (i < numDecimalPlaces + 1) to account for rounding
+  int scalingFactor = 1;
+  for (int i = 0; i < numDecimalPlaces + 1; ++i) {
+    scalingFactor *= 10;
   }
   
   // By multiplying by an exra factor of 10, the digit that determines rounding is no longer truncated.
   // If we need to round, simply add one to the original value
-  int scaled_num = num * scaling_factor >> num_shifts;
-  if (scaled_num % 10 >= 5) { scaled_num = (scaled_num / 10) + 1; } 
-  else { scaled_num /= 10; }
+  int scaledNum = num * scalingFactor >> numShifts;
+  if (scaledNum % 10 >= 5) { scaledNum = (scaledNum / 10) + 1; } 
+  else { scaledNum /= 10; }
   
   // Write the chars to be displayed to a buffer. Append the terminating null zero.
-  outDecToBuffer(scaled_num, out_buffer, NUM_OUTPUT_CHARS, DECIMAL_INDEX);
+  outDecToBuffer(scaledNum, outBuffer, numOutputChars, decimalIndex);
   
   // Format the buffer to include a decimal point and to remove extra leading zeroes.
-  removeExtraLeadingZeroes(out_buffer, DECIMAL_INDEX);
+  removeExtraLeadingZeroes(outBuffer, decimalIndex);
   
   // Output to the LCD
-  ST7735_OutString(out_buffer);
+  ST7735_OutString(outBuffer);
   ST7735_OutChar('\n');
 }
 
@@ -191,11 +199,11 @@ void ST7735_uBinOut8(uint32_t num) {
  *          maxY    largest Y data value allowed, resolution = 0.001
  * Output:  none
  */
-int g_minX, g_maxX, g_minY, g_maxY;
+int MinX, MaxX, MinY, MaxY;
 void ST7735_XYplotInit(char *title, int32_t minX, int32_t maxX, int32_t minY, int32_t maxY) {
   // Set the X and Y axes.
-  g_minX = minX; g_maxX = maxX;
-  g_minY = minY; g_maxY = maxY;
+  MinX = minX; MaxX = maxX;
+  MinY = minY; MaxY = maxY;
   
   // Clear the plot area and draw the title
   ST7735_FillScreen(0);
@@ -212,11 +220,11 @@ void ST7735_XYplotInit(char *title, int32_t minX, int32_t maxX, int32_t minY, in
  */
 void ST7735_XYplot(uint32_t num, int32_t bufX[], int32_t bufY[]) {
   for (int i = 0; i < num; ++i) {
-    if (bufX[i] < g_minX   ||   bufX[i] > g_maxX   ||   bufY[i] < g_minY   ||   bufY[i] > g_maxY) {
+    if (bufX[i] < MinX   ||   bufX[i] > MaxX   ||   bufY[i] < MinY   ||   bufY[i] > MaxY) {
       continue;
     } else {      
-      int x = (g_maxX - bufX[i]) * 128 / (g_maxX - g_minX);
-      int y = (g_maxY - bufY[i]) * 128 / (g_maxY - g_minY) + 32;
+      int x = (MaxX - bufX[i]) * 128 / (MaxX - MinX);
+      int y = (MaxY - bufY[i]) * 128 / (MaxY - MinY) + 32;
       
       ST7735_DrawPixel(x,   y,   ST7735_CYAN);
       ST7735_DrawPixel(x+1, y,   ST7735_CYAN);
