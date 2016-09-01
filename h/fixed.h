@@ -77,7 +77,8 @@ void ST7735_uBinOut8(uint32_t num);
  *          maxY    largest Y data value allowed, resolution = 0.001
  * Output:  none
  */
-void ST7735_XYplotInit(char *title, int32_t minX, int32_t maxX, int32_t minY, int32_t maxY);
+void ST7735_XYplotInit(char *title, int32_t minX, int32_t maxX, 
+                       int32_t minY, int32_t maxY);
 
 /* Summary: Plots an array of (x,y) data.
  *          Assumes ST7735_XYplotInit has been previously called.

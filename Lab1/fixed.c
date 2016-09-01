@@ -36,19 +36,22 @@
 static void outDecToBuffer(int num, char outBuffer[],
                     int numOutputChars, int decimalIndex) {
 
-  // Digits in decimal are (digit + 0x30) in ASCII. (Example: '3' --> 0x33 in ASCII).
+  // Digits in decimal are (digit + 0x30) in ASCII. 
+  // (Example: '3' --> 0x33 in ASCII).
   const static int INT_TO_CHAR_OFFSET = 0x30;
 
   // Write the characters into the buffer.
   int writeIndex;
-  for (writeIndex = numOutputChars - 1; writeIndex > decimalIndex; --writeIndex) {
+  for (writeIndex = numOutputChars - 1; 
+          writeIndex > decimalIndex; --writeIndex) 
+  {
     outBuffer[writeIndex] = num % 10 + INT_TO_CHAR_OFFSET;
     num /= 10;
   }
   for (writeIndex = decimalIndex - 1; writeIndex >= 0; --writeIndex) {
     outBuffer[writeIndex] = num % 10 + INT_TO_CHAR_OFFSET;
     num /= 10;
-    if (num == 0) { return; } // this avoids adding extra leading zeroes to the buffer
+    if (num == 0) { return; } // avoids adding extra leading zeroes 
   }
 }
 
