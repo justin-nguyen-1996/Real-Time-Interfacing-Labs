@@ -5,6 +5,9 @@
  *              Also contains functions for plotting data.
  */
  
+ #ifndef FIXED_H
+ #define FIXED_H
+ 
 #include <stdint.h>
 
 /* Input: signed 32-bit integer part of the fixed point number
@@ -50,3 +53,5 @@ void ST7735_XYplotInit(char *title, int32_t minX, int32_t maxX, int32_t minY, in
 
 // Actually plot the X-Y scatter plot
 void ST7735_XYplot(uint32_t num, int32_t bufX[], int32_t bufY[]);
+
+#endif

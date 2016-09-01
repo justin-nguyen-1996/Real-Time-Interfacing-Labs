@@ -1,4 +1,4 @@
-// Lab1.c
+// main.c
 // Runs on TM4C123
 // Uses ST7735.c LCD.
 // Jonathan Valvano
@@ -112,22 +112,22 @@ int main(void){
     printf("Lab 1\r");
 	PauseReset();
 	  
-//	  
-//	printf("ST7735_sDecOut3\r");
-//    for(i=0; i<13; i++){
-//      ST7735_sDecOut3(outTests1[i].InNumber);  // your solution
-//      ST7735_OutString((char*)outTests1[i].OutBuffer); // expected solution
-//	  if (i == 6) { PauseReset(); }
-//    }
-//    PauseReset();
-//	
-//    printf("ST7735_uBinOut8\r");
-//    for(i=0; i<14; i++){
-//      ST7735_uBinOut8(outTests2[i].InNumber);  // your solution
-//      ST7735_OutString((char*)outTests2[i].OutBuffer); // expected solution
-//	  if (i == 6) { PauseReset(); }
-//    }
-//	PauseReset();
+	  
+	printf("ST7735_sDecOut3\r");
+    for(i=0; i<13; i++){
+      ST7735_sDecOut3(outTests1[i].InNumber);  // your solution
+      ST7735_OutString((char*)outTests1[i].OutBuffer); // expected solution
+	  if (i == 6) { PauseReset(); }
+    }
+    PauseReset();
+	
+    printf("ST7735_uBinOut8\r");
+    for(i=0; i<14; i++){
+      ST7735_uBinOut8(outTests2[i].InNumber);  // your solution
+      ST7735_OutString((char*)outTests2[i].OutBuffer); // expected solution
+	  if (i == 6) { PauseReset(); }
+    }
+	PauseReset();
     
     ST7735_XYplotInit("Circle",-2500, 2500, -2500, 2500);
     ST7735_XYplot(180, (int32_t *)CircleXbuf,(int32_t *)CircleYbuf);
