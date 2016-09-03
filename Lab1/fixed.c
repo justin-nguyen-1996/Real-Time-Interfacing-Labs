@@ -41,7 +41,7 @@ static void outDecToBuffer(int32_t num, char outBuffer[],
   const static int8_t INT_TO_CHAR_OFFSET = 0x30;
 
   // Write the characters into the buffer.
-  uint8_t writeIndex;
+  int8_t writeIndex;
   for (writeIndex = numOutputChars - 1; 
           writeIndex > decimalIndex; --writeIndex) 
   {
@@ -74,7 +74,7 @@ void ST7735_sDecOut3(int32_t num) {
   // Take care of invalid input and negative numbers
   uint8_t numWasNegative = 0;
   if (num < -9999   ||   num > 9999) {
-    ST7735_OutString(" *.***\n");
+    ST7735_OutString(" *.***");
     return;
   } else if (num < 0) {
     num *= -1;
@@ -103,7 +103,7 @@ void ST7735_sDecOut3(int32_t num) {
 
   // Display to the LCD
   ST7735_OutString(outBuffer);
-  ST7735_OutChar('\n');
+//  ST7735_OutChar('\n');
 }
 
 /* Summary: Display the unsigned binary fixed point value to the LCD.
@@ -129,13 +129,13 @@ void ST7735_sDecOut3(int32_t num) {
 void ST7735_uBinOut8(uint32_t num) {
   // Take care of invalid input
   if (num > 255999) {
-    ST7735_OutString("***.**\n");
+    ST7735_OutString("***.**");
     return;
   }
 
   // Change these if you want to display a different number of characters.
   // Or if you want to put the fixed decimal point at some other index.
-  uint8_t oneOverResolution = 256;
+  uint32_t oneOverResolution = 256;
   uint8_t numOutputChars = 6;
   uint8_t decimalIndex = 3;
   uint8_t numDecimalPlaces = numOutputChars - decimalIndex - 1;
@@ -176,7 +176,7 @@ void ST7735_uBinOut8(uint32_t num) {
 
   // Output to the LCD
   ST7735_OutString(outBuffer);
-  ST7735_OutChar('\n');
+//  ST7735_OutChar('\n');
 }
 
 /* Summary: Specifies the X and Y axes for an x-y scatter plot.

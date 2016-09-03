@@ -100,43 +100,44 @@ const int32_t StarXbuf[50] = {0, -6, -12, -18, -24, -30, -35, -41, -47, -53, 59,
 };
 const int32_t StarYbuf[50] = {190, 172, 154, 136, 118, 100, 81, 63, 45, 27, 9, 27, 45, 63, 81, 100, 118, 136, 154, 172, 121, 121, 121, 121, 121, 121, 121, 121, 121, 121, 9, 20, 31, 43, 54, 65, 76, 87, 99, 110, 121, 110, 99, 87, 76, 65, 54, 43, 31, 20
 };
+
+void Test1(void);
 int main(void){
   uint32_t i;
   PLL_Init(Bus80MHz);
   PortF_Init();
   ST7735_InitR(INITR_REDTAB);
-  while(1){
-    ST7735_FillScreen(0);  // set screen to black
-    ST7735_SetCursor(0,0);
-	  
-    printf("Lab 1\r");
-	PauseReset();
-	  
-	  
-	printf("ST7735_sDecOut3\r");
-    for(i=0; i<13; i++){
-      ST7735_sDecOut3(outTests1[i].InNumber);  // your solution
-      ST7735_OutString((char*)outTests1[i].OutBuffer); // expected solution
-	  if (i == 6) { PauseReset(); }
-    }
-    PauseReset();
-	
-    printf("ST7735_uBinOut8\r");
-    for(i=0; i<14; i++){
-      ST7735_uBinOut8(outTests2[i].InNumber);  // your solution
-      ST7735_OutString((char*)outTests2[i].OutBuffer); // expected solution
-	  if (i == 6) { PauseReset(); }
-    }
-	PauseReset();
-    
-    ST7735_XYplotInit("Circle",-2500, 2500, -2500, 2500);
-    ST7735_XYplot(180, (int32_t *)CircleXbuf,(int32_t *)CircleYbuf);
-    PauseReset();
-    
-    ST7735_XYplotInit("Star - upper right",-450, 150, -400, 200);
-    ST7735_XYplot(50,(int32_t *)StarXbuf,(int32_t *)StarYbuf);
-    PauseReset(); 
-  } 
+//  while(1){
+//    ST7735_FillScreen(0);  // set screen to black
+//    ST7735_SetCursor(0,0);
+//	  
+//    printf("Lab 1\r");
+//    PauseReset();
+//	  
+//	  
+//    printf("ST7735_sDecOut3\r");
+//    for(i=0; i<13; i++){
+//      ST7735_sDecOut3(outTests1[i].InNumber);  // your solution
+//      ST7735_OutString((char*)outTests1[i].OutBuffer); // expected solution
+//    }
+//    PauseReset();
+//	
+//    printf("ST7735_uBinOut8\r");
+//    for(i=0; i<14; i++){
+//      ST7735_uBinOut8(outTests2[i].InNumber);  // your solution
+//      ST7735_OutString((char*)outTests2[i].OutBuffer); // expected solution
+//    }
+//    PauseReset();
+//    
+//    ST7735_XYplotInit("Circle",-2500, 2500, -2500, 2500);
+//    ST7735_XYplot(180, (int32_t *)CircleXbuf,(int32_t *)CircleYbuf);
+//    PauseReset();
+//    
+//    ST7735_XYplotInit("Star - upper right",-450, 150, -400, 200);
+//    ST7735_XYplot(50,(int32_t *)StarXbuf,(int32_t *)StarYbuf);
+//    PauseReset(); 
+//  } 
+  Test1();
 } 
 
 // PF4 is input
@@ -180,5 +181,15 @@ void DelayWait10ms(uint32_t n){uint32_t volatile time;
 	  	time--;
     }
     n--;
+  }
+}
+
+// version 1: C floating point
+// run with compiler options selected for floating-point hardware
+volatile float T;    // temperature in C
+volatile uint32_t N; // 12-bit ADC value
+void Test1(void){
+  for(N=0; N<4096; N++){
+    T = 10.0+ 0.009768*N; 	
   }
 }
