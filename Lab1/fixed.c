@@ -203,14 +203,19 @@ void ST7735_XYplotInit(char *title, int32_t minX, int32_t maxX,
  *          bufX   array of 32-bit fixed-point data, resolution= 0.001
  *          bufY   array of 32-bit fixed-point data, resolution= 0.001
  * Output:  none
+ * View:    Look at the screen with pins on the bottom
+ *          x = 0 --> left most edge,   x = 127 --> right most edge
+ *          y = 0 --> top most edge,    y = 159 --> bottom most edge
  */
 void ST7735_XYplot(uint32_t num, int32_t bufX[], int32_t bufY[]) {
   for (int32_t i = 0; i < num; ++i) {
     if (bufX[i] < MinX   ||   bufX[i] > MaxX   ||   
         bufY[i] < MinY   ||   bufY[i] > MaxY) { continue; } 
     else {
-      int32_t x = 128 - ((MaxX - bufX[i]) * 128 / (MaxX - MinX));
-      int32_t y = (MaxY - bufY[i]) * 128 / (MaxY - MinY) + 10;
+      // if bufX[i] = MaxX --> x = 128,   if bufX[i] = MinX --> x = 0
+      // if bufY[i] = MaxY --> y = 10,    if bufY[i] = MinY --> y = 159
+      int32_t x = (bufX[i] - MinX) * 128 / (MaxX - MinX);
+      int32_t y = 32 + ((MaxY - bufY[i]) * 128 / (MaxY - MinY));
 
       ST7735_DrawPixel(x,   y,   ST7735_CYAN);
       ST7735_DrawPixel(x+1, y,   ST7735_CYAN);
