@@ -1,5 +1,5 @@
 /* File Name:    fixed.c
- * Authors:      Justin Nguyen (jhn545), Trevor Murdock (
+ * Authors:      Justin Nguyen (jhn545), Trevor Murdock (ttm436)
  * Created:      8/29/2016
  * Last Revised: 9/6/2016
  * Description:  Contains functions for outputting in fixed decimal format.
@@ -35,8 +35,8 @@
  * Output:  none
  */
 static void outDecToBuffer(int32_t num, char outBuffer[], 
-        const uint8_t NUM_OUTPUT_CHARS, const uint8_t DECIMAL_INDEX) {
-
+        const uint8_t NUM_OUTPUT_CHARS, const uint8_t DECIMAL_INDEX) 
+{
   // Digits in decimal are (digit + 0x30) in ASCII. 
   // (Example: '3' --> 0x33 in ASCII).
   const int8_t INT_TO_CHAR_OFFSET = 0x30;
@@ -44,8 +44,8 @@ static void outDecToBuffer(int32_t num, char outBuffer[],
   // Write the characters into the buffer.
   int8_t writeIndex;
   for (writeIndex = NUM_OUTPUT_CHARS - 1; 
-       writeIndex > DECIMAL_INDEX; --writeIndex) 
-  {
+       writeIndex > DECIMAL_INDEX; --writeIndex) {
+      
     outBuffer[writeIndex] = num % 10 + INT_TO_CHAR_OFFSET;
     num /= 10;
   }
@@ -74,7 +74,6 @@ static void outDecToBuffer(int32_t num, char outBuffer[],
  */
 void ST7735_sDecOut3(int32_t num) {
   // Take care of invalid input
-  uint8_t numWasNegative = 0;
   if (num < -9999   ||   num > 9999) {
     ST7735_OutString(" *.***");
     return;
@@ -163,17 +162,15 @@ void ST7735_uBinOut8(uint32_t num) {
     scalingFactor *= 10;
   }
 
-  // By multiplying by an exra factor of 10, 
-  //   the digit that determines rounding is no longer truncated.
+  // Truncate the last digit since it was only used to 
+  //   determine if rounding was necessary.
   // If we need to round, simply add one to the original value.
-  int32_t scaledNum = num * scalingFactor >> numShifts;
+  int32_t scaledNum = (num * scalingFactor) >> numShifts;
   if (scaledNum % 10 >= 5) { scaledNum = (scaledNum / 10) + 1; }
   else { scaledNum /= 10; }
 
-  // Write the chars to be displayed to a buffer. 
-  outDecToBuffer(scaledNum, outBuffer, NUM_OUTPUT_CHARS, DECIMAL_INDEX);
-
-  // Output to the LCD
+  // Write the chars to a buffer and output to the LCD.
+  outDecToBuffer(scaledNum, outBuffer, NUM_OUTPUT_CHARS, DECIMAL_INDEX); 
   ST7735_OutString(outBuffer);
 }
 
@@ -182,15 +179,15 @@ void ST7735_uBinOut8(uint32_t num) {
  *          Assumes minX < maxX, and miny < maxY.
  * Input:   title   ASCII string to label the plot, null-terminated
  *          minX    smallest X data value allowed, resolution = 0.001
- *          maxX    largest X data value allowed, resolution = 0.001
+ *          maxX    largest X data value allowed,  resolution = 0.001
  *          minY    smallest Y data value allowed, resolution = 0.001
- *          maxY    largest Y data value allowed, resolution = 0.001
+ *          maxY    largest Y data value allowed,  resolution = 0.001
  * Output:  none
  */
-int32_t MinX, MaxX, MinY, MaxY;
+static int32_t MinX, MaxX, MinY, MaxY;
 void ST7735_XYplotInit(char *title, int32_t minX, int32_t maxX, 
-                       int32_t minY, int32_t maxY) {
-    
+                       int32_t minY, int32_t maxY) 
+{
   // Set the X and Y axes.
   MinX = minX; MaxX = maxX;
   MinY = minY; MaxY = maxY;
@@ -213,8 +210,8 @@ void ST7735_XYplot(uint32_t num, int32_t bufX[], int32_t bufY[]) {
     if (bufX[i] < MinX   ||   bufX[i] > MaxX   ||   
         bufY[i] < MinY   ||   bufY[i] > MaxY) { continue; } 
     else {
-      int32_t x = (MaxX - bufX[i]) * 128 / (MaxX - MinX);
-      int32_t y = (MaxY - bufY[i]) * 128 / (MaxY - MinY) + 32;
+      int32_t x = 128 - ((MaxX - bufX[i]) * 128 / (MaxX - MinX));
+      int32_t y = (MaxY - bufY[i]) * 128 / (MaxY - MinY) + 10;
 
       ST7735_DrawPixel(x,   y,   ST7735_CYAN);
       ST7735_DrawPixel(x+1, y,   ST7735_CYAN);
@@ -223,3 +220,5 @@ void ST7735_XYplot(uint32_t num, int32_t bufX[], int32_t bufY[]) {
     }
   }
 }
+
+
