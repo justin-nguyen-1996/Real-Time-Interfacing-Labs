@@ -31,11 +31,11 @@
 /* Summary: Write the given decimal number to the buffer.
  * Input:   num is the decimal number to write to the buffer
  *          outBuffer is the buffer we are writing to
- *          numOutputChars is the number of characters to write to the buffer
+ *          NUM_OUTPUT_CHARS is the number of characters to write to the buffer
  * Output:  none
  */
-static void outDecToBuffer(int32_t num, char outBuffer[],
-                    uint8_t numOutputChars, uint8_t decimalIndex) {
+static void outDecToBuffer(int32_t num, char outBuffer[], 
+        const uint8_t NUM_OUTPUT_CHARS, const uint8_t DECIMAL_INDEX) {
 
   // Digits in decimal are (digit + 0x30) in ASCII. 
   // (Example: '3' --> 0x33 in ASCII).
@@ -43,13 +43,14 @@ static void outDecToBuffer(int32_t num, char outBuffer[],
 
   // Write the characters into the buffer.
   int8_t writeIndex;
-  for (writeIndex = numOutputChars - 1; 
-          writeIndex > decimalIndex; --writeIndex) 
+  for (writeIndex = NUM_OUTPUT_CHARS - 1; 
+       writeIndex > DECIMAL_INDEX; --writeIndex) 
   {
     outBuffer[writeIndex] = num % 10 + INT_TO_CHAR_OFFSET;
     num /= 10;
   }
-  for (writeIndex = decimalIndex - 1; writeIndex >= 0; --writeIndex) {
+  
+  for (writeIndex = DECIMAL_INDEX - 1; writeIndex >= 0; --writeIndex) {
     outBuffer[writeIndex] = num % 10 + INT_TO_CHAR_OFFSET;
     num /= 10;
     if (num == 0) { return; } // avoids adding extra leading zeroes 
@@ -81,16 +82,16 @@ void ST7735_sDecOut3(int32_t num) {
   
   // Change these if you want to display a different number of characters.
   // Or if you want to put the fixed decimal point at some other index.
-  uint8_t numOutputChars = 6;
-  uint8_t decimalIndex = 2;
+  const uint8_t NUM_OUTPUT_CHARS = 6;
+  const uint8_t DECIMAL_INDEX = 2;
 
   // Initialize the output buffer to contain these values by default.
   // Using spaces makes it easier to remove extra leading zeroes.
-  char outBuffer[numOutputChars + 1]; uint8_t i;
-  for (i = 0; i < numOutputChars; ++i) {
+  char outBuffer[NUM_OUTPUT_CHARS + 1]; uint8_t i;
+  for (i = 0; i < NUM_OUTPUT_CHARS; ++i) {
     outBuffer[i] = ' ';
   }
-  outBuffer[decimalIndex] = '.';
+  outBuffer[DECIMAL_INDEX] = '.';
   outBuffer[i] = 0; // null termination
 
   // Take care of negative numbers
@@ -100,7 +101,7 @@ void ST7735_sDecOut3(int32_t num) {
   }
 
   // Write the chars to a buffer and display to the LCD.
-  outDecToBuffer(num, outBuffer, numOutputChars, decimalIndex);
+  outDecToBuffer(num, outBuffer, NUM_OUTPUT_CHARS, DECIMAL_INDEX);
   ST7735_OutString(outBuffer);
 }
 
@@ -113,16 +114,16 @@ void ST7735_sDecOut3(int32_t num) {
  * Output:  none
  * Example:
  *   Input    LCD Display
-         0    "  0.00"
-         2    "  0.01"
-        64    "  0.25"
-       100    "  0.39"
-       500    "  1.95"
-       512    "  2.00"
-      5000    " 19.53"
-     30000    "117.19"
-    255997    "999.99"
-    256000    "***.**"
+ *       0    "  0.00"
+ *       2    "  0.01"
+ *      64    "  0.25"
+ *     100    "  0.39"
+ *     500    "  1.95"
+ *     512    "  2.00"
+ *    5000    " 19.53"
+ *   30000    "117.19"
+ *  255997    "999.99"
+ *  256000    "***.**"
  */
 void ST7735_uBinOut8(uint32_t num) {
   // Take care of invalid input
@@ -133,32 +134,32 @@ void ST7735_uBinOut8(uint32_t num) {
 
   // Change these if you want to display a different number of characters.
   // Or if you want to put the fixed decimal point at some other index.
-  uint32_t oneOverResolution = 256;
-  uint8_t numOutputChars = 6;
-  uint8_t decimalIndex = 3;
-  uint8_t numDecimalPlaces = numOutputChars - decimalIndex - 1;
+  const uint32_t ONE_OVER_RESOLUTION = 256;
+  const uint8_t NUM_OUTPUT_CHARS = 6;
+  const uint8_t DECIMAL_INDEX = 3;
+  const uint8_t NUM_DECIMAL_PLACES = NUM_OUTPUT_CHARS - DECIMAL_INDEX - 1;
 
   // Initialize the output buffer to contain these values by default.
   // Using spaces makes it easier to remove extra leading zeroes.
-  char outBuffer[numOutputChars + 1]; uint8_t i;
-  for (i = 0; i < numOutputChars; ++i) {
+  char outBuffer[NUM_OUTPUT_CHARS + 1]; uint8_t i;
+  for (i = 0; i < NUM_OUTPUT_CHARS; ++i) {
     outBuffer[i] = ' ';
   }
-  outBuffer[decimalIndex] = '.';
+  outBuffer[DECIMAL_INDEX] = '.';
   outBuffer[i] = 0; // null termination
 
   // Find the number of times to shift num to make scaledNum
   // Num * Resolution should equal (Num >> numShifts)
   uint8_t numShifts = 0; uint32_t findResolution = 1;
-  while (findResolution != oneOverResolution) {
+  while (findResolution != ONE_OVER_RESOLUTION) {
     numShifts += 1;
     findResolution = findResolution << 1;
   }
 
   // Find the scaling factor (dependent on how many decimal places are desired)
-  // Loop condition is (i < numDecimalPlaces + 1) to account for rounding
+  // Loop condition is (i < NUM_DECIMAL_PLACES + 1) to account for rounding
   uint32_t scalingFactor = 1;
-  for (uint8_t i = 0; i < numDecimalPlaces + 1; ++i) {
+  for (uint8_t i = 0; i < NUM_DECIMAL_PLACES + 1; ++i) {
     scalingFactor *= 10;
   }
 
@@ -170,11 +171,10 @@ void ST7735_uBinOut8(uint32_t num) {
   else { scaledNum /= 10; }
 
   // Write the chars to be displayed to a buffer. 
-  outDecToBuffer(scaledNum, outBuffer, numOutputChars, decimalIndex);
+  outDecToBuffer(scaledNum, outBuffer, NUM_OUTPUT_CHARS, DECIMAL_INDEX);
 
   // Output to the LCD
   ST7735_OutString(outBuffer);
-//  ST7735_OutChar('\n');
 }
 
 /* Summary: Specifies the X and Y axes for an x-y scatter plot.
