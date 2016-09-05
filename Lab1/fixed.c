@@ -1,9 +1,13 @@
 /* File Name:    fixed.c
- * Authors:      Justin Nguyen (jhn545)
+ * Authors:      Justin Nguyen (jhn545), Trevor Murdock (
  * Created:      8/29/2016
- * Last Revised: 9/1/2016
+ * Last Revised: 9/6/2016
  * Description:  Contains functions for outputting in fixed decimal format.
- *               Also contains functions for plotting data.
+ *               Also contains functions for plotting points.
+ * 
+ * Class Info: EE 445L, Section 16630
+ * Lab Number: 1
+ * TA: Dylan Zika
  *
  * Hardware Configurations:
  * ST7735R LCD:
@@ -18,9 +22,6 @@
  *     VCC          (pin 2) connected to +3.3 V
  *     Gnd          (pin 1) connected to ground
  *
- * Class Info: EE 445L, Section 16630
- * Lab Number: 1
- * TA: Dylan Zika
  */
 
 #include <stdint.h>
@@ -38,7 +39,7 @@ static void outDecToBuffer(int32_t num, char outBuffer[],
 
   // Digits in decimal are (digit + 0x30) in ASCII. 
   // (Example: '3' --> 0x33 in ASCII).
-  const static int8_t INT_TO_CHAR_OFFSET = 0x30;
+  const int8_t INT_TO_CHAR_OFFSET = 0x30;
 
   // Write the characters into the buffer.
   int8_t writeIndex;
@@ -63,24 +64,21 @@ static void outDecToBuffer(int32_t num, char outBuffer[],
  * Output:  none
  * Example:
  *   Input    LCD Display
-     12345    " *.***"
-      2345    " 2.345"
-     -8100    "-8.100"
-      -102    "-0.102"
-        31    " 0.031"
-    -12345    " *.***"
+ *   12345    " *.***"
+ *    2345    " 2.345"
+ *   -8100    "-8.100"
+ *    -102    "-0.102"
+ *      31    " 0.031"
+ *  -12345    " *.***"
  */
 void ST7735_sDecOut3(int32_t num) {
-  // Take care of invalid input and negative numbers
+  // Take care of invalid input
   uint8_t numWasNegative = 0;
   if (num < -9999   ||   num > 9999) {
     ST7735_OutString(" *.***");
     return;
-  } else if (num < 0) {
-    num *= -1;
-    numWasNegative = 1;
-  }
-
+  } 
+  
   // Change these if you want to display a different number of characters.
   // Or if you want to put the fixed decimal point at some other index.
   uint8_t numOutputChars = 6;
@@ -95,15 +93,15 @@ void ST7735_sDecOut3(int32_t num) {
   outBuffer[decimalIndex] = '.';
   outBuffer[i] = 0; // null termination
 
-  // Write the chars to be displayed to a buffer.
+  // Take care of negative numbers
+  if (num < 0) {
+    num *= -1;
+    outBuffer[0] = '-';
+  }
+
+  // Write the chars to a buffer and display to the LCD.
   outDecToBuffer(num, outBuffer, numOutputChars, decimalIndex);
-
-  // Write in the potential negative sign.
-  if (numWasNegative) { outBuffer[0] = '-'; }
-
-  // Display to the LCD
   ST7735_OutString(outBuffer);
-//  ST7735_OutChar('\n');
 }
 
 /* Summary: Display the unsigned binary fixed point value to the LCD.
