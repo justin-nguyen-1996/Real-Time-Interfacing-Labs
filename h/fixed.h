@@ -1,9 +1,13 @@
 /* File Name:    fixed.h
- * Authors:      Justin Nguyen (jhn545)
+ * Authors:      Justin Nguyen (jhn545), Trevor Murdock (ttm436)
  * Created:      8/29/2016
- * Last Revised: 9/1/2016
- * Description:  Contains functions for outputting in fixed decimal format.
- *               Also contains functions for plotting data.
+ * Last Revised: 9/6/2016
+ * Description:  Contains prototypes for functions that 
+ *                 output numbers in fixed decimal format and plot points.
+ * 
+ * Class Info: EE 445L, Section 16630
+ * Lab Number: 1
+ * TA: Dylan Zika
  *
  * Hardware Configurations:
  * ST7735R LCD:
@@ -17,14 +21,10 @@
  *     RESET        (pin 3) connected to PA7 (GPIO)
  *     VCC          (pin 2) connected to +3.3 V
  *     Gnd          (pin 1) connected to ground
- *
- * Class Info: EE 445L, Section 16630
- * Lab Number: 1
- * TA: Dylan Zika
  */
  
- #ifndef FIXED_H
- #define FIXED_H
+#ifndef FIXED_H
+#define FIXED_H
  
 #include <stdint.h>
 
@@ -36,12 +36,12 @@
  * Output:  none
  * Example:
  *   Input    LCD Display
-     12345    " *.***"
-      2345    " 2.345"
-     -8100    "-8.100"
-      -102    "-0.102"
-        31    " 0.031"
-    -12345    " *.***"
+ *   12345    " *.***"
+ *    2345    " 2.345"
+ *   -8100    "-8.100"
+ *    -102    "-0.102"
+ *      31    " 0.031"
+ *  -12345    " *.***"
  */
 void ST7735_sDecOut3(int32_t num);
 
@@ -54,16 +54,16 @@ void ST7735_sDecOut3(int32_t num);
  * Output:  none
  * Example:
  *   Input    LCD Display
-         0    "  0.00"
-         2    "  0.01"
-        64    "  0.25"
-       100    "  0.39"
-       500    "  1.95"
-       512    "  2.00"
-      5000    " 19.53"
-     30000    "117.19"
-    255997    "999.99"
-    256000    "***.**"
+ *       0    "  0.00"
+ *       2    "  0.01"
+ *      64    "  0.25"
+ *     100    "  0.39"
+ *     500    "  1.95"
+ *     512    "  2.00"
+ *    5000    " 19.53"
+ *   30000    "117.19"
+ *  255997    "999.99"
+ *  256000    "***.**"
  */
 void ST7735_uBinOut8(uint32_t num);
 
@@ -72,9 +72,9 @@ void ST7735_uBinOut8(uint32_t num);
  *          Assumes minX < maxX, and miny < maxY.
  * Input:   title   ASCII string to label the plot, null-terminated
  *          minX    smallest X data value allowed, resolution = 0.001
- *          maxX    largest X data value allowed, resolution = 0.001
+ *          maxX    largest X data value allowed,  resolution = 0.001
  *          minY    smallest Y data value allowed, resolution = 0.001
- *          maxY    largest Y data value allowed, resolution = 0.001
+ *          maxY    largest Y data value allowed,  resolution = 0.001
  * Output:  none
  */
 void ST7735_XYplotInit(char *title, int32_t minX, int32_t maxX, 

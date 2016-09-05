@@ -21,7 +21,6 @@
  *     RESET        (pin 3) connected to PA7 (GPIO)
  *     VCC          (pin 2) connected to +3.3 V
  *     Gnd          (pin 1) connected to ground
- *
  */
 
 #include <stdint.h>
