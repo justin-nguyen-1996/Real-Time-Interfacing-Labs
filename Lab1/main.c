@@ -156,8 +156,7 @@ int main(void){
     TestCFloatingPoint();
     long end = NVIC_ST_CURRENT_R;
     ST7735_OutString("CFloat:   ");
-    if (end - start < 0) { ST7735_OutUDec(start - end); } 
-    else { ST7735_OutUDec(end - start); }
+    ST7735_OutUDec(start - end);
     ST7735_OutChar('\n');
     PF1 ^= 0x02;
     
@@ -167,8 +166,7 @@ int main(void){
     TestCFixedPoint();
     end = NVIC_ST_CURRENT_R;
     ST7735_OutString("CFixed:   ");
-    if (end - start < 0) { ST7735_OutUDec(start - end); } 
-    else { ST7735_OutUDec(end - start); }
+    ST7735_OutUDec(start - end);
     ST7735_OutChar('\n');
     PF2 ^= 0x04;
     
@@ -178,8 +176,7 @@ int main(void){
     TestAsmFloatingPoint();
     end = NVIC_ST_CURRENT_R;
     ST7735_OutString("ASMFloat: ");
-    if (end - start < 0) { ST7735_OutUDec(start - end); } 
-    else { ST7735_OutUDec(end - start); }
+    ST7735_OutUDec(start - end);
     ST7735_OutChar('\n');
     PF3 ^= 0x08;
     
@@ -189,8 +186,7 @@ int main(void){
     TestAsmFixedPoint();
     end = NVIC_ST_CURRENT_R;
     ST7735_OutString("ASMFixed: ");
-    if (end - start < 0) { ST7735_OutUDec(start - end); } 
-    else { ST7735_OutUDec(end - start); }
+    ST7735_OutUDec(start - end);
     ST7735_OutChar('\n');
     PA0 ^= 0x01;
   
@@ -269,7 +265,7 @@ void TestCFixedPoint(void) {
   volatile uint32_t T;    // temperature in 0.01 C
   volatile uint32_t N;    // 12-bit ADC value
   for(N=0; N<4096; N++){
-    T = 1000 + ((125*N+64)>>7); 	
+    T = 1000 + (125*N+64)>>7;
   }
 }
 

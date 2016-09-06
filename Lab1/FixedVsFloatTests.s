@@ -47,6 +47,7 @@ loop4 STR R0,[R1]          ; N is volatile
       CMP R0,#4096
       BNE loop4
       POP {R4,R5,R6,PC}
+      BX LR
 
     ALIGN
     END
