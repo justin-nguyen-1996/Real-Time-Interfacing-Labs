@@ -22,9 +22,11 @@
 #include "../h/ST7735.h"
 #include "../h/PLL.h"
 #include "../h/fixed.h"
+#include "../h/SysTick.h"
 #include "../inc/tm4c123gh6pm.h"
 void DelayWait10ms(uint32_t n);
 void PortF_Init(void);
+void PortA_Init(void);
 // const will place these structures in ROM
 
 struct outTestCase1{    // used to test routines
@@ -71,6 +73,10 @@ outTestCaseType2 outTests2[14]={
 {255998,  " = 999.99?\r" }, // 255998/256 = 999.99
 {256000,  " = ***.**?\r" }  // error
 };
+
+#define PA0   (*((volatile uint32_t *)0x40004004))
+#define PF0   (*((volatile uint32_t *)0x40025004))
+#define PF1   (*((volatile uint32_t *)0x40025008))
 #define PF2   (*((volatile uint32_t *)0x40025010))
 #define PF3   (*((volatile uint32_t *)0x40025020))
 #define PF4   (*((volatile uint32_t *)0x40025040))
@@ -87,7 +93,7 @@ void Pause(void){
 void PauseReset(void) {
 	Pause();
 	ST7735_FillScreen(0);  // set screen to black
-    ST7735_SetCursor(0,0);
+  ST7735_SetCursor(0,0);
 }
 
 // 180 points on a circle of radius 2.000
@@ -101,43 +107,95 @@ const int32_t StarXbuf[50] = {0, -6, -12, -18, -24, -30, -35, -41, -47, -53, 59,
 const int32_t StarYbuf[50] = {190, 172, 154, 136, 118, 100, 81, 63, 45, 27, 9, 27, 45, 63, 81, 100, 118, 136, 154, 172, 121, 121, 121, 121, 121, 121, 121, 121, 121, 121, 9, 20, 31, 43, 54, 65, 76, 87, 99, 110, 121, 110, 99, 87, 76, 65, 54, 43, 31, 20
 };
 
-void Test1(void);
+void TestCFloatingPoint(void);
+void TestCFixedPoint(void);
+void TestAsmFloatingPoint(void);
+void TestAsmFixedPoint(void);
 int main(void){
   uint32_t i;
   PLL_Init(Bus80MHz);
   PortF_Init();
+  PortA_Init();
+  SysTick_Init();
   ST7735_InitR(INITR_REDTAB);
-//  while(1){
-//    ST7735_FillScreen(0);  // set screen to black
-//    ST7735_SetCursor(0,0);
-//	  
-//    printf("Lab 1\r");
-//    PauseReset();
-//	  
-//	  
-//    printf("ST7735_sDecOut3\r");
-//    for(i=0; i<13; i++){
-//      ST7735_sDecOut3(outTests1[i].InNumber);  // your solution
-//      ST7735_OutString((char*)outTests1[i].OutBuffer); // expected solution
-//    }
-//    PauseReset();
-//	
-//    printf("ST7735_uBinOut8\r");
-//    for(i=0; i<14; i++){
-//      ST7735_uBinOut8(outTests2[i].InNumber);  // your solution
-//      ST7735_OutString((char*)outTests2[i].OutBuffer); // expected solution
-//    }
-//    PauseReset();
-//    
-//    ST7735_XYplotInit("Circle",-2500, 2500, -2500, 2500);
-//    ST7735_XYplot(180, (int32_t *)CircleXbuf,(int32_t *)CircleYbuf);
-//    PauseReset();
-//    
-//    ST7735_XYplotInit("Star - upper right",-450, 150, -400, 200);
-//    ST7735_XYplot(50,(int32_t *)StarXbuf,(int32_t *)StarYbuf);
-//    PauseReset(); 
-//  } 
-  Test1();
+  while(1){
+    ST7735_FillScreen(0);  // set screen to black
+    ST7735_SetCursor(0,0);
+	  
+    printf("Lab 1\r");
+    PauseReset();
+	  
+    // test for DecOut
+    printf("ST7735_sDecOut3\r");
+    for(i=0; i<13; i++){
+      ST7735_sDecOut3(outTests1[i].InNumber);  // your solution
+      ST7735_OutString((char*)outTests1[i].OutBuffer); // expected solution
+    }
+    PauseReset();
+	
+    // test for BinOut
+    printf("ST7735_uBinOut8\r");
+    for(i=0; i<14; i++){
+      ST7735_uBinOut8(outTests2[i].InNumber);  // your solution
+      ST7735_OutString((char*)outTests2[i].OutBuffer); // expected solution
+    }
+    PauseReset();
+    
+    // tests for XYplotInit and XYplot
+    ST7735_XYplotInit("Circle",-2500, 2500, -2500, 2500);
+    ST7735_XYplot(180, (int32_t *)CircleXbuf,(int32_t *)CircleYbuf);
+    PauseReset();
+    
+    ST7735_XYplotInit("Star - upper right",-450, 150, -400, 200);
+    ST7735_XYplot(50,(int32_t *)StarXbuf,(int32_t *)StarYbuf);
+    PauseReset(); 
+
+    // benchmark test for floating point code written in C
+    PF1 ^= 0x02;
+    long start = NVIC_ST_CURRENT_R;
+    TestCFloatingPoint();
+    long end = NVIC_ST_CURRENT_R;
+    ST7735_OutString("CFloat:   ");
+    if (end - start < 0) { ST7735_OutUDec(start - end); } 
+    else { ST7735_OutUDec(end - start); }
+    ST7735_OutChar('\n');
+    PF1 ^= 0x02;
+    
+    // benchmark test for fixed point code written in C
+    PF2 ^= 0x04;
+    start = NVIC_ST_CURRENT_R;
+    TestCFixedPoint();
+    end = NVIC_ST_CURRENT_R;
+    ST7735_OutString("CFixed:   ");
+    if (end - start < 0) { ST7735_OutUDec(start - end); } 
+    else { ST7735_OutUDec(end - start); }
+    ST7735_OutChar('\n');
+    PF2 ^= 0x04;
+    
+    // benchmark test for floating point code written in assembly
+    PF3 ^= 0x08;
+    start = NVIC_ST_CURRENT_R;
+    TestAsmFloatingPoint();
+    end = NVIC_ST_CURRENT_R;
+    ST7735_OutString("ASMFloat: ");
+    if (end - start < 0) { ST7735_OutUDec(start - end); } 
+    else { ST7735_OutUDec(end - start); }
+    ST7735_OutChar('\n');
+    PF3 ^= 0x08;
+    
+    // benchmark test for fixed point code written in assembly
+    PA0 ^= 0x01;
+    start = NVIC_ST_CURRENT_R;
+    TestAsmFixedPoint();
+    end = NVIC_ST_CURRENT_R;
+    ST7735_OutString("ASMFixed: ");
+    if (end - start < 0) { ST7735_OutUDec(start - end); } 
+    else { ST7735_OutUDec(end - start); }
+    ST7735_OutChar('\n');
+    PA0 ^= 0x01;
+  
+    PauseReset();
+  }
 } 
 
 // PF4 is input
@@ -149,9 +207,21 @@ void PortF_Init(void){
   GPIO_PORTF_PCTL_R &= ~0x000F0F00; // 3) regular GPIO
   GPIO_PORTF_AMSEL_R &= ~0x14;      // 4) disable analog function on PF2, PF4
   GPIO_PORTF_PUR_R |= 0x10;         // 5) pullup for PF4
-  GPIO_PORTF_DIR_R |= 0x04;         // 5) set direction to output
+  GPIO_PORTF_DIR_R |= 0x0E;         // 5) set direction to output
   GPIO_PORTF_AFSEL_R &= ~0x14;      // 6) regular port function
-  GPIO_PORTF_DEN_R |= 0x14;         // 7) enable digital port
+  GPIO_PORTF_DEN_R |= 0x1E;         // 7) enable digital port
+}
+
+void PortA_Init(void){ 
+  SYSCTL_RCGCGPIO_R |= 0x01;        // 1) activate clock for Port F
+  while((SYSCTL_PRGPIO_R&0x20)==0){}; // allow time for clock to start
+                                    // 2) no need to unlock PF2, PF4
+  //GPIO_PORTA_PCTL_R &= ~0x000F0F00; // 3) regular GPIO
+  //GPIO_PORTA_AMSEL_R &= ~0x14;      // 4) disable analog function on PF2, PF4
+  //GPIO_PORTA_PUR_R |= 0x10;         // 5) pullup for PF4
+  GPIO_PORTA_DIR_R |= 0x01;         // 5) set direction to output
+  //GPIO_PORTA_AFSEL_R &= ~0x14;      // 6) regular port function
+  GPIO_PORTA_DEN_R |= 0x01;         // 7) enable digital port
 }
 
 
@@ -186,10 +256,20 @@ void DelayWait10ms(uint32_t n){uint32_t volatile time;
 
 // version 1: C floating point
 // run with compiler options selected for floating-point hardware
-volatile float T;    // temperature in C
-volatile uint32_t N; // 12-bit ADC value
-void Test1(void){
+void TestCFloatingPoint(void){
+  volatile float T;    // temperature in C
+  volatile uint32_t N; // 12-bit ADC value
   for(N=0; N<4096; N++){
-    T = 10.0+ 0.009768*N; 	
+    T = 10.0+ 0.009768*N;
   }
 }
+
+// version 2: C fixed-point
+void TestCFixedPoint(void) {
+  volatile uint32_t T;    // temperature in 0.01 C
+  volatile uint32_t N;    // 12-bit ADC value
+  for(N=0; N<4096; N++){
+    T = 1000 + ((125*N+64)>>7); 	
+  }
+}
+
