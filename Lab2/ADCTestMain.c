@@ -30,6 +30,7 @@
 #include "../h/ADCSWTrigger.h"
 #include "../h/PLL.h"
 
+#define PF3             (*((volatile uint32_t *)0x40025020))
 #define PF2             (*((volatile uint32_t *)0x40025010))
 #define PF1             (*((volatile uint32_t *)0x40025008))
 void DisableInterrupts(void); // Disable interrupts
@@ -68,6 +69,8 @@ void Timer0A_Handler(void){
   ADCvalue = ADC0_InSeq3();
   PF2 ^= 0x04;                   // profile
 }
+
+void Test123(void);
 int main(void){
   PLL_Init(Bus80MHz);                   // 80 MHz
   SYSCTL_RCGCGPIO_R |= 0x20;            // activate port F
