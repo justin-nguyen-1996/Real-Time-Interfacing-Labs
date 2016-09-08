@@ -65,7 +65,7 @@ void Timer0A_Init100HzInt(void){
   NVIC_EN0_R = 1<<19;              // enable interrupt 19 in NVIC
 }
 
-uint32_t ADC_time[1000];
+int32_t ADC_time[1000];
 uint32_t ADC_value[1000];
 uint16_t ADC_index = 0;
 
@@ -139,15 +139,19 @@ int main(void){
     }
   }
   
-  uint32_t pmf[10000];
+  uint32_t timeJitter = maxTimeDifference - minTimeDifference;
+  
+  int32_t pmf[10000];
   uint32_t minAdcValue = ADC_value[999];
   for (int i = 0; i < 10000; ++i) {
-    int curAdcValue = ADC_value[i];
-    int key = curAdcValue - minAdcValue;
+    int key = ADC_value[i] - minAdcValue;
     pmf[key] += 1;
   }
   
-  uint32_t timeJitter = maxTimeDifference - minTimeDifference;
+  ST7735_XYplotInit("pmf plot", 0, 10000, 0, 10000);
+  for (int i = 0; i < 10000; ++i) {
+    ST7735_XYplot(10000, ADC_value, pmf);
+  }
 }
 
 
