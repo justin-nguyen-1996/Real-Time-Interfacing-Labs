@@ -62,15 +62,46 @@ void Timer0A_Init100HzInt(void){
   NVIC_PRI4_R = (NVIC_PRI4_R&0x00FFFFFF)|0x40000000; // top 3 bits
   NVIC_EN0_R = 1<<19;              // enable interrupt 19 in NVIC
 }
+
+uint32_t ADC_time[1000];
+uint32_t ADC_value[1000];
+uint16_t ADC_index = 0;
+
 void Timer0A_Handler(void){
+  if (ADC_index >= 1000) { return; }
   TIMER0_ICR_R = TIMER_ICR_TATOCINT;    // acknowledge timer0A timeout
   PF2 ^= 0x04;                   // profile
   PF2 ^= 0x04;                   // profile
   ADCvalue = ADC0_InSeq3();
+  ADC_time[ADC_index] = TIMER1_TAR_R;
+  ADC_value[ADC_index] = ADCvalue;
+  ADC_index += 1;
   PF2 ^= 0x04;                   // profile
 }
 
-void Test123(void);
+// ***************** TIMER1_Init ****************
+// Activate TIMER1 interrupts to run user task periodically
+// Inputs:  task is a pointer to a user function
+//          period in units (1/clockfreq)
+// Outputs: none
+void (*PeriodicTask)(void);   // user function
+void Timer1_Init(void(*task)(void), uint32_t period){
+  SYSCTL_RCGCTIMER_R |= 0x02;   // 0) activate TIMER1
+  PeriodicTask = task;          // user function
+  TIMER1_CTL_R = 0x00000000;    // 1) disable TIMER1A during setup
+  TIMER1_CFG_R = 0x00000000;    // 2) configure for 32-bit mode
+  TIMER1_TAMR_R = 0x00000002;   // 3) configure for periodic mode, default down-count settings
+  TIMER1_TAILR_R = period-1;    // 4) reload value
+  TIMER1_TAPR_R = 0;            // 5) bus clock resolution
+  TIMER1_ICR_R = 0x00000001;    // 6) clear TIMER1A timeout flag
+  TIMER1_IMR_R = 0x00000001;    // 7) arm timeout interrupt
+  NVIC_PRI5_R = (NVIC_PRI5_R&0xFFFF00FF)|0x00008000; // 8) priority 4
+// interrupts enabled in the main program after all devices initialized
+// vector number 37, interrupt number 21
+  NVIC_EN0_R = 1<<21;           // 9) enable IRQ 21 in NVIC
+  TIMER1_CTL_R = 0x00000001;    // 10) enable TIMER1A
+}
+
 int main(void){
   PLL_Init(Bus80MHz);                   // 80 MHz
   SYSCTL_RCGCGPIO_R |= 0x20;            // activate port F
@@ -84,8 +115,21 @@ int main(void){
   GPIO_PORTF_AMSEL_R = 0;               // disable analog functionality on PF
   PF2 = 0;                      // turn off LED
   EnableInterrupts();
+  
+  uint32_t ADC_time_difference[999];
   while(1){
     PF1 ^= 0x02;  // toggles when running in main
+    if (ADC_index >= 1000) {
+      break;
+    }	
+  }
+  
+  for (int i = 0; i < 999; i++) {
+    ADC_time_difference[i] = ADC_time[i] - ADC_time[i+1];
+    
+    //##//
+    // Process data
+    //##//
   }
 }
 
