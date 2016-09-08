@@ -29,6 +29,8 @@
 #include "../inc/tm4c123gh6pm.h"
 #include "../h/ADCSWTrigger.h"
 #include "../h/PLL.h"
+#include "../h/fixed.h"
+#include "../h/ST7735.h"
 
 #define PF3             (*((volatile uint32_t *)0x40025020))
 #define PF2             (*((volatile uint32_t *)0x40025010))
@@ -116,7 +118,6 @@ int main(void){
   PF2 = 0;                      // turn off LED
   EnableInterrupts();
   
-  uint32_t ADC_time_difference[999];
   while(1){
     PF1 ^= 0x02;  // toggles when running in main
     if (ADC_index >= 1000) {
@@ -124,13 +125,29 @@ int main(void){
     }	
   }
   
-  for (int i = 0; i < 999; i++) {
-    ADC_time_difference[i] = ADC_time[i] - ADC_time[i+1];
+  uint32_t ADC_time_difference[999];
+  uint32_t minTimeDifference = ADC_time[0];
+  uint32_t maxTimeDifference = ADC_time[0];
+  for (int i = 0; i < 999; ++i) {
+    uint32_t time_diff = ADC_time[i] - ADC_time[i+1];
+    ADC_time_difference[i] = time_diff;
     
-    //##//
-    // Process data
-    //##//
+    if (time_diff < minTimeDifference) {
+      minTimeDifference = time_diff;
+    } else if (time_diff > maxTimeDifference) {
+      maxTimeDifference = time_diff;
+    }
   }
+  
+  uint32_t pmf[10000];
+  uint32_t minAdcValue = ADC_value[999];
+  for (int i = 0; i < 10000; ++i) {
+    int curAdcValue = ADC_value[i];
+    int key = curAdcValue - minAdcValue;
+    pmf[key] += 1;
+  }
+  
+  uint32_t timeJitter = maxTimeDifference - minTimeDifference;
 }
 
 
