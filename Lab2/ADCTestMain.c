@@ -26,13 +26,12 @@
 // bottom of X-ohm potentiometer connected to ground
 // top of X-ohm potentiometer connected to +3.3V 
 #include <stdint.h>
+#include "ADCSWTrigger.h"
 #include "../inc/tm4c123gh6pm.h"
-#include "../h/ADCSWTrigger.h"
-#include "../h/PLL.h"
-#include "../h/fixed.h"
-#include "../h/ST7735.h"
+#include "PLL.h"
+#include "fixed.h"
+#include "ST7735.h"
 
-#define PF3             (*((volatile uint32_t *)0x40025020))
 #define PF2             (*((volatile uint32_t *)0x40025010))
 #define PF1             (*((volatile uint32_t *)0x40025008))
 void DisableInterrupts(void); // Disable interrupts
@@ -64,9 +63,8 @@ void Timer0A_Init100HzInt(void){
   NVIC_PRI4_R = (NVIC_PRI4_R&0x00FFFFFF)|0x40000000; // top 3 bits
   NVIC_EN0_R = 1<<19;              // enable interrupt 19 in NVIC
 }
-
 int32_t ADC_time[1000];
-uint32_t ADC_value[1000];
+int32_t ADC_value[1000];
 uint16_t ADC_index = 0;
 
 void Timer0A_Handler(void){
@@ -86,23 +84,36 @@ void Timer0A_Handler(void){
 // Inputs:  task is a pointer to a user function
 //          period in units (1/clockfreq)
 // Outputs: none
-void (*PeriodicTask)(void);   // user function
+//void (*PeriodicTask)(void);   // user function
 void Timer1_Init(void(*task)(void), uint32_t period){
   SYSCTL_RCGCTIMER_R |= 0x02;   // 0) activate TIMER1
-  PeriodicTask = task;          // user function
+//  PeriodicTask = task;          // user function
   TIMER1_CTL_R = 0x00000000;    // 1) disable TIMER1A during setup
   TIMER1_CFG_R = 0x00000000;    // 2) configure for 32-bit mode
   TIMER1_TAMR_R = 0x00000002;   // 3) configure for periodic mode, default down-count settings
-  TIMER1_TAILR_R = period-1;    // 4) reload value
+  TIMER1_TAILR_R = 0xFFFFFFFF;    // 4) reload value
   TIMER1_TAPR_R = 0;            // 5) bus clock resolution
   TIMER1_ICR_R = 0x00000001;    // 6) clear TIMER1A timeout flag
-  TIMER1_IMR_R = 0x00000001;    // 7) arm timeout interrupt
+  //TIMER1_IMR_R = 0x00000001;    // 7) arm timeout interrupt
   NVIC_PRI5_R = (NVIC_PRI5_R&0xFFFF00FF)|0x00008000; // 8) priority 4
 // interrupts enabled in the main program after all devices initialized
 // vector number 37, interrupt number 21
-  NVIC_EN0_R = 1<<21;           // 9) enable IRQ 21 in NVIC
+  //
+  //NVIC_EN0_R = 1<<21;           // 9) enable IRQ 21 in NVIC
   TIMER1_CTL_R = 0x00000001;    // 10) enable TIMER1A
 }
+
+void pmfCalculate(int32_t minAdcValue) {
+    int32_t pmf[4096];
+  for (int i = 0; i < 10000; ++i) {
+    uint32_t key = ADC_value[i] - minAdcValue;
+    pmf[key] += 1;
+  }
+  
+  ST7735_XYplotInit("pmf plot", 0, 10000, 0, 10000);
+  ST7735_XYplot(4096, ADC_value, pmf);
+}
+
 
 int main(void){
   PLL_Init(Bus80MHz);                   // 80 MHz
@@ -117,7 +128,9 @@ int main(void){
   GPIO_PORTF_AMSEL_R = 0;               // disable analog functionality on PF
   PF2 = 0;                      // turn off LED
   EnableInterrupts();
-  
+  Timer1_Init();
+  ADC_time[ADC_index] = TIMER1_TAR_R;
+
   while(1){
     PF1 ^= 0x02;  // toggles when running in main
     if (ADC_index >= 1000) {
@@ -128,6 +141,8 @@ int main(void){
   uint32_t ADC_time_difference[999];
   uint32_t minTimeDifference = ADC_time[0];
   uint32_t maxTimeDifference = ADC_time[0];
+  int32_t minAdcValue = ADC_value[0];
+  int32_t maxAdcValue = ADC_value[0];
   for (int i = 0; i < 999; ++i) {
     uint32_t time_diff = ADC_time[i] - ADC_time[i+1];
     ADC_time_difference[i] = time_diff;
@@ -137,21 +152,17 @@ int main(void){
     } else if (time_diff > maxTimeDifference) {
       maxTimeDifference = time_diff;
     }
+    
+    if (ADC_value[i] < minAdcValue) {
+      minAdcValue = ADC_value[i];
+    } else if (ADC_value[i] > maxAdcValue) {
+      maxAdcValue = ADC_value[i];
+    }
   }
   
   uint32_t timeJitter = maxTimeDifference - minTimeDifference;
-  
-  int32_t pmf[10000];
-  uint32_t minAdcValue = ADC_value[999];
-  for (int i = 0; i < 10000; ++i) {
-    int key = ADC_value[i] - minAdcValue;
-    pmf[key] += 1;
-  }
-  
-  ST7735_XYplotInit("pmf plot", 0, 10000, 0, 10000);
-  for (int i = 0; i < 10000; ++i) {
-    ST7735_XYplot(10000, ADC_value, pmf);
-  }
+  pmfCalculate(minAdcValue);
+//  int32_t* pmf = (int32_t*) malloc(4096 * sizeof(int32_t));
 }
 
 

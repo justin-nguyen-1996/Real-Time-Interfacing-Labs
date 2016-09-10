@@ -22,7 +22,7 @@
  */
  
 #include <stdint.h>
-#include "../h/PLL.h"
+#include "PLL.h"
 #include "../inc/tm4c123gh6pm.h"
 
 // The #define statement SYSDIV2 in PLL.h
