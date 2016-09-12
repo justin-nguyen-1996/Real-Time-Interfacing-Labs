@@ -40,7 +40,7 @@ long StartCritical (void);    // previous I bit, disable interrupts
 void EndCritical(long sr);    // restore I bit to previous value
 void WaitForInterrupt(void);  // low power mode
 
-volatile uint32_t ADCvalue;
+// volatile uint32_t ADCvalue;
 // This debug function initializes Timer0A to request interrupts
 // at a 100 Hz frequency.  It is similar to FreqMeasure.c.
 void Timer0A_Init100HzInt(void){
@@ -63,20 +63,20 @@ void Timer0A_Init100HzInt(void){
   NVIC_PRI4_R = (NVIC_PRI4_R&0x00FFFFFF)|0x40000000; // top 3 bits
   NVIC_EN0_R = 1<<19;              // enable interrupt 19 in NVIC
 }
-int32_t ADC_time[1000];
-int32_t ADC_value[1000];
-uint16_t ADC_index = 0;
+
+static uint32_t AdcTimeBuffer[1000];
+static uint32_t AdcValueBuffer[1000];
+static uint16_t AdcIndex = 0;
 
 void Timer0A_Handler(void){
-  if (ADC_index >= 1000) { return; }
+  if (AdcIndex >= 1000) { return; }
   TIMER0_ICR_R = TIMER_ICR_TATOCINT;    // acknowledge timer0A timeout
-  PF2 ^= 0x04;                   // profile
-  PF2 ^= 0x04;                   // profile
-  ADCvalue = ADC0_InSeq3();
-  ADC_time[ADC_index] = TIMER1_TAR_R;
-  ADC_value[ADC_index] = ADCvalue;
-  ADC_index += 1;
-  PF2 ^= 0x04;                   // profile
+  PF2 ^= 0x04;                          // profile
+  PF2 ^= 0x04;                          // profile
+  AdcTimeBuffer[AdcIndex] = TIMER1_TAR_R;
+  AdcValueBuffer[AdcIndex] = ADC0_InSeq3();
+  AdcIndex += 1;
+  PF2 ^= 0x04;                          // profile
 }
 
 // ***************** TIMER1_Init ****************
@@ -85,33 +85,34 @@ void Timer0A_Handler(void){
 //          period in units (1/clockfreq)
 // Outputs: none
 //void (*PeriodicTask)(void);   // user function
-void Timer1_Init(void(*task)(void), uint32_t period){
+//void Timer1_Init(void(*task)(void), uint32_t period){
+void Timer1_Init(){
   SYSCTL_RCGCTIMER_R |= 0x02;   // 0) activate TIMER1
-//  PeriodicTask = task;          // user function
+//PeriodicTask = task;          // user function
   TIMER1_CTL_R = 0x00000000;    // 1) disable TIMER1A during setup
   TIMER1_CFG_R = 0x00000000;    // 2) configure for 32-bit mode
   TIMER1_TAMR_R = 0x00000002;   // 3) configure for periodic mode, default down-count settings
-  TIMER1_TAILR_R = 0xFFFFFFFF;    // 4) reload value
+  TIMER1_TAILR_R = 0xFFFFFFFF;  // 4) reload value
   TIMER1_TAPR_R = 0;            // 5) bus clock resolution
   TIMER1_ICR_R = 0x00000001;    // 6) clear TIMER1A timeout flag
-  //TIMER1_IMR_R = 0x00000001;    // 7) arm timeout interrupt
+//TIMER1_IMR_R = 0x00000001;    // 7) arm timeout interrupt
   NVIC_PRI5_R = (NVIC_PRI5_R&0xFFFF00FF)|0x00008000; // 8) priority 4
-// interrupts enabled in the main program after all devices initialized
-// vector number 37, interrupt number 21
-  //
-  //NVIC_EN0_R = 1<<21;           // 9) enable IRQ 21 in NVIC
+//interrupts enabled in the main program after all devices initialized
+//vector number 37, interrupt number 21
+
+//NVIC_EN0_R = 1<<21;           // 9) enable IRQ 21 in NVIC
   TIMER1_CTL_R = 0x00000001;    // 10) enable TIMER1A
 }
 
 void pmfCalculate(int32_t minAdcValue) {
     int32_t pmf[4096];
   for (int i = 0; i < 10000; ++i) {
-    uint32_t key = ADC_value[i] - minAdcValue;
+    uint32_t key = AdcValueBuffer[i] - minAdcValue;
     pmf[key] += 1;
   }
   
   ST7735_XYplotInit("pmf plot", 0, 10000, 0, 10000);
-  ST7735_XYplot(4096, ADC_value, pmf);
+  ST7735_XYplot(4096, AdcValueBuffer, pmf);
 }
 
 
@@ -119,6 +120,7 @@ int main(void){
   PLL_Init(Bus80MHz);                   // 80 MHz
   SYSCTL_RCGCGPIO_R |= 0x20;            // activate port F
   ADC0_InitSWTriggerSeq3_Ch9();         // allow time to finish activating
+  Timer1_Init();
   Timer0A_Init100HzInt();               // set up Timer0A for 100 Hz interrupts
   GPIO_PORTF_DIR_R |= 0x06;             // make PF2, PF1 out (built-in LED)
   GPIO_PORTF_AFSEL_R &= ~0x06;          // disable alt funct on PF2, PF1
@@ -126,37 +128,35 @@ int main(void){
                                         // configure PF2 as GPIO
   GPIO_PORTF_PCTL_R = (GPIO_PORTF_PCTL_R&0xFFFFF00F)+0x00000000;
   GPIO_PORTF_AMSEL_R = 0;               // disable analog functionality on PF
-  PF2 = 0;                      // turn off LED
+  PF2 = 0;                              // turn off LED
   EnableInterrupts();
-  Timer1_Init();
-  ADC_time[ADC_index] = TIMER1_TAR_R;
 
   while(1){
     PF1 ^= 0x02;  // toggles when running in main
-    if (ADC_index >= 1000) {
+    if (AdcIndex >= 1000) {
       break;
     }	
   }
   
-  uint32_t ADC_time_difference[999];
-  uint32_t minTimeDifference = ADC_time[0];
-  uint32_t maxTimeDifference = ADC_time[0];
-  int32_t minAdcValue = ADC_value[0];
-  int32_t maxAdcValue = ADC_value[0];
+  uint32_t adcTimeDiffBuffer[999];
+  uint32_t minTimeDifference = AdcTimeBuffer[0];
+  uint32_t maxTimeDifference = AdcTimeBuffer[0];
+  uint32_t minAdcValue = AdcValueBuffer[0];
+  uint32_t maxAdcValue = AdcValueBuffer[0];
   for (int i = 0; i < 999; ++i) {
-    uint32_t time_diff = ADC_time[i] - ADC_time[i+1];
-    ADC_time_difference[i] = time_diff;
+    uint32_t timeDiff = AdcTimeBuffer[i] - AdcTimeBuffer[i+1];
+    adcTimeDiffBuffer[i] = timeDiff;
     
-    if (time_diff < minTimeDifference) {
-      minTimeDifference = time_diff;
-    } else if (time_diff > maxTimeDifference) {
-      maxTimeDifference = time_diff;
+    if (timeDiff < minTimeDifference) {
+      minTimeDifference = timeDiff;
+    } else if (timeDiff > maxTimeDifference) {
+      maxTimeDifference = timeDiff;
     }
     
-    if (ADC_value[i] < minAdcValue) {
-      minAdcValue = ADC_value[i];
-    } else if (ADC_value[i] > maxAdcValue) {
-      maxAdcValue = ADC_value[i];
+    if (AdcValueBuffer[i] < minAdcValue) {
+      minAdcValue = AdcValueBuffer[i];
+    } else if (AdcValueBuffer[i] > maxAdcValue) {
+      maxAdcValue = AdcValueBuffer[i];
     }
   }
   
