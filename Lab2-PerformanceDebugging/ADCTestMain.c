@@ -94,7 +94,7 @@ void Timer1_Init(){
   TIMER1_CTL_R = 0x00000000;    // 1) disable TIMER1A during setup
   TIMER1_CFG_R = 0x00000000;    // 2) configure for 32-bit mode
   TIMER1_TAMR_R = 0x00000002;   // 3) configure for periodic mode, default down-count settings
-  TIMER1_TAILR_R = 0xFFFFFFFF;  // 4) reload value
+  TIMER1_TAILR_R = 0x0FFFFFFF;  // 4) reload value
   TIMER1_TAPR_R = 0;            // 5) bus clock resolution
   TIMER1_ICR_R = 0x00000001;    // 6) clear TIMER1A timeout flag
 //TIMER1_IMR_R = 0x00000001;    // 7) arm timeout interrupt
@@ -117,7 +117,6 @@ void pmfCalculate(int32_t minAdcValue) {
   ST7735_XYplot(4096, AdcValueBuffer, pmf);
 }
 
-
 int main(void){
   PLL_Init(Bus80MHz);                   // 80 MHz
   SYSCTL_RCGCGPIO_R |= 0x20;            // activate port F
@@ -137,21 +136,17 @@ int main(void){
   while(1){
     PF1 ^= 0x02;  // toggles when running in main
     if (AdcIndex >= 1000) {
-      break;
+        break;
     }
-//    ST7735_OutUDec(AdcIndex);
-//    ST7735_OutChar('\n');
   }
   
-  uint32_t adcTimeDiffBuffer[999];
   uint32_t minTimeDifference = AdcTimeBuffer[0];
   uint32_t maxTimeDifference = AdcTimeBuffer[0];
   uint32_t minAdcValue = AdcValueBuffer[0];
   uint32_t maxAdcValue = AdcValueBuffer[0];
-  
+    
   for (int i = 0; i < 999; ++i) {
     uint32_t timeDiff = AdcTimeBuffer[i] - AdcTimeBuffer[i+1];
-    adcTimeDiffBuffer[i] = timeDiff;
     
     if (timeDiff < minTimeDifference) {
       minTimeDifference = timeDiff;
@@ -167,7 +162,8 @@ int main(void){
   }
   
   uint32_t timeJitter = maxTimeDifference - minTimeDifference;
-  pmfCalculate(minAdcValue);
+  while (1);
+//  pmfCalculate(minAdcValue);
 //  int32_t* pmf = (int32_t*) malloc(4096 * sizeof(int32_t));
 }
 
