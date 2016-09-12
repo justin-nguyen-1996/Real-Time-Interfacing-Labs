@@ -65,7 +65,7 @@ void Timer0A_Init100HzInt(void){
 }
 
 static uint32_t AdcTimeBuffer[1000];
-static uint32_t AdcValueBuffer[1000];
+static int32_t AdcValueBuffer[1000];
 static uint16_t AdcIndex = 0;
 
 void Timer0A_Handler(void){
@@ -87,7 +87,9 @@ void Timer0A_Handler(void){
 //void (*PeriodicTask)(void);   // user function
 //void Timer1_Init(void(*task)(void), uint32_t period){
 void Timer1_Init(){
+  volatile uint32_t delay;
   SYSCTL_RCGCTIMER_R |= 0x02;   // 0) activate TIMER1
+  delay = SYSCTL_RCGCTIMER_R;   // allow time to finish activating
 //PeriodicTask = task;          // user function
   TIMER1_CTL_R = 0x00000000;    // 1) disable TIMER1A during setup
   TIMER1_CFG_R = 0x00000000;    // 2) configure for 32-bit mode
@@ -130,12 +132,15 @@ int main(void){
   GPIO_PORTF_AMSEL_R = 0;               // disable analog functionality on PF
   PF2 = 0;                              // turn off LED
   EnableInterrupts();
+//  ST7735_InitR(INITR_REDTAB);
 
   while(1){
     PF1 ^= 0x02;  // toggles when running in main
     if (AdcIndex >= 1000) {
       break;
-    }	
+    }
+//    ST7735_OutUDec(AdcIndex);
+//    ST7735_OutChar('\n');
   }
   
   uint32_t adcTimeDiffBuffer[999];
@@ -143,6 +148,7 @@ int main(void){
   uint32_t maxTimeDifference = AdcTimeBuffer[0];
   uint32_t minAdcValue = AdcValueBuffer[0];
   uint32_t maxAdcValue = AdcValueBuffer[0];
+  
   for (int i = 0; i < 999; ++i) {
     uint32_t timeDiff = AdcTimeBuffer[i] - AdcTimeBuffer[i+1];
     adcTimeDiffBuffer[i] = timeDiff;
