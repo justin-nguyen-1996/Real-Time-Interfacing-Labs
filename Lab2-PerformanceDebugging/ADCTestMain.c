@@ -71,7 +71,6 @@ static uint16_t AdcBufferIndex = 0;  // Index to write into these buffers
 static int32_t AdcOutputCount[1000];   // 
 static int32_t AdcOutputBuffer[1000];
 
-// Functions for pausing the screen, resetting the screen, etc.
 /* Summary: Delay 10 ms
  * Input:   Number of times to wait 10 ms
  * Output:  None
@@ -87,6 +86,7 @@ void DelayWait10ms(uint32_t n){
   }
 }
 
+
 /* Summary: Pause until SW1 is not pressed 
  *          (uses simple delay for switch debouncing)
  * Input:   None
@@ -101,9 +101,8 @@ void Pause(void) {
   }
 }
 
-/* Summary: Pause until SW1 is not pressed,
- *          reset the screen to black,
- *          reset the cursor to the top left corner.
+
+/* Summary: Pause and reset to default screen
  * Input:   None
  * Output:  None
  */
@@ -111,6 +110,22 @@ void PauseReset(void){
   Pause();
   ST7735_FillScreen(0x0000); // set screen to black
   ST7735_SetCursor(0, 0);
+}
+
+/* Summary: Initialize PortF
+ * Input:   None
+ * Output:  None
+ */
+void PortF_Init() {
+  SYSCTL_RCGCGPIO_R |= 0x20;            // activate port F
+  while((SYSCTL_PRGPIO_R&0x20)==0){};   // allow time for clock to start
+  GPIO_PORTF_PUR_R |= 0x10;             // pullup for PF4
+  GPIO_PORTF_DIR_R |= 0x0E;             // make PF3, PF2, PF1 out (built-in LED)
+  GPIO_PORTF_AFSEL_R &= ~0x1F;          // disable alt funct on PortF
+  GPIO_PORTF_DEN_R |= 0x1F;             // enable digital I/O on PortF
+                                        // configure PF2 as GPIO
+  GPIO_PORTF_PCTL_R = (GPIO_PORTF_PCTL_R&0xFFFFF00F)+0x00000000;
+  GPIO_PORTF_AMSEL_R = 0;               // disable analog functionality on PF
 }
 
 /* Summary: Record ADC readings (both value and time).
@@ -182,18 +197,6 @@ uint32_t calculateTimeJitter() {
   return maxTimeDifference - minTimeDifference;
 }
 
-void PortF_Init() {
-  SYSCTL_RCGCGPIO_R |= 0x20;            // activate port F
-  while((SYSCTL_PRGPIO_R&0x20)==0){};   // allow time for clock to start
-  GPIO_PORTF_PUR_R |= 0x10;             // pullup for PF4
-  GPIO_PORTF_DIR_R |= 0x0E;             // make PF3, PF2, PF1 out (built-in LED)
-  GPIO_PORTF_AFSEL_R &= ~0x1F;          // disable alt funct on PortF
-  GPIO_PORTF_DEN_R |= 0x1F;             // enable digital I/O on PortF
-                                        // configure PF2 as GPIO
-  GPIO_PORTF_PCTL_R = (GPIO_PORTF_PCTL_R&0xFFFFF00F)+0x00000000;
-  GPIO_PORTF_AMSEL_R = 0;               // disable analog functionality on PF
-}
-
 int main(void){
   PLL_Init(Bus80MHz);                   // 80 MHz
   PortF_Init();
@@ -203,7 +206,7 @@ int main(void){
   Timer1_Init();
   int16_t Timer2_freq = 10101;           // period of 99 micro-seconds
   Timer2_Init(80000000 / Timer2_freq);   // frequency of 10kHz
-  Timer0A_Init();                        // set up Timer0A for 1000 Hz interrupts
+  Timer0_Init(1000);                    // set up Timer0A for 1000 Hz interrupts
   EnableInterrupts();
   
   while(1){
