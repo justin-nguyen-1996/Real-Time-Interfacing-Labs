@@ -33,8 +33,8 @@ void EnableInterrupts(void);
 static const uint32_t BUS_80MHZ = 80000000; // clock speed is 80 MHz
 
 /* Summary: Initialize Timer0A
- * Input: None
- * Output: None
+ * Input:   Frequency in Hz
+ * Output:  None
  */
 void Timer0_Init(uint32_t freq){
   volatile uint32_t delay;
@@ -52,12 +52,11 @@ void Timer0_Init(uint32_t freq){
   NVIC_EN0_R = 1<<19;                // enable interrupt 19 in NVIC
 }
 
-
 /* Summary: Initialize Timer1A
- * Input: None
+ * Input: Timer reload value (in clock ticks)
  * Output: None
  */
-void Timer1_Init(){
+void Timer1_Init(uint32_t reloadVal){
   volatile uint32_t delay;
   SYSCTL_RCGCTIMER_R |= 0x02;   // 0) activate TIMER1
   delay = SYSCTL_RCGCTIMER_R;   // allow time to finish activating
@@ -65,7 +64,7 @@ void Timer1_Init(){
   TIMER1_CTL_R = 0x00000000;    // 1) disable TIMER1A during setup
   TIMER1_CFG_R = 0x00000000;    // 2) configure for 32-bit mode
   TIMER1_TAMR_R = 0x00000002;   // 3) configure for periodic mode, default down-count settings
-  TIMER1_TAILR_R = 0xFFFFFFFF;  // 4) reload value
+  TIMER1_TAILR_R = reloadVal;   // 4) reload value
   TIMER1_TAPR_R = 0;            // 5) bus clock resolution
   TIMER1_ICR_R = 0x00000001;    // 6) clear TIMER1A timeout flag
   //TIMER1_IMR_R = 0x00000001;  // 7) arm timeout interrupt
@@ -76,18 +75,16 @@ void Timer1_Init(){
   TIMER1_CTL_R = 0x00000001;    // 10) enable TIMER1A
 }
 
-
-
 /* Summary: Initialize Timer2A
- * Input:   None
+ * Input:   Frequency in Hz
  * Output:  None
  */
-void Timer2_Init(unsigned long period){
+void Timer2_Init(uint32_t freq){
   SYSCTL_RCGCTIMER_R |= 0x04;   // 0) activate timer2
   TIMER2_CTL_R = 0x00000000;    // 1) disable timer2A during setup
   TIMER2_CFG_R = 0x00000000;    // 2) configure for 32-bit mode
   TIMER2_TAMR_R = 0x00000002;   // 3) configure for periodic mode, default down-count settings
-  TIMER2_TAILR_R = period-1;    // 4) reload value
+  TIMER2_TAILR_R = freq;    // 4) reload value
   TIMER2_TAPR_R = 0;            // 5) bus clock resolution
   TIMER2_ICR_R = 0x00000001;    // 6) clear timer2A timeout flag
   TIMER2_IMR_R = 0x00000001;    // 7) arm timeout interrupt

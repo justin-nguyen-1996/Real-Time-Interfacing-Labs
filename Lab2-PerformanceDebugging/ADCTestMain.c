@@ -53,10 +53,10 @@
 #include "ST7735.h"
 #include "TimerInit.h"
 
-#define PF4             (*((volatile uint32_t *)0x40025040))
-#define PF3             (*((volatile uint32_t *)0x40025020))
-#define PF2             (*((volatile uint32_t *)0x40025010))
-#define PF1             (*((volatile uint32_t *)0x40025008))
+#define PF4 (*((volatile uint32_t *)0x40025040))
+#define PF3 (*((volatile uint32_t *)0x40025020))
+#define PF2 (*((volatile uint32_t *)0x40025010))
+#define PF1 (*((volatile uint32_t *)0x40025008))
 
 void DisableInterrupts(void); // Disable interrupts
 void EnableInterrupts(void);  // Enable interrupts
@@ -64,12 +64,17 @@ long StartCritical (void);    // previous I bit, disable interrupts
 void EndCritical(long sr);    // restore I bit to previous value
 void WaitForInterrupt(void);  // low power mode
 
-static uint32_t AdcTimeBuffer[1000]; // Capture when the ADC was sampled
-static int32_t AdcValueBuffer[1000]; // Capture value of ADC when sampled
-static uint16_t AdcBufferIndex = 0;  // Index to write into these buffers
+// Change this if you want a different number of samples.
+static const uint32_t NUM_ADC_SAMPLES = 1000;
 
-static int32_t AdcOutputCount[1000];   // 
-static int32_t AdcOutputBuffer[1000];
+// Used to capture value of ADC and when it was sampled.
+static uint32_t AdcTimeBuffer[1000]; 
+static int32_t AdcValueBuffer[1000];
+static uint16_t AdcBufferIndex = 0;
+
+// Used for plotting points on the pmf function
+static int32_t AdcOutputRangeBuffer[1000];  // x-axis
+static int32_t AdcOutputCountBuffer[1000]; // y-axis
 
 /* Summary: Delay 10 ms
  * Input:   Number of times to wait 10 ms
@@ -165,15 +170,16 @@ void Timer2A_Handler(void){
  */
 void CalculatePmfFunction(int32_t minAdcValue) {
   for (int i = 0; i < 4096; ++i) {
-    AdcOutputCount[i] = 0;
-  }
-  for (int i = 0; i < 10000; ++i) {
-    uint32_t key = AdcValueBuffer[i] - minAdcValue;
-    AdcOutputCount[key] += 1;
+    AdcOutputCountBuffer[i] = 0;
   }
   
-  ST7735_XYplotInit("pmf plot", 0, 10000, 0, 10000);
-  ST7735_XYplot(4096, AdcValueBuffer, AdcOutputCount);
+  for (int i = 0; i < NUM_ADC_SAMPLES; ++i) {
+    uint32_t key = AdcValueBuffer[i] - minAdcValue;
+    AdcOutputCountBuffer[key] += 1;
+  }
+  
+  ST7735_XYplotInit("pmf plot", 0, NUM_ADC_SAMPLES, 0, NUM_ADC_SAMPLES);
+  ST7735_XYplot(4096, AdcValueBuffer, AdcOutputCountBuffer);
 }
 
 /* Summary: Calculate the time jitter 
@@ -185,7 +191,7 @@ uint32_t calculateTimeJitter() {
   uint32_t minTimeDifference = AdcTimeBuffer[0] - AdcTimeBuffer[1];
   uint32_t maxTimeDifference = AdcTimeBuffer[0] - AdcTimeBuffer[1];
     
-  for (int i = 0; i < 999; ++i) {
+  for (int i = 0; i < NUM_ADC_SAMPLES - 1; ++i) {
     uint32_t timeDiff = AdcTimeBuffer[i] - AdcTimeBuffer[i+1];
     if (timeDiff < minTimeDifference) {
       minTimeDifference = timeDiff;
@@ -198,25 +204,34 @@ uint32_t calculateTimeJitter() {
 }
 
 int main(void){
-  PLL_Init(Bus80MHz);                   // 80 MHz
+  // Change these to choose timer interrupt frequencies.
+  const uint32_t MAX_RELOAD_VAL = 0xFFFFFFFF;
+  const uint32_t TIMER0_FREQ = 1000;  // 1kHz
+  const uint32_t TIMER2_FREQ = 10101; // ~10kHz
+  
+  // Initialization
+  PLL_Init(Bus80MHz);
   PortF_Init();
-  ADC0_InitSWTriggerSeq3_Ch9();         // allow time to finish activating
-  PF2 = 0;                              // turn off LED
+  ADC0_InitSWTriggerSeq3_Ch9();
+  Timer0_Init(TIMER0_FREQ);
+  Timer1_Init(MAX_RELOAD_VAL);
+  Timer2_Init(TIMER2_FREQ);
+  PF2 = 0; // Turn off blue LED
   ST7735_InitR(INITR_REDTAB);
-  Timer1_Init();
-  int16_t Timer2_freq = 10101;           // period of 99 micro-seconds
-  Timer2_Init(80000000 / Timer2_freq);   // frequency of 10kHz
-  Timer0_Init(1000);                    // set up Timer0A for 1000 Hz interrupts
   EnableInterrupts();
   
+  // Main loop
   while(1){
-    PF1 ^= 0x02;  // toggles when running in main
-    PF1 = (PF1*12345678)/1234567+0x02;  // this line causes jitter
-    if (AdcBufferIndex >= 1000) {
+    PF1 ^= 0x02;
+    
+    // This line causes jitter (takes 2 to 12 clock cycles)
+    PF1 = (PF1*12345678)/1234567+0x02;
+    
+    if (AdcBufferIndex >= NUM_ADC_SAMPLES) {
       uint32_t minAdcValue = AdcValueBuffer[0];
       uint32_t maxAdcValue = AdcValueBuffer[0];
         
-      for (int i = 0; i < 1000; ++i) {
+      for (int i = 0; i < NUM_ADC_SAMPLES; ++i) {
         if (AdcValueBuffer[i] < minAdcValue) {
           minAdcValue = AdcValueBuffer[i];
         } else if (AdcValueBuffer[i] > maxAdcValue) {
@@ -224,12 +239,12 @@ int main(void){
         }
       }
       
-      for (int i = 0; i < 1000; i++) {
-	      AdcOutputCount[AdcValueBuffer[i] - minAdcValue] += 1; 
+      for (int i = 0; i < NUM_ADC_SAMPLES; i++) {
+	      AdcOutputCountBuffer[AdcValueBuffer[i] - minAdcValue] += 1; 
       }
 	
       for (int i = 0; i < (maxAdcValue - minAdcValue); i++) {
-	      AdcOutputBuffer[i] = minAdcValue + i;
+	      AdcOutputRangeBuffer[i] = minAdcValue + i;
 	    }
       
       uint32_t timeJitter = calculateTimeJitter();
@@ -238,13 +253,13 @@ int main(void){
       PauseReset();
       
       char* title = "PMF";
-      ST7735_XYplotInit(title, minAdcValue, maxAdcValue, 0, 1000);
-      if ((maxAdcValue - minAdcValue) > 1000) {
+      ST7735_XYplotInit(title, minAdcValue, maxAdcValue, 0, NUM_ADC_SAMPLES);
+      if ((maxAdcValue - minAdcValue) > NUM_ADC_SAMPLES) {
         char* OOBError = "Range too large";
         ST7735_SetCursor(0, 7);
         ST7735_OutString(OOBError);
       } else{	
-        ST7735_XYplot(maxAdcValue - minAdcValue, AdcOutputBuffer, AdcOutputCount);
+        ST7735_XYplot(maxAdcValue - minAdcValue, AdcOutputRangeBuffer, AdcOutputCountBuffer);
       }
       ST7735_SetCursor(0, 1);
       ST7735_OutString("MinAdc: "); ST7735_OutUDec(minAdcValue);
@@ -252,7 +267,7 @@ int main(void){
       ST7735_OutString("MaxAdc: "); ST7735_OutUDec(maxAdcValue);
 
       //free(pmf);
-      //free(AdcOutputBuffer);
+      //free(AdcOutputRangeBuffer);
       //  ST7735_OutUDec(timeJitter); ST7735_SetCursor(0,1);
       //  ST7735_OutUDec(minAdcValue); ST7735_SetCursor(0,2);
       //  ST7735_OutUDec(maxAdcValue); ST7735_SetCursor(0,3);

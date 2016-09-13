@@ -26,6 +26,20 @@
 
 #include <stdint.h>
 
+/* Summary: Initialize Timer0A
+ * Input:   Frequency in Hz
+ * Output:  None
+ */
 void Timer0_Init(uint32_t freq);
-void Timer1_Init(void);
-void Timer2_Init(unsigned long period);
+
+/* Summary: Initialize Timer1A
+ * Input: Timer reload value (in clock ticks)
+ * Output: None
+ */
+void Timer1_Init(uint32_t reloadVal);
+
+/* Summary: Initialize Timer2A
+ * Input:   Frequency in Hz
+ * Output:  None
+ */
+void Timer2_Init(uint32_t freq);
