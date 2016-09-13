@@ -45,7 +45,7 @@ void WaitForInterrupt(void);  // low power mode
 // volatile uint32_t ADCvalue;
 // This debug function initializes Timer0A to request interrupts
 // at a 100 Hz frequency.  It is similar to FreqMeasure.c.
-void Timer0A_Init100HzInt(void){
+void Timer0A_Init(void){
   volatile uint32_t delay;
   DisableInterrupts();
   // **** general initialization ****
@@ -56,7 +56,7 @@ void Timer0A_Init100HzInt(void){
   // **** timer0A initialization ****
                                    // configure for periodic mode
   TIMER0_TAMR_R = TIMER_TAMR_TAMR_PERIOD;
-  TIMER0_TAILR_R = 799999;         // start value for 100 Hz interrupts
+  TIMER0_TAILR_R = 79999;         // start value for 1000 Hz interrupts
   TIMER0_IMR_R |= TIMER_IMR_TATOIM;// enable timeout (rollover) interrupt
   TIMER0_ICR_R = TIMER_ICR_TATOCINT;// clear timer0A timeout flag
   TIMER0_CTL_R |= TIMER_CTL_TAEN;  // enable timer0A 32-b, periodic, interrupts
@@ -109,6 +109,31 @@ void Timer1_Init(){
   TIMER1_CTL_R = 0x00000001;    // 10) enable TIMER1A
 }
 
+// ***************** Timer2_Init ****************
+// Activate Timer2 interrupts to run user task periodically
+// Inputs:  task is a pointer to a user function
+//          period in units (1/clockfreq)
+// Outputs: none
+void Timer2_Init(unsigned long period){
+  SYSCTL_RCGCTIMER_R |= 0x04;   // 0) activate timer2
+  TIMER2_CTL_R = 0x00000000;    // 1) disable timer2A during setup
+  TIMER2_CFG_R = 0x00000000;    // 2) configure for 32-bit mode
+  TIMER2_TAMR_R = 0x00000002;   // 3) configure for periodic mode, default down-count settings
+  TIMER2_TAILR_R = period-1;    // 4) reload value
+  TIMER2_TAPR_R = 0;            // 5) bus clock resolution
+  TIMER2_ICR_R = 0x00000001;    // 6) clear timer2A timeout flag
+  TIMER2_IMR_R = 0x00000001;    // 7) arm timeout interrupt
+  NVIC_PRI5_R = (NVIC_PRI5_R&0x00FFFFFF)|0x80000000; // 8) priority 4
+// interrupts enabled in the main program after all devices initialized
+// vector number 39, interrupt number 23
+  NVIC_EN0_R = 1<<23;           // 9) enable IRQ 23 in NVIC
+  TIMER2_CTL_R = 0x00000001;    // 10) enable timer2A
+}
+
+void Timer2A_Handler(void){
+  TIMER2_ICR_R = TIMER_ICR_TATOCINT;// acknowledge TIMER2A timeout
+}
+
 void pmfCalculate(int32_t minAdcValue) {
   int32_t pmf[4096];
   for (int i = 0; i < 4096; ++i) {
@@ -126,13 +151,29 @@ void pmfCalculate(int32_t minAdcValue) {
 int32_t pmf[1000];
 int32_t count[1000];
 
-void Pause(void){
+void DelayWait10ms(uint32_t n){uint32_t volatile time;
+  while(n){
+    time = 727240*2/91;  // 10msec
+    while(time){
+	  	time--;
+    }
+    n--;
+  }
+}
+
+void Pause(void) {
   while(PF4==0x10){ // while SW1 not pressed
-    //DelayWait10ms(10);
+    DelayWait10ms(10);
   }
   while(PF4==0x00){ // while SW1 pressed
-    //DelayWait10ms(10);
+    DelayWait10ms(10);
   }
+}
+
+void PauseReset(void){
+  Pause();
+  ST7735_FillScreen(0x0000); // set screen to black
+  ST7735_SetCursor(0, 0);
 }
 
 int32_t calculateTimeJitter() {
@@ -154,6 +195,8 @@ int32_t calculateTimeJitter() {
 
 void PortF_Init() {
   SYSCTL_RCGCGPIO_R |= 0x20;            // activate port F
+  while((SYSCTL_PRGPIO_R&0x20)==0){};   // allow time for clock to start
+  GPIO_PORTF_PUR_R |= 0x10;             // pullup for PF4
   GPIO_PORTF_DIR_R |= 0x0E;             // make PF3, PF2, PF1 out (built-in LED)
   GPIO_PORTF_AFSEL_R &= ~0x1F;          // disable alt funct on PortF
   GPIO_PORTF_DEN_R |= 0x1F;             // enable digital I/O on PortF
@@ -169,9 +212,11 @@ int main(void){
   PF2 = 0;                              // turn off LED
   ST7735_InitR(INITR_REDTAB);
   Timer1_Init();
-  Timer0A_Init100HzInt();               // set up Timer0A for 100 Hz interrupts
+  int16_t Timer2_freq = 10101;           // period of 99 micro-seconds
+  Timer2_Init(80000000 / Timer2_freq);
+  Timer0A_Init();                        // set up Timer0A for 1000 Hz interrupts
   EnableInterrupts();
-
+  
   while(1){
     PF1 ^= 0x02;  // toggles when running in main
     PF1 = (PF1*12345678)/1234567+0x02;  // this line causes jitter
@@ -191,15 +236,15 @@ int main(void){
 	      pmf[AdcValueBuffer[i] - minAdcValue] += 1; 
       }
 	
-//      for (int i = 0; i < (maxAdcValue - minAdcValue); i++) {
-//	      count[i] = minAdcValue + i;
-//	    }
+      for (int i = 0; i < (maxAdcValue - minAdcValue); i++) {
+	      count[i] = minAdcValue + i;
+	    }
       
       int32_t timeJitter = calculateTimeJitter();
+      ST7735_OutString("Time Jitter: ");
       ST7735_OutUDec(timeJitter);
-      Pause();
+      PauseReset();
       
-      ST7735_SetCursor(0, 0);
       char* title = "PMF";
       ST7735_XYplotInit(title, minAdcValue, maxAdcValue, 0, 1000);
       if ((maxAdcValue - minAdcValue) > 1000) {
@@ -221,6 +266,7 @@ int main(void){
       //  ST7735_OutUDec(maxAdcValue); ST7735_SetCursor(0,3);
       
       AdcIndex = 0;
+      PauseReset();
       
     //  pmfCalculate(minAdcValue);
     //  int32_t* pmf = (int32_t*) malloc(4096 * sizeof(int32_t));
