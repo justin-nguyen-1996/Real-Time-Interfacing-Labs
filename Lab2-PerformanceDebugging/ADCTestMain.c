@@ -66,7 +66,7 @@ void Timer0A_Init100HzInt(void){
   NVIC_EN0_R = 1<<19;              // enable interrupt 19 in NVIC
 }
 
-static int32_t AdcTimeBuffer[1000];
+static uint32_t AdcTimeBuffer[1000];
 static int32_t AdcValueBuffer[1000];
 static uint16_t AdcIndex = 0;
 
@@ -74,9 +74,11 @@ void Timer0A_Handler(void){
   TIMER0_ICR_R = TIMER_ICR_TATOCINT;    // acknowledge timer0A timeout
   PF2 ^= 0x04;                          // profile
   PF2 ^= 0x04;                          // profile
-  AdcTimeBuffer[AdcIndex] = TIMER1_TAR_R;
-  AdcValueBuffer[AdcIndex] = ADC0_InSeq3();
-  AdcIndex += 1;
+  if (AdcIndex < 1000) {
+    AdcTimeBuffer[AdcIndex] = TIMER1_TAR_R;
+    AdcValueBuffer[AdcIndex] = ADC0_InSeq3();
+    AdcIndex += 1;
+  }
   PF2 ^= 0x04;                          // profile
 }
 
@@ -134,11 +136,11 @@ void Pause(void){
 }
 
 int32_t calculateTimeJitter() {
-  int32_t minTimeDifference = AdcTimeBuffer[0] - AdcTimeBuffer[1];
-  int32_t maxTimeDifference = AdcTimeBuffer[0] - AdcTimeBuffer[1];
+  uint32_t minTimeDifference = AdcTimeBuffer[0] - AdcTimeBuffer[1];
+  uint32_t maxTimeDifference = AdcTimeBuffer[0] - AdcTimeBuffer[1];
     
-  for (int i = 0; i < 1000; ++i) {
-    int32_t timeDiff = AdcTimeBuffer[i] - AdcTimeBuffer[i+1];
+  for (int i = 0; i < 999; ++i) {
+    uint32_t timeDiff = AdcTimeBuffer[i] - AdcTimeBuffer[i+1];
     
     if (timeDiff < minTimeDifference) {
       minTimeDifference = timeDiff;
@@ -150,27 +152,30 @@ int32_t calculateTimeJitter() {
   return maxTimeDifference - minTimeDifference;
 }
 
-int main(void){
-  PLL_Init(Bus80MHz);                   // 80 MHz
+void PortF_Init() {
   SYSCTL_RCGCGPIO_R |= 0x20;            // activate port F
-  ADC0_InitSWTriggerSeq3_Ch9();         // allow time to finish activating
-  GPIO_PORTF_DIR_R |= 0x0E;             // make PF2, PF1 out (built-in LED)
-  GPIO_PORTF_AFSEL_R &= ~0x0E;          // disable alt funct on PF3, PF2, PF1
-  GPIO_PORTF_DEN_R |= 0x0E;             // enable digital I/O on PF3, PF2, PF1
+  GPIO_PORTF_DIR_R |= 0x0E;             // make PF3, PF2, PF1 out (built-in LED)
+  GPIO_PORTF_AFSEL_R &= ~0x1F;          // disable alt funct on PortF
+  GPIO_PORTF_DEN_R |= 0x1F;             // enable digital I/O on PortF
                                         // configure PF2 as GPIO
   GPIO_PORTF_PCTL_R = (GPIO_PORTF_PCTL_R&0xFFFFF00F)+0x00000000;
   GPIO_PORTF_AMSEL_R = 0;               // disable analog functionality on PF
+}
+
+int main(void){
+  PLL_Init(Bus80MHz);                   // 80 MHz
+  PortF_Init();
+  ADC0_InitSWTriggerSeq3_Ch9();         // allow time to finish activating
   PF2 = 0;                              // turn off LED
   ST7735_InitR(INITR_REDTAB);
   Timer1_Init();
   Timer0A_Init100HzInt();               // set up Timer0A for 100 Hz interrupts
   EnableInterrupts();
-  
+
   while(1){
     PF1 ^= 0x02;  // toggles when running in main
+    PF1 = (PF1*12345678)/1234567+0x02;  // this line causes jitter
     if (AdcIndex >= 1000) {
-      //DisableInterrupts();
-      
       uint32_t minAdcValue = AdcValueBuffer[0];
       uint32_t maxAdcValue = AdcValueBuffer[0];
         
@@ -182,9 +187,9 @@ int main(void){
         }
       }
       
-//      for (int i = 0; i < 1000; i++) {
-//	      pmf[AdcValueBuffer[i] - minAdcValue] += 1; 
-//      }
+      for (int i = 0; i < 1000; i++) {
+	      pmf[AdcValueBuffer[i] - minAdcValue] += 1; 
+      }
 	
 //      for (int i = 0; i < (maxAdcValue - minAdcValue); i++) {
 //	      count[i] = minAdcValue + i;
