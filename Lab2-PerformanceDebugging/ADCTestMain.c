@@ -1,10 +1,30 @@
-// ADCTestMain.c
-// Runs on TM4C123
-// This program periodically samples ADC channel 0 and stores the
-// result to a global variable that can be accessed with the JTAG
-// debugger and viewed with the variable watch feature.
-// Daniel Valvano
-// September 5, 2015
+/* File Name:    ADCTestMain.c
+ * Authors:      Justin Nguyen (jhn545), Trevor Murdock (ttm436)
+ *               (with much sample code belonging to Dr. Valvano)
+ * Created:      9/10/2016
+ * Last Revised: 9/13/2016
+ * Description:  Contains functions for calculating a probability mass 
+ *               function (pmf) and time jitter (all inputs came from 
+ *               ADC sampling). Allowed us to learn about critical sections,
+ *               debugging techniques, interrupts, Central Limit Theorem, etc.
+ * 
+ * Class Info: EE 445L, Section 16630
+ * Lab Number: 2
+ * TA: Dylan Zika
+ *
+ * Hardware Configurations:
+ * ST7735R LCD:
+ *     Backlight    (pin 10) connected to +3.3 V
+ *     MISO         (pin 9) unconnected
+ *     SCK          (pin 8) connected to PA2 (SSI0Clk)
+ *     MOSI         (pin 7) connected to PA5 (SSI0Tx)
+ *     TFT_CS       (pin 6) connected to PA3 (SSI0Fss)
+ *     CARD_CS      (pin 5) unconnected
+ *     Data/Command (pin 4) connected to PA6 (GPIO)
+ *     RESET        (pin 3) connected to PA7 (GPIO)
+ *     VCC          (pin 2) connected to +3.3 V
+ *     Gnd          (pin 1) connected to ground
+ */
 
 /* This example accompanies the book
    "Embedded Systems: Real Time Interfacing to Arm Cortex M Microcontrollers",
@@ -36,6 +56,7 @@
 #define PF3             (*((volatile uint32_t *)0x40025020))
 #define PF2             (*((volatile uint32_t *)0x40025010))
 #define PF1             (*((volatile uint32_t *)0x40025008))
+
 void DisableInterrupts(void); // Disable interrupts
 void EnableInterrupts(void);  // Enable interrupts
 long StartCritical (void);    // previous I bit, disable interrupts
@@ -123,7 +144,7 @@ void Timer2_Init(unsigned long period){
   TIMER2_TAPR_R = 0;            // 5) bus clock resolution
   TIMER2_ICR_R = 0x00000001;    // 6) clear timer2A timeout flag
   TIMER2_IMR_R = 0x00000001;    // 7) arm timeout interrupt
-  NVIC_PRI5_R = (NVIC_PRI5_R&0x00FFFFFF)|0x80000000; // 8) priority 4
+  NVIC_PRI5_R = (NVIC_PRI5_R&0x00FFFFFF)|0x20000000; // 8) priority 1
 // interrupts enabled in the main program after all devices initialized
 // vector number 39, interrupt number 23
   NVIC_EN0_R = 1<<23;           // 9) enable IRQ 23 in NVIC
@@ -132,6 +153,7 @@ void Timer2_Init(unsigned long period){
 
 void Timer2A_Handler(void){
   TIMER2_ICR_R = TIMER_ICR_TATOCINT;// acknowledge TIMER2A timeout
+  for (int i = 0; i < 10; ++i) {}
 }
 
 void pmfCalculate(int32_t minAdcValue) {
@@ -213,7 +235,7 @@ int main(void){
   ST7735_InitR(INITR_REDTAB);
   Timer1_Init();
   int16_t Timer2_freq = 10101;           // period of 99 micro-seconds
-  Timer2_Init(80000000 / Timer2_freq);
+  Timer2_Init(80000000 / Timer2_freq);   // frequency of 10kHz
   Timer0A_Init();                        // set up Timer0A for 1000 Hz interrupts
   EnableInterrupts();
   
