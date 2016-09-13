@@ -200,6 +200,7 @@ uint32_t calculateTimeJitter() {
     }  
   }
   
+  // Time jitter = difference between min and max time difference.
   return maxTimeDifference - minTimeDifference;
 }
 
@@ -220,17 +221,18 @@ int main(void){
   ST7735_InitR(INITR_REDTAB);
   EnableInterrupts();
   
-  // Main loop
   while(1){
     PF1 ^= 0x02;
     
     // This line causes jitter (takes 2 to 12 clock cycles)
     PF1 = (PF1*12345678)/1234567+0x02;
     
+    // Wait until ADC samples are collected
     if (AdcBufferIndex >= NUM_ADC_SAMPLES) {
       uint32_t minAdcValue = AdcValueBuffer[0];
       uint32_t maxAdcValue = AdcValueBuffer[0];
-        
+      
+      // Find min/max ADC value.
       for (int i = 0; i < NUM_ADC_SAMPLES; ++i) {
         if (AdcValueBuffer[i] < minAdcValue) {
           minAdcValue = AdcValueBuffer[i];
@@ -239,44 +241,47 @@ int main(void){
         }
       }
       
-      for (int i = 0; i < NUM_ADC_SAMPLES; i++) {
+      // AdcOutputCountBuffer is scaled as follows:
+      //     Buffer[0] = num times minAdcValue has occurred
+      //     Buffer[max] = num times maxAdcValue has occurred
+      for (int i = 0; i < NUM_ADC_SAMPLES; ++i) {
 	      AdcOutputCountBuffer[AdcValueBuffer[i] - minAdcValue] += 1; 
       }
 	
-      for (int i = 0; i < (maxAdcValue - minAdcValue); i++) {
+      // Assume the range will be within NUM_ADC_SAMPLES
+      for (int i = 0; i < (maxAdcValue - minAdcValue); ++i) {
 	      AdcOutputRangeBuffer[i] = minAdcValue + i;
 	    }
       
+      // Output time jitter value to the LCD
       uint32_t timeJitter = calculateTimeJitter();
       ST7735_OutString("Time Jitter: ");
       ST7735_OutUDec(timeJitter);
       PauseReset();
       
+      // Initialize pmf plot
       char* title = "PMF";
       ST7735_XYplotInit(title, minAdcValue, maxAdcValue, 0, NUM_ADC_SAMPLES);
-      if ((maxAdcValue - minAdcValue) > NUM_ADC_SAMPLES) {
-        char* OOBError = "Range too large";
-        ST7735_SetCursor(0, 7);
-        ST7735_OutString(OOBError);
-      } else{	
-        ST7735_XYplot(maxAdcValue - minAdcValue, AdcOutputRangeBuffer, AdcOutputCountBuffer);
-      }
       ST7735_SetCursor(0, 1);
       ST7735_OutString("MinAdc: "); ST7735_OutUDec(minAdcValue);
       ST7735_SetCursor(0, 2); 
       ST7735_OutString("MaxAdc: "); ST7735_OutUDec(maxAdcValue);
-
-      //free(pmf);
-      //free(AdcOutputRangeBuffer);
-      //  ST7735_OutUDec(timeJitter); ST7735_SetCursor(0,1);
-      //  ST7735_OutUDec(minAdcValue); ST7735_SetCursor(0,2);
-      //  ST7735_OutUDec(maxAdcValue); ST7735_SetCursor(0,3);
+      
+      // Output pmf plot to LCD
+      if ((maxAdcValue - minAdcValue) > NUM_ADC_SAMPLES) {
+        char* OOBError = "Range too large";
+        ST7735_SetCursor(0, 7);
+        ST7735_OutString(OOBError);
+      } else{
+        ST7735_XYplot(maxAdcValue - minAdcValue, AdcOutputRangeBuffer, AdcOutputCountBuffer);
+      }
       
       AdcBufferIndex = 0;
       PauseReset();
       
-    //  CalculatePmfFunction(minAdcValue);
-    //  int32_t* pmf = (int32_t*) malloc(4096 * sizeof(int32_t));
+      // free(pmf);
+      // free(AdcOutputRangeBuffer);
+      // int32_t* pmf = (int32_t*) malloc(4096 * sizeof(int32_t));
     }
   }
 }
