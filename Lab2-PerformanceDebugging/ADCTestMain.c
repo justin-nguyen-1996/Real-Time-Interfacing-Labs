@@ -204,6 +204,17 @@ uint32_t calculateTimeJitter() {
   return maxTimeDifference - minTimeDifference;
 }
 
+/* Summary: Draws one line on the ST7735 color LCD
+ * Input:   (x1,y1) is the start point
+ *          (x2,y2) is the end point
+ *          x-values < 128, x = 0 is the left edge
+ *          y-values < 160, y = 0 is the top edge
+ *          color is a 16-bit color, use ST7735_Color565() 
+ * Output:  None
+ */
+void ST7735_Line(uint16_t x1, uint16_t y1, 
+                 uint16_t x2, uint16_t y2, uint16_t color);
+
 int main(void){
   // Change these to choose timer interrupt frequencies.
   const uint32_t MAX_RELOAD_VAL = 0xFFFFFFFF;
@@ -214,70 +225,29 @@ int main(void){
   PLL_Init(Bus80MHz);
   PortF_Init();
   ADC0_InitSWTriggerSeq3_Ch9();
-  Timer0_Init(TIMER0_FREQ);
-  Timer1_Init(MAX_RELOAD_VAL);
-  Timer2_Init(TIMER2_FREQ);
   PF2 = 0; // Turn off blue LED
   ST7735_InitR(INITR_REDTAB);
+  Timer2_Init(TIMER2_FREQ);
+  Timer0_Init(TIMER0_FREQ);
+  Timer1_Init(MAX_RELOAD_VAL); //needs to be initialized last
   EnableInterrupts();
   
   while(1){
     PF1 ^= 0x02;
     
     // This line causes jitter (takes 2 to 12 clock cycles)
-    PF1 = (PF1*12345678)/1234567+0x02;
+    //PF1 = (PF1*12345678)/1234567+0x02;
     
     // Wait until ADC samples are collected
     if (AdcBufferIndex >= NUM_ADC_SAMPLES) {
-      uint32_t minAdcValue = AdcValueBuffer[0];
-      uint32_t maxAdcValue = AdcValueBuffer[0];
-      
-      // Find min/max ADC value.
-      for (int i = 0; i < NUM_ADC_SAMPLES; ++i) {
-        if (AdcValueBuffer[i] < minAdcValue) {
-          minAdcValue = AdcValueBuffer[i];
-        } else if (AdcValueBuffer[i] > maxAdcValue) {
-          maxAdcValue = AdcValueBuffer[i];
-        }
-      }
-      
-      // AdcOutputCountBuffer is scaled as follows:
-      //     Buffer[0] = num times minAdcValue has occurred
-      //     Buffer[max] = num times maxAdcValue has occurred
-      for (int i = 0; i < NUM_ADC_SAMPLES; ++i) {
-	      AdcOutputCountBuffer[AdcValueBuffer[i] - minAdcValue] += 1; 
-      }
-	
-      // Assume the range will be within NUM_ADC_SAMPLES
-      for (int i = 0; i < (maxAdcValue - minAdcValue); ++i) {
-	      AdcOutputRangeBuffer[i] = minAdcValue + i;
-	    }
       
       // Output time jitter value to the LCD
       uint32_t timeJitter = calculateTimeJitter();
       ST7735_OutString("Time Jitter: ");
       ST7735_OutUDec(timeJitter);
       PauseReset();
-      
-      // Initialize pmf plot
-      char* title = "PMF";
-      ST7735_XYplotInit(title, minAdcValue, maxAdcValue, 0, NUM_ADC_SAMPLES);
-      ST7735_SetCursor(0, 1);
-      ST7735_OutString("MinAdc: "); ST7735_OutUDec(minAdcValue);
-      ST7735_SetCursor(0, 2); 
-      ST7735_OutString("MaxAdc: "); ST7735_OutUDec(maxAdcValue);
-      
-      // Output pmf plot to LCD
-      if ((maxAdcValue - minAdcValue) > NUM_ADC_SAMPLES) {
-        char* OOBError = "Range too large";
-        ST7735_SetCursor(0, 7);
-        ST7735_OutString(OOBError);
-      } else{
-        ST7735_XYplot(maxAdcValue - minAdcValue, AdcOutputRangeBuffer, AdcOutputCountBuffer);
-      }
-      
-      AdcBufferIndex = 0;
-      PauseReset();
+            
+      AdcBufferIndex = 0; // Reset
       
       // free(pmf);
       // free(AdcOutputRangeBuffer);
