@@ -182,24 +182,12 @@ uint32_t calculateTimeJitter() {
   return maxTimeDifference - minTimeDifference;
 }
 
-/* Summary: Draws one line on the ST7735 color LCD
- * Input:   (x1,y1) is the start point
- *          (x2,y2) is the end point
- *          x-values < 128, x = 0 is the left edge
- *          y-values < 160, y = 0 is the top edge
- *          color is a 16-bit color, use ST7735_Color565() 
- * Output:  None
- */
-void ST7735_Line(uint16_t x1, uint16_t y1, 
-                 uint16_t x2, uint16_t y2, uint16_t color);
-
-int main(void){
+static void initAll() {
   // Change these to choose timer interrupt frequencies.
   const uint32_t MAX_RELOAD_VAL = 0xFFFFFFFF;
   const uint32_t TIMER0_FREQ = 1000;  // 1kHz
   const uint32_t TIMER2_FREQ = 10101; // ~10kHz
   
-  // Initialization
   PLL_Init(Bus80MHz);
   PortF_Init();
   ADC0_InitSWTriggerSeq3_Ch9();
@@ -208,13 +196,17 @@ int main(void){
   Timer2_Init(TIMER2_FREQ);
   Timer0_Init(TIMER0_FREQ);
   Timer1_Init(MAX_RELOAD_VAL); //needs to be initialized last
+}
+
+int main(void){  
+  initAll();
   EnableInterrupts();
   
   while(1){
     PF1 ^= 0x02;
     
     // This line causes jitter (takes 2 to 12 clock cycles)
-    //PF1 = (PF1*12345678)/1234567+0x02;
+    PF1 = (PF1*12345678)/1234567+0x02;
     
     // Wait until ADC samples are collected
     if (AdcBufferIndex >= NUM_ADC_SAMPLES) {
