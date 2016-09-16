@@ -72,10 +72,6 @@ static uint32_t AdcTimeBuffer[1000];
 static int32_t AdcValueBuffer[1000];
 static uint16_t AdcBufferIndex = 0;
 
-// Used for plotting points on the pmf function
-static int32_t AdcOutputRangeBuffer[1000];  // x-axis
-static int32_t AdcOutputCountBuffer[1000]; // y-axis
-
 /* Summary: Delay 10 ms
  * Input:   Number of times to wait 10 ms
  * Output:  None
@@ -164,24 +160,6 @@ void Timer2A_Handler(void){
   for (int i = 0; i < ARBITRARY_VALUE; ++i) {}
 }
 
-/* Summary: Calculate the probality mass function from the ADC data
- * Input:   Minimum ADC value recorded
- * Output:  None
- */
-void CalculatePmfFunction(int32_t minAdcValue) {
-  for (int i = 0; i < 4096; ++i) {
-    AdcOutputCountBuffer[i] = 0;
-  }
-  
-  for (int i = 0; i < NUM_ADC_SAMPLES; ++i) {
-    uint32_t key = AdcValueBuffer[i] - minAdcValue;
-    AdcOutputCountBuffer[key] += 1;
-  }
-  
-  ST7735_XYplotInit("pmf plot", 0, NUM_ADC_SAMPLES, 0, NUM_ADC_SAMPLES);
-  ST7735_XYplot(4096, AdcValueBuffer, AdcOutputCountBuffer);
-}
-
 /* Summary: Calculate the time jitter 
  *          (difference between smallest and largest time difference)
  * Input:   None
@@ -247,11 +225,7 @@ int main(void){
       ST7735_OutUDec(timeJitter);
       PauseReset();
             
-      AdcBufferIndex = 0; // Reset
-      
-      // free(pmf);
-      // free(AdcOutputRangeBuffer);
-      // int32_t* pmf = (int32_t*) malloc(4096 * sizeof(int32_t));
+      AdcBufferIndex = 0; // Reset      
     }
   }
 }
