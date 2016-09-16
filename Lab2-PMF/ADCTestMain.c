@@ -174,14 +174,6 @@ static void pmfInit(int32_t minAdcValue, int32_t maxAdcValue) {
   ST7735_OutUDec(maxAdcValue);
   ST7735_SetCursor(17,2);
   ST7735_OutUDec(maxPmfValue);
-  
-  // Depricated, since MAX_PMF_DOMAIN uses the full adc range
-//  if ((maxAdcValue - minAdcValue) > MAX_PMF_DOMAIN) { 
-//    char * OOBError = "Range too large";
-//    ST7735_SetCursor(0, 7);
-//    ST7735_OutString(OOBError);
-//  } else{	// Plot the pmf function
-//  }
 }
 
 /* Summary: perform all of the initialization
