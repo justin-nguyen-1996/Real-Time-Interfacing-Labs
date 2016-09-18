@@ -3,8 +3,8 @@
 #include <stdint.h>
 #include "../inc/tm4c123gh6pm.h"
 #include "PLL.h"
-#include "keypad.h"
-#include "timer.h"
+#include "Timer.h"
+#include "Keypad.h"
 #include "draw.h"
 #include "out.h"
 #include "FIFO.h"

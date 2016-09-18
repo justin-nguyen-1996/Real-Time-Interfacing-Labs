@@ -17,7 +17,14 @@ typedef enum Keypad_ID {
   DIR_DOWN = 12,
   DIR_LEFT = 13,
   MENU_SELECT = 14
-} keypad_id;
+} Keypad_ID;
 
+/* Summary: Initialize ports B and D for a total of 16 pins.
+ *          Interrupts will be enabled on rising edges.
+ *          Inputs are positive logic.
+ * Input:   None
+ * Output:  None
+ */
 void Keypad_Init(void);
+
 #endif

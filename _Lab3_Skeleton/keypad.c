@@ -1,6 +1,6 @@
 #include <stdint.h>
 #include "../inc/tm4c123gh6pm.h"
-#include "keypad.h"
+#include "Keypad.h"
 #include "FIFO.h"
 
 #define ORIGIN_KEYPAD 2
@@ -9,7 +9,7 @@
  * Input:   None
  * Output:  None
  */
-void PortB_Init(void) {
+static void PortB_Init(void) {
   SYSCTL_RCGCGPIO_R |= 0x02;        // 1) activate port B
   while((SYSCTL_PRGPIO_R&0x02)==0){};   // 2) allow time for clock to stabilize
   GPIO_PORTB_AMSEL_R &= ~0xFF;      // 3) disable analog functionality on PB7-0
@@ -30,7 +30,7 @@ void PortB_Init(void) {
  * Input:   None
  * Output:  None
  */
-void PortD_Init(void) {
+static void PortD_Init(void) {
   SYSCTL_RCGCGPIO_R |= 0x08;        // 1) activate port D
   while((SYSCTL_PRGPIO_R&0x08)==0){};   // allow time for clock to stabilize
   
@@ -60,4 +60,12 @@ void Keypad_Init(void)
 {
   PortB_Init();
   PortD_Init();
+}
+
+void GPIOPortB_Handler(void){
+  //GPIO_PORTB_ICR_R = 0x10;      // acknowledge flag4
+}
+
+void GPIOPortD_Handler(void){
+  //GPIO_PORTD_ICR_R = 0x10;      // acknowledge flag4
 }

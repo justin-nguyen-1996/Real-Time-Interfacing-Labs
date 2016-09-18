@@ -8,6 +8,8 @@
 // Daniel Valvano
 // May 2, 2015
 
+#include <stdint.h>
+
 /* This example accompanies the book
    "Embedded Systems: Real Time Interfacing to Arm Cortex M Microcontrollers",
    ISBN: 978-1463590154, Jonathan Valvano, copyright (c) 2015
@@ -28,8 +30,6 @@
 
 #ifndef __FIFO_H__
 #define __FIFO_H__
-
-#include <stdint.h>
 
 long StartCritical (void);    // previous I bit, disable interrupts
 void EndCritical(long sr);    // restore I bit to previous value
