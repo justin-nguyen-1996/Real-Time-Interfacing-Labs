@@ -1187,7 +1187,9 @@ void ST7735_SetCursor(uint32_t newX, uint32_t newY){
 // Input: 32-bit number to be transferred
 // Output: none
 // Variable format 1-10 digits with no space before or after
+#define PF1 (*((volatile uint32_t *)0x40025008))
 void ST7735_OutUDec(uint32_t n){
+  PF1 ^= 0x01;
   Messageindex = 0;
   fillmessage(n);
   Message[Messageindex] = 0; // terminate
@@ -1197,6 +1199,7 @@ void ST7735_OutUDec(uint32_t n){
     StX = 20;
     ST7735_DrawCharS(StX*6,StY*10,'*',ST7735_RED,ST7735_BLACK, 1);
   }
+  PF1 ^= 0x01;
 }
 
 

@@ -122,8 +122,8 @@ void PortF_Init() {
   while((SYSCTL_PRGPIO_R&0x20)==0){};   // allow time for clock to start
   GPIO_PORTF_PUR_R |= 0x10;             // pullup for PF4
   GPIO_PORTF_DIR_R |= 0x0E;             // make PF3, PF2, PF1 out (built-in LED)
-  GPIO_PORTF_AFSEL_R &= ~0x1F;          // disable alt funct on PortF
-  GPIO_PORTF_DEN_R |= 0x1F;             // enable digital I/O on PortF
+  GPIO_PORTF_AFSEL_R &= ~0x1E;          // disable alt funct on PortF
+  GPIO_PORTF_DEN_R |= 0x1E;             // enable digital I/O on PortF
                                         // configure PF2 as GPIO
   GPIO_PORTF_PCTL_R = (GPIO_PORTF_PCTL_R&0xFFFFF00F)+0x00000000;
   GPIO_PORTF_AMSEL_R = 0;               // disable analog functionality on PF
@@ -182,6 +182,11 @@ uint32_t calculateTimeJitter() {
   return maxTimeDifference - minTimeDifference;
 }
 
+
+/* Summary: Initialize everything needed
+ * Input:   none
+ * Output:  none
+ */
 static void initAll() {
   // Change these to choose timer interrupt frequencies.
   const uint32_t MAX_RELOAD_VAL = 0xFFFFFFFF;
@@ -198,15 +203,21 @@ static void initAll() {
   Timer1_Init(MAX_RELOAD_VAL); //needs to be initialized last
 }
 
+
+/* Summary: test time jitter
+ * Input:   none
+ * Output:  none
+ */
 int main(void){  
   initAll();
+  PortF_Init();
   EnableInterrupts();
   
   while(1){
     PF1 ^= 0x02;
     
     // This line causes jitter (takes 2 to 12 clock cycles)
-    PF1 = (PF1*12345678)/1234567+0x02;
+    //PF1 = (PF1*12345678)/1234567+0x02;
     
     // Wait until ADC samples are collected
     if (AdcBufferIndex >= NUM_ADC_SAMPLES) {
