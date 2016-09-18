@@ -1,0 +1,954 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ADC0Seq0_Handler	startup.s	/^ADC0Seq0_Handler$/;"	l
+ADC0Seq0_Handler	tm4c123gh6pm_startup_ccs.c	/^void ADC0Seq0_Handler(void){ while(1){}}           \/\/ ADC0 Sequence 0$/;"	f
+ADC0Seq1_Handler	startup.s	/^ADC0Seq1_Handler$/;"	l
+ADC0Seq1_Handler	tm4c123gh6pm_startup_ccs.c	/^void ADC0Seq1_Handler(void){ while(1){}}           \/\/ ADC0 Sequence 1$/;"	f
+ADC0Seq2_Handler	startup.s	/^ADC0Seq2_Handler$/;"	l
+ADC0Seq2_Handler	tm4c123gh6pm_startup_ccs.c	/^void ADC0Seq2_Handler(void){ while(1){}}           \/\/ ADC0 Sequence 2$/;"	f
+ADC0Seq3_Handler	startup.s	/^ADC0Seq3_Handler$/;"	l
+ADC0Seq3_Handler	tm4c123gh6pm_startup_ccs.c	/^void ADC0Seq3_Handler(void){ while(1){}}           \/\/ ADC0 Sequence 3$/;"	f
+ADC0_InSeq3	ADCSWTrigger.c	/^uint32_t ADC0_InSeq3(void){  uint32_t result;$/;"	f
+ADC0_InitSWTriggerSeq3_Ch9	ADCSWTrigger.c	/^void ADC0_InitSWTriggerSeq3_Ch9(void){ $/;"	f
+ADC1Seq0_Handler	startup.s	/^ADC1Seq0_Handler$/;"	l
+ADC1Seq0_Handler	tm4c123gh6pm_startup_ccs.c	/^void ADC1Seq0_Handler(void){ while(1){}}           \/\/ ADC1 Sequence 0$/;"	f
+ADC1Seq1_Handler	startup.s	/^ADC1Seq1_Handler$/;"	l
+ADC1Seq1_Handler	tm4c123gh6pm_startup_ccs.c	/^void ADC1Seq1_Handler(void){ while(1){}}           \/\/ ADC1 Sequence 1$/;"	f
+ADC1Seq2_Handler	startup.s	/^ADC1Seq2_Handler$/;"	l
+ADC1Seq2_Handler	tm4c123gh6pm_startup_ccs.c	/^void ADC1Seq2_Handler(void){ while(1){}}           \/\/ ADC1 Sequence 2$/;"	f
+ADC1Seq3_Handler	startup.s	/^ADC1Seq3_Handler$/;"	l
+ADC1Seq3_Handler	tm4c123gh6pm_startup_ccs.c	/^void ADC1Seq3_Handler(void){ while(1){}}           \/\/ ADC1 Sequence 3$/;"	f
+ALARM_FLASH	timer.h	/^  ALARM_FLASH = 4,$/;"	e	enum:timer_id
+ALARM_LED	timer.h	/^  ALARM_LED = 3,$/;"	e	enum:timer_id
+ALARM_SOUND	timer.h	/^  ALARM_SOUND = 2,$/;"	e	enum:timer_id
+AddIndexFifo	FIFO.h	77;"	d
+AddPointerFifo	FIFO.h	111;"	d
+Bcmd	ST7735.c	/^  Bcmd[] = {                  \/\/ Initialization commands for 7735B screens$/;"	v	file:
+Bus10MHz	PLL.h	72;"	d
+Bus10_000MHz	PLL.h	71;"	d
+Bus10_256MHz	PLL.h	70;"	d
+Bus10_526MHz	PLL.h	69;"	d
+Bus10_811MHz	PLL.h	68;"	d
+Bus11_111MHz	PLL.h	67;"	d
+Bus11_429MHz	PLL.h	66;"	d
+Bus11_765MHz	PLL.h	65;"	d
+Bus12_121MHz	PLL.h	64;"	d
+Bus12_500MHz	PLL.h	63;"	d
+Bus12_903MHz	PLL.h	62;"	d
+Bus13_333MHz	PLL.h	61;"	d
+Bus13_793MHz	PLL.h	60;"	d
+Bus14_286MHz	PLL.h	59;"	d
+Bus14_815MHz	PLL.h	58;"	d
+Bus15_385MHz	PLL.h	57;"	d
+Bus16MHz	PLL.h	56;"	d
+Bus16_000MHz	PLL.h	55;"	d
+Bus16_667MHz	PLL.h	54;"	d
+Bus17_391MHz	PLL.h	53;"	d
+Bus18_182MHz	PLL.h	52;"	d
+Bus19_048MHz	PLL.h	51;"	d
+Bus20MHz	PLL.h	50;"	d
+Bus20_000MHz	PLL.h	49;"	d
+Bus21_053MHz	PLL.h	48;"	d
+Bus22_222MHz	PLL.h	47;"	d
+Bus23_529MHz	PLL.h	46;"	d
+Bus25MHz	PLL.h	45;"	d
+Bus25_000MHz	PLL.h	44;"	d
+Bus26_667MHz	PLL.h	43;"	d
+Bus28_571MHz	PLL.h	42;"	d
+Bus30_769MHz	PLL.h	41;"	d
+Bus33_333MHz	PLL.h	40;"	d
+Bus36_364MHz	PLL.h	39;"	d
+Bus3_125MHz	PLL.h	162;"	d
+Bus3_150MHz	PLL.h	161;"	d
+Bus3_175MHz	PLL.h	160;"	d
+Bus3_200MHz	PLL.h	159;"	d
+Bus3_226MHz	PLL.h	158;"	d
+Bus3_252MHz	PLL.h	157;"	d
+Bus3_279MHz	PLL.h	156;"	d
+Bus3_306MHz	PLL.h	155;"	d
+Bus3_333MHz	PLL.h	154;"	d
+Bus3_361MHz	PLL.h	153;"	d
+Bus3_390MHz	PLL.h	152;"	d
+Bus3_419MHz	PLL.h	151;"	d
+Bus3_448MHz	PLL.h	150;"	d
+Bus3_478MHz	PLL.h	149;"	d
+Bus3_509MHz	PLL.h	148;"	d
+Bus3_540MHz	PLL.h	147;"	d
+Bus3_571MHz	PLL.h	146;"	d
+Bus3_604MHz	PLL.h	145;"	d
+Bus3_636MHz	PLL.h	144;"	d
+Bus3_670MHz	PLL.h	143;"	d
+Bus3_704MHz	PLL.h	142;"	d
+Bus3_738MHz	PLL.h	141;"	d
+Bus3_774MHz	PLL.h	140;"	d
+Bus3_810MHz	PLL.h	139;"	d
+Bus3_846MHz	PLL.h	138;"	d
+Bus3_883MHz	PLL.h	137;"	d
+Bus3_922MHz	PLL.h	136;"	d
+Bus3_960MHz	PLL.h	135;"	d
+Bus40MHz	PLL.h	38;"	d
+Bus40_000MHz	PLL.h	37;"	d
+Bus44_444MHz	PLL.h	36;"	d
+Bus4MHz	PLL.h	134;"	d
+Bus4_000MHz	PLL.h	133;"	d
+Bus4_040MHz	PLL.h	132;"	d
+Bus4_082MHz	PLL.h	131;"	d
+Bus4_124MHz	PLL.h	130;"	d
+Bus4_167MHz	PLL.h	129;"	d
+Bus4_211MHz	PLL.h	128;"	d
+Bus4_255MHz	PLL.h	127;"	d
+Bus4_301MHz	PLL.h	126;"	d
+Bus4_348MHz	PLL.h	125;"	d
+Bus4_396MHz	PLL.h	124;"	d
+Bus4_444MHz	PLL.h	123;"	d
+Bus4_494MHz	PLL.h	122;"	d
+Bus4_545MHz	PLL.h	121;"	d
+Bus4_598MHz	PLL.h	120;"	d
+Bus4_651MHz	PLL.h	119;"	d
+Bus4_706MHz	PLL.h	118;"	d
+Bus4_762MHz	PLL.h	117;"	d
+Bus4_819MHz	PLL.h	116;"	d
+Bus4_878MHz	PLL.h	115;"	d
+Bus4_938MHz	PLL.h	114;"	d
+Bus50MHz	PLL.h	35;"	d
+Bus50_000MHz	PLL.h	34;"	d
+Bus5_000MHz	PLL.h	113;"	d
+Bus5_063MHz	PLL.h	112;"	d
+Bus5_128MHz	PLL.h	111;"	d
+Bus5_195MHz	PLL.h	110;"	d
+Bus5_263MHz	PLL.h	109;"	d
+Bus5_333MHz	PLL.h	108;"	d
+Bus5_405MHz	PLL.h	107;"	d
+Bus5_479MHz	PLL.h	106;"	d
+Bus5_556MHz	PLL.h	105;"	d
+Bus5_634MHz	PLL.h	104;"	d
+Bus5_714MHz	PLL.h	103;"	d
+Bus5_797MHz	PLL.h	102;"	d
+Bus5_882MHz	PLL.h	101;"	d
+Bus5_970MHz	PLL.h	100;"	d
+Bus66_667MHz	PLL.h	33;"	d
+Bus6_061MHz	PLL.h	99;"	d
+Bus6_154MHz	PLL.h	98;"	d
+Bus6_250MHz	PLL.h	97;"	d
+Bus6_349MHz	PLL.h	96;"	d
+Bus6_452MHz	PLL.h	95;"	d
+Bus6_557MHz	PLL.h	94;"	d
+Bus6_667MHz	PLL.h	93;"	d
+Bus6_780MHz	PLL.h	92;"	d
+Bus6_897MHz	PLL.h	91;"	d
+Bus7_018MHz	PLL.h	90;"	d
+Bus7_143MHz	PLL.h	89;"	d
+Bus7_273MHz	PLL.h	88;"	d
+Bus7_407MHz	PLL.h	87;"	d
+Bus7_547MHz	PLL.h	86;"	d
+Bus7_692MHz	PLL.h	85;"	d
+Bus7_843MHz	PLL.h	84;"	d
+Bus80MHz	PLL.h	31;"	d
+Bus80_000MHz	PLL.h	32;"	d
+Bus8MHz	PLL.h	83;"	d
+Bus8_000MHz	PLL.h	82;"	d
+Bus8_163MHz	PLL.h	81;"	d
+Bus8_333MHz	PLL.h	80;"	d
+Bus8_511MHz	PLL.h	79;"	d
+Bus8_696MHz	PLL.h	78;"	d
+Bus8_889MHz	PLL.h	77;"	d
+Bus9_091MHz	PLL.h	76;"	d
+Bus9_302MHz	PLL.h	75;"	d
+Bus9_524MHz	PLL.h	74;"	d
+Bus9_756MHz	PLL.h	73;"	d
+CAN0_Handler	startup.s	/^CAN0_Handler$/;"	l
+CAN0_Handler	tm4c123gh6pm_startup_ccs.c	/^void CAN0_Handler(void){ while(1){}}               \/\/ CAN0$/;"	f
+CAN1_Handler	startup.s	/^CAN1_Handler$/;"	l
+CAN1_Handler	tm4c123gh6pm_startup_ccs.c	/^void CAN1_Handler(void){ while(1){}}               \/\/ CAN1$/;"	f
+CAN2_Handler	startup.s	/^CAN2_Handler$/;"	l
+CAN2_Handler	tm4c123gh6pm_startup_ccs.c	/^void CAN2_Handler(void){ while(1){}}               \/\/ CAN2$/;"	f
+CLOCK_TICK	timer.h	/^  CLOCK_TICK = 0,$/;"	e	enum:timer_id
+CURSOR_BLINK	timer.h	/^  CURSOR_BLINK = 1,$/;"	e	enum:timer_id
+ColStart	ST7735.c	/^static uint8_t ColStart, RowStart; \/\/ some displays need this changed$/;"	v	file:
+Comp0_Handler	startup.s	/^Comp0_Handler$/;"	l
+Comp0_Handler	tm4c123gh6pm_startup_ccs.c	/^void Comp0_Handler(void){ while(1){}}              \/\/ Analog Comp 0$/;"	f
+Comp1_Handler	startup.s	/^Comp1_Handler$/;"	l
+Comp1_Handler	tm4c123gh6pm_startup_ccs.c	/^void Comp1_Handler(void){ while(1){}}              \/\/ Analog Comp 1$/;"	f
+Comp2_Handler	startup.s	/^Comp2_Handler$/;"	l
+Comp2_Handler	tm4c123gh6pm_startup_ccs.c	/^void Comp2_Handler(void){ while(1){}}              \/\/ Analog Comp 2$/;"	f
+DC	ST7735.c	151;"	d	file:
+DC_COMMAND	ST7735.c	152;"	d	file:
+DC_DATA	ST7735.c	153;"	d	file:
+DELAY	ST7735.c	545;"	d	file:
+DIR_DOWN	keypad.h	/^  DIR_DOWN = 12,$/;"	e	enum:keypad_id
+DIR_LEFT	keypad.h	/^  DIR_LEFT = 13,$/;"	e	enum:keypad_id
+DIR_RIGHT	keypad.h	/^  DIR_RIGHT = 11,$/;"	e	enum:keypad_id
+DIR_UP	keypad.h	/^  DIR_UP = 10,$/;"	e	enum:keypad_id
+DISPLAY	ADCTestMain.c	/^  DISPLAY = 1,$/;"	e	enum:actionType	file:
+DISPLAY	main.c	/^  DISPLAY = 1,$/;"	e	enum:actionType	file:
+DebugMon_Handler	tm4c123gh6pm_startup_ccs.c	/^void DebugMon_Handler(void){ while(1){}}           \/\/ Debug Monitor Handler$/;"	f
+Delay1ms	ST7735.c	/^void Delay1ms(uint32_t n){uint32_t volatile time;$/;"	f
+DisableInterrupts	startup.s	/^DisableInterrupts$/;"	l
+DisableInterrupts	tm4c123gh6pm_startup_ccs.c	/^void DisableInterrupts(void){$/;"	f
+EnableInterrupts	startup.s	/^EnableInterrupts$/;"	l
+EnableInterrupts	tm4c123gh6pm_startup_ccs.c	/^void EnableInterrupts(void){$/;"	f
+EndCritical	startup.s	/^EndCritical$/;"	l
+EndCritical	tm4c123gh6pm_startup_ccs.c	/^void EndCritical(void){$/;"	f
+Ethernet_Handler	startup.s	/^Ethernet_Handler$/;"	l
+Ethernet_Handler	tm4c123gh6pm_startup_ccs.c	/^void Ethernet_Handler(void){ while(1){}}           \/\/ Ethernet$/;"	f
+ExtBus_Handler	startup.s	/^ExtBus_Handler$/;"	l
+ExtBus_Handler	tm4c123gh6pm_startup_ccs.c	/^void ExtBus_Handler(void){ while(1){}}             \/\/ External Bus Interface 0$/;"	f
+FPU_Handler	startup.s	/^FPU_Handler$/;"	l
+FPU_Handler	tm4c123gh6pm_startup_ccs.c	/^void FPU_Handler(void){ while(1){}}                \/\/ FPU$/;"	f
+Fan0_Handler	startup.s	/^Fan0_Handler$/;"	l
+Fan0_Handler	tm4c123gh6pm_startup_ccs.c	/^void Fan0_Handler(void){ while(1){}}               \/\/ Fan 0$/;"	f
+FaultISR	tm4c123gh6pm_startup_ccs.c	/^FaultISR(void)$/;"	f	file:
+FlashCtl_Handler	startup.s	/^FlashCtl_Handler$/;"	l
+FlashCtl_Handler	tm4c123gh6pm_startup_ccs.c	/^void FlashCtl_Handler(void){ while(1){}}           \/\/ Flash Control$/;"	f
+Font	ST7735.c	/^static const uint8_t Font[] = {$/;"	v	file:
+GPIOPortA_Handler	startup.s	/^GPIOPortA_Handler$/;"	l
+GPIOPortA_Handler	tm4c123gh6pm_startup_ccs.c	/^void GPIOPortA_Handler(void){ while(1){}}          \/\/ GPIO Port A$/;"	f
+GPIOPortB_Handler	startup.s	/^GPIOPortB_Handler$/;"	l
+GPIOPortB_Handler	tm4c123gh6pm_startup_ccs.c	/^void GPIOPortB_Handler(void){ while(1){}}          \/\/ GPIO Port B$/;"	f
+GPIOPortB_init	keypad.c	/^void GPIOPortB_init(void){}$/;"	f
+GPIOPortC_Handler	startup.s	/^GPIOPortC_Handler$/;"	l
+GPIOPortC_Handler	tm4c123gh6pm_startup_ccs.c	/^void GPIOPortC_Handler(void){ while(1){}}          \/\/ GPIO Port C$/;"	f
+GPIOPortD_Handler	startup.s	/^GPIOPortD_Handler$/;"	l
+GPIOPortD_Handler	tm4c123gh6pm_startup_ccs.c	/^void GPIOPortD_Handler(void){ while(1){}}          \/\/ GPIO Port D$/;"	f
+GPIOPortD_init	keypad.c	/^void GPIOPortD_init(void){}$/;"	f
+GPIOPortE_Handler	startup.s	/^GPIOPortE_Handler$/;"	l
+GPIOPortE_Handler	tm4c123gh6pm_startup_ccs.c	/^void GPIOPortE_Handler(void){ while(1){}}          \/\/ GPIO Port E$/;"	f
+GPIOPortF_Handler	startup.s	/^GPIOPortF_Handler$/;"	l
+GPIOPortF_Handler	tm4c123gh6pm_startup_ccs.c	/^void GPIOPortF_Handler(void){ while(1){}}          \/\/ GPIO Port F$/;"	f
+GPIOPortG_Handler	startup.s	/^GPIOPortG_Handler$/;"	l
+GPIOPortG_Handler	tm4c123gh6pm_startup_ccs.c	/^void GPIOPortG_Handler(void){ while(1){}}          \/\/ GPIO Port G$/;"	f
+GPIOPortH_Handler	startup.s	/^GPIOPortH_Handler$/;"	l
+GPIOPortH_Handler	tm4c123gh6pm_startup_ccs.c	/^void GPIOPortH_Handler(void){ while(1){}}          \/\/ GPIO Port H$/;"	f
+GPIOPortJ_Handler	startup.s	/^GPIOPortJ_Handler$/;"	l
+GPIOPortJ_Handler	tm4c123gh6pm_startup_ccs.c	/^void GPIOPortJ_Handler(void){ while(1){}}          \/\/ GPIO Port J$/;"	f
+GPIOPortK_Handler	startup.s	/^GPIOPortK_Handler$/;"	l
+GPIOPortK_Handler	tm4c123gh6pm_startup_ccs.c	/^void GPIOPortK_Handler(void){ while(1){}}          \/\/ GPIO Port K$/;"	f
+GPIOPortL_Handler	startup.s	/^GPIOPortL_Handler$/;"	l
+GPIOPortL_Handler	tm4c123gh6pm_startup_ccs.c	/^void GPIOPortL_Handler(void){ while(1){}}          \/\/ GPIO Port L$/;"	f
+GPIOPortM_Handler	startup.s	/^GPIOPortM_Handler$/;"	l
+GPIOPortM_Handler	tm4c123gh6pm_startup_ccs.c	/^void GPIOPortM_Handler(void){ while(1){}}          \/\/ GPIO Port M$/;"	f
+GPIOPortN_Handler	startup.s	/^GPIOPortN_Handler$/;"	l
+GPIOPortN_Handler	tm4c123gh6pm_startup_ccs.c	/^void GPIOPortN_Handler(void){ while(1){}}          \/\/ GPIO Port N$/;"	f
+GPIOPortP1_Handler	startup.s	/^GPIOPortP1_Handler$/;"	l
+GPIOPortP1_Handler	tm4c123gh6pm_startup_ccs.c	/^void GPIOPortP1_Handler(void){ while(1){}}         \/\/ GPIO Port P1$/;"	f
+GPIOPortP2_Handler	startup.s	/^GPIOPortP2_Handler$/;"	l
+GPIOPortP2_Handler	tm4c123gh6pm_startup_ccs.c	/^void GPIOPortP2_Handler(void){ while(1){}}         \/\/ GPIO Port P2$/;"	f
+GPIOPortP3_Handler	startup.s	/^GPIOPortP3_Handler$/;"	l
+GPIOPortP3_Handler	tm4c123gh6pm_startup_ccs.c	/^void GPIOPortP3_Handler(void){ while(1){}}         \/\/ GPIO Port P3$/;"	f
+GPIOPortP4_Handler	startup.s	/^GPIOPortP4_Handler$/;"	l
+GPIOPortP4_Handler	tm4c123gh6pm_startup_ccs.c	/^void GPIOPortP4_Handler(void){ while(1){}}         \/\/ GPIO Port P4$/;"	f
+GPIOPortP5_Handler	startup.s	/^GPIOPortP5_Handler$/;"	l
+GPIOPortP5_Handler	tm4c123gh6pm_startup_ccs.c	/^void GPIOPortP5_Handler(void){ while(1){}}         \/\/ GPIO Port P5$/;"	f
+GPIOPortP6_Handler	startup.s	/^GPIOPortP6_Handler$/;"	l
+GPIOPortP6_Handler	tm4c123gh6pm_startup_ccs.c	/^void GPIOPortP6_Handler(void){ while(1){}}         \/\/ GPIO Port P6$/;"	f
+GPIOPortP7_Handler	startup.s	/^GPIOPortP7_Handler$/;"	l
+GPIOPortP7_Handler	tm4c123gh6pm_startup_ccs.c	/^void GPIOPortP7_Handler(void){ while(1){}}         \/\/ GPIO Port P7$/;"	f
+GPIOPortP_Handler	startup.s	/^GPIOPortP_Handler$/;"	l
+GPIOPortP_Handler	tm4c123gh6pm_startup_ccs.c	/^void GPIOPortP_Handler(void){ while(1){}}          \/\/ GPIO Port P (Summary or P0)$/;"	f
+GPIOPortQ1_Handler	startup.s	/^GPIOPortQ1_Handler$/;"	l
+GPIOPortQ1_Handler	tm4c123gh6pm_startup_ccs.c	/^void GPIOPortQ1_Handler(void){ while(1){}}         \/\/ GPIO Port Q1$/;"	f
+GPIOPortQ2_Handler	startup.s	/^GPIOPortQ2_Handler$/;"	l
+GPIOPortQ2_Handler	tm4c123gh6pm_startup_ccs.c	/^void GPIOPortQ2_Handler(void){ while(1){}}         \/\/ GPIO Port Q2$/;"	f
+GPIOPortQ3_Handler	startup.s	/^GPIOPortQ3_Handler$/;"	l
+GPIOPortQ3_Handler	tm4c123gh6pm_startup_ccs.c	/^void GPIOPortQ3_Handler(void){ while(1){}}         \/\/ GPIO Port Q3$/;"	f
+GPIOPortQ4_Handler	startup.s	/^GPIOPortQ4_Handler$/;"	l
+GPIOPortQ4_Handler	tm4c123gh6pm_startup_ccs.c	/^void GPIOPortQ4_Handler(void){ while(1){}}         \/\/ GPIO Port Q4$/;"	f
+GPIOPortQ5_Handler	startup.s	/^GPIOPortQ5_Handler$/;"	l
+GPIOPortQ5_Handler	tm4c123gh6pm_startup_ccs.c	/^void GPIOPortQ5_Handler(void){ while(1){}}         \/\/ GPIO Port Q5$/;"	f
+GPIOPortQ6_Handler	startup.s	/^GPIOPortQ6_Handler$/;"	l
+GPIOPortQ6_Handler	tm4c123gh6pm_startup_ccs.c	/^void GPIOPortQ6_Handler(void){ while(1){}}         \/\/ GPIO Port Q6$/;"	f
+GPIOPortQ7_Handler	startup.s	/^GPIOPortQ7_Handler$/;"	l
+GPIOPortQ7_Handler	tm4c123gh6pm_startup_ccs.c	/^void GPIOPortQ7_Handler(void){ while(1){}}         \/\/ GPIO Port Q7$/;"	f
+GPIOPortQ_Handler	startup.s	/^GPIOPortQ_Handler$/;"	l
+GPIOPortQ_Handler	tm4c123gh6pm_startup_ccs.c	/^void GPIOPortQ_Handler(void){ while(1){}}          \/\/ GPIO Port Q (Summary or Q0)$/;"	f
+GPIOPortR_Handler	startup.s	/^GPIOPortR_Handler$/;"	l
+GPIOPortR_Handler	tm4c123gh6pm_startup_ccs.c	/^void GPIOPortR_Handler(void){ while(1){}}          \/\/ GPIO Port R$/;"	f
+GPIOPortS_Handler	startup.s	/^GPIOPortS_Handler$/;"	l
+GPIOPortS_Handler	tm4c123gh6pm_startup_ccs.c	/^void GPIOPortS_Handler(void){ while(1){}}          \/\/ GPIO Port S$/;"	f
+Heap	startup.s	/^Heap    EQU     0x00000000$/;"	d
+HeapMem	startup.s	/^HeapMem$/;"	l
+Hibernate_Handler	startup.s	/^Hibernate_Handler$/;"	l
+Hibernate_Handler	tm4c123gh6pm_startup_ccs.c	/^void Hibernate_Handler(void){ while(1){}}          \/\/ Hibernate$/;"	f
+I2C0_Handler	startup.s	/^I2C0_Handler$/;"	l
+I2C0_Handler	tm4c123gh6pm_startup_ccs.c	/^void I2C0_Handler(void){ while(1){}}               \/\/ I2C0 Master and Slave$/;"	f
+I2C1_Handler	startup.s	/^I2C1_Handler$/;"	l
+I2C1_Handler	tm4c123gh6pm_startup_ccs.c	/^void I2C1_Handler(void){ while(1){}}               \/\/ I2C1 Master and Slave$/;"	f
+I2C2_Handler	startup.s	/^I2C2_Handler$/;"	l
+I2C2_Handler	tm4c123gh6pm_startup_ccs.c	/^void I2C2_Handler(void){ while(1){}}               \/\/ I2C2 Master and Slave$/;"	f
+I2C3_Handler	startup.s	/^I2C3_Handler$/;"	l
+I2C3_Handler	tm4c123gh6pm_startup_ccs.c	/^void I2C3_Handler(void){ while(1){}}               \/\/ I2C3 Master and Slave$/;"	f
+I2C4_Handler	startup.s	/^I2C4_Handler$/;"	l
+I2C4_Handler	tm4c123gh6pm_startup_ccs.c	/^void I2C4_Handler(void){ while(1){}}               \/\/ I2C4 Master and Slave$/;"	f
+I2C5_Handler	startup.s	/^I2C5_Handler$/;"	l
+I2C5_Handler	tm4c123gh6pm_startup_ccs.c	/^void I2C5_Handler(void){ while(1){}}               \/\/ I2C5 Master and Slave$/;"	f
+I2S0_Handler	startup.s	/^I2S0_Handler$/;"	l
+I2S0_Handler	tm4c123gh6pm_startup_ccs.c	/^void I2S0_Handler(void){ while(1){}}               \/\/ I2S0$/;"	f
+INITR_BLACKTAB	ST7735.h	/^  INITR_BLACKTAB$/;"	e	enum:initRFlags
+INITR_GREENTAB	ST7735.h	/^  INITR_GREENTAB,$/;"	e	enum:initRFlags
+INITR_REDTAB	ST7735.h	/^  INITR_REDTAB,$/;"	e	enum:initRFlags
+IntDefaultHandler	tm4c123gh6pm_startup_ccs.c	/^IntDefaultHandler(void)$/;"	f	file:
+LPC0_Handler	startup.s	/^LPC0_Handler$/;"	l
+LPC0_Handler	tm4c123gh6pm_startup_ccs.c	/^void LPC0_Handler(void){ while(1){}}               \/\/ LPC 0$/;"	f
+MADCTL_BGR	ST7735.c	1211;"	d	file:
+MADCTL_MH	ST7735.c	1212;"	d	file:
+MADCTL_ML	ST7735.c	1209;"	d	file:
+MADCTL_MV	ST7735.c	1208;"	d	file:
+MADCTL_MX	ST7735.c	1207;"	d	file:
+MADCTL_MY	ST7735.c	1206;"	d	file:
+MADCTL_RGB	ST7735.c	1210;"	d	file:
+MAXIMUM_X_PIXEL	fixed.c	145;"	d	file:
+MAXIMUM_Y_PIXEL	fixed.c	147;"	d	file:
+MAX_sDecOut3	fixed.c	79;"	d	file:
+MAX_uBinOut8	fixed.c	114;"	d	file:
+MENU_SELECT	keypad.h	/^  MENU_SELECT = 14$/;"	e	enum:keypad_id
+MINIMUM_X_PIXEL	fixed.c	144;"	d	file:
+MINIMUM_Y_PIXEL	fixed.c	146;"	d	file:
+MIN_sDecOut3	fixed.c	78;"	d	file:
+Message	ST7735.c	/^char Message[12];$/;"	v
+Messageindex	ST7735.c	/^uint32_t Messageindex;$/;"	v
+NMI_Handler	startup.s	/^NMI_Handler     PROC$/;"	l
+NUMBER_0	keypad.h	/^  NUMBER_0 = 0,$/;"	e	enum:keypad_id
+NUMBER_1	keypad.h	/^  NUMBER_1 = 1,$/;"	e	enum:keypad_id
+NUMBER_2	keypad.h	/^  NUMBER_2 = 2,$/;"	e	enum:keypad_id
+NUMBER_3	keypad.h	/^  NUMBER_3 = 3,$/;"	e	enum:keypad_id
+NUMBER_4	keypad.h	/^  NUMBER_4 = 4,$/;"	e	enum:keypad_id
+NUMBER_5	keypad.h	/^  NUMBER_5 = 5,$/;"	e	enum:keypad_id
+NUMBER_6	keypad.h	/^  NUMBER_6 = 6,$/;"	e	enum:keypad_id
+NUMBER_7	keypad.h	/^  NUMBER_7 = 7,$/;"	e	enum:keypad_id
+NUMBER_8	keypad.h	/^  NUMBER_8 = 8,$/;"	e	enum:keypad_id
+NUMBER_9	keypad.h	/^  NUMBER_9 = 9,$/;"	e	enum:keypad_id
+NmiSR	tm4c123gh6pm_startup_ccs.c	/^NmiSR(void)$/;"	f	file:
+ORIGIN_KEYPAD	keypad.c	6;"	d	file:
+ORIGIN_MAIN	ADCTestMain.c	12;"	d	file:
+ORIGIN_MAIN	main.c	12;"	d	file:
+ORIGIN_TIMER	timer.c	6;"	d	file:
+OUT	ADCTestMain.c	/^  OUT = 2$/;"	e	enum:actionType	file:
+OUT	main.c	/^  OUT = 2$/;"	e	enum:actionType	file:
+Output_Clear	ST7735.c	/^void Output_Clear(void){ \/\/ Clears the display$/;"	f
+Output_Color	ST7735.c	/^void Output_Color(uint32_t newColor){ \/\/ Set color of future output$/;"	f
+Output_Init	ST7735.c	/^void Output_Init(void){$/;"	f
+Output_Off	ST7735.c	/^void Output_Off(void){   \/\/ Turns off the display$/;"	f
+Output_On	ST7735.c	/^void Output_On(void){ \/\/ Turns on the display$/;"	f
+PECI0_Handler	startup.s	/^PECI0_Handler$/;"	l
+PECI0_Handler	tm4c123gh6pm_startup_ccs.c	/^void PECI0_Handler(void){ while(1){}}              \/\/ PECI 0$/;"	f
+PLL_Init	PLL.c	/^void PLL_Init(uint32_t freq){$/;"	f
+PWM0Fault_Handler	startup.s	/^PWM0Fault_Handler$/;"	l
+PWM0Fault_Handler	tm4c123gh6pm_startup_ccs.c	/^void PWM0Fault_Handler(void){ while(1){}}          \/\/ PWM 0 Fault$/;"	f
+PWM0Generator0_Handler	startup.s	/^PWM0Generator0_Handler$/;"	l
+PWM0Generator0_Handler	tm4c123gh6pm_startup_ccs.c	/^void PWM0Generator0_Handler(void){ while(1){}}     \/\/ PWM 0 Generator 0$/;"	f
+PWM0Generator1_Handler	startup.s	/^PWM0Generator1_Handler$/;"	l
+PWM0Generator1_Handler	tm4c123gh6pm_startup_ccs.c	/^void PWM0Generator1_Handler(void){ while(1){}}     \/\/ PWM 0 Generator 1$/;"	f
+PWM0Generator2_Handler	startup.s	/^PWM0Generator2_Handler$/;"	l
+PWM0Generator2_Handler	tm4c123gh6pm_startup_ccs.c	/^void PWM0Generator2_Handler(void){ while(1){}}     \/\/ PWM 0 Generator 2$/;"	f
+PWM0Generator3_Handler	startup.s	/^PWM0Generator3_Handler$/;"	l
+PWM0Generator3_Handler	tm4c123gh6pm_startup_ccs.c	/^void PWM0Generator3_Handler(void){ while(1){}}     \/\/ PWM 0 Generator 3$/;"	f
+PWM1Fault_Handler	startup.s	/^PWM1Fault_Handler$/;"	l
+PWM1Fault_Handler	tm4c123gh6pm_startup_ccs.c	/^void PWM1Fault_Handler(void){ while(1){}}          \/\/ PWM 1 Fault$/;"	f
+PWM1Generator0_Handler	startup.s	/^PWM1Generator0_Handler$/;"	l
+PWM1Generator0_Handler	tm4c123gh6pm_startup_ccs.c	/^void PWM1Generator0_Handler(void){ while(1){}}     \/\/ PWM 1 Generator 0$/;"	f
+PWM1Generator1_Handler	startup.s	/^PWM1Generator1_Handler$/;"	l
+PWM1Generator1_Handler	tm4c123gh6pm_startup_ccs.c	/^void PWM1Generator1_Handler(void){ while(1){}}     \/\/ PWM 1 Generator 1$/;"	f
+PWM1Generator2_Handler	startup.s	/^PWM1Generator2_Handler$/;"	l
+PWM1Generator2_Handler	tm4c123gh6pm_startup_ccs.c	/^void PWM1Generator2_Handler(void){ while(1){}}     \/\/ PWM 1 Generator 2$/;"	f
+PWM1Generator3_Handler	startup.s	/^PWM1Generator3_Handler$/;"	l
+PWM1Generator3_Handler	tm4c123gh6pm_startup_ccs.c	/^void PWM1Generator3_Handler(void){ while(1){}}     \/\/ PWM 1 Generator 3$/;"	f
+PendSV_Handler	startup.s	/^PendSV_Handler  PROC$/;"	l
+PendSV_Handler	tm4c123gh6pm_startup_ccs.c	/^void PendSV_Handler(void){ while(1){}}             \/\/ PendSV Handler$/;"	f
+Quadrature0_Handler	startup.s	/^Quadrature0_Handler$/;"	l
+Quadrature0_Handler	tm4c123gh6pm_startup_ccs.c	/^void Quadrature0_Handler(void){ while(1){}}        \/\/ Quadrature Encoder 0$/;"	f
+Quadrature1_Handler	startup.s	/^Quadrature1_Handler$/;"	l
+Quadrature1_Handler	tm4c123gh6pm_startup_ccs.c	/^void Quadrature1_Handler(void){ while(1){}}        \/\/ Quadrature Encoder 1$/;"	f
+Quadrature2_Handler	startup.s	/^Quadrature2_Handler$/;"	l
+Quadrature2_Handler	tm4c123gh6pm_startup_ccs.c	/^void Quadrature2_Handler(void){ while(1){}}        \/\/ Quadrature Encoder 2$/;"	f
+RESET	ST7735.c	154;"	d	file:
+RESET_HIGH	ST7735.c	156;"	d	file:
+RESET_LOW	ST7735.c	155;"	d	file:
+RXFIFOFAIL	FIFO.h	60;"	d
+RXFIFOSIZE	FIFO.h	58;"	d
+RXFIFOSUCCESS	FIFO.h	59;"	d
+Rcmd1	ST7735.c	/^  Rcmd1[] = {                 \/\/ Init for 7735R, part 1 (red or green tab)$/;"	v	file:
+Rcmd2green	ST7735.c	/^  Rcmd2green[] = {            \/\/ Init for 7735R, part 2 (green tab only)$/;"	v	file:
+Rcmd2red	ST7735.c	/^  Rcmd2red[] = {              \/\/ Init for 7735R, part 2 (red tab only)$/;"	v	file:
+Rcmd3	ST7735.c	/^  Rcmd3[] = {                 \/\/ Init for 7735R, part 3 (red or green tab)$/;"	v	file:
+ResetISR	tm4c123gh6pm_startup_ccs.c	/^ResetISR(void)$/;"	f
+Reset_Handler	startup.s	/^Reset_Handler$/;"	l
+Rotation	ST7735.c	/^static uint8_t Rotation;           \/\/ 0 to 3$/;"	v	file:
+RowStart	ST7735.c	/^static uint8_t ColStart, RowStart; \/\/ some displays need this changed$/;"	v	file:
+RxFifo	FIFO.c	/^rxDataType static RxFifo[RXFIFOSIZE];$/;"	v	file:
+RxFifo_Get	FIFO.c	/^int RxFifo_Get(rxDataType *datapt){$/;"	f
+RxFifo_Init	FIFO.c	/^void RxFifo_Init(void){ long sr;$/;"	f
+RxFifo_Put	FIFO.c	/^int RxFifo_Put(rxDataType data){$/;"	f
+RxFifo_Size	FIFO.c	/^uint32_t RxFifo_Size(void){$/;"	f
+RxGetPt	FIFO.c	/^rxDataType volatile *RxGetPt; \/\/ get next$/;"	v
+RxPutPt	FIFO.c	/^rxDataType volatile *RxPutPt; \/\/ put next$/;"	v
+SETTING	ADCTestMain.c	/^  SETTING = 0,$/;"	e	enum:actionType	file:
+SETTING	main.c	/^  SETTING = 0,$/;"	e	enum:actionType	file:
+SSI0_Handler	startup.s	/^SSI0_Handler$/;"	l
+SSI0_Handler	tm4c123gh6pm_startup_ccs.c	/^void SSI0_Handler(void){ while(1){}}               \/\/ SSI0 Rx and Tx$/;"	f
+SSI1_Handler	startup.s	/^SSI1_Handler$/;"	l
+SSI1_Handler	tm4c123gh6pm_startup_ccs.c	/^void SSI1_Handler(void){ while(1){}}               \/\/ SSI1 Rx and Tx$/;"	f
+SSI2_Handler	startup.s	/^SSI2_Handler$/;"	l
+SSI2_Handler	tm4c123gh6pm_startup_ccs.c	/^void SSI2_Handler(void){ while(1){}}               \/\/ SSI2 Rx and Tx$/;"	f
+SSI3_Handler	startup.s	/^SSI3_Handler$/;"	l
+SSI3_Handler	tm4c123gh6pm_startup_ccs.c	/^void SSI3_Handler(void){ while(1){}}               \/\/ SSI3 Rx and Tx$/;"	f
+SSI_CC_CS_M	ST7735.c	171;"	d	file:
+SSI_CC_CS_SYSPLL	ST7735.c	172;"	d	file:
+SSI_CPSR_CPSDVSR_M	ST7735.c	170;"	d	file:
+SSI_CR0_DSS_8	ST7735.c	164;"	d	file:
+SSI_CR0_DSS_M	ST7735.c	163;"	d	file:
+SSI_CR0_FRF_M	ST7735.c	161;"	d	file:
+SSI_CR0_FRF_MOTO	ST7735.c	162;"	d	file:
+SSI_CR0_SCR_M	ST7735.c	158;"	d	file:
+SSI_CR0_SPH	ST7735.c	159;"	d	file:
+SSI_CR0_SPO	ST7735.c	160;"	d	file:
+SSI_CR1_MS	ST7735.c	165;"	d	file:
+SSI_CR1_SSE	ST7735.c	166;"	d	file:
+SSI_SR_BSY	ST7735.c	168;"	d	file:
+SSI_SR_TNF	ST7735.c	169;"	d	file:
+ST7735_BLACK	ST7735.h	106;"	d
+ST7735_BLUE	ST7735.h	107;"	d
+ST7735_CASET	ST7735.c	116;"	d	file:
+ST7735_CASET	ST7735.c	194;"	d	file:
+ST7735_COLMOD	ST7735.c	122;"	d	file:
+ST7735_COLMOD	ST7735.c	200;"	d	file:
+ST7735_CYAN	ST7735.h	110;"	d
+ST7735_Color565	ST7735.c	/^uint16_t ST7735_Color565(uint8_t r, uint8_t g, uint8_t b) {$/;"	f
+ST7735_DISPOFF	ST7735.c	114;"	d	file:
+ST7735_DISPOFF	ST7735.c	192;"	d	file:
+ST7735_DISPON	ST7735.c	115;"	d	file:
+ST7735_DISPON	ST7735.c	193;"	d	file:
+ST7735_DISSET5	ST7735.c	129;"	d	file:
+ST7735_DISSET5	ST7735.c	207;"	d	file:
+ST7735_DrawBitmap	ST7735.c	/^void ST7735_DrawBitmap(int16_t x, int16_t y, const uint16_t *image, int16_t w, int16_t h){$/;"	f
+ST7735_DrawChar	ST7735.c	/^void ST7735_DrawChar(int16_t x, int16_t y, char c, int16_t textColor, int16_t bgColor, uint8_t size){$/;"	f
+ST7735_DrawCharS	ST7735.c	/^void ST7735_DrawCharS(int16_t x, int16_t y, char c, int16_t textColor, int16_t bgColor, uint8_t size){$/;"	f
+ST7735_DrawFastHLine	ST7735.c	/^void ST7735_DrawFastHLine(int16_t x, int16_t y, int16_t w, uint16_t color) {$/;"	f
+ST7735_DrawFastVLine	ST7735.c	/^void ST7735_DrawFastVLine(int16_t x, int16_t y, int16_t h, uint16_t color) {$/;"	f
+ST7735_DrawPixel	ST7735.c	/^void ST7735_DrawPixel(int16_t x, int16_t y, uint16_t color) {$/;"	f
+ST7735_DrawString	ST7735.c	/^uint32_t ST7735_DrawString(uint16_t x, uint16_t y, char *pt, int16_t textColor){$/;"	f
+ST7735_FRMCTR1	ST7735.c	125;"	d	file:
+ST7735_FRMCTR1	ST7735.c	203;"	d	file:
+ST7735_FRMCTR2	ST7735.c	126;"	d	file:
+ST7735_FRMCTR2	ST7735.c	204;"	d	file:
+ST7735_FRMCTR3	ST7735.c	127;"	d	file:
+ST7735_FRMCTR3	ST7735.c	205;"	d	file:
+ST7735_FillRect	ST7735.c	/^void ST7735_FillRect(int16_t x, int16_t y, int16_t w, int16_t h, uint16_t color) {$/;"	f
+ST7735_FillScreen	ST7735.c	/^void ST7735_FillScreen(uint16_t color) {$/;"	f
+ST7735_GMCTRN1	ST7735.c	146;"	d	file:
+ST7735_GMCTRN1	ST7735.c	224;"	d	file:
+ST7735_GMCTRP1	ST7735.c	145;"	d	file:
+ST7735_GMCTRP1	ST7735.c	223;"	d	file:
+ST7735_GREEN	ST7735.h	109;"	d
+ST7735_INVCTR	ST7735.c	128;"	d	file:
+ST7735_INVCTR	ST7735.c	206;"	d	file:
+ST7735_INVOFF	ST7735.c	112;"	d	file:
+ST7735_INVOFF	ST7735.c	190;"	d	file:
+ST7735_INVON	ST7735.c	113;"	d	file:
+ST7735_INVON	ST7735.c	191;"	d	file:
+ST7735_InitB	ST7735.c	/^void ST7735_InitB(void) {$/;"	f
+ST7735_InitR	ST7735.c	/^void ST7735_InitR(enum initRFlags option) {$/;"	f
+ST7735_InvertDisplay	ST7735.c	/^void ST7735_InvertDisplay(int i) {$/;"	f
+ST7735_Line	fixed.c	/^void ST7735_Line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2)$/;"	f
+ST7735_Line_h	fixed.c	/^void ST7735_Line_h(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2)$/;"	f
+ST7735_MADCTL	ST7735.c	123;"	d	file:
+ST7735_MADCTL	ST7735.c	201;"	d	file:
+ST7735_MAGENTA	ST7735.h	111;"	d
+ST7735_NOP	ST7735.c	102;"	d	file:
+ST7735_NOP	ST7735.c	180;"	d	file:
+ST7735_NORON	ST7735.c	110;"	d	file:
+ST7735_NORON	ST7735.c	188;"	d	file:
+ST7735_OutChar	ST7735.c	/^void ST7735_OutChar(char ch){$/;"	f
+ST7735_OutString	ST7735.c	/^void ST7735_OutString(char *ptr){$/;"	f
+ST7735_OutUDec	ST7735.c	/^void ST7735_OutUDec(uint32_t n){$/;"	f
+ST7735_PTLAR	ST7735.c	121;"	d	file:
+ST7735_PTLAR	ST7735.c	199;"	d	file:
+ST7735_PTLON	ST7735.c	109;"	d	file:
+ST7735_PTLON	ST7735.c	187;"	d	file:
+ST7735_PWCTR1	ST7735.c	131;"	d	file:
+ST7735_PWCTR1	ST7735.c	209;"	d	file:
+ST7735_PWCTR2	ST7735.c	132;"	d	file:
+ST7735_PWCTR2	ST7735.c	210;"	d	file:
+ST7735_PWCTR3	ST7735.c	133;"	d	file:
+ST7735_PWCTR3	ST7735.c	211;"	d	file:
+ST7735_PWCTR4	ST7735.c	134;"	d	file:
+ST7735_PWCTR4	ST7735.c	212;"	d	file:
+ST7735_PWCTR5	ST7735.c	135;"	d	file:
+ST7735_PWCTR5	ST7735.c	213;"	d	file:
+ST7735_PWCTR6	ST7735.c	143;"	d	file:
+ST7735_PWCTR6	ST7735.c	221;"	d	file:
+ST7735_PlotBar	ST7735.c	/^void ST7735_PlotBar(int32_t y){$/;"	f
+ST7735_PlotClear	ST7735.c	/^void ST7735_PlotClear(int32_t ymin, int32_t ymax){$/;"	f
+ST7735_PlotLine	ST7735.c	/^void ST7735_PlotLine(int32_t y){int32_t i,j;$/;"	f
+ST7735_PlotNext	ST7735.c	/^void ST7735_PlotNext(void){$/;"	f
+ST7735_PlotNextErase	ST7735.c	/^void ST7735_PlotNextErase(void){$/;"	f
+ST7735_PlotPoint	ST7735.c	/^void ST7735_PlotPoint(int32_t y){int32_t j;$/;"	f
+ST7735_PlotPoints	ST7735.c	/^void ST7735_PlotPoints(int32_t y1,int32_t y2){int32_t j;$/;"	f
+ST7735_PlotdBfs	ST7735.c	/^void ST7735_PlotdBfs(int32_t y){$/;"	f
+ST7735_RAMRD	ST7735.c	119;"	d	file:
+ST7735_RAMRD	ST7735.c	197;"	d	file:
+ST7735_RAMWR	ST7735.c	118;"	d	file:
+ST7735_RAMWR	ST7735.c	196;"	d	file:
+ST7735_RASET	ST7735.c	117;"	d	file:
+ST7735_RASET	ST7735.c	195;"	d	file:
+ST7735_RDDID	ST7735.c	104;"	d	file:
+ST7735_RDDID	ST7735.c	182;"	d	file:
+ST7735_RDDST	ST7735.c	105;"	d	file:
+ST7735_RDDST	ST7735.c	183;"	d	file:
+ST7735_RDID1	ST7735.c	138;"	d	file:
+ST7735_RDID1	ST7735.c	216;"	d	file:
+ST7735_RDID2	ST7735.c	139;"	d	file:
+ST7735_RDID2	ST7735.c	217;"	d	file:
+ST7735_RDID3	ST7735.c	140;"	d	file:
+ST7735_RDID3	ST7735.c	218;"	d	file:
+ST7735_RDID4	ST7735.c	141;"	d	file:
+ST7735_RDID4	ST7735.c	219;"	d	file:
+ST7735_RED	ST7735.h	108;"	d
+ST7735_SLPIN	ST7735.c	107;"	d	file:
+ST7735_SLPIN	ST7735.c	185;"	d	file:
+ST7735_SLPOUT	ST7735.c	108;"	d	file:
+ST7735_SLPOUT	ST7735.c	186;"	d	file:
+ST7735_SWRESET	ST7735.c	103;"	d	file:
+ST7735_SWRESET	ST7735.c	181;"	d	file:
+ST7735_SetCursor	ST7735.c	/^void ST7735_SetCursor(uint32_t newX, uint32_t newY){$/;"	f
+ST7735_SetRotation	ST7735.c	/^void ST7735_SetRotation(uint8_t m) {$/;"	f
+ST7735_SetTextColor	ST7735.c	/^void ST7735_SetTextColor(uint16_t color){$/;"	f
+ST7735_SwapColor	ST7735.c	/^uint16_t ST7735_SwapColor(uint16_t x) {$/;"	f
+ST7735_TFTHEIGHT	ST7735.c	178;"	d	file:
+ST7735_TFTHEIGHT	ST7735.h	102;"	d
+ST7735_TFTWIDTH	ST7735.c	177;"	d	file:
+ST7735_TFTWIDTH	ST7735.h	101;"	d
+ST7735_VMCTR1	ST7735.c	136;"	d	file:
+ST7735_VMCTR1	ST7735.c	214;"	d	file:
+ST7735_WHITE	ST7735.h	113;"	d
+ST7735_XYplot	fixed.c	/^void ST7735_XYplot(uint32_t num, int32_t bufX[], int32_t bufY[])$/;"	f
+ST7735_XYplotInit	fixed.c	/^void ST7735_XYplotInit(char *title, int32_t minX, int32_t maxX, int32_t minY, int32_t maxY){$/;"	f
+ST7735_Xcount_Yplot	fixed.c	/^void ST7735_Xcount_Yplot(uint32_t num, uint32_t bufY[]){$/;"	f
+ST7735_YELLOW	ST7735.h	112;"	d
+ST7735_sDecOut3	fixed.c	/^void ST7735_sDecOut3(int32_t n){$/;"	f
+ST7735_uBinOut8	fixed.c	/^void ST7735_uBinOut8(uint32_t n){$/;"	f
+SVC_Handler	startup.s	/^SVC_Handler     PROC$/;"	l
+SVC_Handler	tm4c123gh6pm_startup_ccs.c	/^void SVC_Handler(void){ while(1){}}                \/\/ SVCall Handler$/;"	f
+SYSCTL_RCC2_BYPASS2	PLL.c	45;"	d	file:
+SYSCTL_RCC2_DIV400	PLL.c	40;"	d	file:
+SYSCTL_RCC2_OSCSRC2_M	PLL.c	46;"	d	file:
+SYSCTL_RCC2_OSCSRC2_MO	PLL.c	47;"	d	file:
+SYSCTL_RCC2_PWRDN2	PLL.c	44;"	d	file:
+SYSCTL_RCC2_SYSDIV2LSB	PLL.c	43;"	d	file:
+SYSCTL_RCC2_SYSDIV2_M	PLL.c	42;"	d	file:
+SYSCTL_RCC2_USERCC2	PLL.c	39;"	d	file:
+SYSCTL_RCC_XTAL_16MHZ	PLL.c	38;"	d	file:
+SYSCTL_RCC_XTAL_6MHZ	PLL.c	36;"	d	file:
+SYSCTL_RCC_XTAL_8MHZ	PLL.c	37;"	d	file:
+SYSCTL_RCC_XTAL_M	PLL.c	35;"	d	file:
+SYSCTL_RCGC1_SSI0	ST7735.c	175;"	d	file:
+SYSCTL_RCGC2_GPIOA	ST7735.c	176;"	d	file:
+SYSCTL_RIS_PLLLRIS	PLL.c	34;"	d	file:
+StTextColor	ST7735.c	/^uint16_t StTextColor = ST7735_YELLOW;$/;"	v
+StX	ST7735.c	/^uint32_t StX=0; \/\/ position along the horizonal axis 0 to 20$/;"	v
+StY	ST7735.c	/^uint32_t StY=0; \/\/ position along the vertical axis 0 to 15$/;"	v
+Stack	startup.s	/^Stack   EQU     0x00000400$/;"	d
+StackMem	startup.s	/^StackMem$/;"	l
+StartCritical	startup.s	/^StartCritical$/;"	l
+StartCritical	tm4c123gh6pm_startup_ccs.c	/^void StartCritical(void){$/;"	f
+SysCtl_Handler	startup.s	/^SysCtl_Handler$/;"	l
+SysCtl_Handler	tm4c123gh6pm_startup_ccs.c	/^void SysCtl_Handler(void){ while(1){}}             \/\/ System Control$/;"	f
+SysTick_Handler	startup.s	/^SysTick_Handler PROC$/;"	l
+SysTick_Handler	tm4c123gh6pm_startup_ccs.c	/^void SysTick_Handler(void){ while(1){}}            \/\/ SysTick Handler$/;"	f
+TFT_CS	ST7735.c	148;"	d	file:
+TFT_CS_HIGH	ST7735.c	150;"	d	file:
+TFT_CS_LOW	ST7735.c	149;"	d	file:
+TXFIFOFAIL	FIFO.h	41;"	d
+TXFIFOSIZE	FIFO.h	39;"	d
+TXFIFOSUCCESS	FIFO.h	40;"	d
+TabColor	ST7735.c	/^static enum initRFlags TabColor;$/;"	v	typeref:enum:initRFlags	file:
+Timer0A_Handler	startup.s	/^Timer0A_Handler$/;"	l
+Timer0A_Handler	timer.c	/^void Timer0A_Handler(void){}$/;"	f
+Timer0A_Handler	tm4c123gh6pm_startup_ccs.c	/^void Timer0A_Handler(void){ while(1){}}            \/\/ Timer 0 subtimer A$/;"	f
+Timer0B_Handler	startup.s	/^Timer0B_Handler$/;"	l
+Timer0B_Handler	tm4c123gh6pm_startup_ccs.c	/^void Timer0B_Handler(void){ while(1){}}            \/\/ Timer 0 subtimer B$/;"	f
+Timer1A_Handler	startup.s	/^Timer1A_Handler$/;"	l
+Timer1A_Handler	timer.c	/^void Timer1A_Handler(void){}$/;"	f
+Timer1A_Handler	tm4c123gh6pm_startup_ccs.c	/^void Timer1A_Handler(void){ while(1){}}            \/\/ Timer 1 subtimer A$/;"	f
+Timer1B_Handler	startup.s	/^Timer1B_Handler$/;"	l
+Timer1B_Handler	tm4c123gh6pm_startup_ccs.c	/^void Timer1B_Handler(void){ while(1){}}            \/\/ Timer 1 subtimer B$/;"	f
+Timer2A_Handler	startup.s	/^Timer2A_Handler$/;"	l
+Timer2A_Handler	tm4c123gh6pm_startup_ccs.c	/^void Timer2A_Handler(void){ while(1){}}            \/\/ Timer 2 subtimer A$/;"	f
+Timer2B_Handler	startup.s	/^Timer2B_Handler$/;"	l
+Timer2B_Handler	tm4c123gh6pm_startup_ccs.c	/^void Timer2B_Handler(void){ while(1){}}            \/\/ Timer 2 subtimer B$/;"	f
+Timer3A_Handler	startup.s	/^Timer3A_Handler$/;"	l
+Timer3A_Handler	tm4c123gh6pm_startup_ccs.c	/^void Timer3A_Handler(void){ while(1){}}            \/\/ Timer 3 subtimer A$/;"	f
+Timer3B_Handler	startup.s	/^Timer3B_Handler$/;"	l
+Timer3B_Handler	tm4c123gh6pm_startup_ccs.c	/^void Timer3B_Handler(void){ while(1){}}            \/\/ Timer 3 subtimer B$/;"	f
+Timer4A_Handler	startup.s	/^Timer4A_Handler$/;"	l
+Timer4A_Handler	tm4c123gh6pm_startup_ccs.c	/^void Timer4A_Handler(void){ while(1){}}            \/\/ Timer 4 subtimer A$/;"	f
+Timer4B_Handler	startup.s	/^Timer4B_Handler$/;"	l
+Timer4B_Handler	tm4c123gh6pm_startup_ccs.c	/^void Timer4B_Handler(void){ while(1){}}            \/\/ Timer 4 subtimer B$/;"	f
+Timer5A_Handler	startup.s	/^Timer5A_Handler$/;"	l
+Timer5A_Handler	tm4c123gh6pm_startup_ccs.c	/^void Timer5A_Handler(void){ while(1){}}            \/\/ Timer 5 subtimer A$/;"	f
+Timer5B_Handler	startup.s	/^Timer5B_Handler$/;"	l
+Timer5B_Handler	tm4c123gh6pm_startup_ccs.c	/^void Timer5B_Handler(void){ while(1){}}            \/\/ Timer 5 subtimer B$/;"	f
+TxFifo	FIFO.c	/^txDataType static TxFifo[TXFIFOSIZE];$/;"	v	file:
+TxFifo_Get	FIFO.c	/^int TxFifo_Get($/;"	f
+TxFifo_Init	FIFO.c	/^void TxFifo_Init(void){ $/;"	f
+TxFifo_Put	FIFO.c	/^int TxFifo_Put(txDataType data){$/;"	f
+TxFifo_Size	FIFO.c	/^uint32_t TxFifo_Size(void){$/;"	f
+TxGetI	FIFO.c	/^uint32_t volatile TxGetI;\/\/ get next$/;"	v
+TxPutI	FIFO.c	/^uint32_t volatile TxPutI;\/\/ put next$/;"	v
+UART0_Handler	startup.s	/^UART0_Handler$/;"	l
+UART0_Handler	tm4c123gh6pm_startup_ccs.c	/^void UART0_Handler(void){ while(1){}}              \/\/ UART0 Rx and Tx$/;"	f
+UART1_Handler	startup.s	/^UART1_Handler$/;"	l
+UART1_Handler	tm4c123gh6pm_startup_ccs.c	/^void UART1_Handler(void){ while(1){}}              \/\/ UART1 Rx and Tx$/;"	f
+UART2_Handler	startup.s	/^UART2_Handler$/;"	l
+UART2_Handler	tm4c123gh6pm_startup_ccs.c	/^void UART2_Handler(void){ while(1){}}              \/\/ UART2 Rx and Tx$/;"	f
+UART3_Handler	startup.s	/^UART3_Handler$/;"	l
+UART3_Handler	tm4c123gh6pm_startup_ccs.c	/^void UART3_Handler(void){ while(1){}}              \/\/ UART3 Rx and Tx$/;"	f
+UART4_Handler	startup.s	/^UART4_Handler$/;"	l
+UART4_Handler	tm4c123gh6pm_startup_ccs.c	/^void UART4_Handler(void){ while(1){}}              \/\/ UART4 Rx and Tx$/;"	f
+UART5_Handler	startup.s	/^UART5_Handler$/;"	l
+UART5_Handler	tm4c123gh6pm_startup_ccs.c	/^void UART5_Handler(void){ while(1){}}              \/\/ UART5 Rx and Tx$/;"	f
+UART6_Handler	startup.s	/^UART6_Handler$/;"	l
+UART6_Handler	tm4c123gh6pm_startup_ccs.c	/^void UART6_Handler(void){ while(1){}}              \/\/ UART6 Rx and Tx$/;"	f
+UART7_Handler	startup.s	/^UART7_Handler$/;"	l
+UART7_Handler	tm4c123gh6pm_startup_ccs.c	/^void UART7_Handler(void){ while(1){}}              \/\/ UART7 Rx and Tx$/;"	f
+USB0_Handler	startup.s	/^USB0_Handler$/;"	l
+USB0_Handler	tm4c123gh6pm_startup_ccs.c	/^void USB0_Handler(void){ while(1){}}               \/\/ USB0$/;"	f
+WDT_Handler	startup.s	/^WDT_Handler$/;"	l
+WDT_Handler	tm4c123gh6pm_startup_ccs.c	/^void WDT_Handler(void){ while(1){}}                \/\/ Watchdog$/;"	f
+WaitForInterrupt	startup.s	/^WaitForInterrupt$/;"	l
+WaitForInterrupt	tm4c123gh6pm_startup_ccs.c	/^void WaitForInterrupt(void){$/;"	f
+WideTimer0A_Handler	startup.s	/^WideTimer0A_Handler$/;"	l
+WideTimer0A_Handler	tm4c123gh6pm_startup_ccs.c	/^void WideTimer0A_Handler(void){ while(1){}}        \/\/ Wide Timer 0 subtimer A$/;"	f
+WideTimer0B_Handler	startup.s	/^WideTimer0B_Handler$/;"	l
+WideTimer0B_Handler	tm4c123gh6pm_startup_ccs.c	/^void WideTimer0B_Handler(void){ while(1){}}        \/\/ Wide Timer 0 subtimer B$/;"	f
+WideTimer1A_Handler	startup.s	/^WideTimer1A_Handler$/;"	l
+WideTimer1A_Handler	tm4c123gh6pm_startup_ccs.c	/^void WideTimer1A_Handler(void){ while(1){}}        \/\/ Wide Timer 1 subtimer A$/;"	f
+WideTimer1B_Handler	startup.s	/^WideTimer1B_Handler$/;"	l
+WideTimer1B_Handler	tm4c123gh6pm_startup_ccs.c	/^void WideTimer1B_Handler(void){ while(1){}}        \/\/ Wide Timer 1 subtimer B$/;"	f
+WideTimer2A_Handler	startup.s	/^WideTimer2A_Handler$/;"	l
+WideTimer2A_Handler	tm4c123gh6pm_startup_ccs.c	/^void WideTimer2A_Handler(void){ while(1){}}        \/\/ Wide Timer 2 subtimer A$/;"	f
+WideTimer2B_Handler	startup.s	/^WideTimer2B_Handler$/;"	l
+WideTimer2B_Handler	tm4c123gh6pm_startup_ccs.c	/^void WideTimer2B_Handler(void){ while(1){}}        \/\/ Wide Timer 2 subtimer B$/;"	f
+WideTimer3A_Handler	startup.s	/^WideTimer3A_Handler$/;"	l
+WideTimer3A_Handler	tm4c123gh6pm_startup_ccs.c	/^void WideTimer3A_Handler(void){ while(1){}}        \/\/ Wide Timer 3 subtimer A$/;"	f
+WideTimer3B_Handler	startup.s	/^WideTimer3B_Handler$/;"	l
+WideTimer3B_Handler	tm4c123gh6pm_startup_ccs.c	/^void WideTimer3B_Handler(void){ while(1){}}        \/\/ Wide Timer 3 subtimer B$/;"	f
+WideTimer4A_Handler	startup.s	/^WideTimer4A_Handler$/;"	l
+WideTimer4A_Handler	tm4c123gh6pm_startup_ccs.c	/^void WideTimer4A_Handler(void){ while(1){}}        \/\/ Wide Timer 4 subtimer A$/;"	f
+WideTimer4B_Handler	startup.s	/^WideTimer4B_Handler$/;"	l
+WideTimer4B_Handler	tm4c123gh6pm_startup_ccs.c	/^void WideTimer4B_Handler(void){ while(1){}}        \/\/ Wide Timer 4 subtimer B$/;"	f
+WideTimer5A_Handler	startup.s	/^WideTimer5A_Handler$/;"	l
+WideTimer5A_Handler	tm4c123gh6pm_startup_ccs.c	/^void WideTimer5A_Handler(void){ while(1){}}        \/\/ Wide Timer 5 subtimer A$/;"	f
+WideTimer5B_Handler	startup.s	/^WideTimer5B_Handler$/;"	l
+WideTimer5B_Handler	tm4c123gh6pm_startup_ccs.c	/^void WideTimer5B_Handler(void){ while(1){}}        \/\/ Wide Timer 5 subtimer B$/;"	f
+X	ST7735.c	/^int32_t Ymax,Ymin,X;        \/\/ X goes from 0 to 127$/;"	v
+Ymax	ST7735.c	/^int32_t Ymax,Ymin,X;        \/\/ X goes from 0 to 127$/;"	v
+Ymin	ST7735.c	/^int32_t Ymax,Ymin,X;        \/\/ X goes from 0 to 127$/;"	v
+Yrange	ST7735.c	/^int32_t Yrange; \/\/YrangeDiv2;$/;"	v
+[10]	ADCSWTrigger.htm	/^<P><STRONG><a name="[10]"><\/a>GPIOPortD_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[11]	ADCSWTrigger.htm	/^<P><STRONG><a name="[11]"><\/a>GPIOPortE_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[12]	ADCSWTrigger.htm	/^<P><STRONG><a name="[12]"><\/a>UART0_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[13]	ADCSWTrigger.htm	/^<P><STRONG><a name="[13]"><\/a>UART1_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[14]	ADCSWTrigger.htm	/^<P><STRONG><a name="[14]"><\/a>SSI0_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[15]	ADCSWTrigger.htm	/^<P><STRONG><a name="[15]"><\/a>I2C0_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[16]	ADCSWTrigger.htm	/^<P><STRONG><a name="[16]"><\/a>PWM0Fault_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[17]	ADCSWTrigger.htm	/^<P><STRONG><a name="[17]"><\/a>PWM0Generator0_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[18]	ADCSWTrigger.htm	/^<P><STRONG><a name="[18]"><\/a>PWM0Generator1_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[19]	ADCSWTrigger.htm	/^<P><STRONG><a name="[19]"><\/a>PWM0Generator2_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[1a]	ADCSWTrigger.htm	/^<P><STRONG><a name="[1a]"><\/a>Quadrature0_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[1b]	ADCSWTrigger.htm	/^<P><STRONG><a name="[1b]"><\/a>ADC0Seq0_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[1c]	ADCSWTrigger.htm	/^<P><STRONG><a name="[1c]"><\/a>ADC0Seq1_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[1d]	ADCSWTrigger.htm	/^<P><STRONG><a name="[1d]"><\/a>ADC0Seq2_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[1e]	ADCSWTrigger.htm	/^<P><STRONG><a name="[1e]"><\/a>ADC0Seq3_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[1f]	ADCSWTrigger.htm	/^<P><STRONG><a name="[1f]"><\/a>WDT_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[20]	ADCSWTrigger.htm	/^<P><STRONG><a name="[20]"><\/a>Timer0A_Handler<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, timer.o(i.Timer0A_Handler))$/;"	a
+[21]	ADCSWTrigger.htm	/^<P><STRONG><a name="[21]"><\/a>Timer0B_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[22]	ADCSWTrigger.htm	/^<P><STRONG><a name="[22]"><\/a>Timer1A_Handler<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, timer.o(i.Timer1A_Handler))$/;"	a
+[23]	ADCSWTrigger.htm	/^<P><STRONG><a name="[23]"><\/a>Timer1B_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[24]	ADCSWTrigger.htm	/^<P><STRONG><a name="[24]"><\/a>Timer2A_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[25]	ADCSWTrigger.htm	/^<P><STRONG><a name="[25]"><\/a>Timer2B_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[26]	ADCSWTrigger.htm	/^<P><STRONG><a name="[26]"><\/a>Comp0_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[27]	ADCSWTrigger.htm	/^<P><STRONG><a name="[27]"><\/a>Comp1_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[28]	ADCSWTrigger.htm	/^<P><STRONG><a name="[28]"><\/a>Comp2_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[29]	ADCSWTrigger.htm	/^<P><STRONG><a name="[29]"><\/a>SysCtl_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[2a]	ADCSWTrigger.htm	/^<P><STRONG><a name="[2a]"><\/a>FlashCtl_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[2b]	ADCSWTrigger.htm	/^<P><STRONG><a name="[2b]"><\/a>GPIOPortF_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[2c]	ADCSWTrigger.htm	/^<P><STRONG><a name="[2c]"><\/a>GPIOPortG_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[2d]	ADCSWTrigger.htm	/^<P><STRONG><a name="[2d]"><\/a>GPIOPortH_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[2e]	ADCSWTrigger.htm	/^<P><STRONG><a name="[2e]"><\/a>UART2_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[2f]	ADCSWTrigger.htm	/^<P><STRONG><a name="[2f]"><\/a>SSI1_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[30]	ADCSWTrigger.htm	/^<P><STRONG><a name="[30]"><\/a>Timer3A_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[31]	ADCSWTrigger.htm	/^<P><STRONG><a name="[31]"><\/a>Timer3B_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[32]	ADCSWTrigger.htm	/^<P><STRONG><a name="[32]"><\/a>I2C1_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[33]	ADCSWTrigger.htm	/^<P><STRONG><a name="[33]"><\/a>Quadrature1_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[34]	ADCSWTrigger.htm	/^<P><STRONG><a name="[34]"><\/a>CAN0_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[35]	ADCSWTrigger.htm	/^<P><STRONG><a name="[35]"><\/a>CAN1_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[36]	ADCSWTrigger.htm	/^<P><STRONG><a name="[36]"><\/a>CAN2_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[37]	ADCSWTrigger.htm	/^<P><STRONG><a name="[37]"><\/a>Ethernet_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[38]	ADCSWTrigger.htm	/^<P><STRONG><a name="[38]"><\/a>Hibernate_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[39]	ADCSWTrigger.htm	/^<P><STRONG><a name="[39]"><\/a>USB0_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[3a]	ADCSWTrigger.htm	/^<P><STRONG><a name="[3a]"><\/a>PWM0Generator3_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[3b]	ADCSWTrigger.htm	/^<P><STRONG><a name="[3b]"><\/a>uDMA_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[3c]	ADCSWTrigger.htm	/^<P><STRONG><a name="[3c]"><\/a>uDMA_Error<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[3d]	ADCSWTrigger.htm	/^<P><STRONG><a name="[3d]"><\/a>ADC1Seq0_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[3e]	ADCSWTrigger.htm	/^<P><STRONG><a name="[3e]"><\/a>ADC1Seq1_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[3f]	ADCSWTrigger.htm	/^<P><STRONG><a name="[3f]"><\/a>ADC1Seq2_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[40]	ADCSWTrigger.htm	/^<P><STRONG><a name="[40]"><\/a>ADC1Seq3_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[41]	ADCSWTrigger.htm	/^<P><STRONG><a name="[41]"><\/a>I2S0_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[42]	ADCSWTrigger.htm	/^<P><STRONG><a name="[42]"><\/a>ExtBus_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[43]	ADCSWTrigger.htm	/^<P><STRONG><a name="[43]"><\/a>GPIOPortJ_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[44]	ADCSWTrigger.htm	/^<P><STRONG><a name="[44]"><\/a>GPIOPortK_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[45]	ADCSWTrigger.htm	/^<P><STRONG><a name="[45]"><\/a>GPIOPortL_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[46]	ADCSWTrigger.htm	/^<P><STRONG><a name="[46]"><\/a>SSI2_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[47]	ADCSWTrigger.htm	/^<P><STRONG><a name="[47]"><\/a>SSI3_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[48]	ADCSWTrigger.htm	/^<P><STRONG><a name="[48]"><\/a>UART3_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[49]	ADCSWTrigger.htm	/^<P><STRONG><a name="[49]"><\/a>UART4_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[4]	ADCSWTrigger.htm	/^<P><STRONG><a name="[4]"><\/a>NMI_Handler<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[4a]	ADCSWTrigger.htm	/^<P><STRONG><a name="[4a]"><\/a>UART5_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[4b]	ADCSWTrigger.htm	/^<P><STRONG><a name="[4b]"><\/a>UART6_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[4c]	ADCSWTrigger.htm	/^<P><STRONG><a name="[4c]"><\/a>UART7_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[4d]	ADCSWTrigger.htm	/^<P><STRONG><a name="[4d]"><\/a>I2C2_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[4e]	ADCSWTrigger.htm	/^<P><STRONG><a name="[4e]"><\/a>I2C3_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[4f]	ADCSWTrigger.htm	/^<P><STRONG><a name="[4f]"><\/a>Timer4A_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[50]	ADCSWTrigger.htm	/^<P><STRONG><a name="[50]"><\/a>Timer4B_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[51]	ADCSWTrigger.htm	/^<P><STRONG><a name="[51]"><\/a>Timer5A_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[52]	ADCSWTrigger.htm	/^<P><STRONG><a name="[52]"><\/a>Timer5B_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[53]	ADCSWTrigger.htm	/^<P><STRONG><a name="[53]"><\/a>WideTimer0A_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[54]	ADCSWTrigger.htm	/^<P><STRONG><a name="[54]"><\/a>WideTimer0B_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[55]	ADCSWTrigger.htm	/^<P><STRONG><a name="[55]"><\/a>WideTimer1A_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[56]	ADCSWTrigger.htm	/^<P><STRONG><a name="[56]"><\/a>WideTimer1B_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[57]	ADCSWTrigger.htm	/^<P><STRONG><a name="[57]"><\/a>WideTimer2A_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[58]	ADCSWTrigger.htm	/^<P><STRONG><a name="[58]"><\/a>WideTimer2B_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[59]	ADCSWTrigger.htm	/^<P><STRONG><a name="[59]"><\/a>WideTimer3A_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[5]	ADCSWTrigger.htm	/^<P><STRONG><a name="[5]"><\/a>HardFault_Handler<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[5a]	ADCSWTrigger.htm	/^<P><STRONG><a name="[5a]"><\/a>WideTimer3B_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[5b]	ADCSWTrigger.htm	/^<P><STRONG><a name="[5b]"><\/a>WideTimer4A_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[5c]	ADCSWTrigger.htm	/^<P><STRONG><a name="[5c]"><\/a>WideTimer4B_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[5d]	ADCSWTrigger.htm	/^<P><STRONG><a name="[5d]"><\/a>WideTimer5A_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[5e]	ADCSWTrigger.htm	/^<P><STRONG><a name="[5e]"><\/a>WideTimer5B_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[5f]	ADCSWTrigger.htm	/^<P><STRONG><a name="[5f]"><\/a>FPU_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[60]	ADCSWTrigger.htm	/^<P><STRONG><a name="[60]"><\/a>PECI0_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[61]	ADCSWTrigger.htm	/^<P><STRONG><a name="[61]"><\/a>LPC0_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[62]	ADCSWTrigger.htm	/^<P><STRONG><a name="[62]"><\/a>I2C4_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[63]	ADCSWTrigger.htm	/^<P><STRONG><a name="[63]"><\/a>I2C5_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[64]	ADCSWTrigger.htm	/^<P><STRONG><a name="[64]"><\/a>GPIOPortM_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[65]	ADCSWTrigger.htm	/^<P><STRONG><a name="[65]"><\/a>GPIOPortN_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[66]	ADCSWTrigger.htm	/^<P><STRONG><a name="[66]"><\/a>Quadrature2_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[67]	ADCSWTrigger.htm	/^<P><STRONG><a name="[67]"><\/a>Fan0_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[68]	ADCSWTrigger.htm	/^<P><STRONG><a name="[68]"><\/a>GPIOPortP_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[69]	ADCSWTrigger.htm	/^<P><STRONG><a name="[69]"><\/a>GPIOPortP1_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[6]	ADCSWTrigger.htm	/^<P><STRONG><a name="[6]"><\/a>MemManage_Handler<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[6a]	ADCSWTrigger.htm	/^<P><STRONG><a name="[6a]"><\/a>GPIOPortP2_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[6b]	ADCSWTrigger.htm	/^<P><STRONG><a name="[6b]"><\/a>GPIOPortP3_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[6c]	ADCSWTrigger.htm	/^<P><STRONG><a name="[6c]"><\/a>GPIOPortP4_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[6d]	ADCSWTrigger.htm	/^<P><STRONG><a name="[6d]"><\/a>GPIOPortP5_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[6e]	ADCSWTrigger.htm	/^<P><STRONG><a name="[6e]"><\/a>GPIOPortP6_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[6f]	ADCSWTrigger.htm	/^<P><STRONG><a name="[6f]"><\/a>GPIOPortP7_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[70]	ADCSWTrigger.htm	/^<P><STRONG><a name="[70]"><\/a>GPIOPortQ_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[71]	ADCSWTrigger.htm	/^<P><STRONG><a name="[71]"><\/a>GPIOPortQ1_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[72]	ADCSWTrigger.htm	/^<P><STRONG><a name="[72]"><\/a>GPIOPortQ2_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[73]	ADCSWTrigger.htm	/^<P><STRONG><a name="[73]"><\/a>GPIOPortQ3_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[74]	ADCSWTrigger.htm	/^<P><STRONG><a name="[74]"><\/a>GPIOPortQ4_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[75]	ADCSWTrigger.htm	/^<P><STRONG><a name="[75]"><\/a>GPIOPortQ5_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[76]	ADCSWTrigger.htm	/^<P><STRONG><a name="[76]"><\/a>GPIOPortQ6_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[77]	ADCSWTrigger.htm	/^<P><STRONG><a name="[77]"><\/a>GPIOPortQ7_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[78]	ADCSWTrigger.htm	/^<P><STRONG><a name="[78]"><\/a>GPIOPortR_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[79]	ADCSWTrigger.htm	/^<P><STRONG><a name="[79]"><\/a>GPIOPortS_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[7]	ADCSWTrigger.htm	/^<P><STRONG><a name="[7]"><\/a>BusFault_Handler<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[7a]	ADCSWTrigger.htm	/^<P><STRONG><a name="[7a]"><\/a>PWM1Generator0_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[7b]	ADCSWTrigger.htm	/^<P><STRONG><a name="[7b]"><\/a>PWM1Generator1_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[7c]	ADCSWTrigger.htm	/^<P><STRONG><a name="[7c]"><\/a>PWM1Generator2_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[7d]	ADCSWTrigger.htm	/^<P><STRONG><a name="[7d]"><\/a>PWM1Generator3_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[7e]	ADCSWTrigger.htm	/^<P><STRONG><a name="[7e]"><\/a>PWM1Fault_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[7f]	ADCSWTrigger.htm	/^<P><STRONG><a name="[7f]"><\/a>Reset_Handler<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup.o(RESET))$/;"	a
+[80]	ADCSWTrigger.htm	/^<P><STRONG><a name="[80]"><\/a>__main<\/STRONG> (Thumb, 8 bytes, Stack size 0 bytes, __main.o(!!!main))$/;"	a
+[81]	ADCSWTrigger.htm	/^<P><STRONG><a name="[81]"><\/a>__scatterload<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter))$/;"	a
+[82]	ADCSWTrigger.htm	/^<P><STRONG><a name="[82]"><\/a>__rt_entry<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry.o(.ARM.Collect$$rtentry$$00000000))$/;"	a
+[83]	ADCSWTrigger.htm	/^<P><STRONG><a name="[83]"><\/a>__scatterload_rt2<\/STRONG> (Thumb, 44 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)$/;"	a
+[84]	ADCSWTrigger.htm	/^<P><STRONG><a name="[84]"><\/a>__scatterload_copy<\/STRONG> (Thumb, 26 bytes, Stack size unknown bytes, __scatter_copy.o(!!handler_copy), UNUSED)$/;"	a
+[85]	ADCSWTrigger.htm	/^<P><STRONG><a name="[85]"><\/a>__rt_entry_sh<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry4.o(.ARM.Collect$$rtentry$$00000004))$/;"	a
+[86]	ADCSWTrigger.htm	/^<P><STRONG><a name="[86]"><\/a>__user_setup_stackheap<\/STRONG> (Thumb, 74 bytes, Stack size 8 bytes, sys_stackheap_outer.o(.text))$/;"	a
+[87]	ADCSWTrigger.htm	/^<P><STRONG><a name="[87]"><\/a>__rt_entry_li<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$0000000A))$/;"	a
+[88]	ADCSWTrigger.htm	/^<P><STRONG><a name="[88]"><\/a>__rt_lib_init<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit.o(.ARM.Collect$$libinit$$00000000))$/;"	a
+[89]	ADCSWTrigger.htm	/^<P><STRONG><a name="[89]"><\/a>__rt_entry_main<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$0000000D))$/;"	a
+[8]	ADCSWTrigger.htm	/^<P><STRONG><a name="[8]"><\/a>UsageFault_Handler<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[8a]	ADCSWTrigger.htm	/^<P><STRONG><a name="[8a]"><\/a>main<\/STRONG> (Thumb, 68 bytes, Stack size 0 bytes, main.o(i.main))$/;"	a
+[8b]	ADCSWTrigger.htm	/^<P><STRONG><a name="[8b]"><\/a>exit<\/STRONG> (Thumb, 12 bytes, Stack size 0 bytes, exit.o(.text))$/;"	a
+[8c]	ADCSWTrigger.htm	/^<P><STRONG><a name="[8c]"><\/a>__rt_exit_ls<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000003))$/;"	a
+[8d]	ADCSWTrigger.htm	/^<P><STRONG><a name="[8d]"><\/a>__rt_lib_shutdown<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown.o(.ARM.Collect$$libshutdown$$00000000))$/;"	a
+[8e]	ADCSWTrigger.htm	/^<P><STRONG><a name="[8e]"><\/a>__rt_exit_exit<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000004))$/;"	a
+[8f]	ADCSWTrigger.htm	/^<P><STRONG><a name="[8f]"><\/a>_sys_exit<\/STRONG> (Thumb, 8 bytes, Stack size 0 bytes, sys_exit.o(.text))$/;"	a
+[90]	ADCSWTrigger.htm	/^<P><STRONG><a name="[90]"><\/a>__user_perproc_libspace<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, libspace.o(.text))$/;"	a
+[91]	ADCSWTrigger.htm	/^<P><STRONG><a name="[91]"><\/a>__user_initial_stackheap<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup.o(.text))$/;"	a
+[92]	ADCSWTrigger.htm	/^<P><STRONG><a name="[92]"><\/a>__rt_exit<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit.o(.ARM.Collect$$rtexit$$00000000))$/;"	a
+[93]	ADCSWTrigger.htm	/^<P><STRONG><a name="[93]"><\/a>RxFifo_Init<\/STRONG> (Thumb, 26 bytes, Stack size 8 bytes, fifo.o(i.RxFifo_Init))$/;"	a
+[94]	ADCSWTrigger.htm	/^<P><STRONG><a name="[94]"><\/a>StartCritical<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup.o(.text))$/;"	a
+[95]	ADCSWTrigger.htm	/^<P><STRONG><a name="[95]"><\/a>EndCritical<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup.o(.text))$/;"	a
+[96]	ADCSWTrigger.htm	/^<P><STRONG><a name="[96]"><\/a>ST7735_FillRect<\/STRONG> (Thumb, 164 bytes, Stack size 32 bytes, st7735.o(i.ST7735_FillRect))$/;"	a
+[97]	ADCSWTrigger.htm	/^<P><STRONG><a name="[97]"><\/a>setAddrWindow<\/STRONG> (Thumb, 106 bytes, Stack size 24 bytes, st7735.o(i.setAddrWindow))$/;"	a
+[98]	ADCSWTrigger.htm	/^<P><STRONG><a name="[98]"><\/a>writedata<\/STRONG> (Thumb, 24 bytes, Stack size 0 bytes, st7735.o(i.writedata))$/;"	a
+[99]	ADCSWTrigger.htm	/^<P><STRONG><a name="[99]"><\/a>ST7735_FillScreen<\/STRONG> (Thumb, 28 bytes, Stack size 16 bytes, st7735.o(i.ST7735_FillScreen))$/;"	a
+[9]	ADCSWTrigger.htm	/^<P><STRONG><a name="[9]"><\/a>SVC_Handler<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[9a]	ADCSWTrigger.htm	/^<P><STRONG><a name="[9a]"><\/a>ST7735_InitR<\/STRONG> (Thumb, 90 bytes, Stack size 8 bytes, st7735.o(i.ST7735_InitR))$/;"	a
+[9b]	ADCSWTrigger.htm	/^<P><STRONG><a name="[9b]"><\/a>commonInit<\/STRONG> (Thumb, 340 bytes, Stack size 8 bytes, st7735.o(i.commonInit))$/;"	a
+[9c]	ADCSWTrigger.htm	/^<P><STRONG><a name="[9c]"><\/a>commandList<\/STRONG> (Thumb, 86 bytes, Stack size 24 bytes, st7735.o(i.commandList))$/;"	a
+[9d]	ADCSWTrigger.htm	/^<P><STRONG><a name="[9d]"><\/a>writecommand<\/STRONG> (Thumb, 40 bytes, Stack size 0 bytes, st7735.o(i.writecommand))$/;"	a
+[9e]	ADCSWTrigger.htm	/^<P><STRONG><a name="[9e]"><\/a>ST7735_SetCursor<\/STRONG> (Thumb, 22 bytes, Stack size 0 bytes, st7735.o(i.ST7735_SetCursor))$/;"	a
+[9f]	ADCSWTrigger.htm	/^<P><STRONG><a name="[9f]"><\/a>Delay1ms<\/STRONG> (Thumb, 32 bytes, Stack size 8 bytes, st7735.o(i.Delay1ms))$/;"	a
+[a0]	ADCSWTrigger.htm	/^<P><STRONG><a name="[a0]"><\/a>draw_Init<\/STRONG> (Thumb, 10 bytes, Stack size 8 bytes, draw.o(i.draw_Init))$/;"	a
+[a1]	ADCSWTrigger.htm	/^<P><STRONG><a name="[a1]"><\/a>initAll<\/STRONG> (Thumb, 34 bytes, Stack size 8 bytes, main.o(i.initAll))$/;"	a
+[a2]	ADCSWTrigger.htm	/^<P><STRONG><a name="[a2]"><\/a>PLL_Init<\/STRONG> (Thumb, 118 bytes, Stack size 0 bytes, pll.o(i.PLL_Init))$/;"	a
+[a3]	ADCSWTrigger.htm	/^<P><STRONG><a name="[a3]"><\/a>out_Init<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, out.o(i.out_Init))$/;"	a
+[a4]	ADCSWTrigger.htm	/^<P><STRONG><a name="[a4]"><\/a>pushInitRoutines<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, main.o(i.pushInitRoutines))$/;"	a
+[a5]	ADCSWTrigger.htm	/^<P><STRONG><a name="[a5]"><\/a>keypad_Init<\/STRONG> (Thumb, 12 bytes, Stack size 4 bytes, keypad.o(i.keypad_Init))$/;"	a
+[a6]	ADCSWTrigger.htm	/^<P><STRONG><a name="[a6]"><\/a>timer_Init<\/STRONG> (Thumb, 16 bytes, Stack size 4 bytes, timer.o(i.timer_Init))$/;"	a
+[a7]	ADCSWTrigger.htm	/^<P><STRONG><a name="[a7]"><\/a>GPIOPortB_init<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, keypad.o(i.GPIOPortB_init))$/;"	a
+[a8]	ADCSWTrigger.htm	/^<P><STRONG><a name="[a8]"><\/a>GPIOPortD_init<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, keypad.o(i.GPIOPortD_init))$/;"	a
+[a9]	ADCSWTrigger.htm	/^<P><STRONG><a name="[a9]"><\/a>RxFifo_Get<\/STRONG> (Thumb, 62 bytes, Stack size 0 bytes, fifo.o(i.RxFifo_Get))$/;"	a
+[a]	ADCSWTrigger.htm	/^<P><STRONG><a name="[a]"><\/a>DebugMon_Handler<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[aa]	ADCSWTrigger.htm	/^<P><STRONG><a name="[aa]"><\/a>detectActionType<\/STRONG> (Thumb, 6 bytes, Stack size 0 bytes, main.o(i.detectActionType))$/;"	a
+[ab]	ADCSWTrigger.htm	/^<P><STRONG><a name="[ab]"><\/a>updateSetting<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, main.o(i.updateSetting))$/;"	a
+[ac]	ADCSWTrigger.htm	/^<P><STRONG><a name="[ac]"><\/a>updateDisplay<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, main.o(i.updateDisplay))$/;"	a
+[ad]	ADCSWTrigger.htm	/^<P><STRONG><a name="[ad]"><\/a>updateOut<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, main.o(i.updateOut))$/;"	a
+[ae]	ADCSWTrigger.htm	/^<P><STRONG><a name="[ae]"><\/a>sysTick_init<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, timer.o(i.sysTick_init))$/;"	a
+[af]	ADCSWTrigger.htm	/^<P><STRONG><a name="[af]"><\/a>timer0A_init<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, timer.o(i.timer0A_init))$/;"	a
+[b0]	ADCSWTrigger.htm	/^<P><STRONG><a name="[b0]"><\/a>timer1A_init<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, timer.o(i.timer1A_init))$/;"	a
+[b1]	ADCSWTrigger.htm	/^<P><STRONG><a name="[b1]"><\/a>__scatterload_rt2_thumb_only<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)$/;"	a
+[b2]	ADCSWTrigger.htm	/^<P><STRONG><a name="[b2]"><\/a>__scatterload_null<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)$/;"	a
+[b3]	ADCSWTrigger.htm	/^<P><STRONG><a name="[b3]"><\/a>__scatterload_zeroinit<\/STRONG> (Thumb, 28 bytes, Stack size unknown bytes, __scatter_zi.o(!!handler_zi), UNUSED)$/;"	a
+[b4]	ADCSWTrigger.htm	/^<P><STRONG><a name="[b4]"><\/a>__rt_lib_init_alloca_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002C))$/;"	a
+[b5]	ADCSWTrigger.htm	/^<P><STRONG><a name="[b5]"><\/a>__rt_lib_init_argv_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002A))$/;"	a
+[b6]	ADCSWTrigger.htm	/^<P><STRONG><a name="[b6]"><\/a>__rt_lib_init_atexit_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000019))$/;"	a
+[b7]	ADCSWTrigger.htm	/^<P><STRONG><a name="[b7]"><\/a>__rt_lib_init_clock_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001F))$/;"	a
+[b8]	ADCSWTrigger.htm	/^<P><STRONG><a name="[b8]"><\/a>__rt_lib_init_cpp_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000030))$/;"	a
+[b9]	ADCSWTrigger.htm	/^<P><STRONG><a name="[b9]"><\/a>__rt_lib_init_exceptions_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002E))$/;"	a
+[b]	ADCSWTrigger.htm	/^<P><STRONG><a name="[b]"><\/a>PendSV_Handler<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[ba]	ADCSWTrigger.htm	/^<P><STRONG><a name="[ba]"><\/a>__rt_lib_init_fp_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000002))$/;"	a
+[bb]	ADCSWTrigger.htm	/^<P><STRONG><a name="[bb]"><\/a>__rt_lib_init_fp_trap_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001D))$/;"	a
+[bc]	ADCSWTrigger.htm	/^<P><STRONG><a name="[bc]"><\/a>__rt_lib_init_getenv_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000021))$/;"	a
+[bd]	ADCSWTrigger.htm	/^<P><STRONG><a name="[bd]"><\/a>__rt_lib_init_heap_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000008))$/;"	a
+[be]	ADCSWTrigger.htm	/^<P><STRONG><a name="[be]"><\/a>__rt_lib_init_lc_collate_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000F))$/;"	a
+[bf]	ADCSWTrigger.htm	/^<P><STRONG><a name="[bf]"><\/a>__rt_lib_init_lc_ctype_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000011))$/;"	a
+[c0]	ADCSWTrigger.htm	/^<P><STRONG><a name="[c0]"><\/a>__rt_lib_init_lc_monetary_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000013))$/;"	a
+[c1]	ADCSWTrigger.htm	/^<P><STRONG><a name="[c1]"><\/a>__rt_lib_init_lc_numeric_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000015))$/;"	a
+[c2]	ADCSWTrigger.htm	/^<P><STRONG><a name="[c2]"><\/a>__rt_lib_init_lc_time_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000017))$/;"	a
+[c3]	ADCSWTrigger.htm	/^<P><STRONG><a name="[c3]"><\/a>__rt_lib_init_rand_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000C))$/;"	a
+[c4]	ADCSWTrigger.htm	/^<P><STRONG><a name="[c4]"><\/a>__rt_lib_init_return<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000031))$/;"	a
+[c5]	ADCSWTrigger.htm	/^<P><STRONG><a name="[c5]"><\/a>__rt_lib_init_signal_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001B))$/;"	a
+[c6]	ADCSWTrigger.htm	/^<P><STRONG><a name="[c6]"><\/a>__rt_lib_init_stdio_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000023))$/;"	a
+[c7]	ADCSWTrigger.htm	/^<P><STRONG><a name="[c7]"><\/a>__rt_lib_init_user_alloc_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000A))$/;"	a
+[c8]	ADCSWTrigger.htm	/^<P><STRONG><a name="[c8]"><\/a>__rt_lib_shutdown_fp_trap_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000006))$/;"	a
+[c9]	ADCSWTrigger.htm	/^<P><STRONG><a name="[c9]"><\/a>__rt_lib_shutdown_heap_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000E))$/;"	a
+[c]	ADCSWTrigger.htm	/^<P><STRONG><a name="[c]"><\/a>SysTick_Handler<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[ca]	ADCSWTrigger.htm	/^<P><STRONG><a name="[ca]"><\/a>__rt_lib_shutdown_return<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F))$/;"	a
+[cb]	ADCSWTrigger.htm	/^<P><STRONG><a name="[cb]"><\/a>__rt_lib_shutdown_signal_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000009))$/;"	a
+[cc]	ADCSWTrigger.htm	/^<P><STRONG><a name="[cc]"><\/a>__rt_lib_shutdown_stdio_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000003))$/;"	a
+[cd]	ADCSWTrigger.htm	/^<P><STRONG><a name="[cd]"><\/a>__rt_lib_shutdown_user_alloc_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000B))$/;"	a
+[ce]	ADCSWTrigger.htm	/^<P><STRONG><a name="[ce]"><\/a>__rt_entry_presh_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$00000002))$/;"	a
+[cf]	ADCSWTrigger.htm	/^<P><STRONG><a name="[cf]"><\/a>__rt_entry_postsh_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$00000009))$/;"	a
+[d0]	ADCSWTrigger.htm	/^<P><STRONG><a name="[d0]"><\/a>__rt_entry_postli_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$0000000C))$/;"	a
+[d1]	ADCSWTrigger.htm	/^<P><STRONG><a name="[d1]"><\/a>__rt_exit_prels_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000002))$/;"	a
+[d2]	ADCSWTrigger.htm	/^<P><STRONG><a name="[d2]"><\/a>DisableInterrupts<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup.o(.text), UNUSED)$/;"	a
+[d3]	ADCSWTrigger.htm	/^<P><STRONG><a name="[d3]"><\/a>EnableInterrupts<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup.o(.text), UNUSED)$/;"	a
+[d4]	ADCSWTrigger.htm	/^<P><STRONG><a name="[d4]"><\/a>WaitForInterrupt<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup.o(.text), UNUSED)$/;"	a
+[d5]	ADCSWTrigger.htm	/^<P><STRONG><a name="[d5]"><\/a>__use_two_region_memory<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)$/;"	a
+[d6]	ADCSWTrigger.htm	/^<P><STRONG><a name="[d6]"><\/a>__rt_heap_escrow$2region<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)$/;"	a
+[d7]	ADCSWTrigger.htm	/^<P><STRONG><a name="[d7]"><\/a>__rt_heap_expand$2region<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)$/;"	a
+[d8]	ADCSWTrigger.htm	/^<P><STRONG><a name="[d8]"><\/a>__user_libspace<\/STRONG> (Thumb, 8 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)$/;"	a
+[d9]	ADCSWTrigger.htm	/^<P><STRONG><a name="[d9]"><\/a>__user_perthread_libspace<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)$/;"	a
+[d]	ADCSWTrigger.htm	/^<P><STRONG><a name="[d]"><\/a>GPIOPortA_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[da]	ADCSWTrigger.htm	/^<P><STRONG><a name="[da]"><\/a>__I$use$semihosting<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)$/;"	a
+[db]	ADCSWTrigger.htm	/^<P><STRONG><a name="[db]"><\/a>__use_no_semihosting_swi<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)$/;"	a
+[dc]	ADCSWTrigger.htm	/^<P><STRONG><a name="[dc]"><\/a>__semihosting_library_function<\/STRONG> (Thumb, 0 bytes, Stack size 8 bytes, indicate_semi.o(.text), UNUSED)$/;"	a
+[e]	ADCSWTrigger.htm	/^<P><STRONG><a name="[e]"><\/a>GPIOPortB_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[f]	ADCSWTrigger.htm	/^<P><STRONG><a name="[f]"><\/a>GPIOPortC_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+_FIXEDH_	fixed.h	8;"	d
+_ST7735H_	ST7735.h	91;"	d
+__FIFO_H__	FIFO.h	30;"	d
+__Vectors	startup.s	/^__Vectors$/;"	l
+__drawh	draw.h	2;"	d
+__heap_base	startup.s	/^__heap_base$/;"	l
+__heap_limit	startup.s	/^__heap_limit$/;"	l
+__initial_sp	startup.s	/^__initial_sp$/;"	l
+__keypadh	keypad.h	2;"	d
+__outh	out.h	2;"	d
+__timerh	timer.h	2;"	d
+__user_initial_stackheap	startup.s	/^__user_initial_stackheap$/;"	l
+_height	ST7735.c	/^static int16_t _height = ST7735_TFTHEIGHT;$/;"	v	file:
+_width	ST7735.c	/^static int16_t _width = ST7735_TFTWIDTH;   \/\/ this could probably be a constant, except it is used in Adafruit_GFX and depends on image rotation$/;"	v	file:
+actionType	ADCTestMain.c	/^typedef enum actionType {$/;"	g	file:
+actionType	ADCTestMain.c	/^} actionType;$/;"	t	typeref:enum:actionType	file:
+actionType	main.c	/^typedef enum actionType {$/;"	g	file:
+actionType	main.c	/^} actionType;$/;"	t	typeref:enum:actionType	file:
+clearConvertedIndex	fixed.c	/^void clearConvertedIndex ( void ) {$/;"	f
+commandList	ST7735.c	/^void static commandList(const uint8_t *addr) {$/;"	f	file:
+commonInit	ST7735.c	/^void static commonInit(const uint8_t *cmdList) {$/;"	f	file:
+convertDec	fixed.c	/^void convertDec(uint32_t n){$/;"	f
+converted	fixed.c	/^char converted[12];$/;"	v
+convertedIndex	fixed.c	/^uint32_t convertedIndex;$/;"	v
+dBfs	ST7735.c	/^uint8_t const dBfs[512]={$/;"	v
+detectActionType	ADCTestMain.c	/^actionType detectActionType(rxDataType * Action){return (actionType) 0;}$/;"	f
+detectActionType	main.c	/^actionType detectActionType(rxDataType * Action){return (actionType) 0;}$/;"	f
+draw_ClockFace	draw.c	/^void draw_ClockFace(uint32_t color){}$/;"	f
+draw_CursorBox	draw.c	/^void draw_CursorBox(uint8_t position, uint32_t color){}$/;"	f
+draw_CursorUnderscore	draw.c	/^void draw_CursorUnderscore(uint8_t position, uint32_t color){}$/;"	f
+draw_DigitalDigit	draw.c	/^void draw_DigitalDigit(uint8_t position, uint32_t value, uint32_t color){}$/;"	f
+draw_DigitalTime	draw.c	/^void draw_DigitalTime(uint32_t time, uint32_t color){}$/;"	f
+draw_HourHand	draw.c	/^void draw_HourHand(uint32_t time, uint32_t color){}$/;"	f
+draw_Init	draw.c	/^void draw_Init(void)$/;"	f
+draw_MinuteHand	draw.c	/^void draw_MinuteHand(uint32_t time, uint32_t color){}$/;"	f
+draw_Mode	draw.c	/^void draw_Mode(char * name, uint32_t color){}$/;"	f
+ferror	ST7735.c	/^int ferror(FILE *f){$/;"	f
+fgetc	ST7735.c	/^int fgetc (FILE *f){$/;"	f
+fillmessage	ST7735.c	/^void fillmessage(uint32_t n){$/;"	f
+fputc	ST7735.c	/^int fputc(int ch, FILE *f){$/;"	f
+g_pfnVectors	tm4c123gh6pm_startup_ccs.c	/^void (* const g_pfnVectors[])(void) =$/;"	v
+id	FIFO.h	/^typedef struct { uint8_t origin; uint32_t id; int32_t value; } rxDataType;$/;"	m	struct:__anon1
+initAll	ADCTestMain.c	/^void initAll (void) $/;"	f
+initAll	main.c	/^void initAll (void) $/;"	f
+initRFlags	ST7735.h	/^enum initRFlags{$/;"	g
+keypad_Init	keypad.c	/^void keypad_Init(void)$/;"	f
+keypad_id	keypad.h	/^typedef enum keypad_id {$/;"	g
+keypad_id	keypad.h	/^} keypad_id;$/;"	t	typeref:enum:keypad_id
+lastj	ST7735.c	/^int32_t lastj=0;$/;"	v
+main	ADCTestMain.c	/^int main (void) $/;"	f
+main	main.c	/^int main (void) $/;"	f
+none	ST7735.h	/^  none,$/;"	e	enum:initRFlags
+origin	FIFO.h	/^typedef struct { uint8_t origin; uint32_t id; int32_t value; } rxDataType;$/;"	m	struct:__anon1
+out_Init	out.c	/^void out_Init(void) {}$/;"	f
+out_LED	out.c	/^void out_LED(uint32_t value){}$/;"	f
+out_Speaker	out.c	/^void out_Speaker(uint32_t value){}$/;"	f
+pushColor	ST7735.c	/^void static pushColor(uint16_t color) {$/;"	f	file:
+pushInitRoutines	ADCTestMain.c	/^void pushInitRoutines(void){};$/;"	f
+pushInitRoutines	main.c	/^void pushInitRoutines(void){};$/;"	f
+rangeX	fixed.c	/^int32_t rangeX, rangeY;$/;"	v
+rangeY	fixed.c	/^int32_t rangeX, rangeY;$/;"	v
+rxDataType	FIFO.h	/^typedef struct { uint8_t origin; uint32_t id; int32_t value; } rxDataType;$/;"	t	typeref:struct:__anon1
+setAddrWindow	ST7735.c	/^void static setAddrWindow(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1) {$/;"	f	file:
+setMaxX	fixed.c	/^int32_t setMinX, setMaxX, setMinY, setMaxY;$/;"	v
+setMaxY	fixed.c	/^int32_t setMinX, setMaxX, setMinY, setMaxY;$/;"	v
+setMinX	fixed.c	/^int32_t setMinX, setMaxX, setMinY, setMaxY;$/;"	v
+setMinY	fixed.c	/^int32_t setMinX, setMaxX, setMinY, setMaxY;$/;"	v
+sysTick_init	timer.c	/^void sysTick_init(void){}$/;"	f
+timer0A_init	timer.c	/^void timer0A_init(void){}$/;"	f
+timer1A_init	timer.c	/^void timer1A_init(void){}$/;"	f
+timer_Init	timer.c	/^void timer_Init(void)$/;"	f
+timer_id	timer.h	/^typedef enum timer_id {$/;"	g
+timer_id	timer.h	/^} timer_id;$/;"	t	typeref:enum:timer_id
+txDataType	FIFO.h	/^typedef char txDataType;$/;"	t
+uDMA_Error	startup.s	/^uDMA_Error$/;"	l
+uDMA_Error	tm4c123gh6pm_startup_ccs.c	/^void uDMA_Error(void){ while(1){}}                 \/\/ uDMA Error$/;"	f
+uDMA_Handler	startup.s	/^uDMA_Handler$/;"	l
+uDMA_Handler	tm4c123gh6pm_startup_ccs.c	/^void uDMA_Handler(void){ while(1){}}               \/\/ uDMA Software Transfer$/;"	f
+updateDisplay	ADCTestMain.c	/^void updateDisplay(rxDataType * Action){}$/;"	f
+updateDisplay	main.c	/^void updateDisplay(rxDataType * Action){}$/;"	f
+updateOut	ADCTestMain.c	/^void updateOut(rxDataType * Action){}$/;"	f
+updateOut	main.c	/^void updateOut(rxDataType * Action){}$/;"	f
+updateSetting	ADCTestMain.c	/^void updateSetting(rxDataType * Action){}$/;"	f
+updateSetting	main.c	/^void updateSetting(rxDataType * Action){}$/;"	f
+value	FIFO.h	/^typedef struct { uint8_t origin; uint32_t id; int32_t value; } rxDataType;$/;"	m	struct:__anon1
+writecommand	ST7735.c	/^void static writecommand(uint8_t c) {$/;"	f	file:
+writedata	ST7735.c	/^void static writedata(uint8_t c) {$/;"	f	file:
