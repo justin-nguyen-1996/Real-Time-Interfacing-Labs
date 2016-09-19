@@ -14,7 +14,7 @@ static void PortB_Init(void) {
   while((SYSCTL_PRGPIO_R&0x02)==0){};   // 2) allow time for clock to stabilize
   GPIO_PORTB_AMSEL_R &= ~0xFF;      // 3) disable analog functionality on PB7-0
   GPIO_PORTB_PCTL_R &= ~0xFFFFFFFF; // 4) GPIO
-  GPIO_PORTB_DIR_R |= 0xFF;         // 5) make PB7-0 out
+  GPIO_PORTB_DIR_R &= ~0xFF;        // 5) make PB7-0 input
   GPIO_PORTB_AFSEL_R &= ~0xFF;      // 6) regular port function
   GPIO_PORTB_DEN_R |= 0xFF;         // 7) enable digital I/O on PB7-0
   GPIO_PORTB_IS_R &= ~0xFF;         // 8) edge-sensitive
@@ -36,7 +36,7 @@ static void PortD_Init(void) {
   
   GPIO_PORTD_AMSEL_R &= ~0xFF;      // 3) disable analog functionality on PD7-0
   GPIO_PORTD_PCTL_R &= ~0xFFFFFFFF; // 4) GPIO
-  GPIO_PORTD_DIR_R |= 0xFF;         // 5) make PD7-0 out
+  GPIO_PORTD_DIR_R &= ~0xFF;        // 5) make PD7-0 input
   GPIO_PORTD_AFSEL_R &= ~0xFF;      // 6) regular port function
   GPIO_PORTD_LOCK_R = 0x4C4F434B ;  // 7) unlock Port D
   GPIO_PORTD_CR_R |= 0xFF;          // 8) allow changes to PD7-0
