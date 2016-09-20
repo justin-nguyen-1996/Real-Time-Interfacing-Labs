@@ -426,11 +426,6 @@
               <FilePath>.\fixed.c</FilePath>
             </File>
             <File>
-              <FileName>ST7735.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\ST7735.c</FilePath>
-            </File>
-            <File>
               <FileName>draw.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\draw.c</FilePath>
@@ -459,6 +454,16 @@
               <FileName>Timer.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>ST7735.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\ST7735.c</FilePath>
+            </File>
+            <File>
+              <FileName>SysTick.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SysTick.c</FilePath>
             </File>
           </Files>
         </Group>

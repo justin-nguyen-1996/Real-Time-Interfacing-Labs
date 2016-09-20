@@ -194,6 +194,7 @@ void initAll (void)
   // These may push additional initial routines on FIFO (drawing first screen)
   Keypad_Init();
 //  Timer_Init();
+  SysTick_Init(1);
 }
 
 int main_CRAP (void) 
