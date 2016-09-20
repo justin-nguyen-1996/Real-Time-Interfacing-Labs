@@ -76,6 +76,15 @@ actionType detectActionType(rxDataType Action)
 		case 0: //main
 			break;
 		case 1: //timer
+			switch (Action.id)
+			{
+				case 0:
+					if (time < 86400){
+						time ++;
+					}
+					else {time = 0;}
+					break;
+			}
 			break;
 		case 2: //keypad
 			switch (Action.id)
@@ -111,17 +120,64 @@ actionType detectActionType(rxDataType Action)
 					if (cursorLocation) {}
 					break;
 				case DIR_UP:
-					if (cursorLocation) {}
+						if ( currentMode == MODE_SET_TIME )
+						{
+							switch (cursorLocation)
+							{
+								case 0:
+									break;
+								case 1:
+									if (time >= 72000){ time -= 72000; } //twenty hours
+									else {time += 36000;} //ten hour's worth of seconds
+									break;
+								case 2:
+									if (time >= 82800){ time -= 10800; } //twenty three hours and three hours
+									else if ((time % 36000) >= 32400) { time -= 32400;} //remove tens hours, larger than 9 hours
+									else {time += 3600;}
+									break;
+								case 3:
+									if ((time % 3600) >= 3000) { time -= 3000;} //fifty minutes
+									else {time += 600;}
+									break;
+								case 4:
+									if ((time % 600) >= 540) { time -= 540; }
+									else { time += 60; }
+									break;
+							}
+						}
 					break;
 				case DIR_DOWN:
-					if (cursorLocation) {}
-					break;
-
+					if (currentMode == MODE_SET_TIME)
+					{
+						switch (cursorLocation)
+							{
+								case 0:
+									break;
+								case 1:
+									if (time <= 35999){ time += 72000; } //twenty hours
+									else {time -= 36000;} //ten hour's worth of seconds
+									break;
+								case 2:
+									if ((time / 36000) == 2 && (time % 36000) <= 3600){ time += 10800; } //twenty three hours and three hours
+									else if ((time % 36000) <= 32399) { time += 32400;} //remove tens hours, 0 hours 
+									else {time -= 3600;}
+									break;
+								case 3:
+									if ((time % 3600) <= 599) { time += 3000;} //fifty minutes
+									else {time -= 600;}
+									break;
+								case 4:
+									if ((time % 600) <= 59) { time += 540; }
+									else { time -= 60; }
+									break;
+							}
+						break;
+					}
 				case DIR_RIGHT:
 					if (cursorLocation)
 					{
 						draw_Cursor(cursorLocation,backgroundColor);
-						if (cursorLocation == 5) {cursorLocation = 1;}
+						if (cursorLocation == 4) {cursorLocation = 1;}
 						else {cursorLocation ++;}
 						draw_Cursor(cursorLocation,cursorColor);
 					}
@@ -137,7 +193,7 @@ actionType detectActionType(rxDataType Action)
 					if (cursorLocation)
 					{
 						draw_Cursor(cursorLocation,backgroundColor);
-						if (cursorLocation == 1) {cursorLocation = 5;}
+						if (cursorLocation == 1) {cursorLocation = 4;}
 						else {cursorLocation --;}
 						draw_Cursor(cursorLocation,cursorColor);
 					}
@@ -183,7 +239,7 @@ void initAll (void)
 
   // Initialize output modules 
   // These will not push routines on the FIFO
-//  out_Init();
+  out_Init();
   draw_Init();
 	ST7735_SetRotation(2);
 
@@ -197,39 +253,6 @@ void initAll (void)
   SysTick_Init(1);
 }
 
-int main_CRAP (void) 
-{
-  initAll();
-//  draw_main();
-//	keypad_main();
-	uint32_t time = 0;
-  while(1)
-	{
-		if (time < 86400) 
-		{ 
-			ST7735_SetCursor(0,0);
-			ST7735_OutUDec(time);
-			draw_MinuteHand_CRAP(time-1, ST7735_BLACK);
-			draw_MinuteHand_CRAP(time,ST7735_BLUE); 
-			draw_DigitalTime(time, ST7735_WHITE);
-			time += 1;
-		}
-		else {time = 0;}
-		
-    rxDataType nextAction;
-    int fifoGetStatus = RxFifo_Get(&nextAction);
-    if (fifoGetStatus)
-    {
-      actionType type = detectActionType(nextAction);
-      switch (type)
-      {
-        case SETTING:  updateSetting(nextAction); break;
-        case DISPLAY:  updateDisplay(nextAction); break;
-        case OUT:      updateOut(nextAction);     break;
-      }
-    }
-  }
-}
 
 int main (void) {
   initAll();
@@ -259,19 +282,13 @@ int main (void) {
         time += 1;
       }
     else { time = 0; }
-  }
   
   rxDataType nextAction;
   int fifoGetStatus = RxFifo_Get(&nextAction);
   if (fifoGetStatus)
   {
-    actionType type = detectActionType(nextAction);
-    switch (type)
-    {
-      case SETTING:  updateSetting(nextAction); break;
-      case DISPLAY:  updateDisplay(nextAction); break;
-      case OUT:      updateOut(nextAction);     break;
-    }
+    detectActionType(nextAction);
   }
+	}
 }
 
