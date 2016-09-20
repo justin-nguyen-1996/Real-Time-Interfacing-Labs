@@ -4,15 +4,16 @@
 #include <stdint.h>
 
 typedef struct Point {
-  int16_t x;
-  int16_t y;
+  int8_t x;
+  int8_t y;
 } Point;
 
 uint16_t getNumPixelsToDraw(uint8_t radius, uint16_t degrees);
 
 void draw_Init(void);
 void draw_ClockFace(uint32_t circleColor, uint32_t numbersColor);
-void draw_MinuteHand(uint32_t time, uint32_t color);
+void draw_MinuteHand_CRAP(uint32_t time, uint32_t color);
+void draw_MinuteHand(uint32_t time, uint32_t color, uint8_t minuteHandBufferIndex);
 void draw_HourHand(uint32_t time, uint32_t color);
 void draw_Mode(char * name, uint32_t color);
 void draw_DigitalTime(uint32_t time, uint32_t color);
@@ -22,9 +23,13 @@ void draw_CursorUnderscore(uint8_t position, uint32_t color);
 void _Line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color);
 void draw_main(void);
 
-static const Point MINUTE_POINT_VAL[60] = {
-  { 44,  4},
-  { 44,  9},
+#define MINUTE_HAND_RESOLUTION 61
+#define HOUR_HAND_RESOLUTION   49
+
+static const Point MINUTE_POINT_BUFFER[MINUTE_HAND_RESOLUTION] = {
+  { 45,   0},
+  { 44,   4},
+  { 44,   9},
   { 42,  13},
   { 41,  18},
   { 38,  22},
@@ -50,10 +55,10 @@ static const Point MINUTE_POINT_VAL[60] = {
   {-39,  22},
   {-42,  18},
   {-43,  13},
-  {-45,  9},
-  {-45,  4},
-  {-45,  0},
-  {-45, -5},
+  {-45,   9},
+  {-45,   4},
+  {-45,   0},
+  {-45,  -5},
   {-45, -10},
   {-43, -14},
   {-42, -19},
@@ -85,4 +90,56 @@ static const Point MINUTE_POINT_VAL[60] = {
   { 45, -1}
 };
 
+
+static const Point HOUR_POINT_BUFFER[HOUR_HAND_RESOLUTION] = {
+  {  30,   0 },
+  {  29,   3 },
+  {  28,   7 },
+  {  27,  11 },
+  {  25,  15 },
+  {  23,  18 },
+  {  21,  21 },
+  {  18,  23 },
+  {  15,  25 },
+  {  11,  27 },
+  {   7,  28 },
+  {   3,  29 },
+  {   0,  30 },
+  {  -4,  29 },
+  {  -8,  28 },
+  { -12,  27 },
+  { -15,  25 },
+  { -19,  23 },
+  { -22,  21 },
+  { -24,  18 },
+  { -26,  15 },
+  { -28,  11 },
+  { -29,   7 },
+  { -30,   3 },
+  { -30,   0 },
+  { -30,  -4 },
+  { -29,  -8 },
+  { -28, -12 },
+  { -26, -15 },
+  { -24, -19 },
+  { -22, -22 },
+  { -19, -24 },
+  { -15, -26 },
+  { -12, -28 },
+  {  -8, -29 },
+  {  -4, -30 },
+  {  -1, -30 },
+  {   3, -30 },
+  {   7, -29 },
+  {  11, -28 },
+  {  15, -26 },
+  {  18, -24 },
+  {  21, -22 },
+  {  23, -19 },
+  {  25, -15 },
+  {  27, -12 },
+  {  28,  -8 },
+  {  29,  -4 },
+  {  30,  -1 }
+};
 #endif
