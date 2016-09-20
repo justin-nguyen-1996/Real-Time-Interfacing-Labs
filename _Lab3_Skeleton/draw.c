@@ -132,7 +132,7 @@ Point calcRadialPixel(uint16_t x0, uint16_t y0, uint16_t d, uint8_t radius)
   }
   uint16_t degrees;
   // Convert the input degrees so that it lies between 0 and 45 degrees
-  if      (d >= 0    &&  d <= 45)  { degrees = d;       }
+  if      (d >= 0   &&  d <= 45)  { degrees = d;       }
   else if (d > 45   &&  d <= 90)  { degrees = 90 - d;  }
   else if (d > 90   &&  d <= 135) { degrees = d - 90;  } 
   else if (d > 135  &&  d <= 180) { degrees = 180 - d; } 
@@ -143,6 +143,7 @@ Point calcRadialPixel(uint16_t x0, uint16_t y0, uint16_t d, uint8_t radius)
   else if (d > 360)               { degrees = d - 360; }
 
   int i = (((45 << 5) / (count + 1)) * degrees ) >> 5;
+  //int i = (((45) / (count + 1)) * degrees );
 
   Point ret_point;
   if      (d >= 0   &&  d <= 45)  { ret_point.x = x0 + arr[i].x;	ret_point.y = y0 - arr[i].y; }
