@@ -69,10 +69,92 @@ uint32_t _getNameLength(char * name)
   return i;
 }
 
+uint16_t getStopPixelCount(uint8_t radius, uint16_t degrees) {
+  int x = radius;
+  int y = 0;
+  int err = 0; //for pixel approximation
+
+  uint8_t numPixelsPer45Degrees = 0;
+  while (x >= y)
+  {
+    y += 1;
+    err += 1 + (y<<1); 
+    if ( ((err-x)<<1) + 1 > 0)
+    {
+      x -= 1;
+      err += 1 - (x<<1);
+    }
+    numPixelsPer45Degrees += 1;
+  }
+  
+  // Convert the degrees so that it lies between 0 and 45 degrees
+  if      (degrees > 0    &&  degrees <= 45)  {                          }
+  else if (degrees > 45   &&  degrees <= 90)  { degrees = 90 - degrees;  }
+  else if (degrees > 90   &&  degrees <= 135) { degrees = degrees - 90;  } 
+  else if (degrees > 135  &&  degrees <= 180) { degrees = 180 - degrees; } 
+  else if (degrees > 180  &&  degrees <= 225) { degrees = degrees - 180; } 
+  else if (degrees > 225  &&  degrees <= 270) { degrees = 270 - degrees; } 
+  else if (degrees > 270  &&  degrees <= 315) { degrees = degrees - 270; } 
+  else if (degrees > 315  &&  degrees <= 360) { degrees = 360 - degrees; } 
+  else if (degrees > 360)                     { degrees = degrees - 360; }
+  
+/////  Test code
+//  ST7735_OutUDec(((45 << 5) * degrees / numPixelsPer45Degrees) >> 5);
+//  ST7735_OutChar('\n');
+  
+  return ((45 << 5) * degrees / numPixelsPer45Degrees) >> 5;
+}
+
+Point calcRadialPixel(uint16_t x0, uint16_t y0, uint16_t degrees, uint8_t radius)
+{
+  int x = radius;
+  int y = 0;
+  int err = 0; //for pixel approximation
+
+  int count = 0;
+  Point arr[100];
+  while (x >= y)
+  {
+    Point p = {x, y};
+    arr[count] = p;
+
+    count += 1;
+    y += 1;
+    err += 1 + (y<<1); 
+    if ( ((err-x)<<1) + 1 > 0)
+    {
+      x -= 1;
+      err += 1 - (x<<1);
+    }
+  }
+  
+  // Convert the degrees so that it lies between 0 and 45 degrees
+  if      (degrees > 0    &&  degrees <= 45)  {                          }
+  else if (degrees > 45   &&  degrees <= 90)  { degrees = 90 - degrees;  }
+  else if (degrees > 90   &&  degrees <= 135) { degrees = degrees - 90;  } 
+  else if (degrees > 135  &&  degrees <= 180) { degrees = 180 - degrees; } 
+  else if (degrees > 180  &&  degrees <= 225) { degrees = degrees - 180; } 
+  else if (degrees > 225  &&  degrees <= 270) { degrees = 270 - degrees; } 
+  else if (degrees > 270  &&  degrees <= 315) { degrees = degrees - 270; } 
+  else if (degrees > 315  &&  degrees <= 360) { degrees = 360 - degrees; } 
+  else if (degrees > 360)                     { degrees = degrees - 360; }
+
+  int i = ((45 << 5) * degrees / count) >> 5;
+  Point temp_point = arr[i];
+  
+  return temp_point;
+  
+//  Point badPointValue = {-1,-1};
+//  return badPointValue;
+}
+
 void draw_ClockFace(uint32_t circleColor, uint32_t numbersColor)
 {
-  _draw_Circle(60, circleColor);
-  _draw_Circle(61, circleColor);
+  _draw_Circle(60, circleColor); Point p = calcRadialPixel(63, 96, 44, 60);
+  ST7735_DrawPixel(p.x, p.y, ST7735_CYAN);
+  ST7735_OutUDec(p.x); ST7735_OutChar('\n');
+  ST7735_OutUDec(p.y); ST7735_OutChar('\n');
+  _draw_Circle(61, circleColor); getStopPixelCount(60, 360);
   _draw_Circle(4, circleColor);
   _draw_Circle(3, circleColor);
   _draw_Numbers(numbersColor);
@@ -100,7 +182,6 @@ void draw_DigitalTime(uint32_t time, uint32_t color)
 void draw_DigitalDigit(uint8_t position, uint32_t value, uint32_t color){}
 void draw_CursorBox(uint8_t position, uint32_t color){}
 void draw_CursorUnderscore(uint8_t position, uint32_t color){}
-
 
 void draw_main(void)
 {
