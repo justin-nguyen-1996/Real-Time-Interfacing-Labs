@@ -3,7 +3,10 @@
 #include "Timer.h"
 #include "FIFO.h"
 
-#define ORIGIN_TIMER   1
+#define ORIGIN_TIMER              1
+#define UPDATE_HANDS              0
+#define SECONDS_INCREMENT_VALUE   1
+
 #define BUS_80MHZ      80000000
 #define TEMP_FREQ      10000
 
@@ -13,12 +16,19 @@ void EnableInterrupts(void);
 //static void (*PeriodicTask)(void);   // user function
 
 // Initialize SysTick with busy wait running at bus clock.
-void SysTick_Init(void){
+// Period is in seconds
+void SysTick_Init(uint32_t period){
   NVIC_ST_CTRL_R = 0;                   // disable SysTick during setup
-  NVIC_ST_RELOAD_R = NVIC_ST_RELOAD_M;  // maximum reload value
+  NVIC_ST_RELOAD_R = BUS_80MHZ * period;// reload value
   NVIC_ST_CURRENT_R = 0;                // any write to current clears it
                                         // enable SysTick with core clock
   NVIC_ST_CTRL_R = NVIC_ST_CTRL_ENABLE+NVIC_ST_CTRL_CLK_SRC;
+}
+
+void SysTick_Handler() {
+  rxDataType updateClockHands = 
+    {ORIGIN_TIMER, UPDATE_HANDS, SECONDS_INCREMENT_VALUE};
+  RxFifo_Put(updateClockHands);
 }
 
 /* Summary: Initialize Timer0A
@@ -78,7 +88,6 @@ void Timer1A_Init(uint32_t freq){
 // blinking cursor is requested, respectively.
 void Timer_Init(void)
 {
-  SysTick_Init();
   Timer0A_Init(TEMP_FREQ);
   Timer1A_Init(TEMP_FREQ);
 }
