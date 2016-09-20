@@ -3,6 +3,9 @@
 #include "ST7735.h"
 #include "draw.h"
 
+#define CLOCK_FACE_CENTER_X 63
+#define CLOCK_FACE_CENTER_Y 96
+
 // Initialization will initialize the ST7735 display and
 // set up a coordinate plot for future use
 void draw_Init(void)
@@ -10,10 +13,43 @@ void draw_Init(void)
   ST7735_InitR(INITR_REDTAB);
 }
 
+void _Line_h(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color)
+{
+
+	typedef struct vector { int32_t x, y; } Vector;
+	Vector pixel1, pixel2;
+	pixel1.x = x1;
+	pixel1.y = y1;
+
+	pixel2.x = x2;
+	pixel2.y = y2;
+	
+	Vector range = {pixel2.x - pixel1.x, pixel2.y - pixel1.y};
+	Vector absv_range = { (range.x < 0) ? -range.x : range.x,
+			      (range.y < 0) ? -range.y : range.y };
+	
+	if (absv_range.x <= 1 && absv_range.y <= 1)
+	{
+	    ST7735_DrawPixel(pixel1.x>>3,   pixel1.y>>3,   color);
+	    ST7735_DrawPixel(pixel2.x>>3,   pixel2.y>>3,   color);
+	    return;
+	}
+
+	else 
+	{ 
+	    _Line_h(x1, y1, x1 + (range.x>>1), y1 + (range.y>>1), color); 
+	    _Line_h(x1 + (range.x>>1), y1 + (range.y>>1), x2, y2, color); 
+	}
+}
+void _Line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color)
+{
+	_Line_h(x1<<3, y1<<3, x2<<3, y2<<3, color);
+}
+
 void _draw_Circle(uint8_t radius, uint32_t color)
 {
-  int x0 = 63; //midway of ST7735
-  int y0 = 96; //same distance from edges of screen
+  int x0 = CLOCK_FACE_CENTER_X; 
+  int y0 = CLOCK_FACE_CENTER_Y;
 
   int x = radius;
   int y = 0;
@@ -69,43 +105,7 @@ uint32_t _getNameLength(char * name)
   return i;
 }
 
-uint16_t getStopPixelCount(uint8_t radius, uint16_t degrees) {
-  int x = radius;
-  int y = 0;
-  int err = 0; //for pixel approximation
-
-  uint8_t numPixelsPer45Degrees = 0;
-  while (x >= y)
-  {
-    y += 1;
-    err += 1 + (y<<1); 
-    if ( ((err-x)<<1) + 1 > 0)
-    {
-      x -= 1;
-      err += 1 - (x<<1);
-    }
-    numPixelsPer45Degrees += 1;
-  }
-  
-  // Convert the degrees so that it lies between 0 and 45 degrees
-  if      (degrees > 0    &&  degrees <= 45)  {                          }
-  else if (degrees > 45   &&  degrees <= 90)  { degrees = 90 - degrees;  }
-  else if (degrees > 90   &&  degrees <= 135) { degrees = degrees - 90;  } 
-  else if (degrees > 135  &&  degrees <= 180) { degrees = 180 - degrees; } 
-  else if (degrees > 180  &&  degrees <= 225) { degrees = degrees - 180; } 
-  else if (degrees > 225  &&  degrees <= 270) { degrees = 270 - degrees; } 
-  else if (degrees > 270  &&  degrees <= 315) { degrees = degrees - 270; } 
-  else if (degrees > 315  &&  degrees <= 360) { degrees = 360 - degrees; } 
-  else if (degrees > 360)                     { degrees = degrees - 360; }
-  
-/////  Test code
-//  ST7735_OutUDec(((45 << 5) * degrees / numPixelsPer45Degrees) >> 5);
-//  ST7735_OutChar('\n');
-  
-  return ((45 << 5) * degrees / numPixelsPer45Degrees) >> 5;
-}
-
-Point calcRadialPixel(uint16_t x0, uint16_t y0, uint16_t degrees, uint8_t radius)
+Point calcRadialPixel(uint16_t x0, uint16_t y0, uint16_t d, uint8_t radius)
 {
   int x = radius;
   int y = 0;
@@ -113,12 +113,12 @@ Point calcRadialPixel(uint16_t x0, uint16_t y0, uint16_t degrees, uint8_t radius
 
   int count = 0;
   Point arr[100];
+	arr[0].x = x; 
+	arr[0].y = 0;
   while (x >= y)
   {
-    Point p = {x, y};
-    arr[count] = p;
+		count += 1;
 
-    count += 1;
     y += 1;
     err += 1 + (y<<1); 
     if ( ((err-x)<<1) + 1 > 0)
@@ -126,23 +126,37 @@ Point calcRadialPixel(uint16_t x0, uint16_t y0, uint16_t degrees, uint8_t radius
       x -= 1;
       err += 1 - (x<<1);
     }
-  }
-  
-  // Convert the degrees so that it lies between 0 and 45 degrees
-  if      (degrees > 0    &&  degrees <= 45)  {                          }
-  else if (degrees > 45   &&  degrees <= 90)  { degrees = 90 - degrees;  }
-  else if (degrees > 90   &&  degrees <= 135) { degrees = degrees - 90;  } 
-  else if (degrees > 135  &&  degrees <= 180) { degrees = 180 - degrees; } 
-  else if (degrees > 180  &&  degrees <= 225) { degrees = degrees - 180; } 
-  else if (degrees > 225  &&  degrees <= 270) { degrees = 270 - degrees; } 
-  else if (degrees > 270  &&  degrees <= 315) { degrees = degrees - 270; } 
-  else if (degrees > 315  &&  degrees <= 360) { degrees = 360 - degrees; } 
-  else if (degrees > 360)                     { degrees = degrees - 360; }
 
-  int i = ((45 << 5) * degrees / count) >> 5;
-  Point temp_point = arr[i];
-  
-  return temp_point;
+		Point p = {x, y};
+    arr[count] = p;
+  }
+  uint16_t degrees;
+  // Convert the input degrees so that it lies between 0 and 45 degrees
+  if      (d >= 0    &&  d <= 45)  { degrees = d;       }
+  else if (d > 45   &&  d <= 90)  { degrees = 90 - d;  }
+  else if (d > 90   &&  d <= 135) { degrees = d - 90;  } 
+  else if (d > 135  &&  d <= 180) { degrees = 180 - d; } 
+  else if (d > 180  &&  d <= 225) { degrees = d - 180; } 
+  else if (d > 225  &&  d <= 270) { degrees = 270 - d; } 
+  else if (d > 270  &&  d <= 315) { degrees = d - 270; } 
+  else if (d > 315  &&  d <= 360) { degrees = 360 - d; } 
+  else if (d > 360)               { degrees = d - 360; }
+
+  int i = (((45 << 5) / (count + 1)) * degrees ) >> 5;
+
+  Point ret_point;
+  if      (d >= 0   &&  d <= 45)  { ret_point.x = x0 + arr[i].x;	ret_point.y = y0 - arr[i].y; }
+  else if (d > 45   &&  d <= 90)  { ret_point.x = x0 + arr[i].y;	ret_point.y = y0 - arr[i].x; }
+  else if (d > 90   &&  d <= 135) { ret_point.x = x0 - arr[i].y;	ret_point.y = y0 - arr[i].x; } 
+  else if (d > 135  &&  d <= 180) { ret_point.x = x0 - arr[i].x;	ret_point.y = y0 - arr[i].y; } 
+  else if (d > 180  &&  d <= 225) { ret_point.x = x0 - arr[i].x;	ret_point.y = y0 + arr[i].y; } 
+  else if (d > 225  &&  d <= 270) { ret_point.x = x0 - arr[i].y;	ret_point.y = y0 + arr[i].x; } 
+  else if (d > 270  &&  d <= 315) { ret_point.x = x0 + arr[i].y;	ret_point.y = y0 + arr[i].x; } 
+  else if (d > 315  &&  d <= 360) { ret_point.x = x0 + arr[i].x;	ret_point.y = y0 + arr[i].y; } 
+  else if (d > 360)               { ret_point.x = x0 + arr[i].x;	ret_point.y = y0 - arr[i].y; }
+
+
+  return ret_point;
   
 //  Point badPointValue = {-1,-1};
 //  return badPointValue;
@@ -150,17 +164,20 @@ Point calcRadialPixel(uint16_t x0, uint16_t y0, uint16_t degrees, uint8_t radius
 
 void draw_ClockFace(uint32_t circleColor, uint32_t numbersColor)
 {
-  _draw_Circle(60, circleColor); Point p = calcRadialPixel(63, 96, 44, 60);
-  ST7735_DrawPixel(p.x, p.y, ST7735_CYAN);
-  ST7735_OutUDec(p.x); ST7735_OutChar('\n');
-  ST7735_OutUDec(p.y); ST7735_OutChar('\n');
-  _draw_Circle(61, circleColor); getStopPixelCount(60, 360);
+  _draw_Circle(60, circleColor); 
+  _draw_Circle(61, circleColor);
   _draw_Circle(4, circleColor);
   _draw_Circle(3, circleColor);
   _draw_Numbers(numbersColor);
-
 }
-void draw_MinuteHand(uint32_t time, uint32_t color){}
+void draw_MinuteHand(uint32_t time, uint32_t color)
+{
+	uint32_t minutes = (time % 3600) / 10;
+	int32_t degrees = 90 - (minutes);
+	if (degrees < 0) { degrees += 360; }
+	Point minute = calcRadialPixel(CLOCK_FACE_CENTER_X, CLOCK_FACE_CENTER_Y, degrees, 45);
+	_Line(CLOCK_FACE_CENTER_X, CLOCK_FACE_CENTER_Y, minute.x, minute.y, color);
+}
 void draw_HourHand(uint32_t time, uint32_t color){}
 void draw_Mode(char * name, uint32_t color)
 {
@@ -175,8 +192,10 @@ void draw_DigitalTime(uint32_t time, uint32_t color)
   ST7735_SetTextColor(color);
   uint32_t hour = time / 3600;
   uint32_t minute = (time % 3600) / 60;
+	if (hour < 10) {ST7735_OutUDec(0);}
   ST7735_OutUDec(hour);
   ST7735_OutString(":");
+	if (minute < 10) {ST7735_OutUDec(0);}
   ST7735_OutUDec(minute);
 }
 void draw_DigitalDigit(uint8_t position, uint32_t value, uint32_t color){}

@@ -55,7 +55,7 @@ uint32_t TxFifo_Size(void);
 
 // Two-pointer implementation of the receive FIFO
 // can hold 0 to RXFIFOSIZE-1 elements
-#define RXFIFOSIZE    16 // can be any size
+#define RXFIFOSIZE    64 // can be any size
 #define RXFIFOSUCCESS 1
 #define RXFIFOFAIL    0
 
@@ -64,6 +64,7 @@ typedef struct {
   uint32_t id; 
   int32_t value; 
 } rxDataType;
+
 
 // initialize pointer FIFO
 void RxFifo_Init(void);
