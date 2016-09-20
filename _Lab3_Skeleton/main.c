@@ -54,7 +54,9 @@ void initAll (void)
 
 int main (void) 
 {
-  initAll();
+//  initAll();
+//	draw_Init();
+	draw_main();
 //  while(1)
 //  {
 //    rxDataType* nextAction;
