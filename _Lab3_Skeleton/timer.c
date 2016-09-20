@@ -83,6 +83,3 @@ void Timer_Init(void)
   Timer1A_Init(TEMP_FREQ);
 }
 
-void Timer0A_Handler(void){}
-void Timer1A_Handler(void){}
-

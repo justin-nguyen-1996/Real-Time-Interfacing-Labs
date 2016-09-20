@@ -251,7 +251,7 @@ int main (void) {
         // Otherwise, the minute hand at BufferIndex = 0 won't be erased.
         draw_MinuteHand(time - 1, ST7735_BLACK, (minuteHandBufferIndex - 1));
         minuteHandBufferIndex %= MINUTE_HAND_RESOLUTION;
-        draw_MinuteHand(time,ST7735_BLUE, minuteHandBufferIndex); 
+        draw_MinuteHand(time, ST7735_BLUE, minuteHandBufferIndex); 
         minuteHandBufferIndex += 1;
         draw_DigitalTime(time, ST7735_WHITE);
         

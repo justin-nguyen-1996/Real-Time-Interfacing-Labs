@@ -194,18 +194,12 @@ uint16_t minutesToDegrees(uint32_t minutes) {
 }
 
 void draw_MinuteHand(uint32_t seconds, uint32_t color, uint8_t minuteHandBufferIndex)
-{
-  //static int minuteHandBufferIndex = 0;
-//  uint8_t minutes = secondsToMinutes(seconds);
-//  uint16_t degrees = minutesToDegrees(minutes);
-  
+{  
   int8_t xVal = MINUTE_POINT_BUFFER[minuteHandBufferIndex].x;
   int8_t yVal = MINUTE_POINT_BUFFER[minuteHandBufferIndex].y;
   
 	_Line(CLOCK_FACE_CENTER_X, CLOCK_FACE_CENTER_Y, 
         xVal + CLOCK_FACE_CENTER_X, yVal + CLOCK_FACE_CENTER_Y, color);
-  
-  //minuteHandBufferIndex = (minuteHandBufferIndex + 1) % MINUTE_HAND_RESOLUTION;
 } 
 
 void draw_HourHand(uint32_t time, uint32_t color){}
