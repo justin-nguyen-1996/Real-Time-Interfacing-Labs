@@ -181,6 +181,7 @@ void draw_MinuteHand(uint32_t time, uint32_t color)
 void draw_HourHand(uint32_t time, uint32_t color){}
 void draw_Mode(char * name, uint32_t color)
 {
+  ST7735_FillRect(0, 0, 160, 10, ST7735_BLACK);
   uint32_t nameLength = _getNameLength(name);
   ST7735_SetCursor( (21 - nameLength)>>1, 0 ); // centers the string 
   ST7735_SetTextColor(color);
