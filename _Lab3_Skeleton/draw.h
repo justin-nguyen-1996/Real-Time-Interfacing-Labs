@@ -19,7 +19,7 @@ void draw_DigitalTime(uint32_t time, uint32_t color);
 void draw_DigitalDigit(uint8_t position, uint32_t value, uint32_t color);
 void draw_CursorBox(uint8_t position, uint32_t color);
 void draw_CursorUnderscore(uint8_t position, uint32_t color);
-
+void _Line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color);
 void draw_main(void);
 
 static const Point MINUTE_POINT_VAL[60] = {
