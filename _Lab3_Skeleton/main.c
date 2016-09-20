@@ -55,20 +55,20 @@ void initAll (void)
 int main (void) 
 {
   initAll();
-  while(1)
-  {
-    rxDataType* nextAction;
-    int fifoGetStatus = RxFifo_Get(nextAction);
-    if (fifoGetStatus)
-    {
-      actionType type = detectActionType(nextAction);
-      switch (type)
-      {
-        case SETTING:  updateSetting(nextAction); break;
-        case DISPLAY:  updateDisplay(nextAction); break;
-        case OUT:      updateOut(nextAction);     break;
-      }
-    }
-  }
+//  while(1)
+//  {
+//    rxDataType* nextAction;
+//    int fifoGetStatus = RxFifo_Get(nextAction);
+//    if (fifoGetStatus)
+//    {
+//      actionType type = detectActionType(nextAction);
+//      switch (type)
+//      {
+//        case SETTING:  updateSetting(nextAction); break;
+//        case DISPLAY:  updateDisplay(nextAction); break;
+//        case OUT:      updateOut(nextAction);     break;
+//      }
+//    }
+//  }
 }
 
