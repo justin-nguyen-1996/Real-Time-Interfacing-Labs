@@ -60,13 +60,16 @@ void out_Init(void) {
 void Timer0A_Handler(void){
   TIMER0_ICR_R = TIMER_ICR_TATOCINT; // acknowledge timer0A timeout
   PE1 ^= 0x02;
+	PF1 ^= 0x02;
 }
 
 void out_Speaker(uint32_t value) {
-  Timer0A_Init(1000);  
+//  Timer0A_Init(value);  
+}
+void out_SpeakerDisable(void)
+{
+  SYSCTL_RCGCTIMER_R &= ~(0x01);        // deactivate timer0
+	PF1 = 0;
+	PE1 = 0;
 }
 
-void out_LED(uint32_t value) {
-  PF1 ^= 02;
-  DelayWait10ms(10);
-}

@@ -29,6 +29,7 @@ uint32_t prevTime = 0;
 uint32_t time = 0;
 uint32_t alarmEnable = 1;
 uint32_t alarmTime = 0;
+uint8_t  alarmed = 0;
 uint32_t cursorLocation = 0;
 uint16_t circleColor = ST7735_BLUE;
 uint16_t numberColor = ST7735_RED;
@@ -77,7 +78,10 @@ void updateTime() {
   draw_HourHand(time, hourColor);
   if (currentMode == MODE_SET_ALARM) {draw_DigitalTime(alarmTime, ST7735_RED);}
 	else {draw_DigitalTime(time, ST7735_WHITE);}     // update digital time
-	if (alarmEnable && (time >= alarmTime && time < alarmTime + 60)) {PF1 ^= 2;}
+	if (alarmEnable && !alarmed && (time >= alarmTime && time < alarmTime + 60)) { out_Speaker(0x10000); }
+  if (time % 900 == 0) { 
+    draw_HourHand(time, hourColor); 
+  }
 }
 void detectActionType(rxDataType Action) 
 {
@@ -101,6 +105,7 @@ void detectActionType(rxDataType Action)
 			}
 			break;
 		case 2: //keypad
+			if (alarmed) {out_SpeakerDisable(); alarmed = 0;} // disable alarm if button press
 			switch (Action.id)
 			{
 				case NUMBER_0:
