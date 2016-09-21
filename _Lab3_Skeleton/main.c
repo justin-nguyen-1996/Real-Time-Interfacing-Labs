@@ -34,6 +34,7 @@ uint32_t cursorLocation = 0;
 uint16_t circleColor = ST7735_BLUE;
 uint16_t numberColor = ST7735_RED;
 uint16_t handColor = ST7735_BLUE;
+uint16_t hourColor = ST7735_CYAN;
 uint16_t cursorColor = ST7735_YELLOW; 
 uint16_t modeColor = ST7735_WHITE;
 uint16_t backgroundColor = ST7735_BLACK;
@@ -70,14 +71,18 @@ void draw_Cursor(uint16_t position, uint16_t color)
 	}
 }
 
+uint8_t counter = 0;
 void updateTime() {
   draw_MinuteHand(prevTime, backgroundColor); // erase previous hand
   draw_MinuteHand(time, handColor);         // draw new hand
   if (currentMode == MODE_SET_ALARM) {draw_DigitalTime(alarmTime, ST7735_RED);}
 	else {draw_DigitalTime(time, ST7735_WHITE);}     // update digital time
 	if (alarmEnable && !alarmed && (time >= alarmTime && time < alarmTime + 60)) { out_Speaker(0x10000); }
+  if (time % 900 == 0) { 
+    draw_HourHand(time, hourColor); 
+  }
 }
-actionType detectActionType(rxDataType Action) 
+void detectActionType(rxDataType Action) 
 {
 	switch (Action.origin)
 	{
@@ -152,11 +157,11 @@ actionType detectActionType(rxDataType Action)
 								case 3: // change tens minute digit
 									if ((time % 3600) >= 3000) { time -= 3000;} //fifty minutes
 									else {time += 600;}
+                  //time += 600;
 									break;
 								case 4: // change ones minute digit
-									//if ((time % 600) >= 540) { time -= 540; }
-									//else { time += 60; }
-                  time += 60;
+                  if (time >= 86340 && time < 86400) { time = 0; }
+                  else { time += 60; }
 									break;
 							}
 						}
@@ -211,7 +216,7 @@ actionType detectActionType(rxDataType Action)
                 else {time -= 600;}
                 break;
               case 4:
-                if ((time % 600) <= 59) { time += 540; }
+                if (time < 60) { time = 0; } // Loop back to 9 if time is 00:00
                 else { time -= 60; }
                 break;
             }
@@ -330,6 +335,10 @@ int main (void) {
   
 //  draw_main();
 //	keypad_main();
+  
+//  while (1) {
+//    out_Speaker(0);
+//  }
 
   while(1)
 	{
