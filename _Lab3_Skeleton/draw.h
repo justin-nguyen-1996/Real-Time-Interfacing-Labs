@@ -104,7 +104,6 @@ static const Point HOUR_HAND_BUFFER[HOUR_HAND_RESOLUTION] = {
   {  27, -12 },
   {  28,  -8 },
   {  29,  -4 },
-  {  30,  -1 },
   {  30,   0 },
   {  29,   3 },
   {  28,   7 },

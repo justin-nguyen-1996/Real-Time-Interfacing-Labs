@@ -70,19 +70,14 @@ void draw_Cursor(uint16_t position, uint16_t color)
 	}
 }
 
-uint8_t counter = 0;
 void updateTime() {
   draw_MinuteHand(prevTime, backgroundColor); // erase previous hand
   draw_MinuteHand(time, handColor);         // draw new hand
+  draw_HourHand(prevTime, backgroundColor);
+  draw_HourHand(time, hourColor);
   if (currentMode == MODE_SET_ALARM) {draw_DigitalTime(alarmTime, ST7735_RED);}
 	else {draw_DigitalTime(time, ST7735_WHITE);}     // update digital time
-<<<<<<< HEAD
-  if (time % 900 == 0) { 
-    draw_HourHand(time, hourColor); 
-  }
-=======
 	if (alarmEnable && (time >= alarmTime && time < alarmTime + 60)) {PF1 ^= 2;}
->>>>>>> 54bcbc767b5ddb5019921db06849acce317984d5
 }
 void detectActionType(rxDataType Action) 
 {
@@ -152,8 +147,9 @@ void detectActionType(rxDataType Action)
 									break;
 								case 2: // change ones hour digit
 									if (time >= 82800){ time -= 10800; } //twenty three hours and three hours
-									else if ((time % 36000) >= 32400) { time -= 32400;} //remove tens hours, larger than 9 hours
-									else {time += 3600;}
+//									else if ((time % 36000) >= 32400) { time -= 32400;} //remove tens hours, larger than 9 hours
+//									else {time += 3600;}
+                  else { time += 3600; }
 									break;
 								case 3: // change tens minute digit
 									if ((time % 3600) >= 3000) { time -= 3000;} //fifty minutes
@@ -302,7 +298,7 @@ void InitRoutines(void)
 	draw_ClockFace(circleColor, numberColor);
 	//draw_MinuteHand(time, handColor);
   draw_MinuteHand(time, handColor);
-	draw_HourHand(time, handColor);
+	draw_HourHand(time, hourColor);
 	draw_Cursor(cursorLocation, cursorColor);
 	draw_Mode("Run", modeColor);
 	draw_DigitalTime(time, modeColor);
