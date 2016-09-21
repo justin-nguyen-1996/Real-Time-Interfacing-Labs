@@ -190,7 +190,7 @@ void draw_MinuteHand(uint32_t seconds, uint32_t color)
 } 
 
 void draw_HourHand(uint32_t seconds, uint32_t color) {
-  uint8_t hourHandBufferIndex = seconds / 3600;
+  uint8_t hourHandBufferIndex = (seconds % 43200) / 900;
   int8_t xVal = HOUR_HAND_BUFFER[hourHandBufferIndex].x;
   int8_t yVal = HOUR_HAND_BUFFER[hourHandBufferIndex].y;
   
