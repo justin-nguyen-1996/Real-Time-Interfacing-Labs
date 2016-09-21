@@ -32,7 +32,6 @@ void SysTick_Init(){
                    NVIC_ST_CTRL_ENABLE + NVIC_ST_CTRL_CLK_SRC;
 }
 
-static uint8_t timeCounter = 0;
 void SysTick_Handler() {
     rxDataType updateClockHands = 
       {ORIGIN_TIMER, UPDATE_MINUTE, EXTRANEOUS_VALUE};
@@ -69,7 +68,7 @@ void Timer0A_Init(uint32_t freq){
  * Output: None
  */
 //void Timer1A_Init(void (*task) void, uint32_t freq){
-void Timer1A_Init(uint32_t freq){
+void Timer1A_Init(){
   long sr;
   sr = StartCritical(); 
   volatile uint32_t delay;
@@ -79,7 +78,7 @@ void Timer1A_Init(uint32_t freq){
   TIMER1_CTL_R = 0x00000000;    // disable TIMER1A during setup
   TIMER1_CFG_R = 0x00000000;    // configure for 32-bit mode
   TIMER1_TAMR_R = 0x00000002;   // configure for periodic mode, default down-count settings
-  TIMER0_TAILR_R = BUS_80MHZ / freq - 1;  // start value for XXX Hz interrupts
+  TIMER1_TAILR_R = 800000000 - 1;  // start value for XXX Hz interrupts
   TIMER1_TAPR_R = 0;            // bus clock resolution
   TIMER1_ICR_R = 0x00000001;    // clear TIMER1A timeout flag
   TIMER1_IMR_R = 0x00000001;  // arm timeout interrupt
@@ -89,14 +88,8 @@ void Timer1A_Init(uint32_t freq){
   EndCritical(sr);
 }
 
-// Initialization will need to enable timers
-// 0A, 1A, and SysTick
-// Interrupts are enabled for each
-// Timers 0A and 1A are disabled until alarm sounds or 
-// blinking cursor is requested, respectively.
-void Timer_Init(void)
-{
-  Timer0A_Init(TEMP_FREQ);
-  Timer1A_Init(TEMP_FREQ);
+void Timer1A_Handler() {
+  rxDataType updateClockHands = 
+      {ORIGIN_TIMER, UPDATE_MINUTE, EXTRANEOUS_VALUE};
+  RxFifo_Put(updateClockHands);
 }
-

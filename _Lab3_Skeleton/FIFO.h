@@ -55,7 +55,7 @@ uint32_t TxFifo_Size(void);
 
 // Two-pointer implementation of the receive FIFO
 // can hold 0 to RXFIFOSIZE-1 elements
-#define RXFIFOSIZE    64 // can be any size
+#define RXFIFOSIZE    256 // can be any size
 #define RXFIFOSUCCESS 1
 #define RXFIFOFAIL    0
 

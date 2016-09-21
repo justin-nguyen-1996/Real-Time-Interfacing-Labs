@@ -148,12 +148,13 @@ void detectActionType(rxDataType Action)
 									break;
 								case 1: // change tens hour digit
 									if (time >= 72000){ time -= 72000; } //twenty hours
-									else {time += 36000;} //ten hour's worth of seconds
+									else {
+                    if (time + 36000 >= 86400) { break; } 
+                    else { time += 36000; }
+                  } //ten hour's worth of seconds
 									break;
 								case 2: // change ones hour digit
 									if (time >= 82800){ time -= 10800; } //twenty three hours and three hours
-//									else if ((time % 36000) >= 32400) { time -= 32400;} //remove tens hours, larger than 9 hours
-//									else {time += 3600;}
                   else { time += 3600; }
 									break;
 								case 3: // change tens minute digit
@@ -187,8 +188,6 @@ void detectActionType(rxDataType Action)
 									else {alarmTime += 600;}
 									break;
 								case 4: // change ones minute digit
-									//if ((alarmTime % 600) >= 540) { alarmTime -= 540; }
-									//else { alarmTime += 60; }
                   alarmTime += 60;
 									break;
 							}
@@ -209,9 +208,10 @@ void detectActionType(rxDataType Action)
                 else {time -= 36000;} //ten hour's worth of seconds
                 break;
               case 2:
-                if ((time / 36000) == 2 && (time % 36000) <= 3600){ time += 10800; } //twenty three hours and three hours
-                else if ((time % 36000) <= 32399) { time += 32400;} //remove tens hours, 0 hours 
-                else {time -= 3600;}
+                if (time < 60) { time = 0; } // Loop back to 9 if time is 00:00
+                else if ((time / 36000) == 2 && (time % 36000) <= 3600){ time += 10800; } //twenty three hours and three hours
+                else if ((time % 36000) <= 3599) { time += 32400;} //remove tens hours, 0 hours 
+                else { time -= 3600; }
                 break;
               case 3:
                 if ((time % 3600) <= 599) { time += 3000;} //fifty minutes
@@ -328,37 +328,20 @@ void initAll (void)
   // These may push additional initial routines on FIFO (drawing first screen)
   Keypad_Init();
   SysTick_Init();
+  //Timer1A_Init();
 }
 
 int main (void) {
   initAll();  
   EnableInterrupts();
-
   
-//  draw_main();
-//	keypad_main();
-  
-//  out_Speaker(0x10000);
-//  while (1) {
-//    
-//  }
-
   while(1)
-	{
-//    if (time < 86400) 
-//      { 
-//        ST7735_SetCursor(0,0);
-//        ST7735_OutUDec(time);
-//        draw_DigitalTime(time, ST7735_WHITE);
-//      }
-//    else { time = 0; }
-  
-  rxDataType nextAction;
-  int fifoGetStatus = RxFifo_Get(&nextAction);
-  if (fifoGetStatus)
-  {
-    detectActionType(nextAction);
-  }
+	{  
+    rxDataType nextAction;
+    int fifoGetStatus = RxFifo_Get(&nextAction);
+    if (fifoGetStatus) {
+      detectActionType(nextAction);
+    }
 	}
 }
 

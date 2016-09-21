@@ -149,7 +149,7 @@ void GPIOPortA_Handler(void)
 	{
 		rxDataType sig = { ORIGIN_KEYPAD, 65536, 1 };
 		bool putResult = RxFifo_Put(sig);
-		if (!putResult) { ST7735_OutString("FIFO FULL"); }
+		//if (!putResult) { ST7735_OutString("FIFO FULL"); }
 	}
 	Timer2Arm();
 }
