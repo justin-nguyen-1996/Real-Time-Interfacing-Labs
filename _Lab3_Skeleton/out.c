@@ -70,6 +70,7 @@ void out_SpeakerDisable(void)
 {
   //SYSCTL_RCGCTIMER_R &= ~(0x01);        // deactivate timer0
   TIMER0_CTL_R &= ~TIMER_CTL_TAEN;   // disable timer0A during setup
+	NVIC_EN0_R &= ~(1<<19);
 	PF1 = 0;
 	PE1 = 0;
 }

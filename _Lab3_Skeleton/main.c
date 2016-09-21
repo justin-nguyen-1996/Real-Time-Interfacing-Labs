@@ -78,7 +78,7 @@ void updateTime() {
   draw_HourHand(time, hourColor);
   if (currentMode == MODE_SET_ALARM) {draw_DigitalTime(alarmTime, ST7735_RED);}
 	else {draw_DigitalTime(time, ST7735_WHITE);}     // update digital time
-	if (alarmEnable && !alarmed && (time >= alarmTime && time < alarmTime + 60)) { out_Speaker(0x10000); }
+	if (alarmEnable && !alarmed && (time >= alarmTime && time < alarmTime + 60)) { out_Speaker(0x10000); alarmed = 1; }
   if (time % 900 == 0) { 
     draw_HourHand(time, hourColor); 
   }
@@ -105,11 +105,10 @@ void detectActionType(rxDataType Action)
 			}
 			break;
 		case 2: //keypad
-			if (alarmed) {out_SpeakerDisable(); alarmed = 0;} // disable alarm if button press
 			switch (Action.id)
 			{
 				case NUMBER_0:
-					if (alarmEnable && alarmed ){ alarmEnable = 0; alarmed = 0; }
+					if (alarmEnable && alarmed ){ alarmEnable = 0; alarmed = 0; out_SpeakerDisable();  }
 					else if (!alarmEnable) {alarmEnable = 1;}
 					break;
 				case NUMBER_1:
