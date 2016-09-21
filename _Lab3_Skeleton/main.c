@@ -109,7 +109,8 @@ void detectActionType(rxDataType Action)
 			switch (Action.id)
 			{
 				case NUMBER_0:
-					if (cursorLocation) {}
+					if (alarmEnable && alarmed ){ alarmEnable = 0; alarmed = 0; }
+					else if (!alarmEnable) {alarmEnable = 1;}
 					break;
 				case NUMBER_1:
 					if (cursorLocation) {}
