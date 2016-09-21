@@ -42,7 +42,7 @@ static const Point MINUTE_HAND_BUFFER[MINUTE_HAND_RESOLUTION] = {
   { 42, -14},
   { 44, -10},
   { 44, -5},
-  { 45, -1},
+  //{ 45, -1},
   { 45,   0},
   { 44,   4},
   { 44,   9},

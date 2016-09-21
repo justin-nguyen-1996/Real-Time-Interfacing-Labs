@@ -169,18 +169,6 @@ void draw_ClockFace(uint32_t circleColor, uint32_t numbersColor)
   _draw_Circle(61, circleColor);
   _draw_Numbers(numbersColor);
 }
-void draw_MinuteHand_CRAP(uint32_t time, uint32_t color)
-{
-  static int minuteHandBufferIndex = 0;
-	//uint32_t minutes = (time % 3600) / 10;
-	//int32_t degrees = 90 - (minutes);
-	//if (degrees < 0) { degrees += 360; }
-	//Point minute = calcRadialPixel(CLOCK_FACE_CENTER_X, CLOCK_FACE_CENTER_Y, degrees, 45);
-  int8_t xVal = MINUTE_HAND_BUFFER[minuteHandBufferIndex].x;
-  int8_t yVal = MINUTE_HAND_BUFFER[minuteHandBufferIndex].y;
-	_Line(CLOCK_FACE_CENTER_X, CLOCK_FACE_CENTER_Y, xVal, yVal, color);
-  minuteHandBufferIndex += 1;
-}
 
 uint8_t secondsToMinutes(uint32_t seconds) {
   return (seconds % 3600) / 60;
@@ -212,7 +200,7 @@ void draw_Mode(char * name, uint32_t color)
 }
 void draw_DigitalTime(uint32_t time, uint32_t color)
 {
-  ST7735_SetCursor(8,2);
+  ST7735_SetCursor(8,2); // position to start drawing digital time
   ST7735_SetTextColor(color);
   uint32_t hour = time / 3600;
   uint32_t minute = (time % 3600) / 60;

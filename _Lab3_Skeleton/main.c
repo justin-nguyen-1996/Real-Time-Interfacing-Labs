@@ -69,6 +69,12 @@ void draw_Cursor(uint16_t position, uint16_t color)
 }
 
 uint8_t timeCounter = 0;
+
+void updateTime() {
+  draw_MinuteHand(time-1, backgroundColor); // erase previous hand
+  draw_MinuteHand(time, handColor);         // draw new hand
+  draw_DigitalTime(time, ST7735_WHITE);     // update digital time
+}
 actionType detectActionType(rxDataType Action) 
 {
 	switch (Action.origin)
@@ -81,10 +87,8 @@ actionType detectActionType(rxDataType Action)
 				case 0:
 					if (time < 86400){
             time++;
+            updateTime();
 //            if (time == 60) {
-              draw_MinuteHand(time-1, backgroundColor);
-              draw_MinuteHand(time, handColor);
-              draw_DigitalTime(time, ST7735_WHITE);
 //            }
 					}
 					else {time = 0;}
@@ -127,57 +131,62 @@ actionType detectActionType(rxDataType Action)
 				case DIR_UP:
 						if ( currentMode == MODE_SET_TIME )
 						{
+              draw_MinuteHand(time, backgroundColor);
 							switch (cursorLocation)
 							{
 								case 0:
 									break;
-								case 1:
+								case 1: // change tens hour digit
 									if (time >= 72000){ time -= 72000; } //twenty hours
 									else {time += 36000;} //ten hour's worth of seconds
 									break;
-								case 2:
+								case 2: // change ones hour digit
 									if (time >= 82800){ time -= 10800; } //twenty three hours and three hours
 									else if ((time % 36000) >= 32400) { time -= 32400;} //remove tens hours, larger than 9 hours
 									else {time += 3600;}
 									break;
-								case 3:
+								case 3: // change tens minute digit
 									if ((time % 3600) >= 3000) { time -= 3000;} //fifty minutes
 									else {time += 600;}
 									break;
-								case 4:
-									if ((time % 600) >= 540) { time -= 540; }
-									else { time += 60; }
+								case 4: // change ones minute digit
+									//if ((time % 600) >= 540) { time -= 540; }
+									//else { time += 60; }
+                  time += 60;
 									break;
 							}
+              updateTime();
 						}
 					break;
 				case DIR_DOWN:
+          draw_MinuteHand(time, backgroundColor);
 					if (currentMode == MODE_SET_TIME)
 					{
 						switch (cursorLocation)
-							{
-								case 0:
-									break;
-								case 1:
-									if (time <= 35999){ time += 72000; } //twenty hours
-									else {time -= 36000;} //ten hour's worth of seconds
-									break;
-								case 2:
-									if ((time / 36000) == 2 && (time % 36000) <= 3600){ time += 10800; } //twenty three hours and three hours
-									else if ((time % 36000) <= 32399) { time += 32400;} //remove tens hours, 0 hours 
-									else {time -= 3600;}
-									break;
-								case 3:
-									if ((time % 3600) <= 599) { time += 3000;} //fifty minutes
-									else {time -= 600;}
-									break;
-								case 4:
-									if ((time % 600) <= 59) { time += 540; }
-									else { time -= 60; }
-									break;
-							}
-						break;
+            {
+              case 0:
+                break;
+              case 1:
+                if (time <= 35999){ time += 72000; } //twenty hours
+                else {time -= 36000;} //ten hour's worth of seconds
+                break;
+              case 2:
+                if ((time / 36000) == 2 && (time % 36000) <= 3600){ time += 10800; } //twenty three hours and three hours
+                else if ((time % 36000) <= 32399) { time += 32400;} //remove tens hours, 0 hours 
+                else {time -= 3600;}
+                break;
+              case 3:
+                if ((time % 3600) <= 599) { time += 3000;} //fifty minutes
+                else {time -= 600;}
+                break;
+              case 4:
+                if ((time % 600) <= 59) { time += 540; }
+                else { time -= 60; }
+                break;
+            }
+            updateTime();
 					}
+          break;
 				case DIR_RIGHT:
 					if (cursorLocation)
 					{
