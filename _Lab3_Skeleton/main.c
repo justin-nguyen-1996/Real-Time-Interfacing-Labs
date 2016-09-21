@@ -27,7 +27,7 @@ char * modeNames[3] = {"Run","Set Time", "Set Alarm"};
 
 uint32_t prevTime = 0;
 uint32_t time = 0;
-uint32_t alarmEnable = 0;
+uint32_t alarmEnable = 1;
 uint32_t alarmTime = 0;
 uint32_t cursorLocation = 0;
 uint16_t circleColor = ST7735_BLUE;
@@ -76,9 +76,13 @@ void updateTime() {
   draw_MinuteHand(time, handColor);         // draw new hand
   if (currentMode == MODE_SET_ALARM) {draw_DigitalTime(alarmTime, ST7735_RED);}
 	else {draw_DigitalTime(time, ST7735_WHITE);}     // update digital time
+<<<<<<< HEAD
   if (time % 900 == 0) { 
     draw_HourHand(time, hourColor); 
   }
+=======
+	if (alarmEnable && (time >= alarmTime && time < alarmTime + 60)) {PF1 ^= 2;}
+>>>>>>> 54bcbc767b5ddb5019921db06849acce317984d5
 }
 void detectActionType(rxDataType Action) 
 {
@@ -161,8 +165,34 @@ void detectActionType(rxDataType Action)
                   else { time += 60; }
 									break;
 							}
-              updateTime();
 						}
+						if ( currentMode == MODE_SET_ALARM )
+						{
+							switch (cursorLocation)
+							{
+								case 0:
+									break;
+								case 1: // change tens hour digit
+									if (alarmTime >= 72000){ alarmTime -= 72000; } //twenty hours
+									else {alarmTime += 36000;} //ten hour's worth of seconds
+									break;
+								case 2: // change ones hour digit
+									if (alarmTime >= 82800){ alarmTime -= 10800; } //twenty three hours and three hours
+									else if ((alarmTime % 36000) >= 32400) { alarmTime -= 32400;} //remove tens hours, larger than 9 hours
+									else {alarmTime += 3600;}
+									break;
+								case 3: // change tens minute digit
+									if ((alarmTime % 3600) >= 3000) { alarmTime -= 3000;} //fifty minutes
+									else {alarmTime += 600;}
+									break;
+								case 4: // change ones minute digit
+									//if ((alarmTime % 600) >= 540) { alarmTime -= 540; }
+									//else { alarmTime += 60; }
+                  alarmTime += 60;
+									break;
+							}
+						}
+						updateTime();
 					break;
 				case DIR_DOWN:
           draw_MinuteHand(time, backgroundColor);
@@ -191,8 +221,33 @@ void detectActionType(rxDataType Action)
                 else { time -= 60; }
                 break;
             }
-            updateTime();
 					}
+					if (currentMode == MODE_SET_TIME)
+					{
+						switch (cursorLocation)
+            {
+              case 0:
+                break;
+              case 1:
+								if (alarmTime <= 35999){ alarmTime += 72000; } //twenty hours
+                else {alarmTime -= 36000;} //ten hour's worth of seconds
+                break;
+              case 2:
+                if ((alarmTime / 36000) == 2 && (alarmTime % 36000) <= 3600){ alarmTime += 10800; } //twenty three hours and three hours
+                else if ((alarmTime % 36000) <= 32399) { alarmTime += 32400;} //remove tens hours, 0 hours 
+                else {alarmTime -= 3600;}
+                break;
+              case 3:
+                if ((alarmTime % 3600) <= 599) { alarmTime += 3000;} //fifty minutes
+                else {alarmTime -= 600;}
+                break;
+              case 4:
+                if ((alarmTime % 600) <= 59) { alarmTime += 540; }
+                else { alarmTime -= 60; }
+                break;
+            }
+					}
+					updateTime();
           break;
 				case DIR_RIGHT:
 					if (cursorLocation)
@@ -231,7 +286,7 @@ void detectActionType(rxDataType Action)
 				case MENU_SELECT:
 					draw_Cursor(cursorLocation,backgroundColor);
 					if (cursorLocation) {cursorLocation = 0;} //move cursor to mode select
-					else {cursorLocation = 1;} //move cursor to edit mode
+					else if (currentMode != MODE_RUN) {cursorLocation = 1;} //move cursor to edit mode
 					draw_Cursor(cursorLocation,cursorColor);
 					break;
 			}
