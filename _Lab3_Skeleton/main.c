@@ -338,8 +338,9 @@ int main (void) {
 //  draw_main();
 //	keypad_main();
   
+//  out_Speaker(0x10000);
 //  while (1) {
-//    out_Speaker(0);
+//    
 //  }
 
   while(1)

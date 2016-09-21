@@ -64,7 +64,7 @@ void Timer0A_Handler(void){
 }
 
 void out_Speaker(uint32_t value) {
-//  Timer0A_Init(value);  
+  Timer0A_Init(value);  
 }
 void out_SpeakerDisable(void)
 {

@@ -53,7 +53,7 @@ void Timer0A_Init(uint32_t freq){
   delay = SYSCTL_RCGCTIMER_R;        // allow time to finish activating
   TIMER0_CTL_R &= ~TIMER_CTL_TAEN;   // disable timer0A during setup
   TIMER0_CFG_R = 0;                  // configure for 32-bit timer mode
-  TIMER1_TAPR_R = 0;                 // bus clock resolution
+  TIMER0_TAPR_R = 0;                 // bus clock resolution
   TIMER0_TAMR_R = TIMER_TAMR_TAMR_PERIOD; // configure for periodic mode
   TIMER0_TAILR_R = BUS_80MHZ / freq - 1;  // start value for XXX Hz interrupts
   TIMER0_IMR_R |= TIMER_IMR_TATOIM;  // enable timeout (rollover) interrupt
