@@ -33,6 +33,7 @@ uint32_t cursorLocation = 0;
 uint16_t circleColor = ST7735_BLUE;
 uint16_t numberColor = ST7735_RED;
 uint16_t handColor = ST7735_BLUE;
+uint16_t hourColor = ST7735_CYAN;
 uint16_t cursorColor = ST7735_YELLOW; 
 uint16_t modeColor = ST7735_WHITE;
 uint16_t backgroundColor = ST7735_BLACK;
@@ -69,14 +70,17 @@ void draw_Cursor(uint16_t position, uint16_t color)
 	}
 }
 
-
+uint8_t counter = 0;
 void updateTime() {
   draw_MinuteHand(prevTime, backgroundColor); // erase previous hand
   draw_MinuteHand(time, handColor);         // draw new hand
   if (currentMode == MODE_SET_ALARM) {draw_DigitalTime(alarmTime, ST7735_RED);}
 	else {draw_DigitalTime(time, ST7735_WHITE);}     // update digital time
+  if (time % 900 == 0) { 
+    draw_HourHand(time, hourColor); 
+  }
 }
-actionType detectActionType(rxDataType Action) 
+void detectActionType(rxDataType Action) 
 {
 	switch (Action.origin)
 	{
@@ -164,7 +168,7 @@ actionType detectActionType(rxDataType Action)
           draw_MinuteHand(time, backgroundColor);
 					if (currentMode == MODE_SET_TIME)
 					{
-						prevTime = time
+						prevTime = time;
 						switch (cursorLocation)
             {
               case 0:
@@ -204,7 +208,7 @@ actionType detectActionType(rxDataType Action)
 						else {currentMode++;}
 						draw_Mode(modeNames[currentMode], modeColor);
 					}
-					if (currentMode = MODE_SET_ALARM) { draw_DigitalTime(alarmTime, ST7735_RED); }
+					if (currentMode == MODE_SET_ALARM) { draw_DigitalTime(alarmTime, ST7735_RED); }
 					break;
 
 				case DIR_LEFT:
@@ -221,7 +225,7 @@ actionType detectActionType(rxDataType Action)
 						else {currentMode --;}
 						draw_Mode(modeNames[currentMode], modeColor);
 					}
-					if (currentMode = MODE_SET_ALARM) { draw_DigitalTime(alarmTime, ST7735_RED); }
+					if (currentMode == MODE_SET_ALARM) { draw_DigitalTime(alarmTime, ST7735_RED); }
 					break;
 
 				case MENU_SELECT:

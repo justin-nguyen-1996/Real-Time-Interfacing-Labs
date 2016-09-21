@@ -181,7 +181,7 @@ uint16_t minutesToDegrees(uint32_t minutes) {
 
 void draw_MinuteHand(uint32_t seconds, uint32_t color)
 {  
-  uint8_t minuteHandBufferIndex = seconds / 60;
+  uint8_t minuteHandBufferIndex = (seconds % 3600) / 60;
   int8_t xVal = MINUTE_HAND_BUFFER[minuteHandBufferIndex].x;
   int8_t yVal = MINUTE_HAND_BUFFER[minuteHandBufferIndex].y;
   
@@ -190,9 +190,9 @@ void draw_MinuteHand(uint32_t seconds, uint32_t color)
 } 
 
 void draw_HourHand(uint32_t seconds, uint32_t color) {
-  uint8_t minuteHandBufferIndex = seconds / 60;
-  int8_t xVal = MINUTE_HAND_BUFFER[minuteHandBufferIndex].x;
-  int8_t yVal = MINUTE_HAND_BUFFER[minuteHandBufferIndex].y;
+  uint8_t hourHandBufferIndex = seconds / 3600;
+  int8_t xVal = HOUR_HAND_BUFFER[hourHandBufferIndex].x;
+  int8_t yVal = HOUR_HAND_BUFFER[hourHandBufferIndex].y;
   
 	_Line(CLOCK_FACE_CENTER_X, CLOCK_FACE_CENTER_Y, 
         xVal + CLOCK_FACE_CENTER_X, yVal + CLOCK_FACE_CENTER_Y, color);
