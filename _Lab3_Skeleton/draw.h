@@ -13,7 +13,7 @@ uint16_t getNumPixelsToDraw(uint8_t radius, uint16_t degrees);
 void draw_Init(void);
 void draw_ClockFace(uint32_t circleColor, uint32_t numbersColor);
 void draw_MinuteHand_CRAP(uint32_t time, uint32_t color);
-void draw_MinuteHand(uint32_t time, uint32_t color, uint8_t minuteHandBufferIndex);
+void draw_MinuteHand(uint32_t time, uint32_t color);
 void draw_HourHand(uint32_t time, uint32_t color);
 void draw_Mode(char * name, uint32_t color);
 void draw_DigitalTime(uint32_t time, uint32_t color);
@@ -26,7 +26,23 @@ void draw_main(void);
 #define MINUTE_HAND_RESOLUTION 61
 #define HOUR_HAND_RESOLUTION   49
 
-static const Point MINUTE_POINT_BUFFER[MINUTE_HAND_RESOLUTION] = {
+static const Point MINUTE_HAND_BUFFER[MINUTE_HAND_RESOLUTION] = {
+  { -1, -45},
+  {  4, -45},
+  {  9, -45},
+  { 13, -43},
+  { 18, -42},
+  { 22, -39},
+  { 26, -37},
+  { 30, -34},
+  { 33, -31},
+  { 36, -27},
+  { 38, -23},
+  { 41, -19},
+  { 42, -14},
+  { 44, -10},
+  { 44, -5},
+  { 45, -1},
   { 45,   0},
   { 44,   4},
   { 44,   9},
@@ -72,26 +88,10 @@ static const Point MINUTE_POINT_BUFFER[MINUTE_HAND_RESOLUTION] = {
   {-14, -43},
   {-10, -45},
   { -5, -45},
-  { -1, -45},
-  {  4, -45},
-  {  9, -45},
-  { 13, -43},
-  { 18, -42},
-  { 22, -39},
-  { 26, -37},
-  { 30, -34},
-  { 33, -31},
-  { 36, -27},
-  { 38, -23},
-  { 41, -19},
-  { 42, -14},
-  { 44, -10},
-  { 44, -5},
-  { 45, -1}
 };
 
 
-static const Point HOUR_POINT_BUFFER[HOUR_HAND_RESOLUTION] = {
+static const Point HOUR_HAND_BUFFER[HOUR_HAND_RESOLUTION] = {
   {  30,   0 },
   {  29,   3 },
   {  28,   7 },

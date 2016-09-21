@@ -460,11 +460,6 @@
               <FileType>1</FileType>
               <FilePath>.\ST7735.c</FilePath>
             </File>
-            <File>
-              <FileName>SysTick.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\SysTick.c</FilePath>
-            </File>
           </Files>
         </Group>
       </Groups>

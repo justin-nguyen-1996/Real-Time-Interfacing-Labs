@@ -28,4 +28,8 @@ void Timer0A_Init(uint32_t freq);
 //void Timer1A_Init(void (*task) void, uint32_t freq){
 void Timer1A_Init(uint32_t freq);
 
+// Initialize SysTick with busy wait running at bus clock.
+// Period is in seconds
+void SysTick_Init(void);
+
 #endif

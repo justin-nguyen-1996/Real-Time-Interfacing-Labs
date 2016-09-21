@@ -68,7 +68,7 @@ void draw_Cursor(uint16_t position, uint16_t color)
 	}
 }
 
-
+uint8_t timeCounter = 0;
 actionType detectActionType(rxDataType Action) 
 {
 	switch (Action.origin)
@@ -80,7 +80,12 @@ actionType detectActionType(rxDataType Action)
 			{
 				case 0:
 					if (time < 86400){
-						time ++;
+            time++;
+//            if (time == 60) {
+              draw_MinuteHand(time-1, backgroundColor);
+              draw_MinuteHand(time, handColor);
+              draw_DigitalTime(time, ST7735_WHITE);
+//            }
 					}
 					else {time = 0;}
 					break;
@@ -225,7 +230,7 @@ void InitRoutines(void)
 {
 	draw_ClockFace(circleColor, numberColor);
 	//draw_MinuteHand(time, handColor);
-  draw_MinuteHand(time, handColor, 0);
+  draw_MinuteHand(time, handColor);
 	draw_HourHand(time, handColor);
 	draw_Cursor(cursorLocation, cursorColor);
 	draw_Mode("Run", modeColor);
@@ -234,7 +239,8 @@ void InitRoutines(void)
 
 void initAll (void) 
 {
-  PLL_Init(Bus80MHz);
+  //PLL_Init(Bus80MHz);
+  PLL_Init(Bus16MHz);
   RxFifo_Init();
 
   // Initialize output modules 
@@ -249,39 +255,26 @@ void initAll (void)
   // Initialize input modules which use interrupts 
   // These may push additional initial routines on FIFO (drawing first screen)
   Keypad_Init();
-//  Timer_Init();
-  SysTick_Init(1);
+  SysTick_Init();
 }
 
-
 int main (void) {
-  initAll();
+  initAll();  
+  EnableInterrupts();
+
+  
 //  draw_main();
 //	keypad_main();
-	uint32_t time = 0;
 
   while(1)
 	{
-    if (time < 86400) 
-      { 
-        // Start at one because init drew the first minute hand
-        static uint8_t minuteHandBufferIndex = 1;
-        
-        ST7735_SetCursor(0,0);
-        ST7735_OutUDec(time);
-        
-        // Separate the mod and increment minuteHandBufferIndex steps so we
-        //   can plot (BufferIndex - 1) when BufferIndex = MINUTE_HAND_RESOLUTION.
-        // Otherwise, the minute hand at BufferIndex = 0 won't be erased.
-        draw_MinuteHand(time - 1, ST7735_BLACK, (minuteHandBufferIndex - 1));
-        minuteHandBufferIndex %= MINUTE_HAND_RESOLUTION;
-        draw_MinuteHand(time, ST7735_BLUE, minuteHandBufferIndex); 
-        minuteHandBufferIndex += 1;
-        draw_DigitalTime(time, ST7735_WHITE);
-        
-        time += 1;
-      }
-    else { time = 0; }
+//    if (time < 86400) 
+//      { 
+//        ST7735_SetCursor(0,0);
+//        ST7735_OutUDec(time);
+//        draw_DigitalTime(time, ST7735_WHITE);
+//      }
+//    else { time = 0; }
   
   rxDataType nextAction;
   int fifoGetStatus = RxFifo_Get(&nextAction);

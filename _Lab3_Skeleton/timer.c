@@ -4,11 +4,17 @@
 #include "FIFO.h"
 
 #define ORIGIN_TIMER              1
-#define UPDATE_HANDS              0
-#define SECONDS_INCREMENT_VALUE   1
+#define UPDATE_MINUTE             0
+#define EXTRANEOUS_VALUE          1
 
 #define BUS_80MHZ      80000000
 #define TEMP_FREQ      10000
+
+#define NVIC_ST_CTRL_COUNT      0x00010000  // Count flag
+#define NVIC_ST_CTRL_CLK_SRC    0x00000004  // Clock Source
+#define NVIC_ST_CTRL_INTEN      0x00000002  // Interrupt enable
+#define NVIC_ST_CTRL_ENABLE     0x00000001  // Counter mode
+#define NVIC_ST_RELOAD_M        0x00FFFFFF  // Counter load value
 
 void DisableInterrupts(void);
 void EnableInterrupts(void);
@@ -17,18 +23,20 @@ void EnableInterrupts(void);
 
 // Initialize SysTick with busy wait running at bus clock.
 // Period is in seconds
-void SysTick_Init(uint32_t period){
+void SysTick_Init(){
   NVIC_ST_CTRL_R = 0;                   // disable SysTick during setup
-  NVIC_ST_RELOAD_R = BUS_80MHZ * period;// reload value
+  NVIC_ST_RELOAD_R = 16000000;          // reload value
   NVIC_ST_CURRENT_R = 0;                // any write to current clears it
                                         // enable SysTick with core clock
-  NVIC_ST_CTRL_R = NVIC_ST_CTRL_ENABLE+NVIC_ST_CTRL_CLK_SRC;
+  NVIC_ST_CTRL_R = NVIC_ST_CTRL_INTEN + 
+                   NVIC_ST_CTRL_ENABLE + NVIC_ST_CTRL_CLK_SRC;
 }
 
+static uint8_t timeCounter = 0;
 void SysTick_Handler() {
-  rxDataType updateClockHands = 
-    {ORIGIN_TIMER, UPDATE_HANDS, SECONDS_INCREMENT_VALUE};
-  RxFifo_Put(updateClockHands);
+    rxDataType updateClockHands = 
+      {ORIGIN_TIMER, UPDATE_MINUTE, EXTRANEOUS_VALUE};
+    RxFifo_Put(updateClockHands);
 }
 
 /* Summary: Initialize Timer0A

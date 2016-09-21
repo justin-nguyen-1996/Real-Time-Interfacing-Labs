@@ -167,8 +167,6 @@ void draw_ClockFace(uint32_t circleColor, uint32_t numbersColor)
 {
   _draw_Circle(60, circleColor); 
   _draw_Circle(61, circleColor);
-  _draw_Circle(4, circleColor);
-  _draw_Circle(3, circleColor);
   _draw_Numbers(numbersColor);
 }
 void draw_MinuteHand_CRAP(uint32_t time, uint32_t color)
@@ -178,8 +176,8 @@ void draw_MinuteHand_CRAP(uint32_t time, uint32_t color)
 	//int32_t degrees = 90 - (minutes);
 	//if (degrees < 0) { degrees += 360; }
 	//Point minute = calcRadialPixel(CLOCK_FACE_CENTER_X, CLOCK_FACE_CENTER_Y, degrees, 45);
-  int8_t xVal = MINUTE_POINT_BUFFER[minuteHandBufferIndex].x;
-  int8_t yVal = MINUTE_POINT_BUFFER[minuteHandBufferIndex].y;
+  int8_t xVal = MINUTE_HAND_BUFFER[minuteHandBufferIndex].x;
+  int8_t yVal = MINUTE_HAND_BUFFER[minuteHandBufferIndex].y;
 	_Line(CLOCK_FACE_CENTER_X, CLOCK_FACE_CENTER_Y, xVal, yVal, color);
   minuteHandBufferIndex += 1;
 }
@@ -193,10 +191,11 @@ uint16_t minutesToDegrees(uint32_t minutes) {
   return degrees % 360;
 }
 
-void draw_MinuteHand(uint32_t seconds, uint32_t color, uint8_t minuteHandBufferIndex)
+void draw_MinuteHand(uint32_t seconds, uint32_t color)
 {  
-  int8_t xVal = MINUTE_POINT_BUFFER[minuteHandBufferIndex].x;
-  int8_t yVal = MINUTE_POINT_BUFFER[minuteHandBufferIndex].y;
+  uint8_t minuteHandBufferIndex = seconds / 60;
+  int8_t xVal = MINUTE_HAND_BUFFER[minuteHandBufferIndex].x;
+  int8_t yVal = MINUTE_HAND_BUFFER[minuteHandBufferIndex].y;
   
 	_Line(CLOCK_FACE_CENTER_X, CLOCK_FACE_CENTER_Y, 
         xVal + CLOCK_FACE_CENTER_X, yVal + CLOCK_FACE_CENTER_Y, color);

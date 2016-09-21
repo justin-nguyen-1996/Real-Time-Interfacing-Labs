@@ -10,6 +10,17 @@
   
 #define PE1  (*((volatile uint32_t *)0x40024008))
 
+
+void DelayWait10ms(uint32_t n){uint32_t volatile time;
+  while(n){
+    time = 727240*2/91;  // 10msec
+    while(time){
+	  	time--;
+    }
+    n--;
+  }
+}
+
 void PortE_Init(void) {
   SYSCTL_RCGCGPIO_R |= 0x10;
   while((SYSCTL_PRGPIO_R&0x10) != 0x10){};
@@ -36,17 +47,9 @@ void PortE_Init(void) {
 // one digital out for operating the speaker
 // one digital out for operating the on-board LED
 
-void DelayWait10ms(uint32_t n){uint32_t volatile time;
-  while(n){
-    time = 727240*2/91;  // 10msec
-    while(time){
-	  	time--;
-    }
-    n--;
-  }
-}
-
 void PortF_Init() {
+  SYSCTL_RCGCGPIO_R |= 0x20;
+  while((SYSCTL_PRGPIO_R&0x20) != 0x20){};
   GPIO_PORTF_DIR_R |= 0x02;             // make PF1 out (built-in LED)
   GPIO_PORTF_AFSEL_R &= ~0x02;          // disable alt funct on PF1
   GPIO_PORTF_DEN_R |= 0x02;             // enable digital I/O on PF1
