@@ -25,6 +25,7 @@ typedef enum modeType {
 } modeType;
 char * modeNames[3] = {"Run","Set Time", "Set Alarm"};
 
+uint32_t prevTime = 0;
 uint32_t time = 0;
 uint32_t alarmEnable = 0;
 uint32_t alarmTime = 0;
@@ -68,12 +69,12 @@ void draw_Cursor(uint16_t position, uint16_t color)
 	}
 }
 
-uint8_t timeCounter = 0;
 
 void updateTime() {
-  draw_MinuteHand(time-1, backgroundColor); // erase previous hand
+  draw_MinuteHand(prevTime, backgroundColor); // erase previous hand
   draw_MinuteHand(time, handColor);         // draw new hand
-  draw_DigitalTime(time, ST7735_WHITE);     // update digital time
+  if (currentMode == MODE_SET_ALARM) {draw_DigitalTime(alarmTime, ST7735_RED);}
+	else {draw_DigitalTime(time, ST7735_WHITE);}     // update digital time
 }
 actionType detectActionType(rxDataType Action) 
 {
@@ -86,6 +87,7 @@ actionType detectActionType(rxDataType Action)
 			{
 				case 0:
 					if (time < 86400){
+						prevTime = time;
             time++;
             updateTime();
 //            if (time == 60) {
@@ -131,7 +133,7 @@ actionType detectActionType(rxDataType Action)
 				case DIR_UP:
 						if ( currentMode == MODE_SET_TIME )
 						{
-              draw_MinuteHand(time, backgroundColor);
+							prevTime = time;
 							switch (cursorLocation)
 							{
 								case 0:
@@ -162,6 +164,7 @@ actionType detectActionType(rxDataType Action)
           draw_MinuteHand(time, backgroundColor);
 					if (currentMode == MODE_SET_TIME)
 					{
+						prevTime = time
 						switch (cursorLocation)
             {
               case 0:
@@ -190,7 +193,7 @@ actionType detectActionType(rxDataType Action)
 				case DIR_RIGHT:
 					if (cursorLocation)
 					{
-						draw_Cursor(cursorLocation,backgroundColor);
+						draw_Cursor(cursorLocation,backgroundColor); //erase
 						if (cursorLocation == 4) {cursorLocation = 1;}
 						else {cursorLocation ++;}
 						draw_Cursor(cursorLocation,cursorColor);
@@ -201,28 +204,30 @@ actionType detectActionType(rxDataType Action)
 						else {currentMode++;}
 						draw_Mode(modeNames[currentMode], modeColor);
 					}
+					if (currentMode = MODE_SET_ALARM) { draw_DigitalTime(alarmTime, ST7735_RED); }
 					break;
 
 				case DIR_LEFT:
 					if (cursorLocation)
-					{
-						draw_Cursor(cursorLocation,backgroundColor);
+					{ //change mode
+						draw_Cursor(cursorLocation,backgroundColor); //erase
 						if (cursorLocation == 1) {cursorLocation = 4;}
 						else {cursorLocation --;}
 						draw_Cursor(cursorLocation,cursorColor);
 					}
 					else 
-					{
+					{ 
 						if (currentMode == MODE_RUN){ currentMode = MODE_SET_ALARM; }
 						else {currentMode --;}
 						draw_Mode(modeNames[currentMode], modeColor);
 					}
+					if (currentMode = MODE_SET_ALARM) { draw_DigitalTime(alarmTime, ST7735_RED); }
 					break;
 
 				case MENU_SELECT:
 					draw_Cursor(cursorLocation,backgroundColor);
-					if (cursorLocation) {cursorLocation = 0;}
-					else {cursorLocation = 1;}
+					if (cursorLocation) {cursorLocation = 0;} //move cursor to mode select
+					else {cursorLocation = 1;} //move cursor to edit mode
 					draw_Cursor(cursorLocation,cursorColor);
 					break;
 			}
@@ -231,9 +236,7 @@ actionType detectActionType(rxDataType Action)
 }
   
 void updateSetting(rxDataType Action){}
-void updateDisplay(rxDataType Action)
-{
-	}	
+void updateDisplay(rxDataType Action){}	
 void updateOut(rxDataType Action){} 
 void InitRoutines(void)
 {
