@@ -189,7 +189,14 @@ void draw_MinuteHand(uint32_t seconds, uint32_t color)
         xVal + CLOCK_FACE_CENTER_X, yVal + CLOCK_FACE_CENTER_Y, color);
 } 
 
-void draw_HourHand(uint32_t time, uint32_t color){}
+void draw_HourHand(uint32_t seconds, uint32_t color) {
+  uint8_t minuteHandBufferIndex = seconds / 60;
+  int8_t xVal = MINUTE_HAND_BUFFER[minuteHandBufferIndex].x;
+  int8_t yVal = MINUTE_HAND_BUFFER[minuteHandBufferIndex].y;
+  
+	_Line(CLOCK_FACE_CENTER_X, CLOCK_FACE_CENTER_Y, 
+        xVal + CLOCK_FACE_CENTER_X, yVal + CLOCK_FACE_CENTER_Y, color);
+}
 void draw_Mode(char * name, uint32_t color)
 {
   ST7735_FillRect(0, 0, 160, 10, ST7735_BLACK);

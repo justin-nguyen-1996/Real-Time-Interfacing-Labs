@@ -148,11 +148,11 @@ actionType detectActionType(rxDataType Action)
 								case 3: // change tens minute digit
 									if ((time % 3600) >= 3000) { time -= 3000;} //fifty minutes
 									else {time += 600;}
+                  //time += 600;
 									break;
 								case 4: // change ones minute digit
-									//if ((time % 600) >= 540) { time -= 540; }
-									//else { time += 60; }
-                  time += 60;
+                  if (time >= 86340 && time < 86400) { time = 0; }
+                  else { time += 60; }
 									break;
 							}
               updateTime();
@@ -180,7 +180,7 @@ actionType detectActionType(rxDataType Action)
                 else {time -= 600;}
                 break;
               case 4:
-                if ((time % 600) <= 59) { time += 540; }
+                if (time < 60) { time = 0; } // Loop back to 9 if time is 00:00
                 else { time -= 60; }
                 break;
             }
@@ -274,6 +274,10 @@ int main (void) {
   
 //  draw_main();
 //	keypad_main();
+  
+//  while (1) {
+//    out_Speaker(0);
+//  }
 
   while(1)
 	{
