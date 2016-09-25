@@ -42,3 +42,4 @@
 .\rvmdk\main.o: ST7735.h
 .\rvmdk\main.o: extract.h
 .\rvmdk\main.o: ADCSWTrigger.h
+.\rvmdk\main.o: fixed.h

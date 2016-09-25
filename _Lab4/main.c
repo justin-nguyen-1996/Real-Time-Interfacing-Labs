@@ -96,6 +96,7 @@ Port A, SSI0 (PA2, PA3, PA5, PA6, PA7) sends data to Nokia5110 LCD
 #include "ST7735.h"
 #include "extract.h"
 #include "ADCSWTrigger.h"
+#include "fixed.h"
 #include <string.h>
 #define SSID_NAME  "Tfon" /* Access point name to connect to */
 #define SEC_TYPE   SL_SEC_TYPE_WPA
@@ -216,6 +217,7 @@ int main(void){int32_t retVal;  SlSecParams_t secParams;
   initClk();        // PLL 50 MHz
   UART_Init();      // Send data to PC, 115200 bps
   LED_Init();       // initialize LaunchPad I/O 
+	ADC0_InitSWTriggerSeq3_Ch9();
 	ST7735_InitR(INITR_REDTAB);
   UARTprintf("Weather App\n");
   retVal = configureSimpleLinkToDefaultState(pConfig); // set policies
@@ -262,26 +264,35 @@ int main(void){int32_t retVal;  SlSecParams_t secParams;
 				strcat (labelToExtractWithQuotes, quoteConst);
 				strcat (labelToExtractWithQuotes, temp);
 				strcat (labelToExtractWithQuotes, quoteConst);
-
 				char * start = strstr( Recvbuff, labelToExtractWithQuotes );
 				char * colon = strstr( start, colonConst );
 				char * comma = strstr( start, commaConst );
-				uint32_t labelLength = (colon - start) / sizeof(char) - 2; // minus two to back up over colon and quote
-				uint32_t valueLength = (comma - colon) / sizeof(char) - 2; // minus two to back up over comma and colon
-
-	strcat( tempCharBuffer, quoteConst );
-	strcat( tempCharBuffer, temp);
-	strcat( tempCharBuffer, equalsConst );
-	strncat( tempCharBuffer, colon+1, 5); //skip the colon
-	strcat (tempCharBuffer, quoteConst);
-				
+				uint32_t labelLength = ((uint32_t) colon - (uint32_t) start) / sizeof(char) - 2; // minus two to back up over colon and quote
+				uint32_t valueLength = ((uint32_t) comma - (uint32_t) colon) / sizeof(char) - 1; // minus two to back up over comma
+				strcat( tempCharBuffer, quoteConst );
+				strcat( tempCharBuffer, temp);
+				strcat( tempCharBuffer, equalsConst );
+				if (valueLength > 5) { strncat( tempCharBuffer, colon+1, 5); }
+				else { strncat( tempCharBuffer, colon+1, valueLength); } //skip the colon
+				strcat (tempCharBuffer, quoteConst);
 //				extractValue(&Recvbuff[0], &temp[0], &tempCharBuffer[0]);
+
 				ST7735_SetCursor(0,0);
 				ST7735_OutString(&tempCharBuffer[0]);
 				ST7735_SetCursor(0, 1);
-				ST7735_OutString("Voltage = ");
 				uint32_t val = ADC0_InSeq3();
-				ST7735_OutUDec(val);
+//				ST7735_OutUDec(val);
+				
+				char voltageString[32] = "Voltage~";
+				char valString[6] = "";
+				ST7735_VoltageOut(val, valString);
+				strcat( voltageString, valString );
+				ST7735_OutString(voltageString);
+
+				strcpy(HostName,"api.openweathermap.org");
+				retVal = sl_NetAppDnsGetHostByName(HostName,strlen(HostName),&DestinationIP, SL_AF_INET);
+
+
         LED_GreenOn();
       }
 			else { 
