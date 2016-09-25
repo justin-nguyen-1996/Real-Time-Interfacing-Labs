@@ -1,0 +1,30 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\_Lab4\getWeather.uvproj
+Project File Date:  09/22/2016
+
+<h2>Output:</h2>
+Build target 'getWeather'
+compiling main.c...
+main.c(269): warning:  #177-D: variable "labelLength" was declared but never referenced
+                                uint32_t labelLength = (colon - start) / sizeof(char) - 2; // minus two to back up over colon and quote
+main.c(270): warning:  #177-D: variable "valueLength" was declared but never referenced
+                                uint32_t valueLength = (comma - colon) / sizeof(char) - 2; // minus two to back up over comma and colon
+main.c: 2 warnings, 0 errors
+linking...
+Program Size: Code=15768 RO-data=3852 RW-data=100 ZI-data=19524  
+After Build - User command #1: fromelf --bin --output .\rvmdk\cc31000_starter.bin .\rvmdk\cc31000_starter.axf
+".\rvmdk\getWeather.axf" - 0 Error(s), 2 Warning(s).
+Load "C:\\Users\\T\\Downloads\\_PDFS\\ValvanoWareTM4C123\\_Lab4\\rvmdk\\getWeather.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+ValvanoWareTM4C123\\_Lab4\\rvmdk\\getWeather.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
