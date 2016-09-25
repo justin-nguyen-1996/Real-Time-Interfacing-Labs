@@ -171,6 +171,12 @@ char HostName[MAX_HOSTNAME_SIZE];
 unsigned long DestinationIP;
 int SockID;
 
+char voltageRecvbuff[MAX_RECV_BUFF_SIZE];
+char voltageSendBuff[MAX_SEND_BUFF_SIZE];
+char voltageHostName[MAX_HOSTNAME_SIZE];
+unsigned long voltageDestinationIP;
+int voltageSockID;
+
 
 typedef enum{
     CONNECTED = 0x01,
@@ -251,6 +257,7 @@ int main(void){int32_t retVal;  SlSecParams_t secParams;
         sl_Recv(SockID, Recvbuff, MAX_RECV_BUFF_SIZE, 0);// Receive response 
         sl_Close(SockID);
 
+//============== BEGIN BARF =====================
 //        UARTprintf("\r\n\r\n");
 //        UARTprintf(Recvbuff);  UARTprintf("\r\n");
 				char temp[] = "temp";
@@ -290,27 +297,33 @@ int main(void){int32_t retVal;  SlSecParams_t secParams;
 				ST7735_OutString(voltageString);
 
 #define REQUEST_VOLTAGE_1 "GET /query?city=Austin&id=TrevorJustin&greet="
-#define REQUEST_VOLTAGE_2 "&edxcode=8086 HTTP/1.1\r\nUser-Agent: Keil\r\n: embedded-systems-server.appspot.com\r\n\r\n"
-				strcpy(HostName,"embedded-systems-server.appspot.com");
-				retVal = sl_NetAppDnsGetHostByName(HostName,strlen(HostName),&DestinationIP, SL_AF_INET);
-				if(retVal == 0){
-					Addr.sin_family = SL_AF_INET;
-					Addr.sin_port = sl_Htons(80);
-					Addr.sin_addr.s_addr = sl_Htonl(DestinationIP);// IP to big endian 
-					ASize = sizeof(SlSockAddrIn_t);
-					SockID = sl_Socket(SL_AF_INET,SL_SOCK_STREAM, 0);
-					if( SockID >= 0 ){
-						retVal = sl_Connect(SockID, ( SlSockAddr_t *)&Addr, ASize);
+#define REQUEST_VOLTAGE_2 "&edxcode=8086 HTTP/1.1\r\nUser-Agent: Keil\r\nHost: embedded-systems-server.appspot.com\r\n\r\n"
+				int32_t voltageRetVal;  SlSecParams_t voltageSecParams;
+				char *voltagePConfig = NULL; INT32 voltageASize = 0; SlSockAddrIn_t  voltageAddr;
+
+
+				strcpy(voltageHostName,"embedded-systems-server.appspot.com");
+				voltageRetVal = sl_NetAppDnsGetHostByName(voltageHostName,strlen(voltageHostName),&voltageDestinationIP, SL_AF_INET);
+				if(voltageRetVal == 0){
+					voltageAddr.sin_family = SL_AF_INET;
+					voltageAddr.sin_port = sl_Htons(80);
+					voltageAddr.sin_addr.s_addr = sl_Htonl(voltageDestinationIP);// IP to big endian 
+					voltageASize = sizeof(SlSockAddrIn_t);
+					voltageSockID = sl_Socket(SL_AF_INET,SL_SOCK_STREAM, 0);
+					if( voltageSockID >= 0 ){
+						voltageRetVal = sl_Connect(voltageSockID, ( SlSockAddr_t *)&voltageAddr, voltageASize);
 					}
-					if((SockID >= 0)&&(retVal >= 0)){
-						strcpy(SendBuff,REQUEST_VOLTAGE_1); 
-						strcat(SendBuff, voltageString);
-						strcat(SendBuff, REQUEST_VOLTAGE_2);
-						sl_Send(SockID, SendBuff, strlen(SendBuff), 0);// Send the HTTP GET 
-						sl_Recv(SockID, Recvbuff, MAX_RECV_BUFF_SIZE, 0);// Receive response 
-						sl_Close(SockID);
+					if((voltageSockID >= 0)&&(voltageRetVal >= 0)){
+						strcpy(voltageSendBuff,REQUEST_VOLTAGE_1); 
+						strcat(voltageSendBuff, voltageString);
+						strcat(voltageSendBuff, REQUEST_VOLTAGE_2);
+						sl_Send(voltageSockID, voltageSendBuff, strlen(voltageSendBuff), 0);// Send the HTTP GET 
+						sl_Recv(voltageSockID, voltageRecvbuff, MAX_RECV_BUFF_SIZE, 0);// Receive response 
+						sl_Close(voltageSockID);
 					}
 				}
+//============== END BARF =====================
+
         LED_GreenOn();
       }
 			else { 
