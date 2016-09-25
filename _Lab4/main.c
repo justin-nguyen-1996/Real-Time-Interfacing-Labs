@@ -289,10 +289,28 @@ int main(void){int32_t retVal;  SlSecParams_t secParams;
 				strcat( voltageString, valString );
 				ST7735_OutString(voltageString);
 
-				strcpy(HostName,"api.openweathermap.org");
+#define REQUEST_VOLTAGE_1 "GET /query?city=Austin&id=TrevorJustin&greet="
+#define REQUEST_VOLTAGE_2 "&edxcode=8086 HTTP/1.1\r\nUser-Agent: Keil\r\n: embedded-systems-server.appspot.com\r\n\r\n"
+				strcpy(HostName,"embedded-systems-server.appspot.com");
 				retVal = sl_NetAppDnsGetHostByName(HostName,strlen(HostName),&DestinationIP, SL_AF_INET);
-
-
+				if(retVal == 0){
+					Addr.sin_family = SL_AF_INET;
+					Addr.sin_port = sl_Htons(80);
+					Addr.sin_addr.s_addr = sl_Htonl(DestinationIP);// IP to big endian 
+					ASize = sizeof(SlSockAddrIn_t);
+					SockID = sl_Socket(SL_AF_INET,SL_SOCK_STREAM, 0);
+					if( SockID >= 0 ){
+						retVal = sl_Connect(SockID, ( SlSockAddr_t *)&Addr, ASize);
+					}
+					if((SockID >= 0)&&(retVal >= 0)){
+						strcpy(SendBuff,REQUEST_VOLTAGE_1); 
+						strcat(SendBuff, voltageString);
+						strcat(SendBuff, REQUEST_VOLTAGE_2);
+						sl_Send(SockID, SendBuff, strlen(SendBuff), 0);// Send the HTTP GET 
+						sl_Recv(SockID, Recvbuff, MAX_RECV_BUFF_SIZE, 0);// Receive response 
+						sl_Close(SockID);
+					}
+				}
         LED_GreenOn();
       }
 			else { 
