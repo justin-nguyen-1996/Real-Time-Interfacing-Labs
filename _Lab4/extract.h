@@ -1,6 +1,6 @@
 #ifndef __extracth
 #define __extracth
 
-void extractValue(char * buff, char * labelToExtract, char * value);
+void extractTemperature(char* tempCharBuffer, char* Recvbuff);
 
 #endif

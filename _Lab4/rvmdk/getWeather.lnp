@@ -21,7 +21,6 @@
 ".\rvmdk\st7735.o"
 ".\rvmdk\extract.o"
 ".\rvmdk\adcswtrigger.o"
-".\rvmdk\fixed.o"
 "..\driverlib\rvmdk\driverlib.lib"
 --library_type=microlib --strict --scatter "cc31000_starter.sct"
 

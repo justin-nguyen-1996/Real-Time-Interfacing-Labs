@@ -2,7 +2,7 @@
 .\rvmdk\flowcont.o: ..\cc3100\simplelink\source\datatypes.h
 .\rvmdk\flowcont.o: ..\cc3100\simplelink\include\simplelink.h
 .\rvmdk\flowcont.o: ..\cc3100\platform\ek-tm4c123gxl\user.h
-.\rvmdk\flowcont.o: C:\Program Files\Keil\ARM\ARMCC\bin\..\include\string.h
+.\rvmdk\flowcont.o: C:\Keil\ARM\ARMCC\bin\..\include\string.h
 .\rvmdk\flowcont.o: ..\cc3100\platform\ek-tm4c123gxl\board.h
 .\rvmdk\flowcont.o: ..\cc3100\platform\ek-tm4c123gxl\spi.h
 .\rvmdk\flowcont.o: ..\cc3100\simplelink\include\../source/nonos.h

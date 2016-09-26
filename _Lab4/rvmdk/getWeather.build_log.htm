@@ -3,92 +3,30 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
-C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\_Lab4\getWeather.uvproj
-Project File Date:  09/22/2016
+C:\Keil\ValvanoWareTM4C123\_Lab4\getWeather.uvproj
+Project File Date:  09/24/2016
 
 <h2>Output:</h2>
 Build target 'getWeather'
-compiling fixed.c...
+compiling main.c...
+main.c(277): warning:  #177-D: variable "valString" was declared but never referenced
+          char valString[6] = "";
+main.c(286): warning:  #177-D: variable "voltageSecParams" was declared but never referenced
+                                int32_t voltageRetVal;  SlSecParams_t voltageSecParams;
+main.c(287): warning:  #177-D: variable "voltagePConfig" was declared but never referenced
+                                char *voltagePConfig = NULL; INT32 voltageASize = 0; SlSockAddrIn_t voltageAddr;
+main.c: 3 warnings, 0 errors
 linking...
-Program Size: Code=16032 RO-data=3884 RW-data=128 ZI-data=19520  
+Program Size: Code=16240 RO-data=3972 RW-data=108 ZI-data=21100  
 After Build - User command #1: fromelf --bin --output .\rvmdk\cc31000_starter.bin .\rvmdk\cc31000_starter.axf
-".\rvmdk\getWeather.axf" - 0 Error(s), 0 Warning(s).
-Load "C:\\Users\\T\\Downloads\\_PDFS\\ValvanoWareTM4C123\\_Lab4\\rvmdk\\getWeather.axf" 
+".\rvmdk\getWeather.axf" - 0 Error(s), 3 Warning(s).
+</pre>
+</body>
+</html>
+melf --bin --output .\rvmdk\cc31000_starter.bin .\rvmdk\cc31000_starter.axf
+".\rvmdk\getWeather.axf" - 0 Error(s), 3 Warning(s).
+Load "C:\\Keil\\ValvanoWareTM4C123\\_Lab4\\rvmdk\\getWeather.axf" 
 Connecting: Mode=JTAG, Speed=1000000Hz
 Erase Done.
 Programming Done.
 Verify OK.
-bin --output .\rvmdk\cc31000_starter.bin .\rvmdk\cc31000_starter.axf
-".\rvmdk\getWeather.axf" - 0 Error(s), 1 Warning(s).
-Load "C:\\Users\\T\\Downloads\\_PDFS\\ValvanoWareTM4C123\\_Lab4\\rvmdk\\getWeather.axf" 
-Connecting: Mode=JTAG, Speed=1000000Hz
-Erase Done.
-Programming Done.
-Verify OK.
-tup_rvmdk.S...
-compiling uart.c...
-compiling wlan.c...
-compiling uartstdio.c...
-compiling ustdlib.c...
-compiling ST7735.c...
-compiling extract.c...
-extract.c(19): warning:  #177-D: variable "labelLength" was declared but never referenced
-        uint32_t labelLength = (colon - start) / sizeof(char) - 2; // minus two to back up over colon and quote
-extract.c(20): warning:  #177-D: variable "valueLength" was declared but never referenced
-        uint32_t valueLength = (comma - colon) / sizeof(char) - 2; // minus two to back up over comma and colon
-extract.c: 2 warnings, 0 errors
-compiling ADCSWTrigger.c...
-compiling fixed.c...
-".\rvmdk\getWeather.axf" - 1 Error(s), 3 Warning(s).
-Target not created
-: expression must have pointer type
-    retVal = sl_DevGet(SL_DEVICE_GENERAL_CONFIGURATION, &configOpt, &configLen, (unsigned char *)(&ver));
-main.c(350): error:  #77-D: this declaration has no storage class or type specifier
-    retVal = sl_WlanPolicySet(SL_POLICY_CONNECTION, SL_CONNECTION_POLICY(1, 0, 0, 0, 1), NULL, 0);
-main.c(350): error:  #148: variable "retVal" has already been initialized
-    retVal = sl_WlanPolicySet(SL_POLICY_CONNECTION, SL_CONNECTION_POLICY(1, 0, 0, 0, 1), NULL, 0);
-main.c(350): error:  #59: function call is not allowed in a constant expression
-    retVal = sl_WlanPolicySet(SL_POLICY_CONNECTION, SL_CONNECTION_POLICY(1, 0, 0, 0, 1), NULL, 0);
-main.c(353): error:  #77-D: this declaration has no storage class or type specifier
-    retVal = sl_WlanProfileDel(0xFF);
-main.c(353): error:  #148: variable "retVal" has already been initialized
-    retVal = sl_WlanProfileDel(0xFF);
-main.c(353): error:  #59: function call is not allowed in a constant expression
-    retVal = sl_WlanProfileDel(0xFF);
-main.c(360): error:  #77-D: this declaration has no storage class or type specifier
-    retVal = sl_WlanDisconnect();
-main.c(360): error:  #148: variable "retVal" has already been initialized
-    retVal = sl_WlanDisconnect();
-main.c(360): error:  #59: function call is not allowed in a constant expression
-    retVal = sl_WlanDisconnect();
-main.c(361): error:  #169: expected a declaration
-    if(0 == retVal){
-main.c(367): warning:  #12-D: parsing restarts here after previous syntax error
-    retVal = sl_NetCfgSet(SL_IPV4_STA_P2P_CL_DHCP_ENABLE,1,1,&val);
-main.c(370): error:  #77-D: this declaration has no storage class or type specifier
-    configOpt = SL_SCAN_POLICY(0);
-main.c(370): error:  #148: variable "configOpt" has already been initialized
-    configOpt = SL_SCAN_POLICY(0);
-main.c(371): error:  #77-D: this declaration has no storage class or type specifier
-    retVal = sl_WlanPolicySet(SL_POLICY_SCAN , configOpt, NULL, 0);
-main.c(371): error:  #148: variable "retVal" has already been initialized
-    retVal = sl_WlanPolicySet(SL_POLICY_SCAN , configOpt, NULL, 0);
-main.c(371): error:  #59: function call is not allowed in a constant expression
-    retVal = sl_WlanPolicySet(SL_POLICY_SCAN , configOpt, NULL, 0);
-main.c(371): error:  #28: expression must have a constant value
-    retVal = sl_WlanPolicySet(SL_POLICY_SCAN , configOpt, NULL, 0);
-main.c(375): error:  #77-D: this declaration has no storage class or type specifier
-    power = 0;
-main.c(376): error:  #77-D: this declaration has no storage class or type specifier
-    retVal = sl_WlanSet(SL_WLAN_CFG_GENERAL_PARAM_ID, WLAN_GENERAL_PARAM_OPT_STA_TX_POWER, 1, (unsigned char *)&power);
-main.c(376): error:  #148: variable "retVal" has already been initialized
-    retVal = sl_WlanSet(SL_WLAN_CFG_GENERAL_PARAM_ID, WLAN_GENERAL_PARAM_OPT_STA_TX_POWER, 1, (unsigned char *)&power);
-main.c(376): error:  #59: function call is not allowed in a constant expression
-    retVal = sl_WlanSet(SL_WLAN_CFG_GENERAL_PARAM_ID, WLAN_GENERAL_PARAM_OPT_STA_TX_POWER, 1, (unsigned char *)&power);
-main.c(379): error:  #77-D: this declaration has no storage class or type specifier
-    retVal = sl_WlanPolicySet(SL_POLICY_PM , SL_NORMAL_POLICY, NULL, 0);
-main.c(379): error:  #148: variable "retVal" has already been initialized
-    retVal = sl_WlanPolicySet(SL_POLICY_PM , SL_NORMAL_POLICY, NULL, 0);
-main.c: 4 warnings, 30 errors
-".\rvmdk\getWeather.axf" - 30 Error(s), 4 Warning(s).
-Target not created

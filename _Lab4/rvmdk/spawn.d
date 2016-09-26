@@ -2,7 +2,7 @@
 .\rvmdk\spawn.o: ..\cc3100\simplelink\source\datatypes.h
 .\rvmdk\spawn.o: ..\cc3100\simplelink\include\simplelink.h
 .\rvmdk\spawn.o: ..\cc3100\platform\ek-tm4c123gxl\user.h
-.\rvmdk\spawn.o: C:\Program Files\Keil\ARM\ARMCC\bin\..\include\string.h
+.\rvmdk\spawn.o: C:\Keil\ARM\ARMCC\bin\..\include\string.h
 .\rvmdk\spawn.o: ..\cc3100\platform\ek-tm4c123gxl\board.h
 .\rvmdk\spawn.o: ..\cc3100\platform\ek-tm4c123gxl\spi.h
 .\rvmdk\spawn.o: ..\cc3100\simplelink\include\../source/nonos.h

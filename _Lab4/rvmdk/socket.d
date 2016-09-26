@@ -2,7 +2,7 @@
 .\rvmdk\socket.o: ..\cc3100\simplelink\source\datatypes.h
 .\rvmdk\socket.o: ..\cc3100\simplelink\include\simplelink.h
 .\rvmdk\socket.o: ..\cc3100\platform\ek-tm4c123gxl\user.h
-.\rvmdk\socket.o: C:\Program Files\Keil\ARM\ARMCC\bin\..\include\string.h
+.\rvmdk\socket.o: C:\Keil\ARM\ARMCC\bin\..\include\string.h
 .\rvmdk\socket.o: ..\cc3100\platform\ek-tm4c123gxl\board.h
 .\rvmdk\socket.o: ..\cc3100\platform\ek-tm4c123gxl\spi.h
 .\rvmdk\socket.o: ..\cc3100\simplelink\include\../source/nonos.h

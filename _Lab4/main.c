@@ -98,9 +98,13 @@ Port A, SSI0 (PA2, PA3, PA5, PA6, PA7) sends data to Nokia5110 LCD
 #include "ADCSWTrigger.h"
 #include "fixed.h"
 #include <string.h>
-#define SSID_NAME  "Tfon" /* Access point name to connect to */
+//#define SSID_NAME  "Tfon" /* Access point name to connect to */
+//#define SEC_TYPE   SL_SEC_TYPE_WPA
+//#define PASSKEY    "matt66matt66"  /* Password in case of secure AP */ 
+
+#define SSID_NAME  "NETGEAR79" /* Access point name to connect to */
 #define SEC_TYPE   SL_SEC_TYPE_WPA
-#define PASSKEY    "matt66matt66"  /* Password in case of secure AP */ 
+#define PASSKEY    "rapidbreeze587"  /* Password in case of secure AP */ 
 
 #define BAUD_RATE   115200
 void UART_Init(void){
@@ -209,6 +213,7 @@ void Crash(uint32_t time){
     LED_RedToggle();
   }
 }
+
 /*
  * Application's entry point
  */
@@ -258,49 +263,28 @@ int main(void){int32_t retVal;  SlSecParams_t secParams;
         sl_Close(SockID);
 
 //============== BEGIN BARF =====================
-//        UARTprintf("\r\n\r\n");
-//        UARTprintf(Recvbuff);  UARTprintf("\r\n");
-				char temp[] = "temp";
-				char tempCharBuffer[32] = "";
-				
-				const char quoteConst[] = "\"";
-				const char equalsConst[] = " = ";
-				const char colonConst[] = ":";
-				const char commaConst[] = ",";
-				char labelToExtractWithQuotes[32] = "";
-				strcat (labelToExtractWithQuotes, quoteConst);
-				strcat (labelToExtractWithQuotes, temp);
-				strcat (labelToExtractWithQuotes, quoteConst);
-				char * start = strstr( Recvbuff, labelToExtractWithQuotes );
-				char * colon = strstr( start, colonConst );
-				char * comma = strstr( start, commaConst );
-				uint32_t labelLength = ((uint32_t) colon - (uint32_t) start) / sizeof(char) - 2; // minus two to back up over colon and quote
-				uint32_t valueLength = ((uint32_t) comma - (uint32_t) colon) / sizeof(char) - 1; // minus two to back up over comma
-				strcat( tempCharBuffer, quoteConst );
-				strcat( tempCharBuffer, temp);
-				strcat( tempCharBuffer, equalsConst );
-				if (valueLength > 5) { strncat( tempCharBuffer, colon+1, 5); }
-				else { strncat( tempCharBuffer, colon+1, valueLength); } //skip the colon
-				strcat (tempCharBuffer, quoteConst);
-//				extractValue(&Recvbuff[0], &temp[0], &tempCharBuffer[0]);
+
+        //				extractValue(&Recvbuff[0], &temp[0], &tempCharBuffer[0]);
+				char temperatureString[] = "";
+        extractTemperature(temperatureString, Recvbuff);
 
 				ST7735_SetCursor(0,0);
-				ST7735_OutString(&tempCharBuffer[0]);
+        ST7735_OutString(temperatureString);
 				ST7735_SetCursor(0, 1);
 				uint32_t val = ADC0_InSeq3();
-//				ST7735_OutUDec(val);
 				
 				char voltageString[32] = "Voltage~";
-				char valString[6] = "";
-				ST7735_VoltageOut(val, valString);
-				strcat( voltageString, valString );
+        char valString[6] = "";
+				//ST7735_VoltageOut(val, valString);
+				//strcat( voltageString, valString );
 				ST7735_OutString(voltageString);
+				ST7735_OutUDec(val);
 
 #define REQUEST_VOLTAGE_1 "GET /query?city=Austin&id=TrevorJustin&greet="
 #define REQUEST_VOLTAGE_2 "&edxcode=8086 HTTP/1.1\r\nUser-Agent: Keil\r\nHost: embedded-systems-server.appspot.com\r\n\r\n"
-				int32_t voltageRetVal;  SlSecParams_t voltageSecParams;
-				char *voltagePConfig = NULL; INT32 voltageASize = 0; SlSockAddrIn_t  voltageAddr;
 
+				int32_t voltageRetVal;  SlSecParams_t voltageSecParams;
+				char *voltagePConfig = NULL; INT32 voltageASize = 0; SlSockAddrIn_t voltageAddr;
 
 				strcpy(voltageHostName,"embedded-systems-server.appspot.com");
 				voltageRetVal = sl_NetAppDnsGetHostByName(voltageHostName,strlen(voltageHostName),&voltageDestinationIP, SL_AF_INET);

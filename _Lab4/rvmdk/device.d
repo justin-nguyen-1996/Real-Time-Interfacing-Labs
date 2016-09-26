@@ -2,7 +2,7 @@
 .\rvmdk\device.o: ..\cc3100\simplelink\source\datatypes.h
 .\rvmdk\device.o: ..\cc3100\simplelink\include\simplelink.h
 .\rvmdk\device.o: ..\cc3100\platform\ek-tm4c123gxl\user.h
-.\rvmdk\device.o: C:\Program Files\Keil\ARM\ARMCC\bin\..\include\string.h
+.\rvmdk\device.o: C:\Keil\ARM\ARMCC\bin\..\include\string.h
 .\rvmdk\device.o: ..\cc3100\platform\ek-tm4c123gxl\board.h
 .\rvmdk\device.o: ..\cc3100\platform\ek-tm4c123gxl\spi.h
 .\rvmdk\device.o: ..\cc3100\simplelink\include\../source/nonos.h
