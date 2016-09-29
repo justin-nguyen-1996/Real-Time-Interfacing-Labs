@@ -8,7 +8,7 @@ void Switch_Init(void)
 
 uint8_t Switch_GetStatus(void)
 {
-
+return 0;
 }
 
 void GPIOArm_PortD(void)
