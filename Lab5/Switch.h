@@ -1,6 +1,8 @@
 #ifndef __switchh
 #define __switchh
 
+#include <stdint.h>
+
 //Initialize GPIO ports and timer
 void Switch_Init(void);
 

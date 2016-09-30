@@ -21,7 +21,7 @@
   </DaveTm>
 
   <Target>
-    <TargetName>ADCSWTrigger</TargetName>
+    <TargetName>Lab5</TargetName>
     <ToolsetNumber>0x4</ToolsetNumber>
     <ToolsetName>ARM-ADS</ToolsetName>
     <TargetOption>
