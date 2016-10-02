@@ -117,14 +117,14 @@ Section Cross References
 Removing Unused input sections from the image.
 
     Removing pll.o(i.PLL_Init), (124 bytes).
-    Removing dac.o(i.DAC_Init), (2 bytes).
-    Removing dac.o(i.DAC_Out), (2 bytes).
+    Removing dac.o(i.DAC_Init), (164 bytes).
+    Removing dac.o(i.DAC_Out), (36 bytes).
     Removing switch.o(i.GPIOArm_PortD), (2 bytes).
     Removing switch.o(i.Switch_GetStatus), (4 bytes).
     Removing switch.o(i.Switch_Init), (2 bytes).
     Removing switch.o(i.Timer2Arm), (2 bytes).
 
-7 unused section(s) (total 138 bytes) removed from the image.
+7 unused section(s) (total 334 bytes) removed from the image.
 
 ==============================================================================
 
