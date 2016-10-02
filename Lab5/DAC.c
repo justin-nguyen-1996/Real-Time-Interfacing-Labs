@@ -60,12 +60,13 @@ void DAC_Init(){
   while((SYSCTL_PRGPIO_R&0x08) == 0){};// ready?
   GPIO_PORTD_AFSEL_R |= 0x0B;     // enable alt funct on PD 0,1,3
   GPIO_PORTD_DEN_R |= 0x0B;       // configure PD 0,1,3 as SSI
-  GPIO_PORTD_PCTL_R = (GPIO_PORTA_PCTL_R&0xFFFF0F00)+0x00001011;
+  GPIO_PORTD_PCTL_R = (GPIO_PORTD_PCTL_R&0xFFFF0F00)+0x00001011;
   GPIO_PORTD_AMSEL_R = 0;         // disable analog functionality on PD
   SSI3_CR1_R = 0x00000000;        // disable SSI, master mode
   SSI3_CPSR_R = 0x02;             // 8 MHz SSIClk 
-  SSI3_CR0_R &= ~(0x0000FFF0);    // SCR = 0, SPH = 0, SPO = 0 Freescale
-  SSI3_CR0_R |= 0x0F;             // DSS = 16-bit data
+  //SSI3_CR0_R &= ~(0x0000FFF0);    // SCR = 0, SPH = 0, SPO = 0 Freescale
+  SSI3_CR0_R &= ~(0x0000FF70);    // SCR = 0, SPO = 0 Freescale
+  SSI3_CR0_R |= 0x08F;            // DSS = 16-bit data, SPH = 1
   SSI3_CR1_R |= 0x00000002;       // enable SSI
 }
 
