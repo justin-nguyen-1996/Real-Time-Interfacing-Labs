@@ -63,10 +63,9 @@ void DAC_Init(){
   GPIO_PORTD_PCTL_R = (GPIO_PORTD_PCTL_R&0xFFFF0F00)+0x00001011;
   GPIO_PORTD_AMSEL_R = 0;         // disable analog functionality on PD
   SSI3_CR1_R = 0x00000000;        // disable SSI, master mode
-  SSI3_CPSR_R = 0x02;             // 8 MHz SSIClk 
+  SSI3_CPSR_R = 0x04;             // 20 MHz SSIClk 
   //SSI3_CR0_R &= ~(0x0000FFF0);    // SCR = 0, SPH = 0, SPO = 0 Freescale
-  SSI3_CR0_R &= ~(0x0000FF70);    // SCR = 0, SPO = 0 Freescale
-  SSI3_CR0_R |= 0x08F;            // DSS = 16-bit data, SPH = 1
+  SSI3_CR0_R |= 0x04F;            // DSS = 16-bit data, SPO = 1, SPH = 0
   SSI3_CR1_R |= 0x00000002;       // enable SSI
 }
 
@@ -75,7 +74,17 @@ void DAC_Init(){
  * Output:  none
  */
 void DAC_Out(uint16_t code){   
-  while((SSI3_SR_R&0x00000002)==0){};// SSI Transmit FIFO Not Full
-  SSI3_DR_R = code;                  // data out
-  while((SSI3_SR_R&0x00000004)==0){};// SSI Receive FIFO Not Empty
+  //while((SSI3_SR_R&0x00000002)==0){};// SSI Transmit FIFO Not Full
+  while ((SSI_SR_TNF & SSI3_SR_R) == 0) {}
+  SSI3_DR_R = code & 0x0FFF;                  // data out
+  //while((SSI3_SR_R&0x00000004)==0){};// SSI Receive FIFO Not Empty
 }
+
+void DAC_Test() {
+  while (1) {
+    for (int i = 0; i < 4096; ++i) {
+      DAC_Out(i);
+    }
+  }
+}
+

@@ -16,4 +16,6 @@ void DAC_Init(void);
  */
 void DAC_Out(uint16_t code);
 
+void DAC_Test(void);
+
 #endif
