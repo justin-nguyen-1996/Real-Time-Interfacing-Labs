@@ -3,11 +3,7 @@
 <title>Static Call Graph - [.\Lab5.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Lab5.axf</H1><HR>
-<<<<<<< HEAD
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Mon Oct 03 22:22:52 2016
-=======
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Mon Oct 03 22:29:28 2016
->>>>>>> 78d9ff283debcf5295b9b47965052794a9c36310
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Mon Oct 03 23:39:02 2016
 <BR><P>
 <H3>Maximum Stack Usage =         12 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -788,14 +784,14 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[20]"></a>Timer0A_Handler</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, main.o(i.Timer0A_Handler))
+<P><STRONG><a name="[20]"></a>Timer0A_Handler</STRONG> (Thumb, 64 bytes, Stack size 8 bytes, main.o(i.Timer0A_Handler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = Timer0A_Handler
 </UL>
 <BR>[Calls]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DAC_Out
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup.o(RESET)
 </UL>
-<P><STRONG><a name="[22]"></a>Timer1A_Handler</STRONG> (Thumb, 204 bytes, Stack size 12 bytes, main.o(i.Timer1A_Handler))
+<P><STRONG><a name="[22]"></a>Timer1A_Handler</STRONG> (Thumb, 216 bytes, Stack size 12 bytes, main.o(i.Timer1A_Handler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = Timer1A_Handler
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup.o(RESET)
@@ -811,19 +807,12 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOPortB_Handler
 </UL>
 
-<<<<<<< HEAD
-<P><STRONG><a name="[8a]"></a>main</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, main.o(i.main))
-<BR><BR>[Calls]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DAC_Out
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DAC_Init
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PLL_Init
-=======
 <P><STRONG><a name="[8a]"></a>main</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = main
 </UL>
 <BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DAC_Test
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DAC_Init
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PLL_Init
->>>>>>> 78d9ff283debcf5295b9b47965052794a9c36310
 </UL>
 <BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
