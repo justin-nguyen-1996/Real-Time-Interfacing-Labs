@@ -29,6 +29,26 @@ const uint16_t wave[32] = {
   156,39,0,39,156,345,600,910,1264,1648
 };
 
+const uint16_t envelope[256] = { 
+  256, 255, 254, 253, 252, 251, 250, 249, 248, 247, 246, 245, 244, 243,
+  242, 241, 240, 239, 238, 237, 236, 235, 234, 233, 232, 231, 230, 229,
+  228, 227, 226, 225, 224, 223, 222, 221, 220, 219, 218, 217, 216, 215,
+  214, 213, 212, 211, 210, 209, 208, 207, 206, 205, 204, 203, 202, 201,
+  200, 199, 198, 197, 196, 195, 194, 193, 192, 191, 190, 189, 188, 187,
+  186, 185, 184, 183, 182, 181, 180, 179, 178, 177, 176, 175, 174, 173,
+  172, 171, 170, 169, 168, 167, 166, 165, 164, 163, 162, 161, 160, 159,
+  158, 157, 156, 155, 154, 153, 152, 151, 150, 149, 148, 147, 146, 145,
+  144, 143, 142, 141, 140, 139, 138, 137, 136, 135, 134, 133, 132, 131,
+  130, 129, 128, 127, 126, 125, 124, 123, 122, 121, 120, 119, 118, 117,
+  116, 115, 114, 113, 112, 111, 110, 109, 108, 107, 106, 105, 104, 103,
+  102, 101, 100, 99, 98, 97, 96, 95, 94, 93, 92, 91, 90, 89, 88, 87, 86,
+  85, 84, 83, 82, 81, 80, 79, 78, 77, 76, 75, 74, 73, 72, 71, 70, 69, 68,
+  67, 66, 65, 64, 63, 62, 61, 60, 59, 58, 57, 56, 55, 54, 53, 52, 51, 50,
+  49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32,
+  31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14,
+  13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 
+};
+
 void DisableInterrupts(void); // Disable interrupts
 void EnableInterrupts(void);  // Enable interrupts
 long StartCritical (void);    // previous I bit, disable interrupts
@@ -38,6 +58,8 @@ void WaitForInterrupt(void);  // low power mode
 static uint16_t sineIndex = 0;
 static uint8_t songIndex = 0;
 static uint8_t tempoIndex = 0;
+
+static uint16_t envIndex = 0;
 
 static uint16_t fullLength = 0;
 static uint16_t currentLength = 0;
@@ -75,7 +97,7 @@ void Timer0A_Handler(void)
 	uint16_t value = Sinewave[sineIndex] << 2 ;
 	sineIndex = (sineIndex+1) & 0x1F;
 	value = value >> currentVolume;
-	DAC_Out( value );
+	DAC_Out( (value * envelope[envIndex]) >> 7 );
 }
 
 // ***************** TIMER1_Init ****************
@@ -104,31 +126,37 @@ void Timer1_Init(uint32_t period)
 void Timer1A_Handler(void)
 {
   TIMER1_ICR_R = TIMER_ICR_TATOCINT;// acknowledge TIMER1A timeout
-	if (currentLength) { currentLength--; }
+	if (currentLength) { currentLength--; } // if note duration hasn't ended
 	else 
 	{
 		Note nextNote = Song_Pirates[ songIndex ];
 		songIndex ++;
+    
+    // if we need to do a tempo change (used notes of length zero to indicate tempo change)
 		if ( !nextNote.length )
 		{
-			if ( Tempo_Pirates[tempoIndex] ) 
+			if ( Tempo_Pirates[tempoIndex] ) // if valid tempo
 			{	
 				TIMER1_TAILR_R = Tempo_Pirates[ tempoIndex ];
 				tempoIndex ++;
 				nextNote = Song_Pirates[ songIndex ];
 				songIndex ++; 
 			}
-			else { TIMER1_IMR_R = 0; }
+			else { TIMER1_IMR_R = 0; } // else song is done
 		}
-		if ( nextNote.frequency ) 
+    
+		if ( nextNote.frequency ) // if valid note frequency
 		{
 			TIMER0_IMR_R = 1; 
 			TIMER0_TAILR_R = nextNote.frequency;
 		}
-		else { TIMER0_IMR_R = 0; }
+		else { TIMER0_IMR_R = 0; } // else song is done
+    
+    // update current note length, volume, and envelope multiplier
 		fullLength = nextNote.length;
 		currentLength = nextNote.length;
 		if (nextNote.volume) { currentVolume = nextNote.volume; }
+    envIndex = (envIndex + 1) & 0xFF;
 	}
 }
 
