@@ -80,10 +80,17 @@ void DAC_Out(uint16_t code){
   //while((SSI3_SR_R&0x00000004)==0){};// SSI Receive FIFO Not Empty
 }
 
+const unsigned short SinewaveDAC[32] = {  
+  1024,1122,1215,1302,1378,1440,1486,1514,1524,1514,1486,
+  1440,1378,1302,1215,1122,1024,926,833,746,670,608,
+  562,534,524,534,562,608,670,746,833,926
+}; 
+
 void DAC_Test() {
   while (1) {
-    for (int i = 0; i < 4096; ++i) {
-      DAC_Out(i);
+    for (int i = 0; i < 32; ++i) {
+      DAC_Out(SinewaveDAC[i]);
+			for (int j = 0; j < 8096; ++j){}
     }
   }
 }

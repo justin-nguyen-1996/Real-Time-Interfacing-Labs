@@ -136,12 +136,5 @@ int main(void)
 {
 	PLL_Init(Bus80MHz);
 	DAC_Init();
-	while(1)
-	{
-		for (int i = 0; i < 4096; ++i) {
-			DAC_Out(i);
-			for (int j = 0; j < 100000; ++j){}
-	//    SSI3_DR_R = i;
-		}
-	}
+	DAC_Test();
 }
