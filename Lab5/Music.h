@@ -56,36 +56,63 @@ typedef struct {
 	uint8_t volume;
 } Note;
 
-#define SINE_GRANULARITY 32
+#define SINE_GRANULARITY 64
 
 //sine wave for generating sound
-const unsigned short Sinewave[32] = {  
+const unsigned short Sinewave[SINE_GRANULARITY] = {  
   1024,1122,1215,1302,1378,1440,1486,1514,1524,1514,1486,
   1440,1378,1302,1215,1122,1024,926,833,746,670,608,
   562,534,524,534,562,608,670,746,833,926
-}; 
+};
+ 
+// Trumpet
+const unsigned short Trumpetwave[SINE_GRANULARITY]={
+  987, 1049, 1090, 1110, 1134, 1160, 1139, 1092, 1070, 1042, 1035, 1029, 1008, 1066, 1150, 1170, 1087, 915, 679, 372, 151, 
+  558, 1014, 1245, 1260, 1145, 1063, 984, 934, 960, 1027, 1077, 1081, 1074, 1064, 1042, 1010, 974, 968, 974, 994, 1039, 
+  1094, 1129, 1125, 1092, 1056, 1056, 1082, 1059, 1046, 1058, 1061, 1045, 1034, 1050, 1094, 1112, 1092, 1063, 1053, 1065, 1052, 992};
+
+const uint16_t envelope[256] = { 
+  16, 32, 64, 96, 128, 160, 192, 224, 256, 255, 254, 252, 250, 248,
+  246, 244, 242, 240, 238, 237, 236, 235, 234, 233, 232, 231, 230, 229,
+  228, 227, 226, 225, 224, 223, 222, 221, 220, 219, 218, 217, 216, 215,
+  214, 213, 212, 211, 210, 209, 208, 207, 206, 205, 204, 203, 202, 201,
+  200, 199, 198, 197, 196, 195, 194, 193, 192, 191, 190, 189, 188, 187,
+  186, 185, 184, 183, 182, 181, 180, 179, 178, 177, 176, 175, 174, 173,
+  172, 171, 170, 169, 168, 167, 166, 165, 164, 163, 162, 161, 160, 159,
+  158, 157, 156, 155, 154, 153, 152, 151, 150, 149, 148, 147, 146, 145,
+  144, 143, 142, 141, 140, 139, 138, 137, 136, 135, 134, 133, 132, 131,
+  130, 129, 128, 127, 126, 125, 124, 123, 122, 121, 120, 119, 118, 117,
+  116, 115, 114, 113, 112, 111, 110, 109, 108, 107, 106, 105, 104, 103,
+  102, 101, 100, 99, 98, 97, 96, 95, 94, 93, 92, 91, 90, 89, 88, 87, 86,
+  85, 84, 83, 82, 81, 80, 79, 78, 77, 76, 75, 74, 73, 72, 71, 70, 69, 68,
+  67, 66, 65, 64, 63, 62, 61, 60, 59, 58, 57, 56, 55, 54, 53, 52, 51, 50,
+  49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32,
+  31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14,
+  13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 
+};
+
 
 // frequencies of notes 0th octave in clock ticks
 // reference 20MHz clock speed
 // to get the nth octave take (note >> n)
 // value of zero defined as a rest
-#define C  (4892966 / 4 / SINE_GRANULARITY)
-#define Cs (4618937 / 4 / SINE_GRANULARITY)
-#define Db (4618937 / 4 / SINE_GRANULARITY)
-#define D  (4359673 / 4 / SINE_GRANULARITY)
-#define Ds (4113110 / 4 / SINE_GRANULARITY)
-#define Eb (4113110 / 4 / SINE_GRANULARITY)
-#define E  (3883495 / 4 / SINE_GRANULARITY)
-#define F  (3755868 / 4 / SINE_GRANULARITY)
-#define Fs (3460207 / 4 / SINE_GRANULARITY)
-#define Gb (3265306 / 4 / SINE_GRANULARITY)
-#define G  (3265306 / 4 / SINE_GRANULARITY)
-#define Gs (3081664 / 4 / SINE_GRANULARITY)
-#define Ab (2909091 / 4 / SINE_GRANULARITY)
-#define A  (2909091 / 4 / SINE_GRANULARITY)
-#define As (2745367 / 4 / SINE_GRANULARITY)
-#define Bb (2745367 / 4 / SINE_GRANULARITY)
-#define B  (2591512 / 4 / SINE_GRANULARITY)
+#define C  (4892966  / SINE_GRANULARITY)
+#define Cs (4618937  / SINE_GRANULARITY)
+#define Db (4618937  / SINE_GRANULARITY)
+#define D  (4359673  / SINE_GRANULARITY)
+#define Ds (4113110  / SINE_GRANULARITY)
+#define Eb (4113110  / SINE_GRANULARITY)
+#define E  (3883495  / SINE_GRANULARITY)
+#define F  (3755868  / SINE_GRANULARITY)
+#define Fs (3460207  / SINE_GRANULARITY)
+#define Gb (3265306  / SINE_GRANULARITY)
+#define G  (3265306  / SINE_GRANULARITY)
+#define Gs (3081664  / SINE_GRANULARITY)
+#define Ab (2909091  / SINE_GRANULARITY)
+#define A  (2909091  / SINE_GRANULARITY)
+#define As (2745367  / SINE_GRANULARITY)
+#define Bb (2745367  / SINE_GRANULARITY)
+#define B  (2591512  / SINE_GRANULARITY)
 
 
 
@@ -122,84 +149,84 @@ const unsigned short Sinewave[32] = {
 const Note Song_Pirates[] = 
 	{ 
 // measures 1-6, Con bravura Q=168, The Black Perl
-		{D>>3, Eth, mForte}, {R, Eth, P}, {D>>3, Eth, P}, {Eb>>3, Eth, P}, {D>>3, Eth, P}, {Eb>>3, Eth, P},
-		{D>>3, Eth, P}, {R, Eth, P}, {D>>3, Eth, P}, {Eb>>3, Eth, mPiano}, {D>>3, Eth, P}, {Eb>>3, Eth, P},
-		{D>>3, Eth, Piano}, {R, Eth, P}, {D>>3, Eth, P}, {Eb>>3, Eth, P}, {D>>3, Eth, P}, {Eb>>3, Eth, P},
-		{D>>3, Eth, P}, {R, Eth, P}, {D>>3, Eth, P}, {Eb>>3, Eth, mPiano}, {F>>3, Eth, P}, {Eb>>3, Eth, P},
-		{D>>3, Eth, mForte}, {R, Eth, P}, {D>>3, Eth, P}, {Eb>>3, Eth, P}, {D>>3, Eth, P}, {Eb>>3, Eth, P},
-		{D>>3, Eth, P}, {R, Eth, P}, {D>>3, Eth, P}, {Eb>>3, Eth, P}, {D>>3, Eth, P}, {Eb>>3, Eth, P},
+		{D>>5, Eth, mForte}, {R, Eth, P}, {D>>5, Eth, P}, {Eb>>5, Eth, P}, {D>>5, Eth, P}, {Eb>>5, Eth, P},
+		{D>>5, Eth, P}, {R, Eth, P}, {D>>5, Eth, P}, {Eb>>5, Eth, mPiano}, {D>>5, Eth, P}, {Eb>>5, Eth, P},
+		{D>>5, Eth, Piano}, {R, Eth, P}, {D>>5, Eth, P}, {Eb>>5, Eth, P}, {D>>5, Eth, P}, {Eb>>5, Eth, P},
+		{D>>5, Eth, P}, {R, Eth, P}, {D>>5, Eth, P}, {Eb>>5, Eth, mPiano}, {F>>5, Eth, P}, {Eb>>5, Eth, P},
+		{D>>5, Eth, mForte}, {R, Eth, P}, {D>>5, Eth, P}, {Eb>>5, Eth, P}, {D>>5, Eth, P}, {Eb>>5, Eth, P},
+		{D>>5, Eth, P}, {R, Eth, P}, {D>>5, Eth, P}, {Eb>>5, Eth, P}, {D>>5, Eth, P}, {Eb>>5, Eth, P},
 
 // measures 7-11
-		{D>>3, Eth, P}, {R, Eth, P}, {D>>3, Eth, P}, {Eb>>3, Eth, P}, {D>>3, Eth, P}, {Eb>>3, Eth, P},
-		{D>>3, Eth, P}, {R, Eth, P}, {D>>3, Eth, P}, {Eb>>3, Eth, P}, {F>>3, Eth, P}, {Eb>>3, Eth, P},
-		{D>>3, Eth, P}, {R, Eth, P}, {D>>3, Eth, P}, {R, Eth, P}, {D>>3, Eth, P}, {R, Eth, P},
-		{D>>4, Q, P}, {D>>4, Qt, P}, {D>>4, Qt, P}, {D>>4, Qt, P}, {D>>4, Qt, P}, {D>>4, Qt, P}, {D>>4, Qt, P},
-		{E>>4, Q, P}, {E>>4, Qt, P}, {E>>4, Qt, P}, {E>>4, Qt, P}, {E>>4, Qt, P}, {E>>4, Qt, P}, {E>>4, Qt, P},
+		{D>>5, Eth, P}, {R, Eth, P}, {D>>5, Eth, P}, {Eb>>5, Eth, P}, {D>>5, Eth, P}, {Eb>>5, Eth, P},
+		{D>>5, Eth, P}, {R, Eth, P}, {D>>5, Eth, P}, {Eb>>5, Eth, P}, {F>>5, Eth, P}, {Eb>>5, Eth, P},
+		{D>>5, Eth, P}, {R, Eth, P}, {D>>5, Eth, P}, {R, Eth, P}, {D>>5, Eth, P}, {R, Eth, P},
+		{D>>6, Q, P}, {D>>6, Qt, P}, {D>>6, Qt, P}, {D>>6, Qt, P}, {D>>6, Qt, P}, {D>>6, Qt, P}, {D>>6, Qt, P},
+		{E>>6, Q, P}, {E>>6, Qt, P}, {E>>6, Qt, P}, {E>>6, Qt, P}, {E>>6, Qt, P}, {E>>6, Qt, P}, {E>>6, Qt, P},
 
 // measures 12-15.1
-		{F>>4, Q, P}, {F>>4, Qt, P}, {F>>4, Qt, P}, {F>>4, Qt, P}, {F>>4, Qt, P}, {F>>4, Qt, P}, {F>>4, Qt, P},
-		{G>>4, Q, P}, {A>>4, Q, P}, {Bb>>4, Q, P}, 
-		{A>>4, Q, P}, {Bb>>4, Q, P}, {Cs>>5, Q, P}, 
-		{D>>5, Q, P}, 
+		{F>>6, Q, P}, {F>>6, Qt, P}, {F>>6, Qt, P}, {F>>6, Qt, P}, {F>>6, Qt, P}, {F>>6, Qt, P}, {F>>6, Qt, P},
+		{G>>6, Q, P}, {A>>6, Q, P}, {Bb>>6, Q, P}, 
+		{A>>6, Q, P}, {Bb>>6, Q, P}, {Cs>>7, Q, P}, 
+		{D>>7, Q, P}, 
 
 // measures 15.2-18, Q=196
-		{C, Ch, Forte}, {D>>3, Eth, P}, {E>>3, Eth, P}, {F>>3, Eth, P}, {D>>3, Eth, P},
-		{E>>3, Eth, P}, {R, Eth, P}, {D>>3, Eth, P}, {R, Eth, P}, {C>>3, Eth, P}, {R, Eth, P},
-		{D>>3, Eth, P}, {R, Eth, P}, {D>>3, Eth, P}, {E>>3, Eth, P}, {F>>3, Eth, P}, {D>>3, Eth, P},
-		{E>>3, Eth, P}, {R, Eth, P}, {F>>3, Eth, P}, {R, Eth, P}, {G, Eth, P}, {R, Eth, P}, 
+		{R, Ch, Forte}, {D>>5, Eth, P}, {E>>5, Eth, P}, {F>>5, Eth, P}, {D>>5, Eth, P},
+		{E>>5, Eth, P}, {R, Eth, P}, {D>>5, Eth, P}, {R, Eth, P}, {C>>5, Eth, P}, {R, Eth, P},
+		{D>>5, Eth, P}, {R, Eth, P}, {D>>5, Eth, P}, {E>>5, Eth, P}, {F>>5, Eth, P}, {D>>5, Eth, P},
+		{E>>5, Eth, P}, {R, Eth, P}, {F>>5, Eth, P}, {R, Eth, P}, {G>>5, Eth, P}, {R, Eth, P}, 
 
 // measures 19-22
-		{G>>3, Eth, P}, {R, Eth, P}, {G>>3, Eth, P}, {A>>3, Eth, P}, {Bb>>3, Eth, P}, {D>>3, Eth, P}, 
-		{F>>3, Q, P}, {E>>3, Q, P}, {D>>3, Q, P}, 
-		{E>>3, Q, P}, {D>>3, Q, P}, {C>>3, Q, P}, 
-		{D>>3, Q, P}, {F>>3, Q, P}, {A>>3, Q, P}, 
+		{G>>5, Eth, P}, {R, Eth, P}, {G>>5, Eth, P}, {A>>5, Eth, P}, {Bb>>5, Eth, P}, {D>>5, Eth, P}, 
+		{F>>5, Q, P}, {E>>5, Q, P}, {D>>5, Q, P}, 
+		{E>>5, Q, P}, {D>>5, Q, P}, {C>>5, Q, P}, 
+		{D>>5, Q, P}, {F>>5, Q, P}, {A>>5, Q, P}, 
 
 // measures 23-26, Q=184
-		{D>>4, Q, fForte}, {D>>4, Eth, P}, {E>>4, Eth, P}, {F>>4, Eth, P}, {D>>4, Eth, P}, 
-		{E>>4, Q, P}, {D>>4, Q, P}, {C>>4, Q, P}, 
-		{D>>4, Q, P}, {D>>4, Eth, P}, {E>>4, Eth, P}, {F>>4, Eth, P}, {D>>4, Eth, P}, 
-		{E>>4, Q, P}, {F>>4, Q, P}, {G>>4, Q, P}, 
+		{R, Ch, P}, {D>>6, Q, fForte}, {D>>6, Eth, P}, {E>>6, Eth, P}, {F>>6, Eth, P}, {D>>6, Eth, P}, 
+		{E>>6, Q, P}, {D>>6, Q, P}, {C>>6, Q, P}, 
+		{D>>6, Q, P}, {D>>6, Eth, P}, {E>>6, Eth, P}, {F>>6, Eth, P}, {D>>6, Eth, P}, 
+		{E>>6, Q, P}, {F>>6, Q, P}, {G>>6, Q, P}, 
 		
 // measures 27-33
-		{G>>4, Q, P}, {G>>4, Eth, P}, {A>>4, Eth, P}, {Bb>>4, Eth, P}, {G>>4, Eth, P}, 
-	  {F>>4, Q, P}, {E>>4, Q, P}, {D>>4, Q, P}, 
-		{E>>4, Q, P}, {D>>4, Q, P}, {C>>4, Q, P}, 
-		{D>>4, Q, P}, {F>>4, Q, P}, {A>>4, Q, P}, 
-		{A>>3, Hd, P}, 
-		{Bb>>3, Hd, P}, 
-		{A>>3, Eth, P}, {R, Eth, P}, {A>>3, Eth, P}, {R, Eth, P}, {A>>3, Eth, P}, {R, Eth, P}, 
+		{G>>6, Q, P}, {G>>6, Eth, P}, {A>>6, Eth, P}, {Bb>>6, Eth, P}, {G>>6, Eth, P}, 
+	  {F>>6, Q, P}, {E>>6, Q, P}, {D>>6, Q, P}, 
+		{E>>6, Q, P}, {D>>6, Q, P}, {C>>6, Q, P}, 
+		{D>>6, Q, P}, {F>>6, Q, P}, {A>>6, Q, P}, 
+		{A>>5, Hd, P}, 
+		{Bb>>5, Hd, P}, 
+		{A>>5, Eth, P}, {R, Eth, P}, {A>>5, Eth, P}, {R, Eth, P}, {A>>5, Eth, P}, {R, Eth, P}, 
 
 // measures 34-39
-		{A>>3, Eth, P}, {G>>3, Eth, P}, {G>>3, H, P}, 
-		{G>>3, Q, P}, {G>>2, Eth, P}, {Bb>>2, Eth, P}, {D>>3, Eth, P}, {F>>3, Eth, P}, 
-		{F>>3, Q, P}, {F>>2, Eth, P}, {C>>3, Eth, P}, {D>>3, Eth, P}, {F>>3, Eth, P}, 
-		{E>>3, Eth, P}, {R, Eth, P}, {F>>3, Eth, P}, {R, Eth, P}, {E>>3, Eth, P}, {R, Eth, P}, 
-		{D>>3, Q, P}, {A>>2, Qt, P}, {D>>3, Qt, P}, {F>>3, Qt, P}, {A>>3, Qt, P}, {D>>4, Qt, P}, {F>>4, Qt, P}, 
-		{A>>4, Hd, P}, 
+		{A>>5, Eth, P}, {G>>5, Eth, P}, {G>>5, H, P}, 
+		{G>>5, Q, P}, {G>>4, Eth, P}, {Bb>>4, Eth, P}, {D>>5, Eth, P}, {F>>5, Eth, P}, 
+		{F>>5, Q, P}, {F>>4, Eth, P}, {C>>5, Eth, P}, {D>>5, Eth, P}, {F>>5, Eth, P}, 
+		{E>>5, Eth, P}, {R, Eth, P}, {F>>5, Eth, P}, {R, Eth, P}, {E>>5, Eth, P}, {R, Eth, P}, 
+		{D>>5, Q, P}, {A>>4, Qt, P}, {D>>5, Qt, P}, {F>>5, Qt, P}, {A>>5, Qt, P}, {D>>6, Qt, P}, {F>>6, Qt, P}, 
+		{A>>6, Hd, P}, 
 		
 // measures 40-44		
-		{Bb>>4, Hd, P}, 
-		{A>>4, Eth, P}, {R, Eth, P}, {A>>4, Eth, P}, {R, Eth, P}, {A>>4, Eth, P}, {R, Eth, P}, 
-		{A>>4, Eth, P}, {G>>4, Eth, P}, {G>>4, H, P}, 
-		{A>>2, Eth, mPiano}, {A>>2, Eth, P}, {B>>2, Eth, P}, {B>>2, Eth, P}, {Cs>>3, Eth, P}, {Cs>>3, Eth, P}, 
-		{D>>3, Eth, P}, {D>>3, Eth, P}, {E>>3, Eth, P}, {E>>3, Eth, P}, {F>>3, Eth, P}, {F>>3, Eth, P}, 
+		{Bb>>6, Hd, P}, 
+		{A>>6, Eth, P}, {R, Eth, P}, {A>>6, Eth, P}, {R, Eth, P}, {A>>6, Eth, P}, {R, Eth, P}, 
+		{A>>6, Eth, P}, {G>>6, Eth, P}, {G>>6, H, P}, 
+		{A>>4, Eth, mPiano}, {A>>4, Eth, P}, {B>>4, Eth, P}, {B>>4, Eth, P}, {Cs>>5, Eth, P}, {Cs>>5, Eth, P}, 
+		{D>>5, Eth, P}, {D>>5, Eth, P}, {E>>5, Eth, P}, {E>>5, Eth, P}, {F>>5, Eth, P}, {F>>5, Eth, P}, 
 		
 // measures 45-46
-		{D>>3, Eth, mForte}, {D>>3, Eth, P}, {E>>3, Eth, P}, {E>>3, Eth, P}, {F>>3, Eth, P}, {F>>3, Eth, P},
-		{Gb>>3, Eth, P}, {Gb>>3, Eth, P}, {G>>3, Eth, P}, {G>>3, Eth, P}, {Ab>>3, Eth, P}, {Ab>>3, Eth, P}, 
+		{D>>5, Eth, mForte}, {D>>5, Eth, P}, {E>>5, Eth, P}, {E>>5, Eth, P}, {F>>5, Eth, P}, {F>>5, Eth, P},
+		{Gb>>5, Eth, P}, {Gb>>5, Eth, P}, {G>>5, Eth, P}, {G>>5, Eth, P}, {Ab>>5, Eth, P}, {Ab>>5, Eth, P}, 
 
 // measures 47-49, Q=164
-	  {R, Ch, Forte}, {A>>3, Qd, P}, {B>>3, Eth, P}, {Cs>>4, Eth, P}, {D>>4, Eth, P}, {Ds>>4, Eth, P}, {E>>4, Eth, P}, 
-		{F>>4, Qd, P}, {G>>4, Eth, P}, {G>>4, Q, P}, 
-		{G>>4, Qd, P}, {F>>4, Eth, P}, {E>>4, Q, P}, 
+	  {R, Ch, Forte}, {A>>5, Qd, P}, {B>>5, Eth, P}, {Cs>>6, Eth, P}, {D>>6, Eth, P}, {Ds>>6, Eth, P}, {E>>6, Eth, P}, 
+		{F>>6, Qd, P}, {G>>6, Eth, P}, {G>>6, Q, P}, 
+		{G>>6, Qd, P}, {F>>6, Eth, P}, {E>>6, Q, P}, 
 
 // measures 50-55
-		{F>>4, Q, P}, {G>>4, Q, P}, {A>>4, Q, P}, 
-		{G>>4, H, P}, {F>>4, Eth, P}, {G>>4, Eth, P}, 
-		{A>>4, Qd, P}, {G>>4, Eth, P}, {F>>4, Q, P}, 
-		{E>>4, Eth, P}, {R, Eth, P}, {F>>4, Eth, P}, {R, Eth, P}, {E>>4, Eth, P}, {R, Eth, P}, 
-		{D>>4, Ethd, P}, {R, Ethd, P}, {E>>4, Eth, P}, {Cs>>4, Eth, P}, {R, Eth, P}, 
-		{D>>4, Hd, P},
+		{F>>6, Q, P}, {G>>6, Q, P}, {A>>6, Q, P}, 
+		{G>>6, H, P}, {F>>6, Eth, P}, {G>>6, Eth, P}, 
+		{A>>6, Qd, P}, {G>>6, Eth, P}, {F>>6, Q, P}, 
+		{E>>6, Eth, P}, {R, Eth, P}, {F>>6, Eth, P}, {R, Eth, P}, {E>>6, Eth, P}, {R, Eth, P}, 
+		{D>>6, Ethd, P}, {R, Ethd, P}, {E>>6, Eth, P}, {Cs>>6, Eth, P}, {R, Eth, P}, 
+		{D>>6, Hd, P},
 
 // Stop
 		{R, Ch, P}
@@ -208,11 +235,11 @@ const Note Song_Pirates[] =
 
 // tempos in terms of clock ticks (80MHz) 
 // Zero tells program to stop
-// const uint32_t Tempo_Pirates[] = { 446428, 382653, 407608, 457317, 0 }; // 168, 196, 184, 164 BPM
+ const uint32_t Tempo_Pirates[] = { 446428, 382653, 407608, 457317, 0 }; // 168, 196, 184, 164 BPM
 
 // tempos in terms of clock ticks (20MHz) 
 // Zero tells program to stop
- const uint32_t Tempo_Pirates[] = { 111607, 95663, 101902, 114329, 0 }; // 168, 196, 184, 164 BPM
+// const uint32_t Tempo_Pirates[] = { 111607, 95663, 101902, 114329, 0 }; // 168, 196, 184, 164 BPM
 
 
 
