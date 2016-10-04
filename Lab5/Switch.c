@@ -63,6 +63,7 @@ void GPIOPortB_Handler(void)
   {
 		ValueB = LastB;
   } 
+	else {ValueB = 0;}
   Timer2Arm();
 }
 
@@ -74,7 +75,9 @@ void Switch_Init(void)
 
 uint8_t Switch_GetStatus(void)
 {
-return 0;
+	if (ValueB & 0x1) {return 1;}
+	else if (ValueB & 0x2) {return 2;}
+	else {return 0;}
 }
 
 

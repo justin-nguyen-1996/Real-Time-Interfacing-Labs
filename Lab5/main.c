@@ -72,8 +72,8 @@ void Timer0A_Init(uint32_t period)
 void Timer0A_Handler(void)
 {
   TIMER0_ICR_R = TIMER_ICR_TATOCINT;// acknowledge timer0A timeout
-	uint16_t value = Sinewave[sineIndex] << 2;
-	sineIndex++;
+	uint16_t value = Sinewave[sineIndex] << 2 ;
+	sineIndex = (sineIndex+1) & 0x1F;
 	value = value >> currentVolume;
 	DAC_Out( value );
 }
@@ -136,5 +136,51 @@ int main(void)
 {
 	PLL_Init(Bus80MHz);
 	DAC_Init();
-	DAC_Test();
+	Switch_Init();
+	Timer0A_Init(0xFFFFFFFF);
+	TIMER0_IMR_R = 0;
+  Timer1_Init(Tempo_Pirates[ tempoIndex++ ]);
+	TIMER1_IMR_R = 0;
+//	DAC_Test();
+	uint8_t playing = 0;
+	while(1)
+	{
+		uint8_t switchStatus = Switch_GetStatus();
+		switch (switchStatus)
+		{
+			case 0:
+				break;
+			case 1:
+				if ( !Tempo_Pirates[tempoIndex] )
+				{
+					playing = 1;
+					TIMER0_IMR_R = 1;
+					tempoIndex = 0;
+					songIndex = 0;
+					Timer1_Init(Tempo_Pirates[ tempoIndex++ ]);
+				}
+				else if (playing)
+				{
+					playing = 0;
+					TIMER1_IMR_R = 0;
+					TIMER0_IMR_R = 0;
+				}
+				else 
+				{
+					playing = 1;
+					TIMER1_IMR_R = 1;
+					TIMER0_IMR_R = 1;
+				}
+				break;
+			case 2:
+				playing = 0;
+				TIMER0_IMR_R = 0;
+				TIMER1_IMR_R = 0;
+				tempoIndex = 0;
+				songIndex = 0;
+				Timer1_Init(Tempo_Pirates[ tempoIndex++ ]);
+				TIMER1_IMR_R = 0;
+				break;
+		}
+	}
 }
