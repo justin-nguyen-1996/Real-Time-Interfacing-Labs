@@ -66,25 +66,32 @@ const unsigned short Sinewave[32] = {
 }; 
 
 // frequencies of notes 0th octave in clock ticks
-// reference 80MHz clock speed
+// reference 20MHz clock speed
 // to get the nth octave take (note >> n)
 // value of zero defined as a rest
-#define C  (4892966 / SINE_GRANULARITY)
-#define Cs (4618937 / SINE_GRANULARITY)
-#define D  (4359673 / SINE_GRANULARITY)
-#define Eb (4113110 / SINE_GRANULARITY)
-#define E  (3883495 / SINE_GRANULARITY)
-#define F  (3755868 / SINE_GRANULARITY)
-#define Fs (3460207 / SINE_GRANULARITY)
-#define G  (3265306 / SINE_GRANULARITY)
-#define Gs (3081664 / SINE_GRANULARITY)
-#define A  (2909091 / SINE_GRANULARITY)
-#define Bb (2745367 / SINE_GRANULARITY)
-#define B  (2591512 / SINE_GRANULARITY)
+#define C  (4892966 / 4 / SINE_GRANULARITY)
+#define Cs (4618937 / 4 / SINE_GRANULARITY)
+#define Db (4618937 / 4 / SINE_GRANULARITY)
+#define D  (4359673 / 4 / SINE_GRANULARITY)
+#define Ds (4113110 / 4 / SINE_GRANULARITY)
+#define Eb (4113110 / 4 / SINE_GRANULARITY)
+#define E  (3883495 / 4 / SINE_GRANULARITY)
+#define F  (3755868 / 4 / SINE_GRANULARITY)
+#define Fs (3460207 / 4 / SINE_GRANULARITY)
+#define Gb (3265306 / 4 / SINE_GRANULARITY)
+#define G  (3265306 / 4 / SINE_GRANULARITY)
+#define Gs (3081664 / 4 / SINE_GRANULARITY)
+#define Ab (2909091 / 4 / SINE_GRANULARITY)
+#define A  (2909091 / 4 / SINE_GRANULARITY)
+#define As (2745367 / 4 / SINE_GRANULARITY)
+#define Bb (2745367 / 4 / SINE_GRANULARITY)
+#define B  (2591512 / 4 / SINE_GRANULARITY)
+
+
 
 #define R  0
 
-// lengths of notes in terms of 64th beats
+// lengths of notes in terms of 256th beats
 // assume 4/4 time
 // value of zero defined as a tempo change, defined in tempo array
 #define W		 256	// whole
@@ -189,7 +196,7 @@ const Note Song_Pirates[] =
 // measures 50-55
 		{F>>4, Q, P}, {G>>4, Q, P}, {A>>4, Q, P}, 
 		{G>>4, H, P}, {F>>4, Eth, P}, {G>>4, Eth, P}, 
-		{A>>4, Qd, P}, {G>>4, Eth P}, {F>>4, Q, P}, 
+		{A>>4, Qd, P}, {G>>4, Eth, P}, {F>>4, Q, P}, 
 		{E>>4, Eth, P}, {R, Eth, P}, {F>>4, Eth, P}, {R, Eth, P}, {E>>4, Eth, P}, {R, Eth, P}, 
 		{D>>4, Ethd, P}, {R, Ethd, P}, {E>>4, Eth, P}, {Cs>>4, Eth, P}, {R, Eth, P}, 
 		{D>>4, Hd, P},
@@ -201,7 +208,11 @@ const Note Song_Pirates[] =
 
 // tempos in terms of clock ticks (80MHz) 
 // Zero tells program to stop
-const uint32_t Tempo_Pirates[] = { 446428, 382653, 407608, 457317, 0 }; // 168, 196, 184, 164 BPM
+// const uint32_t Tempo_Pirates[] = { 446428, 382653, 407608, 457317, 0 }; // 168, 196, 184, 164 BPM
+
+// tempos in terms of clock ticks (20MHz) 
+// Zero tells program to stop
+ const uint32_t Tempo_Pirates[] = { 111607, 95663, 101902, 114329, 0 }; // 168, 196, 184, 164 BPM
 
 
 
