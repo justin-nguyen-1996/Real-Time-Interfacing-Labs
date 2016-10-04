@@ -3,32 +3,89 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
-C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\Lab5\Lab5.uvproj
+C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\Lab5\Lab5.uvproj
 Project File Date:  10/03/2016
 
 <h2>Output:</h2>
 Build target 'Lab5'
 compiling main.c...
-Music.h(139): warning:  #69-D: integer conversion resulted in truncation
-                {C, Ch, Forte}, {D>>3, Eth, P}, {E>>3, Eth, P}, {F>>3, Eth, P}, {D>>3, Eth, P},
-Music.h(142): warning:  #69-D: integer conversion resulted in truncation
-                {E>>3, Eth, P}, {R, Eth, P}, {F>>3, Eth, P}, {R, Eth, P}, {G, Eth, P}, {R, Eth, P}, 
-Music.h(182): error:  #20: identifier "Gb" is undefined
-                {Gb>>3, Eth, P}, {Gb>>3, Eth, P}, {G>>3, Eth, P}, {G>>3, Eth, P}, {Ab>>3, Eth, P}, {Ab>>3, Eth, P}, 
-Music.h(182): error:  #20: identifier "Ab" is undefined
-                {Gb>>3, Eth, P}, {Gb>>3, Eth, P}, {G>>3, Eth, P}, {G>>3, Eth, P}, {Ab>>3, Eth, P}, {Ab>>3, Eth, P}, 
-Music.h(185): error:  #20: identifier "Ds" is undefined
-          {R, Ch, Forte}, {A>>3, Qd, P}, {B>>3, Eth, P}, {Cs>>4, Eth, P}, {D>>4, Eth, P}, {Ds>>4, Eth, P}, {E>>4, Eth, P}, 
-Music.h(192): error:  #67: expected a "}"
-                {A>>4, Qd, P}, {G>>4, Eth P}, {F>>4, Q, P}, 
-main.c(117): error:  #41: expression must have arithmetic or pointer type
-                        if (nextNote) { songIndex ++; }
 main.c(42): warning:  #550-D: variable "fullLength" was set but never used
   static uint16_t fullLength = 0;
-main.c: 3 warnings, 5 errors
-".\Lab5.axf" - 5 Error(s), 3 Warning(s).
+main.c: 1 warning, 0 errors
+linking...
+Program Size: Code=1852 RO-data=1704 RW-data=20 ZI-data=1124  
+".\Lab5.axf" - 0 Error(s), 1 Warning(s).
+Load "C:\\Users\\T\\Downloads\\_PDFS\\ValvanoWareTM4C123\\Real-Time-Interfacing-Labs\\Lab5\\Lab5.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+axf" - 0 Error(s), 2 Warning(s).
+Load "C:\\Users\\T\\Downloads\\_PDFS\\ValvanoWareTM4C123\\Real-Time-Interfacing-Labs\\Lab5\\Lab5.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+          if (!putResult) { ST7735_OutString("FIFO FULL"); }
+Switch.c(87): error:  #247: function "Timer2Arm" has already been defined
+  void Timer2Arm(void)
+Switch.c(97): error:  #247: function "Timer2A_Handler" has already been defined
+  void Timer2A_Handler(void)
+Switch.c: 2 warnings, 6 errors
+".\Lab5.axf" - 6 Error(s), 2 Warning(s).
 Target not created
-nt16_t fullLength = 0;
-main.c: 3 warnings, 6 errors
-".\Lab5.axf" - 6 Error(s), 3 Warning(s).
+RTB_DEN_R" is undefined
+    GPIO_PORTB_DEN_R |= 0x03;         // 7) enable digital I/O on PB1-0
+Switch.c(13): error:  #20: identifier "GPIO_PORTB_IS_R" is undefined
+    GPIO_PORTB_IS_R &= ~0x03;         // 8) edge-sensitive
+Switch.c(14): error:  #20: identifier "GPIO_PORTB_IBE_R" is undefined
+    GPIO_PORTB_IBE_R |= 0x03;        // 9) not both edges
+Switch.c(16): error:  #20: identifier "GPIO_PORTB_ICR_R" is undefined
+    GPIO_PORTB_ICR_R = 0x03;          // 11) clear flags
+Switch.c(25): error:  #20: identifier "SYSCTL_RCGCTIMER_R" is undefined
+        SYSCTL_RCGCTIMER_R |= 0x04;   // 0) activate timer2
+Switch.c(26): error:  #20: identifier "TIMER2_CTL_R" is undefined
+    TIMER2_CTL_R = 0x00000000;    // 1) disable TIMER2A during setup
+Switch.c(27): error:  #20: identifier "TIMER2_CFG_R" is undefined
+    TIMER2_CFG_R = 0x00000000;    // 2) configure for 32-bit mode
+Switch.c(28): error:  #20: identifier "TIMER2_TAMR_R" is undefined
+    TIMER2_TAMR_R = 0x0000001;    // 3) 1-SHOT mode
+Switch.c(29): error:  #20: identifier "TIMER2_TAILR_R" is undefined
+    TIMER2_TAILR_R = 160000;      // 4) 10ms reload value
+Switch.c(30): error:  #20: identifier "TIMER2_TAPR_R" is undefined
+    TIMER2_TAPR_R = 0;            // 5) bus clock resolution
+Switch.c(31): error:  #20: identifier "TIMER2_ICR_R" is undefined
+    TIMER2_ICR_R = 0x00000001;    // 6) clear TIMER2A timeout flag
+Switch.c(32): error:  #20: identifier "TIMER2_IMR_R" is undefined
+    TIMER2_IMR_R = 0x00000001;    // 7) arm timeout interrupt
+Switch.c(33): error:  #20: identifier "NVIC_PRI5_R" is undefined
+    NVIC_PRI5_R = (NVIC_PRI5_R&0x00FFFFFF)|0x80000000; // 8) priority 4
+Switch.c(36): error:  #20: identifier "NVIC_EN0_R" is undefined
+    NVIC_EN0_R = 1<<23;           // 9) enable IRQ 19 in NVIC
+Switch.c(42): error:  #20: identifier "GPIO_PORTB_ICR_R" is undefined
+    GPIO_PORTB_ICR_R = 0x03;          // 11) clear flags
+Switch.c(43): error:  #20: identifier "GPIO_PORTB_IM_R" is undefined
+    GPIO_PORTB_IM_R |= 0x03;          // 12) arm interrupts on PB7-0 
+Switch.c(44): error:  #20: identifier "NVIC_PRI0_R" is undefined
+    NVIC_PRI0_R = (NVIC_PRI0_R&0xFFFF00FF)|0x0000A000; // 13) priority 5
+Switch.c(46): error:  #20: identifier "NVIC_EN0_R" is undefined
+    NVIC_EN0_R = 0x00000002;          // 13) enable interrupt 1 in NVIC
+Switch.c(52): error:  #20: identifier "TIMER2_IMR_R" is undefined
+    TIMER2_IMR_R = 0;
+Switch.c(53): error:  #20: identifier "TimerCount" is undefined
+    TimerCount++;
+Switch.c(54): error:  #20: identifier "GPIO_PORTB_DATA_R" is undefined
+    LastB = GPIO_PORTB_DATA_R;
+Switch.c(60): error:  #20: identifier "GPIO_PORTB_IM_R" is undefined
+    GPIO_PORTB_IM_R &= ~0x03;
+Switch.c(63): error:  #20: identifier "rxDataType" is undefined
+                rxDataType sig = { ORIGIN_KEYPAD, LastB, 1 };
+Switch.c(63): error:  #20: identifier "ORIGIN_KEYPAD" is undefined
+                rxDataType sig = { ORIGIN_KEYPAD, LastB, 1 };
+Switch.c: 0 warnings, 30 errors
+".\Lab5.axf" - 30 Error(s), 1 Warning(s).
+Target not created
+, 1 };
+Switch.c: 0 warnings, 30 errors
+".\Lab5.axf" - 31 Error(s), 1 Warning(s).
 Target not created

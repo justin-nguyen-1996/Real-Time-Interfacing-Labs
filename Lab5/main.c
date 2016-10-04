@@ -111,10 +111,13 @@ void Timer1A_Handler(void)
 		songIndex ++;
 		if ( !nextNote.length )
 		{
-			TIMER1_TAILR_R = Tempo_Pirates[ tempoIndex ];
-			tempoIndex ++;
-			nextNote = Song_Pirates[ songIndex ];
-			if (nextNote) {	songIndex ++; }
+			if ( Tempo_Pirates[tempoIndex] ) 
+			{	
+				TIMER1_TAILR_R = Tempo_Pirates[ tempoIndex ];
+				tempoIndex ++;
+				nextNote = Song_Pirates[ songIndex ];
+				songIndex ++; 
+			}
 			else { TIMER1_IMR_R = 0; }
 		}
 		if ( nextNote.frequency ) 
@@ -131,9 +134,14 @@ void Timer1A_Handler(void)
 
 int main(void)
 {
+	PLL_Init(Bus80MHz);
 	DAC_Init();
-  for (int i = 0; i < 100; ++i) {
-    //DAC_Out(i);
-    SSI3_DR_R = i;
-  }
+	while(1)
+	{
+		for (int i = 0; i < 4096; ++i) {
+			DAC_Out(i);
+			for (int j = 0; j < 100000; ++j){}
+	//    SSI3_DR_R = i;
+		}
+	}
 }
