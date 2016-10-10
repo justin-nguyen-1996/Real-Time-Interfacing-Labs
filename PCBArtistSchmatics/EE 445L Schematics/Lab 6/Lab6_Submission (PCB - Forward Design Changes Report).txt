@@ -1,0 +1,24 @@
+Forward Design Changes Report
+-----------------------------
+
+Report File:        C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 6\Lab6_Submission (PCB - Forward Design Changes Report).txt
+Report Written:     Sunday, October 09, 2016
+Design Path:        C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 6\Lab6_Submission.pcb
+Design Title:       
+Created:            1/29/2013 12:01:41 AM
+Last Saved:         10/9/2016 8:11:03 PM
+Editing Time:       754 min
+Units:              mil (precision 0)
+
+Disconnected pin "CS-2" from net "N0708".
+
+Deleted net "N0708".
+
+Connected pin "CS-2" to net "GND".
+
+Net N0697 renamed to PD0
+Net N0705 renamed to DACout
+Net N0707 renamed to DacOutCap
+
+
+End Of Report.
