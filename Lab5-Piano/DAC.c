@@ -86,12 +86,28 @@ const unsigned short SinewaveDAC[32] = {
   562,534,524,534,562,608,670,746,833,926
 }; 
 
+const unsigned short Sawtoothwave[8] = { 0, 512, 1024, 1536, 2048, 2560, 3072, 3584 };
+
+#define DAC_TEST_NUMBER 1
 void DAC_Test() {
-  while (1) {
-    for (int i = 0; i < 32; ++i) {
-      DAC_Out(SinewaveDAC[i]);
-			for (int j = 0; j < 8096; ++j){}
-    }
-  }
+	switch (DAC_TEST_NUMBER)
+	{
+		case 1:
+			while (1) {
+				for (int i = 0; i < 32; ++i) {
+					DAC_Out(SinewaveDAC[i]);
+					for (int j = 0; j < 8096; ++j){}
+				}
+			}
+		break;
+		case 2:
+			while (1) {
+				for (int i = 0; i < 8; ++i) {
+					DAC_Out(Sawtoothwave[i]);
+					for (int j = 0; j < 8096; ++j){}
+				}
+			}
+		break;
+	}
 }
 

@@ -11,15 +11,16 @@
 #define PF3   (*((volatile uint32_t *)0x40025020))
 #define PF4   (*((volatile uint32_t *)0x40025040))
 
+// Pins 1 through 3 debugging profile for interrupts and main
 void PortF_Init(void){ 
   SYSCTL_RCGCGPIO_R |= 0x20;        // 1) activate clock for Port F
   while((SYSCTL_PRGPIO_R&0x20)==0){}; // allow time for clock to start
                                     // 2) no need to unlock PF2, PF4
-  GPIO_PORTF_PCTL_R &= ~0x000F0F00; // 3) regular GPIO
-  GPIO_PORTF_AMSEL_R &= ~0x14;      // 4) disable analog function on PF2, PF4
+  GPIO_PORTF_PCTL_R &= ~0x000FFFF0; // 3) regular GPIO
+  GPIO_PORTF_AMSEL_R &= ~0x1E;      // 4) disable analog function on PF1 - PF4
   GPIO_PORTF_PUR_R |= 0x10;         // 5) pullup for PF4
-  GPIO_PORTF_DIR_R |= 0x0E;         // 5) set direction to output
-  GPIO_PORTF_AFSEL_R &= ~0x14;      // 6) regular port function
+  GPIO_PORTF_DIR_R |= 0x0E;         // 5) set direction to output PF1-3
+  GPIO_PORTF_AFSEL_R &= ~0x1E;      // 6) regular port function
   GPIO_PORTF_DEN_R |= 0x1E;         // 7) enable digital port
 }
 
@@ -67,6 +68,7 @@ void Timer0A_Init(uint32_t period)
 // interrupts enabled in the main program after all devices initialized
 // vector number 35, interrupt number 19
   NVIC_EN0_R = 1<<19;           // 9) enable IRQ 19 in NVIC
+	PF1 = 0; //Debugging Profile
   TIMER0_CTL_R = 0x00000001;    // 10) enable TIMER0A
   EndCritical(sr);
 }
@@ -75,11 +77,13 @@ void Timer0A_Init(uint32_t period)
 // Timer 0 used for sine wave output
 void Timer0A_Handler(void)
 {
+	PF1 = 1;
   TIMER0_ICR_R = TIMER_ICR_TATOCINT;// acknowledge timer0A timeout
 	uint16_t value = WAVE[sineIndex] << 2 ;
 	sineIndex = (sineIndex+1) & 0x1F;
 	value = value >> currentVolume;
 	DAC_Out( (value * envelope[envIndex]) >> 8 	);
+	PF1 = 0;
 }
 
 // ***************** TIMER1_Init ****************
@@ -101,12 +105,14 @@ void Timer1_Init(uint32_t period)
 // interrupts enabled in the main program after all devices initialized
 // vector number 37, interrupt number 21
   NVIC_EN0_R = 1<<21;           // 9) enable IRQ 21 in NVIC
-  TIMER1_CTL_R = 0x00000001;    // 10) enable TIMER1A
+	PF2 = 0; // Debugging profile
+  TIMER1_CTL_R = 0x00000001;    // 10) enable TIMER1A	
 }
 
 // Timer 1 used for tempo value and note changes
 void Timer1A_Handler(void)
 {
+	PF2 = 1;
   TIMER1_ICR_R = TIMER_ICR_TATOCINT;// acknowledge TIMER1A timeout
 	if (currentLength) // if note duration hasn't ended
 	{ 
@@ -144,6 +150,7 @@ void Timer1A_Handler(void)
 		currentLength = nextNote.length;
 		if (nextNote.volume) { currentVolume = nextNote.volume; }
 	}
+	PF2 = 0;
 }
 
 uint8_t playing = 0;
@@ -185,14 +192,16 @@ int main(void)
 	PLL_Init(Bus80MHz);
 	DAC_Init();
 	Switch_Init();
+	PortF_Init();
 	Timer0A_Init(0xFFFFFFFF);
 	TIMER0_IMR_R = 0;
   Timer1_Init(Tempo_Pirates[ tempoIndex++ ]);
 	TIMER1_IMR_R = 0;
-//	DAC_Test();  
-  
+	DAC_Test(); // test with sawtooth wave
+	PF3 = 0;
 	while(1)
 	{
+		PF3 ^= 1;
 		uint8_t switchStatus = Switch_GetStatus();
 		switch (switchStatus)
 		{
