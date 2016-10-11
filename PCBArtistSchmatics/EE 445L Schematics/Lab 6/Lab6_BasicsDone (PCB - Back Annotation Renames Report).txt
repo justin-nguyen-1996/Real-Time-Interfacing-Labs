@@ -1,18 +1,18 @@
 Back Annotation Renames Report
 ------------------------------
 
-Report File:        C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 6\Lab6_BasicsDone (PCB - Back Annotation Renames Report).txt
+Report File:        C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 6\Lab6_BasicsDone (PCB - Back Annotation Renames Report).txt
 Report Written:     Tuesday, October 11, 2016
-Design Path:        C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 6\Lab6_BasicsDone.pcb
+Design Path:        C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 6\Lab6_BasicsDone.pcb
 Design Title:       
 Created:            1/29/2013 12:01:41 AM
-Last Saved:         10/11/2016 12:16:45 PM
-Editing Time:       1317 min
+Last Saved:         10/11/2016 1:39:56 PM
+Editing Time:       1395 min
 Units:              mil (precision 0)
 
 Outstanding PCB renames awaiting back annotation to the Schematics design.
 
-Rename Component from "TPRegIn" to "TPregin".
-Rename Component from "TPRegOut" to "TPregout".
+Rename Component from "Amp" to "Amp2".
+Rename Component from "Amp2" to "Amp".
 
 End Of Report.

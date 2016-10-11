@@ -1,19 +1,18 @@
 Back Annotation Results Report
 ------------------------------
 
-Report File:        C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 6\Lab6_BasicsDone (PCB - Back Annotation Results Report).txt
+Report File:        C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 6\Lab6_BasicsDone (PCB - Back Annotation Results Report).txt
 Report Written:     Tuesday, October 11, 2016
-Design Path:        C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 6\Lab6_BasicsDone.pcb
+Design Path:        C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 6\Lab6_BasicsDone.pcb
 Design Title:       
 Created:            1/29/2013 12:01:41 AM
-Last Saved:         10/11/2016 12:16:45 PM
-Editing Time:       1317 min
+Last Saved:         10/11/2016 1:39:56 PM
+Editing Time:       1395 min
 Units:              mil (precision 0)
 
-Back Annotate renames from PCB "C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 6\Lab6_BasicsDone.pcb" to Schematic "C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 6\Lab6_BasicsDone.sch".
+Back Annotate renames from PCB "C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 6\Lab6_BasicsDone.pcb" to Schematic "C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 6\Lab6_BasicsDone.sch".
 
-Renamed Component from "TPRegIn" to "TPregin".
-Renamed Component from "TPRegOut" to "TPregout".
+Renamed Component from "Amp" to "Amp".
 
 
 End Of Report.
