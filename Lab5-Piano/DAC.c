@@ -88,7 +88,7 @@ const unsigned short SinewaveDAC[32] = {
 
 const unsigned short Sawtoothwave[8] = { 0, 512, 1024, 1536, 2048, 2560, 3072, 3584 };
 
-#define DAC_TEST_NUMBER 1
+#define DAC_TEST_NUMBER 2
 void DAC_Test() {
 	switch (DAC_TEST_NUMBER)
 	{

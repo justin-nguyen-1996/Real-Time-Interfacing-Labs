@@ -198,7 +198,7 @@ int main(void)
 	TIMER0_IMR_R = 0;
   Timer1_Init(Tempo_Pirates[ tempoIndex++ ]);
 	TIMER1_IMR_R = 0;
-	//DAC_Test(); // test with sawtooth wave
+	DAC_Test(); // test with sawtooth wave
 	PF3 = 0x00;
 	while(1)
 	{
