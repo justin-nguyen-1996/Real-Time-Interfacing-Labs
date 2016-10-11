@@ -1,13 +1,13 @@
 Design Rule Check Report
 ------------------------
 
-Report File:        C:\Users\Justin\Downloads\Lab6_BasicsDone (PCB - Design Rule Check Report).txt
+Report File:        C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 6\Lab6_BasicsDone (PCB - Design Rule Check Report).txt
 Report Written:     Tuesday, October 11, 2016
-Design Path:        C:\Users\Justin\Downloads\Lab6_BasicsDone.pcb
+Design Path:        C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 6\Lab6_BasicsDone.pcb
 Design Title:       
 Created:            1/29/2013 12:01:41 AM
-Last Saved:         10/11/2016 12:29:00 AM
-Editing Time:       1060 min
+Last Saved:         10/11/2016 12:54:53 PM
+Editing Time:       1355 min
 Units:              mil (precision 0)
 
 
