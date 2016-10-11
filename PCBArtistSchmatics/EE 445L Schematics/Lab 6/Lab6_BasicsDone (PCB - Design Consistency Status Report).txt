@@ -1,0 +1,37 @@
+Design Consistency Status Report
+--------------------------------
+
+Report File:        C:\Users\Justin\Downloads\Lab6_BasicsDone (PCB - Design Consistency Status Report).txt
+Report Written:     Monday, October 10, 2016
+Design Path:        C:\Users\Justin\Downloads\Lab6_BasicsDone.pcb
+Design Title:       
+Created:            1/29/2013 12:01:41 AM
+Last Saved:         10/10/2016 11:44:31 PM
+Editing Time:       1016 min
+Units:              mil (precision 0)
+
+
+Checking integrity of Schematic "C:\Users\Justin\Downloads\Lab6_BasicsDone.sch" with PCB "C:\Users\Justin\Downloads\Lab6_BasicsDone.pcb"
+========================================================================================================================================
+
+The PCB and Schematic designs do not match.
+To bring them into line, you will need to make the following changes to the PCB design:
+
+Disconnect Pin SWpp-1 from Net "+3.3V"
+Disconnect Pin SWrwnd-1 from Net "+3.3V"
+
+Rename Net N0014 to PA6
+
+Change component reference "Rs" to use component "0.25Wresistor", package "DIP" instead of component "0.125Wresistor", package "DIL".
+Change value "V" on component reference "Rs" to "22k".
+Change component reference "Rs2" to use component "0.25Wresistor", package "DIP" instead of component "0.125Wresistor", package "DIL".
+Change value "V" on component reference "Rs2" to "22k".
+Change component reference "Rs1" to use component "0.25Wresistor", package "DIP" instead of component "0.125Wresistor", package "DIL".
+Change value "V" on component reference "Rs1" to "100k".
+Change component reference "RI" to use component "0.25Wresistor", package "DIP" instead of component "0.125Wresistor", package "DIL".
+Change value "V" on component reference "RI" to "2.2k".
+Change component reference "RF" to use component "0.25Wresistor", package "DIP" instead of component "0.125Wresistor", package "DIL".
+Change value "V" on component reference "RF" to "1k".
+
+
+End Of Report.
