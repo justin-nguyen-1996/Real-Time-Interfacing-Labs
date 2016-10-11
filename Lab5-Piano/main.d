@@ -1,5 +1,5 @@
 .\main.o: main.c
-.\main.o: C:\Program Files\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\main.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
 .\main.o: DAC.h
 .\main.o: Switch.h
 .\main.o: Music.h

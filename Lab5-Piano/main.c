@@ -77,13 +77,13 @@ void Timer0A_Init(uint32_t period)
 // Timer 0 used for sine wave output
 void Timer0A_Handler(void)
 {
-	PF1 = 1;
+  PF1 = 0x02;
   TIMER0_ICR_R = TIMER_ICR_TATOCINT;// acknowledge timer0A timeout
 	uint16_t value = WAVE[sineIndex] << 2 ;
 	sineIndex = (sineIndex+1) & 0x1F;
 	value = value >> currentVolume;
 	DAC_Out( (value * envelope[envIndex]) >> 8 	);
-	PF1 = 0;
+  PF1 = 0x00;
 }
 
 // ***************** TIMER1_Init ****************
@@ -112,7 +112,6 @@ void Timer1_Init(uint32_t period)
 // Timer 1 used for tempo value and note changes
 void Timer1A_Handler(void)
 {
-	PF2 = 1;
   TIMER1_ICR_R = TIMER_ICR_TATOCINT;// acknowledge TIMER1A timeout
 	if (currentLength) // if note duration hasn't ended
 	{ 
@@ -121,6 +120,8 @@ void Timer1A_Handler(void)
 	} 
 	else 
 	{
+      PF2 = 0x04;
+
 		Note nextNote = Song_Pirates[ songIndex ];
 		songIndex ++;
     
@@ -149,8 +150,8 @@ void Timer1A_Handler(void)
 		fullLength = nextNote.length;
 		currentLength = nextNote.length;
 		if (nextNote.volume) { currentVolume = nextNote.volume; }
+ 	PF2 = 0x00;
 	}
-	PF2 = 0;
 }
 
 uint8_t playing = 0;
@@ -197,11 +198,11 @@ int main(void)
 	TIMER0_IMR_R = 0;
   Timer1_Init(Tempo_Pirates[ tempoIndex++ ]);
 	TIMER1_IMR_R = 0;
-	DAC_Test(); // test with sawtooth wave
-	PF3 = 0;
+	//DAC_Test(); // test with sawtooth wave
+	PF3 = 0x00;
 	while(1)
 	{
-		PF3 ^= 1;
+		PF3 ^= 0x08;
 		uint8_t switchStatus = Switch_GetStatus();
 		switch (switchStatus)
 		{
