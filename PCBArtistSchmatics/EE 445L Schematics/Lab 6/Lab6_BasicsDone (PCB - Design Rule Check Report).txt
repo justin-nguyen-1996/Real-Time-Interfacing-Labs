@@ -1,0 +1,69 @@
+Design Rule Check Report
+------------------------
+
+Report File:        C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 6\Lab6_BasicsDone (PCB - Design Rule Check Report).txt
+Report Written:     Tuesday, October 11, 2016
+Design Path:        C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 6\Lab6_BasicsDone.pcb
+Design Title:       
+Created:            1/29/2013 12:01:41 AM
+Last Saved:         10/11/2016 2:10:35 PM
+Editing Time:       1416 min
+Units:              mil (precision 0)
+
+
+Results
+=======
+
+Gap in Net "+3.3V" between (11775,9363) and (11550,9063) 
+    +3.3V.
+Gap in Net "GND" between (11675,9363) and (11550,9113) 
+    GND.
+Gap in Net "GND" between (11550,9113) and (11350,9163) 
+    GND.
+Single pin net N0045 on Amp1.8 at 11550,9163
+Text will appear mirrored
+
+Number of errors found : 5
+
+
+Settings
+========
+
+
+Spacings
+
+=========
+
+Tracks        Yes
+Pads and Vias Yes
+Shapes        Yes
+Text          Yes
+Board         Yes
+Drills        Yes
+Components    No
+
+
+Manufacturing
+
+==============
+
+Min Drill Hole Size  Yes
+Min Track Width      Yes
+Min Annular Ring     Yes
+Copper Text In Board Yes
+Mirrored Text        Yes
+Routing Areas        Yes
+Drill Breakout       Yes
+
+
+Nets
+
+=====
+
+Net Completion               Yes
+Dangling Tracks              Yes
+Net Track Length Differences No
+
+
+
+End Of Report.
