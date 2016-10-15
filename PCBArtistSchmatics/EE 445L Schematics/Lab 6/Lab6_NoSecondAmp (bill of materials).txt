@@ -1,0 +1,38 @@
+Component                     Package   Value               Manuf               Manuf Part No       Distrib             Distrib Part No     Ref Name         Qty
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+0.125Wresistor                DIL                                                                                                           R2 R3 R1          10
+                                                                                                                                            Rs Rs2 Rs1          
+                                                                                                                                            RI RF R4            
+                                                                                                                                            R5                  
+B3F-1050                      DIP                                                                                                           Reset              1
+                              DIP                           NO switch                                                                       SWpp               2
+                                                                                                                                            SWrwnd              
+Ceramic                       C                                                                                                             C13 C14 C7        11
+                                                                                                                                            C8 C4 C6            
+                                                                                                                                            C9 C3 C5            
+                                                                                                                                            C10 C11             
+Ceramic0.2                    C                                                                                                             C15                1
+Header2                       SIP                                                                                                           Bat                1
+Header5                       SIP                                                                                                           JTAG               1
+LEDT1.75                      SIP                                                                                                           RLED               1
+LM4041                        MISC                                                                                                          ShntRef            1
+LogicAnalyzer                 DIP                                                                                                           LogAn              1
+LP2950CZ-3.3                  TO220                                                                                                         Vreg               1
+Speaker                       DIP                                                                                                           Spkr               1
+ST7735                        LCD                                                                                                           LCD                1
+tantalum                      C                                                                                                             C12 C2 C1          6
+                                                                                                                                            CI CS CB            
+testpoint                     SIP                                                                                                           GND                7
+                                                                                                                                            TPregout            
+                                                                                                                                            TPregin             
+                                                                                                                                            TPdac               
+                                                                                                                                            TPpd4               
+                                                                                                                                            TPvref              
+                                                                                                                                            TPspkr              
+TLV5616                       DIP                                                                                                           DAC                1
+TM4C123GH6PM                  LQFP                                                                                                          MC                 1
+TPA731                        SM                                                                                                            Amp                1
+XTAL                          NX5032                                                                                                        Crystal            1
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                                                                                                                                              50
+PCB Artist Bill of Materials is provided for reference only and must be verified by the user.
