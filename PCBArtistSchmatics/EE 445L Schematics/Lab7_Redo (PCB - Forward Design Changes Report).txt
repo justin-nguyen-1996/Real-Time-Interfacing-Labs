@@ -1,0 +1,16 @@
+Forward Design Changes Report
+-----------------------------
+
+Report File:        C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab7_Redo (PCB - Forward Design Changes Report).txt
+Report Written:     Tuesday, October 18, 2016
+Design Path:        C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab7_Redo.pcb
+Design Title:       
+Created:            1/29/2013 12:01:41 AM
+Last Saved:         10/18/2016 2:18:19 PM
+Editing Time:       688 min
+Units:              mil (precision 0)
+
+Error: Unable to add component reference "ESP" of component "ESP8266", package "USER" because Cannot find component "ESP8266"..
+
+
+End Of Report.
