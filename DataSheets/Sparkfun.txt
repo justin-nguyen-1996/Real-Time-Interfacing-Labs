@@ -1,0 +1,9 @@
+Thumbstick
+https://www.sparkfun.com/products/9110
+
+ADXL335
+https://www.sparkfun.com/products/9269
+
+ESP8266-02
+https://www.sparkfun.com/products/13678
+
