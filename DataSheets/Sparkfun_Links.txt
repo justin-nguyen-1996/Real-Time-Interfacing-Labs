@@ -7,3 +7,8 @@ https://www.sparkfun.com/products/9269
 ESP8266-02
 https://www.sparkfun.com/products/13678
 
+Battery
+https://www.amazon.com/dp/B0117HATIC?_encoding=UTF8&ref_=de_a_smtd&showDetailTechData=1#technical-data
+
+Battery connector
+https://www.aliexpress.com/item/Free-shipping-4P-shrapnel-type-mobile-battery-connector-4PIN-2-5mm-spacing-battery-holder-10pcs-lot/32588841721.html
