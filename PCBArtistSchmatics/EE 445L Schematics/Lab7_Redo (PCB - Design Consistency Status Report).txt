@@ -6,8 +6,8 @@ Report Written:     Tuesday, October 18, 2016
 Design Path:        C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab7_Redo.pcb
 Design Title:       
 Created:            1/29/2013 12:01:41 AM
-Last Saved:         10/18/2016 2:36:22 PM
-Editing Time:       739 min
+Last Saved:         10/18/2016 4:34:52 PM
+Editing Time:       824 min
 Units:              mil (precision 0)
 
 

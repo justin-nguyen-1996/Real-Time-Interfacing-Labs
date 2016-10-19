@@ -6,20 +6,36 @@ Report Written:     Tuesday, October 18, 2016
 Design Path:        C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab7_Redo.pcb
 Design Title:       
 Created:            1/29/2013 12:01:41 AM
-Last Saved:         10/18/2016 2:36:22 PM
-Editing Time:       739 min
+Last Saved:         10/18/2016 4:34:52 PM
+Editing Time:       824 min
 Units:              mil (precision 0)
 
-Disconnected pin "Reg-1" from net "+3.3V".
-Disconnected pin "Reg-3" from net "Battery".
-
-Changed component reference "Reg" from component "LP2950CZ-3.3", package "TO220" to component "LM2937-3.3", package "SM".
+Added net "PB6".
 
 Error: Unable to add component reference "ESP" of component "ESP8266", package "USER" because Cannot find component "ESP8266"..
+Added component reference "TPy1" of component "testpoint", package "SIP".
+Added component reference "TPx1" of component "testpoint", package "SIP".
+Added component reference "TPy2" of component "testpoint", package "SIP".
+Added component reference "TPx2" of component "testpoint", package "SIP".
+Added component reference "TPy3" of component "testpoint", package "SIP".
+Added component reference "TPy4" of component "testpoint", package "SIP".
+Added component reference "TPy5" of component "testpoint", package "SIP".
 
-Connected pin "Reg-1" to net "Battery".
-Connected pin "Reg-3" to net "+3.3V".
-Connected pin "Reg-4" to net "GND".
+Connected pin "LogAn-16" to net "PB6".
+Connected pin "LogAn-15" to net "PB0".
+Connected pin "LogAn-14" to net "PB1".
+Connected pin "LogAn-13" to net "PB7".
+Connected pin "LogAn-12" to net "PE3".
+Connected pin "LogAn-11" to net "PD5".
+Connected pin "LogAn-10" to net "PD4".
+Connected pin "U1-1" to net "PB6".
+Connected pin "TPy1-1" to net "PD0".
+Connected pin "TPx1-1" to net "PD1".
+Connected pin "TPy2-1" to net "PD2".
+Connected pin "TPx2-1" to net "PD3".
+Connected pin "TPy3-1" to net "PE2".
+Connected pin "TPy4-1" to net "PE1".
+Connected pin "TPy5-1" to net "PE0".
 
 
 End Of Report.
