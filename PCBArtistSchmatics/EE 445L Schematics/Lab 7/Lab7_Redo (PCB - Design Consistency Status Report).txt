@@ -2,12 +2,12 @@ Design Consistency Status Report
 --------------------------------
 
 Report File:        C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\Lab7_Redo (PCB - Design Consistency Status Report).txt
-Report Written:     Wednesday, October 19, 2016
+Report Written:     Thursday, October 20, 2016
 Design Path:        C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\Lab7_Redo.pcb
 Design Title:       
 Created:            1/29/2013 12:01:41 AM
-Last Saved:         10/19/2016 9:30:54 AM
-Editing Time:       829 min
+Last Saved:         10/19/2016 9:34:51 AM
+Editing Time:       830 min
 Units:              mil (precision 0)
 
 

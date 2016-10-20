@@ -2,50 +2,15 @@ Forward Design Changes Report
 -----------------------------
 
 Report File:        C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\Lab7_Redo (PCB - Forward Design Changes Report).txt
-Report Written:     Wednesday, October 19, 2016
+Report Written:     Thursday, October 20, 2016
 Design Path:        C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\Lab7_Redo.pcb
 Design Title:       
 Created:            1/29/2013 12:01:41 AM
-Last Saved:         10/19/2016 9:30:54 AM
-Editing Time:       829 min
+Last Saved:         10/19/2016 9:34:51 AM
+Editing Time:       830 min
 Units:              mil (precision 0)
 
-Disconnected pin "LogAn2-1" from net "N0732".
-Disconnected pin "LogAn2-2" from net "N0732".
-Disconnected pin "LogAn2-3" from net "N0732".
-Disconnected pin "LogAn2-4" from net "N0732".
-Disconnected pin "LogAn2-5" from net "N0732".
-Disconnected pin "LogAn2-6" from net "N0732".
-Disconnected pin "LogAn2-7" from net "N0732".
-Disconnected pin "LogAn2-8" from net "N0732".
-
-Deleted net "N0732".
-
 Error: Unable to add component reference "ESP" of component "ESP8266", package "USER" because Cannot find component "ESP8266"..
-
-Renamed component reference "TPty1" to "TPty1".
-
-Renamed component reference "TPtx1" to "TPtx1".
-
-Renamed component reference "TPty2" to "TPty2".
-
-Renamed component reference "TPtx2" to "TPtx2".
-
-Renamed component reference "TPxlZ" to "TPxlZ".
-
-Renamed component reference "TPxlY" to "TPxlY".
-
-Renamed component reference "TPxlX" to "TPxlX".
-
-
-Connected pin "LogAn2-1" to net "GND".
-Connected pin "LogAn2-2" to net "GND".
-Connected pin "LogAn2-3" to net "GND".
-Connected pin "LogAn2-4" to net "GND".
-Connected pin "LogAn2-5" to net "GND".
-Connected pin "LogAn2-6" to net "GND".
-Connected pin "LogAn2-7" to net "GND".
-Connected pin "LogAn2-8" to net "GND".
 
 
 End Of Report.
