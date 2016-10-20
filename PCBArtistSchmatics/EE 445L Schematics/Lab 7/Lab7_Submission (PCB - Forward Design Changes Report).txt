@@ -1,0 +1,345 @@
+Forward Design Changes Report
+-----------------------------
+
+Report File:        C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\Lab7_Submission (PCB - Forward Design Changes Report).txt
+Report Written:     Tuesday, October 18, 2016
+Design Path:        C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\Lab7_Submission.pcb
+Design Title:       
+Created:            1/29/2013 12:01:41 AM
+Last Saved:         9/30/2016 11:33:34 AM
+Editing Time:       637 min
+Units:              mil (precision 0)
+
+Ignoring PCB only pad U1-2 on net "+3.3"
+Ignoring PCB only pad U1-3 on net "GND"
+Ignoring PCB only pad U1-11 on net "+3.3"
+Ignoring PCB only pad U1-12 on net "GND"
+Ignoring PCB only pad U1-17 on net "PA0"
+Ignoring PCB only pad U1-19 on net "PA2"
+Ignoring PCB only pad U1-20 on net "PA3"
+Ignoring PCB only pad U1-21 on net "PA4"
+Ignoring PCB only pad U1-22 on net "PA5"
+Ignoring PCB only pad U1-23 on net "PA6"
+Ignoring PCB only pad U1-24 on net "PA7"
+Ignoring PCB only pad U1-25 on net "LDO"
+Ignoring PCB only pad U1-26 on net "+3.3"
+Ignoring PCB only pad U1-27 on net "GND"
+Ignoring PCB only pad U1-32 on net "Wake"
+Ignoring PCB only pad U1-34 on net "GND"
+Ignoring PCB only pad U1-35 on net "GND"
+Ignoring PCB only pad U1-37 on net "+3.3"
+Ignoring PCB only pad U1-38 on net "RST"
+Ignoring PCB only pad U1-39 on net "GND"
+Ignoring PCB only pad U1-40 on net "OSC0"
+Ignoring PCB only pad U1-41 on net "OSC1"
+Ignoring PCB only pad U1-42 on net "+3.3"
+Ignoring PCB only pad U1-49 on net "PC3"
+Ignoring PCB only pad U1-50 on net "PC2"
+Ignoring PCB only pad U1-51 on net "PC1"
+Ignoring PCB only pad U1-52 on net "PC0"
+Ignoring PCB only pad U1-54 on net "+3.3"
+Ignoring PCB only pad U1-55 on net "GND"
+Ignoring PCB only pad U1-56 on net "LDO"
+
+Disconnected pin "R2-2" from net "+3.3".
+Disconnected pin "R3-1" from net "+3.3".
+Disconnected pin "C7-1" from net "+3.3".
+Disconnected pin "C8-1" from net "+3.3".
+Disconnected pin "C4-1" from net "+3.3".
+Disconnected pin "C6-1" from net "+3.3".
+Disconnected pin "C2-1" from net "+3.3".
+Disconnected pin "TP2-1" from net "+3.3".
+Disconnected pin "R1-2" from net "+3.3".
+Disconnected pin "C3-1" from net "+3.3".
+Disconnected pin "C5-1" from net "+3.3".
+Disconnected pin "U2-2" from net "GND".
+Disconnected pin "U2-1" from net "+3.3".
+Disconnected pin "U2-3" from net "Battery".
+
+Deleted component reference "TP2".
+
+Deleted net "+3.3".
+
+Error: Unable to change component reference "U1" because Component "ESP8266" not found.
+Changed component reference "U2" from component "LP2950CZ-3.3", package "TO220" to component "Thumbstick2", package "USER".
+
+Added net "+3.3V".
+Added net "LM4041+".
+Added net "AmpIn+".
+Added net "AmpIn-".
+Added net "LM4041FB".
+Added net "DacOutCap".
+Added net "CHPD".
+Added net "PE2".
+Added net "PE3".
+Added net "PE4".
+Added net "PE5".
+Added net "N0804".
+Added net "N0805".
+Added net "N0806".
+
+Added component reference "TPregout" of component "testpoint", package "SIP".
+Added component reference "MC" of component "TM4C123GH6PM", package "LQFP".
+Added component reference "Vreg" of component "LP2950CZ-3.3", package "TO220".
+Added component reference "DAC" of component "TLV5616", package "DIP".
+Added component reference "Spkr" of component "Speaker", package "DIP".
+Added value "Manufacturer=" to component reference "Spkr".
+
+Added value "Manufacturer Part Number=" to component reference "Spkr".
+
+Added value "Distributor=" to component reference "Spkr".
+
+Added value "Distributor Part Number=" to component reference "Spkr".
+
+Added component reference "ShntRef" of component "LM4041", package "MISC".
+Added component reference "Rs" of component "0.125Wresistor", package "DIL".
+Changed value "V" on component reference "Rs" to "22k".
+Added component reference "Rs2" of component "0.125Wresistor", package "DIL".
+Changed value "V" on component reference "Rs2" to "22k".
+Added component reference "Rs1" of component "0.125Wresistor", package "DIL".
+Changed value "V" on component reference "Rs1" to "100k".
+Added component reference "Amp" of component "TPA731", package "SM".
+Added component reference "RI" of component "0.125Wresistor", package "DIL".
+Changed value "V" on component reference "RI" to "2.2k".
+Added component reference "RF" of component "0.125Wresistor", package "DIL".
+Changed value "V" on component reference "RF" to "1k".
+Added component reference "C15" of component "Ceramic0.2", package "C".
+Added component reference "SWa" of component "B3F-1050", package "DIP".
+Added value "Manufacturer=NO switch" to component reference "SWa".
+
+Added value "Manufacturer Part Number=" to component reference "SWa".
+
+Added value "Distributor=" to component reference "SWa".
+
+Added value "Distributor Part Number=" to component reference "SWa".
+
+Added component reference "SWb" of component "B3F-1050", package "DIP".
+Added value "Manufacturer=NO switch" to component reference "SWb".
+
+Added value "Manufacturer Part Number=" to component reference "SWb".
+
+Added value "Distributor=" to component reference "SWb".
+
+Added value "Distributor Part Number=" to component reference "SWb".
+
+Added component reference "TPdac" of component "testpoint", package "SIP".
+Added component reference "CI" of component "tantalum", package "C".
+Changed value "V" on component reference "CI" to "0.47uF".
+Added component reference "CS" of component "tantalum", package "C".
+Changed value "V" on component reference "CS" to "0.47uF".
+Added component reference "CB" of component "tantalum", package "C".
+Changed value "V" on component reference "CB" to "4.7uF".
+Added component reference "R4" of component "0.125Wresistor", package "DIL".
+Added component reference "R5" of component "0.125Wresistor", package "DIL".
+Added component reference "TPvref" of component "testpoint", package "SIP".
+Added component reference "TPspkr" of component "testpoint", package "SIP".
+Added component reference "MC1" of component "TM4C123GH6PM", package "LQFP".
+Added component reference "MC2" of component "TM4C123GH6PM", package "LQFP".
+Added component reference "R6" of component "0.125Wresistor", package "DIL".
+Added component reference "SWidk" of component "B3F-1050", package "DIP".
+Added value "Manufacturer=NO switch" to component reference "SWidk".
+
+Added value "Manufacturer Part Number=" to component reference "SWidk".
+
+Added value "Distributor=" to component reference "SWidk".
+
+Added value "Distributor Part Number=" to component reference "SWidk".
+
+Added component reference "SWst" of component "B3F-1050", package "DIP".
+Added value "Manufacturer=NO switch" to component reference "SWst".
+
+Added value "Manufacturer Part Number=" to component reference "SWst".
+
+Added value "Distributor=" to component reference "SWst".
+
+Added value "Distributor Part Number=" to component reference "SWst".
+
+Added component reference "R7" of component "0.125Wresistor", package "DIL".
+Added component reference "R8" of component "0.125Wresistor", package "DIL".
+Added component reference "MC3" of component "TM4C123GH6PM", package "LQFP".
+Added component reference "C16" of component "Ceramic0.2", package "C".
+Added component reference "C17" of component "Ceramic0.2", package "C".
+Added component reference "IC1" of component "ADXL335", package "USER".
+Added component reference "U3" of component "Thumbstick2", package "USER".
+
+Renamed component reference "Crystal" to "Crystal".
+
+Renamed component reference "Bat" to "Bat".
+
+Renamed component reference "JTAG" to "JTAG".
+
+Renamed component reference "RLED" to "RLED".
+
+Renamed component reference "LogAn" to "LogAn".
+
+Renamed component reference "TPregin" to "TPregin".
+
+Renamed component reference "LCD" to "LCD".
+
+
+Connected pin "R2-2" to net "+3.3V".
+Connected pin "R3-1" to net "+3.3V".
+Connected pin "C7-1" to net "+3.3V".
+Connected pin "C8-1" to net "+3.3V".
+Connected pin "C4-1" to net "+3.3V".
+Connected pin "C6-1" to net "+3.3V".
+Connected pin "C2-1" to net "+3.3V".
+Connected pin "TPregout-1" to net "+3.3V".
+Connected pin "LogAn-9" to net "PowerLED".
+Connected pin "R1-2" to net "+3.3V".
+Connected pin "C3-1" to net "+3.3V".
+Connected pin "C5-1" to net "+3.3V".
+Connected pin "MC-24" to net "PA7".
+Connected pin "MC-23" to net "PA6".
+Connected pin "MC-22" to net "PA5".
+Connected pin "MC-21" to net "PA4".
+Connected pin "MC-20" to net "PA3".
+Connected pin "MC-19" to net "PA2".
+Connected pin "MC-17" to net "PA0".
+Connected pin "MC-49" to net "PC3".
+Connected pin "MC-50" to net "PC2".
+Connected pin "MC-51" to net "PC1".
+Connected pin "MC-52" to net "PC0".
+Connected pin "MC-10" to net "PD7".
+Connected pin "MC-53" to net "PD6".
+Connected pin "MC-44" to net "PD5".
+Connected pin "MC-43" to net "PD4".
+Connected pin "MC-64" to net "PD3".
+Connected pin "MC-63" to net "PD2".
+Connected pin "MC-62" to net "PD1".
+Connected pin "MC-61" to net "PD0".
+Connected pin "MC-2" to net "+3.3V".
+Connected pin "MC-3" to net "GND".
+Connected pin "MC-11" to net "+3.3V".
+Connected pin "MC-12" to net "GND".
+Connected pin "MC-25" to net "LDO".
+Connected pin "MC-26" to net "+3.3V".
+Connected pin "MC-27" to net "GND".
+Connected pin "MC-42" to net "+3.3V".
+Connected pin "MC-41" to net "OSC1".
+Connected pin "MC-40" to net "OSC0".
+Connected pin "MC-39" to net "GND".
+Connected pin "MC-54" to net "+3.3V".
+Connected pin "MC-55" to net "GND".
+Connected pin "MC-56" to net "LDO".
+Connected pin "MC-38" to net "RST".
+Connected pin "MC-37" to net "+3.3V".
+Connected pin "MC-35" to net "GND".
+Connected pin "MC-34" to net "GND".
+Connected pin "MC-32" to net "Wake".
+Connected pin "LCD-2" to net "+3.3V".
+Connected pin "LCD-10" to net "+3.3V".
+Connected pin "Vreg-3" to net "Battery".
+Connected pin "Vreg-2" to net "GND".
+Connected pin "Vreg-1" to net "+3.3V".
+Connected pin "DAC-2" to net "N0804".
+Connected pin "DAC-3" to net "GND".
+Connected pin "DAC-1" to net "N0806".
+Connected pin "DAC-4" to net "N0805".
+Connected pin "DAC-5" to net "GND".
+Connected pin "DAC-6" to net "LM4041+".
+Connected pin "DAC-7" to net "DACout".
+Connected pin "DAC-8" to net "+3.3V".
+Connected pin "Spkr-1" to net "Speaker+".
+Connected pin "Spkr-2" to net "Speaker-".
+Connected pin "ShntRef-2" to net "LM4041+".
+Connected pin "ShntRef-1" to net "LM4041FB".
+Connected pin "ShntRef-3" to net "GND".
+Connected pin "Rs-1" to net "LM4041+".
+Connected pin "Rs-2" to net "+3.3V".
+Connected pin "Rs2-1" to net "GND".
+Connected pin "Rs2-2" to net "LM4041FB".
+Connected pin "Rs1-1" to net "LM4041FB".
+Connected pin "Rs1-2" to net "LM4041+".
+Connected pin "Amp-4" to net "AmpIn-".
+Connected pin "Amp-2" to net "AmpIn+".
+Connected pin "Amp-8" to net "Speaker-".
+Connected pin "Amp-1" to net "GND".
+Connected pin "Amp-7" to net "GND".
+Connected pin "Amp-3" to net "AmpIn+".
+Connected pin "Amp-6" to net "+3.3V".
+Connected pin "Amp-5" to net "Speaker+".
+Connected pin "RI-1" to net "AmpIn-".
+Connected pin "RI-2" to net "DacOutCap".
+Connected pin "RF-1" to net "AmpIn-".
+Connected pin "RF-2" to net "Speaker+".
+Connected pin "C15-1" to net "+3.3V".
+Connected pin "C15-2" to net "GND".
+Connected pin "SWa-1" to net "PD6".
+Connected pin "SWa-2" to net "PD6".
+Connected pin "SWa-3" to net "+3.3V".
+Connected pin "SWa-4" to net "+3.3V".
+Connected pin "SWb-1" to net "PD7".
+Connected pin "SWb-2" to net "PD7".
+Connected pin "SWb-3" to net "+3.3V".
+Connected pin "SWb-4" to net "+3.3V".
+Connected pin "TPdac-1" to net "DACout".
+Connected pin "CI-1" to net "DacOutCap".
+Connected pin "CI-2" to net "DACout".
+Connected pin "CS-1" to net "+3.3V".
+Connected pin "CS-2" to net "GND".
+Connected pin "CB-1" to net "AmpIn+".
+Connected pin "CB-2" to net "GND".
+Connected pin "R4-1" to net "PD6".
+Connected pin "R4-2" to net "GND".
+Connected pin "R5-1" to net "GND".
+Connected pin "R5-2" to net "PD7".
+Connected pin "TPvref-1" to net "LM4041+".
+Connected pin "TPspkr-1" to net "Speaker+".
+Connected pin "MC1-4" to net "N0806".
+Connected pin "MC1-57" to net "N0805".
+Connected pin "MC1-58" to net "N0804".
+Connected pin "MC1-47" to net "PB2".
+Connected pin "MC1-46" to net "PB1".
+Connected pin "MC1-45" to net "PB0".
+Connected pin "MC2-60" to net "PE5".
+Connected pin "MC2-59" to net "PE4".
+Connected pin "MC2-6" to net "PE3".
+Connected pin "MC2-7" to net "PE2".
+Connected pin "MC2-8" to net "PE1".
+Connected pin "MC2-9" to net "PE0".
+Cannot find 'U1' pad 'Gnd' in PCB design, component 'ESP8266' does not match definition in schematic.
+Cannot find 'U1' pad 'TXO' in PCB design, component 'ESP8266' does not match definition in schematic.
+Cannot find 'U1' pad 'GPIO2' in PCB design, component 'ESP8266' does not match definition in schematic.
+Cannot find 'U1' pad 'CHPD' in PCB design, component 'ESP8266' does not match definition in schematic.
+Cannot find 'U1' pad 'GPIO0' in PCB design, component 'ESP8266' does not match definition in schematic.
+Cannot find 'U1' pad 'RST' in PCB design, component 'ESP8266' does not match definition in schematic.
+Cannot find 'U1' pad 'RXI' in PCB design, component 'ESP8266' does not match definition in schematic.
+Cannot find 'U1' pad 'VCC' in PCB design, component 'ESP8266' does not match definition in schematic.
+Connected pin "R6-1" to net "CHPD".
+Connected pin "R6-2" to net "+3.3V".
+Connected pin "SWidk-1" to net "PE4".
+Connected pin "SWidk-2" to net "PE4".
+Connected pin "SWidk-3" to net "+3.3V".
+Connected pin "SWidk-4" to net "+3.3V".
+Connected pin "SWst-1" to net "PE5".
+Connected pin "SWst-2" to net "PE5".
+Connected pin "SWst-3" to net "+3.3V".
+Connected pin "SWst-4" to net "+3.3V".
+Connected pin "R7-1" to net "PE4".
+Connected pin "R7-2" to net "GND".
+Connected pin "R8-1" to net "GND".
+Connected pin "R8-2" to net "PE5".
+Connected pin "C16-1" to net "+3.3V".
+Connected pin "C16-2" to net "GND".
+Connected pin "C17-1" to net "+3.3V".
+Connected pin "C17-2" to net "GND".
+Connected pin "IC1-1" to net "PE3".
+Connected pin "IC1-2" to net "PE2".
+Connected pin "IC1-3" to net "PE1".
+Connected pin "IC1-4" to net "PE0".
+Connected pin "IC1-5" to net "GND".
+Connected pin "IC1-6" to net "+3.3V".
+Connected pin "U2-1" to net "GND".
+Connected pin "U2-2" to net "PD4".
+Connected pin "U2-3" to net "PD1".
+Connected pin "U2-4" to net "PD0".
+Connected pin "U2-5" to net "+3.3V".
+Connected pin "U3-1" to net "GND".
+Connected pin "U3-2" to net "PD5".
+Connected pin "U3-3" to net "PD3".
+Connected pin "U3-4" to net "PD2".
+Connected pin "U3-5" to net "+3.3V".
+
+
+End Of Report.

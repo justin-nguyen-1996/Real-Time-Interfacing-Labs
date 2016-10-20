@@ -1,18 +1,27 @@
 Forward Design Changes Report
 -----------------------------
 
-Report File:        C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\Lab7_Redo (PCB - Forward Design Changes Report).txt
+Report File:        C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\Lab7_Redo (PCB - Forward Design Changes Report).txt
 Report Written:     Thursday, October 20, 2016
-Design Path:        C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\Lab7_Redo.pcb
+Design Path:        C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\Lab7_Redo.pcb
 Design Title:       
 Created:            1/29/2013 12:01:41 AM
-Last Saved:         10/20/2016 9:39:30 AM
-Editing Time:       1129 min
+Last Saved:         10/20/2016 10:04:38 AM
+Editing Time:       1149 min
 Units:              mil (precision 0)
 
-Error: Unable to add component reference "ESP" of component "ESP8266", package "USER" because Cannot find component "ESP8266"..
+Added component reference "ESP" of component "ESP8266", package "USER".
 
-Net N0012 renamed to PB5
+Connected pin "ESP-Gnd" to net "GND".
+Connected pin "ESP-TXO" to net "PB1".
+Connected pin "ESP-GPIO2" to net "+3.3V".
+Connected pin "ESP-CHPD" to net "CHPD".
+Connected pin "ESP-GPIO0" to net "+3.3V".
+Connected pin "ESP-RST" to net "PB2".
+Connected pin "ESP-RXI" to net "PB0".
+Connected pin "ESP-VCC" to net "+3.3V".
+
+Net N0016 renamed to PB4
 
 
 End Of Report.
