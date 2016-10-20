@@ -1,41 +1,51 @@
 Forward Design Changes Report
 -----------------------------
 
-Report File:        C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab7_Redo (PCB - Forward Design Changes Report).txt
-Report Written:     Tuesday, October 18, 2016
-Design Path:        C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab7_Redo.pcb
+Report File:        C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\Lab7_Redo (PCB - Forward Design Changes Report).txt
+Report Written:     Wednesday, October 19, 2016
+Design Path:        C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\Lab7_Redo.pcb
 Design Title:       
 Created:            1/29/2013 12:01:41 AM
-Last Saved:         10/18/2016 4:34:52 PM
-Editing Time:       824 min
+Last Saved:         10/19/2016 9:30:54 AM
+Editing Time:       829 min
 Units:              mil (precision 0)
 
-Added net "PB6".
+Disconnected pin "LogAn2-1" from net "N0732".
+Disconnected pin "LogAn2-2" from net "N0732".
+Disconnected pin "LogAn2-3" from net "N0732".
+Disconnected pin "LogAn2-4" from net "N0732".
+Disconnected pin "LogAn2-5" from net "N0732".
+Disconnected pin "LogAn2-6" from net "N0732".
+Disconnected pin "LogAn2-7" from net "N0732".
+Disconnected pin "LogAn2-8" from net "N0732".
+
+Deleted net "N0732".
 
 Error: Unable to add component reference "ESP" of component "ESP8266", package "USER" because Cannot find component "ESP8266"..
-Added component reference "TPy1" of component "testpoint", package "SIP".
-Added component reference "TPx1" of component "testpoint", package "SIP".
-Added component reference "TPy2" of component "testpoint", package "SIP".
-Added component reference "TPx2" of component "testpoint", package "SIP".
-Added component reference "TPy3" of component "testpoint", package "SIP".
-Added component reference "TPy4" of component "testpoint", package "SIP".
-Added component reference "TPy5" of component "testpoint", package "SIP".
 
-Connected pin "LogAn-16" to net "PB6".
-Connected pin "LogAn-15" to net "PB0".
-Connected pin "LogAn-14" to net "PB1".
-Connected pin "LogAn-13" to net "PB7".
-Connected pin "LogAn-12" to net "PE3".
-Connected pin "LogAn-11" to net "PD5".
-Connected pin "LogAn-10" to net "PD4".
-Connected pin "U1-1" to net "PB6".
-Connected pin "TPy1-1" to net "PD0".
-Connected pin "TPx1-1" to net "PD1".
-Connected pin "TPy2-1" to net "PD2".
-Connected pin "TPx2-1" to net "PD3".
-Connected pin "TPy3-1" to net "PE2".
-Connected pin "TPy4-1" to net "PE1".
-Connected pin "TPy5-1" to net "PE0".
+Renamed component reference "TPty1" to "TPty1".
+
+Renamed component reference "TPtx1" to "TPtx1".
+
+Renamed component reference "TPty2" to "TPty2".
+
+Renamed component reference "TPtx2" to "TPtx2".
+
+Renamed component reference "TPxlZ" to "TPxlZ".
+
+Renamed component reference "TPxlY" to "TPxlY".
+
+Renamed component reference "TPxlX" to "TPxlX".
+
+
+Connected pin "LogAn2-1" to net "GND".
+Connected pin "LogAn2-2" to net "GND".
+Connected pin "LogAn2-3" to net "GND".
+Connected pin "LogAn2-4" to net "GND".
+Connected pin "LogAn2-5" to net "GND".
+Connected pin "LogAn2-6" to net "GND".
+Connected pin "LogAn2-7" to net "GND".
+Connected pin "LogAn2-8" to net "GND".
 
 
 End Of Report.
