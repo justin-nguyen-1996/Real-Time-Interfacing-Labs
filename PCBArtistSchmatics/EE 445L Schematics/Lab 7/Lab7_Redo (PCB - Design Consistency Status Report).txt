@@ -6,27 +6,13 @@ Report Written:     Thursday, October 20, 2016
 Design Path:        C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\Lab7_Redo.pcb
 Design Title:       
 Created:            1/29/2013 12:01:41 AM
-Last Saved:         10/20/2016 6:52:53 AM
-Editing Time:       959 min
+Last Saved:         10/20/2016 9:39:30 AM
+Editing Time:       1129 min
 Units:              mil (precision 0)
 
 
 Checking integrity of Schematic "C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\Lab7_Redo.sch" with PCB "C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\Lab7_Redo.pcb"
 ================================================================================================================================================================================================================================================
-
-The PCB and Schematic designs do not match.
-To bring them into line, you will need to make the following changes to the PCB design:
-
-Add Component "ESP" [ESP8266]
-
-Connect Pin ESP-Gnd to Net "Gnd"
-Connect Pin ESP-TXO to Net "PB1"
-Connect Pin ESP-GPIO2 to Net "+3.3V"
-Connect Pin ESP-CHPD to Net "CHPD"
-Connect Pin ESP-GPIO0 to Net "+3.3V"
-Connect Pin ESP-RST to Net "PB2"
-Connect Pin ESP-RXI to Net "PB0"
-Connect Pin ESP-VCC to Net "+3.3V"
 
 
 End Of Report.

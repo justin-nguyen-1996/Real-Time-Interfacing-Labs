@@ -6,21 +6,13 @@ Report Written:     Thursday, October 20, 2016
 Design Path:        C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\Lab7_Redo.pcb
 Design Title:       
 Created:            1/29/2013 12:01:41 AM
-Last Saved:         10/20/2016 6:52:53 AM
-Editing Time:       957 min
+Last Saved:         10/20/2016 9:39:30 AM
+Editing Time:       1129 min
 Units:              mil (precision 0)
-
-Disconnected pin "LogAn1-13" from net "N0011".
-Disconnected pin "U1-43" from net "PB6".
-Disconnected pin "U1-45" from net "N0011".
-
-Deleted net "N0011".
 
 Error: Unable to add component reference "ESP" of component "ESP8266", package "USER" because Cannot find component "ESP8266"..
 
-Connected pin "LogAn1-13" to net "PB0".
-Connected pin "U1-45" to net "PB0".
-Connected pin "U1-43" to net "PD4".
+Net N0012 renamed to PB5
 
 
 End Of Report.
