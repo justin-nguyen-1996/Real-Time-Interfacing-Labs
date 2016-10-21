@@ -6,17 +6,18 @@ Report Written:     Friday, October 21, 2016
 Design Path:        C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\Lab7_Redo.pcb
 Design Title:       
 Created:            1/29/2013 12:01:41 AM
-Last Saved:         10/21/2016 7:40:29 AM
-Editing Time:       1585 min
+Last Saved:         10/21/2016 8:42:01 AM
+Editing Time:       1590 min
 Units:              mil (precision 0)
 
 
 Results
 =======
 
+Single pin net PB4 on DAC.2 at 8075,8900
 Text will appear mirrored
 
-Number of errors found : 1
+Number of errors found : 2
 
 
 Settings
@@ -53,8 +54,8 @@ Nets
 
 =====
 
-Net Completion               No
-Dangling Tracks              No
+Net Completion               Yes
+Dangling Tracks              Yes
 Net Track Length Differences No
 
 
