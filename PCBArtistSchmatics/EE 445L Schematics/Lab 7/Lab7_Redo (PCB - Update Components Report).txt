@@ -1,0 +1,282 @@
+Update Components Report
+------------------------
+
+Report File:        C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\Lab7_Redo (PCB - Update Components Report).txt
+Report Written:     Friday, October 21, 2016
+Design Path:        C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\Lab7_Redo.pcb
+Design Title:       
+Created:            1/29/2013 12:01:41 AM
+Last Saved:         10/21/2016 2:55:25 AM
+Editing Time:       1296 min
+Units:              mil (precision 0)
+
+
+Library Files:
+==============
+
+C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L.cml
+C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\Game_Library\FIGHTINGDOGS.cml
+C:\Users\Public\Documents\PCB Artist\Library\74hc.cml
+C:\Users\Public\Documents\PCB Artist\Library\74hct.cml
+C:\Users\Public\Documents\PCB Artist\Library\74ls.cml
+C:\Users\Public\Documents\PCB Artist\Library\4000.cml
+C:\Users\Public\Documents\PCB Artist\Library\Actel.cml
+C:\Users\Public\Documents\PCB Artist\Library\AD.cml
+C:\Users\Public\Documents\PCB Artist\Library\AdvancedLinearDevices.cml
+C:\Users\Public\Documents\PCB Artist\Library\Allegro.cml
+C:\Users\Public\Documents\PCB Artist\Library\Altera.cml
+C:\Users\Public\Documents\PCB Artist\Library\Altera2.cml
+C:\Users\Public\Documents\PCB Artist\Library\Analog.cml
+C:\Users\Public\Documents\PCB Artist\Library\Apem_Switches.cml
+C:\Users\Public\Documents\PCB Artist\Library\Apex.cml
+C:\Users\Public\Documents\PCB Artist\Library\Assmann.cml
+C:\Users\Public\Documents\PCB Artist\Library\Atmel.cml
+C:\Users\Public\Documents\PCB Artist\Library\ATxmega.cml
+C:\Users\Public\Documents\PCB Artist\Library\Avago.cml
+C:\Users\Public\Documents\PCB Artist\Library\Avago_4Nxx.cml
+C:\Users\Public\Documents\PCB Artist\Library\Avago_ACPL.cml
+C:\Users\Public\Documents\PCB Artist\Library\Avago_ACSL-6xx0.cml
+C:\Users\Public\Documents\PCB Artist\Library\Avago_ACSL-ACPL_Series.cml
+C:\Users\Public\Documents\PCB Artist\Library\Avago_LED_ASMT.cml
+C:\Users\Public\Documents\PCB Artist\Library\AVX.cml
+C:\Users\Public\Documents\PCB Artist\Library\Bourns.cml
+C:\Users\Public\Documents\PCB Artist\Library\Bridgelux_LED_BXRA.cml
+C:\Users\Public\Documents\PCB Artist\Library\BurrBrown.cml
+C:\Users\Public\Documents\PCB Artist\Library\BurrBrown1.cml
+C:\Users\Public\Documents\PCB Artist\Library\Capacitor.cml
+C:\Users\Public\Documents\PCB Artist\Library\CirrusLogic.cml
+C:\Users\Public\Documents\PCB Artist\Library\Citizen_Crystal_CM309S.cml
+C:\Users\Public\Documents\PCB Artist\Library\Citizen_Crystal_HC49US.cml
+C:\Users\Public\Documents\PCB Artist\Library\Citizen_CSX.cml
+C:\Users\Public\Documents\PCB Artist\Library\connector.cml
+C:\Users\Public\Documents\PCB Artist\Library\Crydom_Relays.cml
+C:\Users\Public\Documents\PCB Artist\Library\csm.cml
+C:\Users\Public\Documents\PCB Artist\Library\Cypress.cml
+C:\Users\Public\Documents\PCB Artist\Library\Cypress2.cml
+C:\Users\Public\Documents\PCB Artist\Library\Cypress3.cml
+C:\Users\Public\Documents\PCB Artist\Library\Dailywell_Switches.cml
+C:\Users\Public\Documents\PCB Artist\Library\Dallas.cml
+C:\Users\Public\Documents\PCB Artist\Library\Diode.cml
+C:\Users\Public\Documents\PCB Artist\Library\DiodesZetex.cml
+C:\Users\Public\Documents\PCB Artist\Library\discrete.cml
+C:\Users\Public\Documents\PCB Artist\Library\dsm.cml
+C:\Users\Public\Documents\PCB Artist\Library\ERG_Switches.cml
+C:\Users\Public\Documents\PCB Artist\Library\Fairchild.cml
+C:\Users\Public\Documents\PCB Artist\Library\Fairchild1.cml
+C:\Users\Public\Documents\PCB Artist\Library\Fairchild2.cml
+C:\Users\Public\Documents\PCB Artist\Library\fiducial.cml
+C:\Users\Public\Documents\PCB Artist\Library\Finder_Relays.cml
+C:\Users\Public\Documents\PCB Artist\Library\Fox_Crystals.cml
+C:\Users\Public\Documents\PCB Artist\Library\Fremont.cml
+C:\Users\Public\Documents\PCB Artist\Library\Fuse.cml
+C:\Users\Public\Documents\PCB Artist\Library\FXO-HC53.cml
+C:\Users\Public\Documents\PCB Artist\Library\Hamlin.cml
+C:\Users\Public\Documents\PCB Artist\Library\Honeywell.cml
+C:\Users\Public\Documents\PCB Artist\Library\Honeywell1.cml
+C:\Users\Public\Documents\PCB Artist\Library\Hongfa_Relays.cml
+C:\Users\Public\Documents\PCB Artist\Library\hybrid.cml
+C:\Users\Public\Documents\PCB Artist\Library\Infineon.cml
+C:\Users\Public\Documents\PCB Artist\Library\Infineon1.cml
+C:\Users\Public\Documents\PCB Artist\Library\Intersil.cml
+C:\Users\Public\Documents\PCB Artist\Library\Intersil1.cml
+C:\Users\Public\Documents\PCB Artist\Library\IR.cml
+C:\Users\Public\Documents\PCB Artist\Library\IR2.cml
+C:\Users\Public\Documents\PCB Artist\Library\ISSI1.cml
+C:\Users\Public\Documents\PCB Artist\Library\ISSI2.cml
+C:\Users\Public\Documents\PCB Artist\Library\ISSI3.cml
+C:\Users\Public\Documents\PCB Artist\Library\ISSI4.cml
+C:\Users\Public\Documents\PCB Artist\Library\IXYS.cml
+C:\Users\Public\Documents\PCB Artist\Library\Lattice.cml
+C:\Users\Public\Documents\PCB Artist\Library\LEDEngin_LED_LZ1.cml
+C:\Users\Public\Documents\PCB Artist\Library\Lite-On.cml
+C:\Users\Public\Documents\PCB Artist\Library\LT.cml
+C:\Users\Public\Documents\PCB Artist\Library\LT2.cml
+C:\Users\Public\Documents\PCB Artist\Library\LT3.cml
+C:\Users\Public\Documents\PCB Artist\Library\LT4.cml
+C:\Users\Public\Documents\PCB Artist\Library\ltspice.cml
+C:\Users\Public\Documents\PCB Artist\Library\Lumex_SSL-LX3044SOC.cml
+C:\Users\Public\Documents\PCB Artist\Library\Maxim.cml
+C:\Users\Public\Documents\PCB Artist\Library\Maxim7.cml
+C:\Users\Public\Documents\PCB Artist\Library\Maxim8.cml
+C:\Users\Public\Documents\PCB Artist\Library\Melexis.cml
+C:\Users\Public\Documents\PCB Artist\Library\Micrel.cml
+C:\Users\Public\Documents\PCB Artist\Library\Micrel1.cml
+C:\Users\Public\Documents\PCB Artist\Library\Micrel2.cml
+C:\Users\Public\Documents\PCB Artist\Library\Micrel3.cml
+C:\Users\Public\Documents\PCB Artist\Library\Microchip.cml
+C:\Users\Public\Documents\PCB Artist\Library\Microchip3.cml
+C:\Users\Public\Documents\PCB Artist\Library\Motorola.cml
+C:\Users\Public\Documents\PCB Artist\Library\Murata.cml
+C:\Users\Public\Documents\PCB Artist\Library\NatSemi.cml
+C:\Users\Public\Documents\PCB Artist\Library\NatSemi4.cml
+C:\Users\Public\Documents\PCB Artist\Library\NatSemi5.cml
+C:\Users\Public\Documents\PCB Artist\Library\NewJapan.cml
+C:\Users\Public\Documents\PCB Artist\Library\NewJapanRadio.cml
+C:\Users\Public\Documents\PCB Artist\Library\Omron.cml
+C:\Users\Public\Documents\PCB Artist\Library\Omron1.cml
+C:\Users\Public\Documents\PCB Artist\Library\Omron_Relays1.cml
+C:\Users\Public\Documents\PCB Artist\Library\Omron_Relays2.cml
+C:\Users\Public\Documents\PCB Artist\Library\OnSemi.cml
+C:\Users\Public\Documents\PCB Artist\Library\opamps.cml
+C:\Users\Public\Documents\PCB Artist\Library\Panasonic1.cml
+C:\Users\Public\Documents\PCB Artist\Library\Panasonic2.cml
+C:\Users\Public\Documents\PCB Artist\Library\Panasonic3.cml
+C:\Users\Public\Documents\PCB Artist\Library\Panavise_Relays.cml
+C:\Users\Public\Documents\PCB Artist\Library\pcb.cml
+C:\Users\Public\Documents\PCB Artist\Library\Pericom.cml
+C:\Users\Public\Documents\PCB Artist\Library\Phoenix_Relays.cml
+C:\Users\Public\Documents\PCB Artist\Library\qbsm.cml
+C:\Users\Public\Documents\PCB Artist\Library\qcsm.cml
+C:\Users\Public\Documents\PCB Artist\Library\qsm.cml
+C:\Users\Public\Documents\PCB Artist\Library\QuickLogic.cml
+C:\Users\Public\Documents\PCB Artist\Library\Rami_OSC_CO1.cml
+C:\Users\Public\Documents\PCB Artist\Library\Rami_OSC_CO13.cml
+C:\Users\Public\Documents\PCB Artist\Library\relay.cml
+C:\Users\Public\Documents\PCB Artist\Library\Releco_Relays.cml
+C:\Users\Public\Documents\PCB Artist\Library\Renesas_EEPROM.cml
+C:\Users\Public\Documents\PCB Artist\Library\Renesas_HV.cml
+C:\Users\Public\Documents\PCB Artist\Library\Renesas_IGBT.cml
+C:\Users\Public\Documents\PCB Artist\Library\Renesas_LP_SRAM.cml
+C:\Users\Public\Documents\PCB Artist\Library\Renesas_LV_MV.cml
+C:\Users\Public\Documents\PCB Artist\Library\Renesas_MSIG.cml
+C:\Users\Public\Documents\PCB Artist\Library\Renesas_PFC_IC.cml
+C:\Users\Public\Documents\PCB Artist\Library\Renesas_Triac_Thyristor.cml
+C:\Users\Public\Documents\PCB Artist\Library\Renesas_w_CSVs.cml
+C:\Users\Public\Documents\PCB Artist\Library\Resistor.cml
+C:\Users\Public\Documents\PCB Artist\Library\RFMicro.cml
+C:\Users\Public\Documents\PCB Artist\Library\Rohm.cml
+C:\Users\Public\Documents\PCB Artist\Library\Rohm1.cml
+C:\Users\Public\Documents\PCB Artist\Library\schema.cml
+C:\Users\Public\Documents\PCB Artist\Library\SGS-Thomson.cml
+C:\Users\Public\Documents\PCB Artist\Library\Silabs1.cml
+C:\Users\Public\Documents\PCB Artist\Library\Silabs2.cml
+C:\Users\Public\Documents\PCB Artist\Library\Silabs3.cml
+C:\Users\Public\Documents\PCB Artist\Library\sm.cml
+C:\Users\Public\Documents\PCB Artist\Library\Spectrum_IND_PSMx.cml
+C:\Users\Public\Documents\PCB Artist\Library\SPICE.cml
+C:\Users\Public\Documents\PCB Artist\Library\ST.cml
+C:\Users\Public\Documents\PCB Artist\Library\ST3.cml
+C:\Users\Public\Documents\PCB Artist\Library\TDK.cml
+C:\Users\Public\Documents\PCB Artist\Library\Telemecanique_Relays.cml
+C:\Users\Public\Documents\PCB Artist\Library\Testpoint.cml
+C:\Users\Public\Documents\PCB Artist\Library\TI.cml
+C:\Users\Public\Documents\PCB Artist\Library\TI3.cml
+C:\Users\Public\Documents\PCB Artist\Library\TI4.cml
+C:\Users\Public\Documents\PCB Artist\Library\TI5.cml
+C:\Users\Public\Documents\PCB Artist\Library\TI6.cml
+C:\Users\Public\Documents\PCB Artist\Library\TI7.cml
+C:\Users\Public\Documents\PCB Artist\Library\Toshiba.cml
+C:\Users\Public\Documents\PCB Artist\Library\Trans.cml
+C:\Users\Public\Documents\PCB Artist\Library\transistor.cml
+C:\Users\Public\Documents\PCB Artist\Library\Triad_IND_CMxxx.cml
+C:\Users\Public\Documents\PCB Artist\Library\Tyco.cml
+C:\Users\Public\Documents\PCB Artist\Library\Vishay.cml
+C:\Users\Public\Documents\PCB Artist\Library\Willow_Relays.cml
+C:\Users\Public\Documents\PCB Artist\Library\Winbond.cml
+C:\Users\Public\Documents\PCB Artist\Library\Xilinx.cml
+C:\Users\Public\Documents\PCB Artist\Library\XSpice.cml
+
+Selected items to be updated:
+=============================
+
+
+Components:
+===========
+
+    (None) 
+
+Symbols:
+========
+
+Thumbstick C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\Game_Library\FIGHTINGDOGS.psl
+
+Additional items to be updated:
+===============================
+
+
+Components:
+===========
+
+    (None) 
+
+Symbols:
+========
+
+    (None) 
+
+Selected items not to be updated  (Same version as library)
+===========================================================
+
+
+Components:
+===========
+
+0.125Wresistor (DIL)
+ADXL335 (USER)
+B3F-1050 (DIP)
+Ceramic (C)
+Ceramic0.2 (C)
+ESP8266 (USER)
+Header2 (SIP)
+Header5 (SIP)
+LEDT1.75 (SIP)
+LM2937ET-3.3 (TO220)
+LM4041 (MISC)
+LogicAnalyzer (DIP)
+Speaker (DIP)
+ST7735 (LCD)
+tantalum (C)
+testpoint (SIP)
+Thumbstick2 (USER)
+TLV5616 (DIP)
+TM4C123GH6PM (LQFP)
+TPA731 (SM)
+XTAL (NX5032)
+
+Symbols:
+========
+
+0.1inCeramic         C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L_pcb_symbols.psl
+0.2incap             C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L_pcb_symbols.psl
+0.2inCeramic         C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L_pcb_symbols.psl
+0.125watt            C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L_pcb_symbols.psl
+2pinHeader           C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L_pcb_symbols.psl
+5pinHeader           C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L_pcb_symbols.psl
+ADXL335              C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\Game_Library\FIGHTINGDOGS.psl
+B3F-1050             C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L_pcb_symbols.psl
+DIP-16               C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L_pcb_symbols.psl
+DIP8                 C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L_pcb_symbols.psl
+ESP8266 - Right Size C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\Game_Library\FIGHTINGDOGS.psl
+LED-T175             C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L_pcb_symbols.psl
+LQFP-64              C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L_pcb_symbols.psl
+NX5032GAcrystal      C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L_pcb_symbols.psl
+SOIC8MAX             C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L_pcb_symbols.psl
+ST7735               C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L_pcb_symbols.psl
+testpoint            C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L_pcb_symbols.psl
+TO92A-2              C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L_pcb_symbols.psl
+TO220-2              C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L_pcb_symbols.psl
+
+
+
+Update Components Summary
+=========================
+
+Updating all components.
+Update component values
+Update component value positions
+(Remove pad style exceptions on updated components)
+
+	Selected for update:			  21  Components
+						  20  Symbols
+
+	Selected items to be updated:		   0  Components
+						   1  Symbol 
+
+	Additional items to be updated:		   0  Components
+						   0  Symbols
+
+	Selected items NOT to be updated:	  21  Components
+	  (Same version as library)		  19  Symbols
+
+
+End Of Report.

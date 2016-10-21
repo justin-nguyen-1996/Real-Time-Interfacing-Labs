@@ -1,0 +1,18 @@
+Back Annotation Results Report
+------------------------------
+
+Report File:        C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\Lab7_Redo (PCB - Back Annotation Results Report).txt
+Report Written:     Thursday, October 20, 2016
+Design Path:        C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\Lab7_Redo.pcb
+Design Title:       
+Created:            1/29/2013 12:01:41 AM
+Last Saved:         10/20/2016 5:38:51 PM
+Editing Time:       1199 min
+Units:              mil (precision 0)
+
+Back Annotate renames from PCB "C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\Lab7_Redo.pcb" to Schematic "C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\Lab7_Redo.sch".
+
+Renamed Component from "U2" to "Reg".
+
+
+End Of Report.

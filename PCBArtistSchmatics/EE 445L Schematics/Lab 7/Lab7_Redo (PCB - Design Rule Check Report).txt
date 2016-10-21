@@ -1,21 +1,22 @@
 Design Rule Check Report
 ------------------------
 
-Report File:        C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\Lab7_Redo (PCB - Design Rule Check Report).txt
+Report File:        C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\Lab7_Redo (PCB - Design Rule Check Report).txt
 Report Written:     Friday, October 21, 2016
-Design Path:        C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\Lab7_Redo.pcb
+Design Path:        C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\Lab7_Redo.pcb
 Design Title:       
 Created:            1/29/2013 12:01:41 AM
-Last Saved:         10/21/2016 1:27:40 AM
-Editing Time:       1215 min
+Last Saved:         10/21/2016 7:40:29 AM
+Editing Time:       1585 min
 Units:              mil (precision 0)
 
 
 Results
 =======
 
+Text will appear mirrored
 
-No errors found
+Number of errors found : 1
 
 
 Settings
