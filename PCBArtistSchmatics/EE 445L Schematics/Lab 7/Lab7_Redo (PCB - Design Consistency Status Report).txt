@@ -6,8 +6,8 @@ Report Written:     Tuesday, October 25, 2016
 Design Path:        C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\Lab7_Redo.pcb
 Design Title:       
 Created:            1/29/2013 12:01:41 AM
-Last Saved:         10/25/2016 12:43:28 AM
-Editing Time:       1830 min
+Last Saved:         10/25/2016 1:27:00 PM
+Editing Time:       2004 min
 Units:              mil (precision 0)
 
 

@@ -2,12 +2,12 @@ Update Components Report
 ------------------------
 
 Report File:        C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\Lab7_Redo (SCH - Update Components Report).txt
-Report Written:     Thursday, October 20, 2016
+Report Written:     Tuesday, October 25, 2016
 Design Path:        C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\Lab7_Redo.sch
 Design Title:       
 Created:            
-Last Saved:         10/20/2016 9:39:32 AM
-Editing Time:       4182 min
+Last Saved:         10/25/2016 12:48:39 AM
+Editing Time:       4918 min
 Units:              mil (precision 0)
 
 
@@ -140,4 +140,158 @@ C:\Users\Public\Documents\PCB Artist\Library\Renesas_LP_SRAM.cml
 C:\Users\Public\Documents\PCB Artist\Library\Renesas_LV_MV.cml
 C:\Users\Public\Documents\PCB Artist\Library\Renesas_MSIG.cml
 C:\Users\Public\Documents\PCB Artist\Library\Renesas_PFC_IC.cml
-C:\Users\Public\Documents\PCB Artist\Library\Renesas_Triac_Thyris
+C:\Users\Public\Documents\PCB Artist\Library\Renesas_Triac_Thyristor.cml
+C:\Users\Public\Documents\PCB Artist\Library\Renesas_w_CSVs.cml
+C:\Users\Public\Documents\PCB Artist\Library\Resistor.cml
+C:\Users\Public\Documents\PCB Artist\Library\RFMicro.cml
+C:\Users\Public\Documents\PCB Artist\Library\Rohm.cml
+C:\Users\Public\Documents\PCB Artist\Library\Rohm1.cml
+C:\Users\Public\Documents\PCB Artist\Library\schema.cml
+C:\Users\Public\Documents\PCB Artist\Library\SGS-Thomson.cml
+C:\Users\Public\Documents\PCB Artist\Library\Silabs1.cml
+C:\Users\Public\Documents\PCB Artist\Library\Silabs2.cml
+C:\Users\Public\Documents\PCB Artist\Library\Silabs3.cml
+C:\Users\Public\Documents\PCB Artist\Library\sm.cml
+C:\Users\Public\Documents\PCB Artist\Library\Spectrum_IND_PSMx.cml
+C:\Users\Public\Documents\PCB Artist\Library\SPICE.cml
+C:\Users\Public\Documents\PCB Artist\Library\ST.cml
+C:\Users\Public\Documents\PCB Artist\Library\ST3.cml
+C:\Users\Public\Documents\PCB Artist\Library\TDK.cml
+C:\Users\Public\Documents\PCB Artist\Library\Telemecanique_Relays.cml
+C:\Users\Public\Documents\PCB Artist\Library\Testpoint.cml
+C:\Users\Public\Documents\PCB Artist\Library\TI.cml
+C:\Users\Public\Documents\PCB Artist\Library\TI3.cml
+C:\Users\Public\Documents\PCB Artist\Library\TI4.cml
+C:\Users\Public\Documents\PCB Artist\Library\TI5.cml
+C:\Users\Public\Documents\PCB Artist\Library\TI6.cml
+C:\Users\Public\Documents\PCB Artist\Library\TI7.cml
+C:\Users\Public\Documents\PCB Artist\Library\Toshiba.cml
+C:\Users\Public\Documents\PCB Artist\Library\Trans.cml
+C:\Users\Public\Documents\PCB Artist\Library\transistor.cml
+C:\Users\Public\Documents\PCB Artist\Library\Triad_IND_CMxxx.cml
+C:\Users\Public\Documents\PCB Artist\Library\Tyco.cml
+C:\Users\Public\Documents\PCB Artist\Library\Vishay.cml
+C:\Users\Public\Documents\PCB Artist\Library\Willow_Relays.cml
+C:\Users\Public\Documents\PCB Artist\Library\Winbond.cml
+C:\Users\Public\Documents\PCB Artist\Library\Xilinx.cml
+C:\Users\Public\Documents\PCB Artist\Library\XSpice.cml
+
+Selected items to be updated:
+=============================
+
+
+Components:
+===========
+
+    (None) 
+
+Symbols:
+========
+
+    (None) 
+
+Additional items to be updated:
+===============================
+
+
+Components:
+===========
+
+    (None) 
+
+Symbols:
+========
+
+    (None) 
+
+Selected items not to be updated  (Same version as library)
+===========================================================
+
+
+Components:
+===========
+
++3.3V                C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L.cml
+0.125Wresistor (DIL)
+ADXL335 (USER)
+AmpSurfboard (USER)
+B3F-1050 (DIP)
+Ceramic (C)
+Ceramic0.2 (C)
+ESP8266 (USER)
+frame                C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L.cml
+Gnd                  C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L.cml
+Header2 (SIP)
+Header5 (SIP)
+LEDT1.75 (SIP)
+LM2937ET-3.3 (TO220)
+LM4041 (MISC)
+LogicAnalyzer (DIP)
+Soft Switch (USER)
+Speaker (DIP)
+ST7735 (LCD)
+tantalum (C)
+testpoint (SIP)
+Thumbstick2 (USER)
+TLV5616 (DIP)
+TM4C123GH6PM (LQFP)
+XTAL (NX5032)
+
+Symbols:
+========
+
++V            C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L_sch_symbols.ssl
+2-jumper      C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L_sch_symbols.ssl
+6pinPort      C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L_sch_symbols.ssl
+ADXL335       C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\Game_Library\FIGHTINGDOGS.ssl
+AmpSurfboard  C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\Game_Library\FIGHTINGDOGS.ssl
+B3F-Button-NO C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L_sch_symbols.ssl
+CapPolar      C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L_sch_symbols.ssl
+Ceramic       C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L_sch_symbols.ssl
+ESP8266       C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\Game_Library\FIGHTINGDOGS.ssl
+frame         C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L_sch_symbols.ssl
+Grnd          C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L_sch_symbols.ssl
+Jumper5       C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L_sch_symbols.ssl
+LEDT1.75      C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L_sch_symbols.ssl
+LM7805        C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L_sch_symbols.ssl
+LogicAnalyzer C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L_sch_symbols.ssl
+PortA         C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L_sch_symbols.ssl
+PortB         C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L_sch_symbols.ssl
+PortC         C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L_sch_symbols.ssl
+PortD         C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L_sch_symbols.ssl
+PortE_6       C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L_sch_symbols.ssl
+PortF_5       C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L_sch_symbols.ssl
+PortPower_15  C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L_sch_symbols.ssl
+Resistor      C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L_sch_symbols.ssl
+ShuntDiode    C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L_sch_symbols.ssl
+Soft Switch   C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\Game_Library\FIGHTINGDOGS.ssl
+SPEAKER       C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L_sch_symbols.ssl
+ST7735        C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L_sch_symbols.ssl
+Testpoint     C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L_sch_symbols.ssl
+Thumbstick2   C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\Game_Library\FIGHTINGDOGS.ssl
+TLV5616       C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L_sch_symbols.ssl
+XTAL          C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE445L_Library\EE345L_sch_symbols.ssl
+
+
+
+Update Components Summary
+=========================
+
+Updating all components.
+Update component values
+Update component value positions
+
+	Selected for update:			  25  Components
+						  31  Symbols
+
+	Selected items to be updated:		   0  Components
+						   0  Symbols
+
+	Additional items to be updated:		   0  Components
+						   0  Symbols
+
+	Selected items NOT to be updated:	  25  Components
+	  (Same version as library)		  31  Symbols
+
+
+End Of Report.
