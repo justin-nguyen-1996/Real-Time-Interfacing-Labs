@@ -66,7 +66,7 @@ void Buttons_Init(void) {
   GPIO_PORTE_AMSEL_R &= ~0x38;      // disable analog functionality on PE 5,4,3
 }
 
-void DAC_Init2(void) { // TODO: change back to DAC_Init
+void DAC_Init(void) {
   SYSCTL_RCGCSSI_R |= 0x04;         // activate SSI2
   GPIO_PORTB_AMSEL_R &= ~0xFF;      // disable analog functionality on PB7-0
   GPIO_PORTB_AFSEL_R |= 0xB0;       // alternate function on PB 7,5,4
@@ -83,7 +83,7 @@ void ESP_Init(void){
   // see ESP8266_InitUART() in esp8266.c
 }
 
-void BoardLEDS_Init() {
+void LEDS_Init() {
   GPIO_PORTF_PCTL_R &= ~0x000FFFFF; // regular GPIO
   GPIO_PORTF_LOCK_R = 0x4C4F434B;   // unlock GPIO Port F
   GPIO_PORTF_CR_R = 0x01;           // allow changes to PF 0

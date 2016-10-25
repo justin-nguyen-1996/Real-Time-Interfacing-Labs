@@ -2,6 +2,8 @@
 #include "../inc/tm4c123gh6pm.h"
 #include "PLL.h"
 #include "Init.h"
+#include "Buttons.h"
+#include "DAC.h"
 
 void DisableInterrupts(void); // Disable interrupts
 void EnableInterrupts(void);  // Enable interrupts
@@ -17,5 +19,7 @@ int main(void) {
   PortE_Init();
   PortF_Init();
   
-  
+  PLL_Init(Bus80MHz);
+  Buttons_Init();
+  DAC_Init();
 }

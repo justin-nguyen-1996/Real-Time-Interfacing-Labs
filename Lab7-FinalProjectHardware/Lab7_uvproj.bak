@@ -460,6 +460,16 @@
               <FileType>1</FileType>
               <FilePath>.\ST7735.c</FilePath>
             </File>
+            <File>
+              <FileName>Init.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Init.c</FilePath>
+            </File>
+            <File>
+              <FileName>InitAll.txt</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\InitAll.txt</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

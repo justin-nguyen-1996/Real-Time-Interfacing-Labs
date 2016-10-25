@@ -49,24 +49,17 @@
 #include "DAC.h"
 #include "../inc/tm4c123gh6pm.h"
 
-/* Summary: initialize DAC
- * Input:   none
- * Output:  none
- * Assumes: system clock rate less than 20 MHz, uses SSI3
- */
-void DAC_Init(){
-  SYSCTL_RCGCSSI_R |= 0x08;       // activate SSI3
-  SYSCTL_RCGCGPIO_R |= 0x08;      // activate port D
-  while((SYSCTL_PRGPIO_R&0x08) == 0){};// ready?
-  GPIO_PORTD_AFSEL_R |= 0x0B;     // enable alt funct on PD 0,1,3
-  GPIO_PORTD_DEN_R |= 0x0B;       // configure PD 0,1,3 as SSI
-  GPIO_PORTD_PCTL_R = (GPIO_PORTD_PCTL_R&0xFFFF0F00)+0x00001011;
-  GPIO_PORTD_AMSEL_R = 0;         // disable analog functionality on PD
-  SSI3_CR1_R = 0x00000000;        // disable SSI, master mode
-  SSI3_CPSR_R = 0x04;             // 20 MHz SSIClk 
-  //SSI3_CR0_R &= ~(0x0000FFF0);    // SCR = 0, SPH = 0, SPO = 0 Freescale
-  SSI3_CR0_R |= 0x04F;            // DSS = 16-bit data, SPO = 1, SPH = 0
-  SSI3_CR1_R |= 0x00000002;       // enable SSI
+void DAC_Init(void) { // TODO: change back to DAC_Init
+  SYSCTL_RCGCSSI_R |= 0x04;         // activate SSI2
+  GPIO_PORTB_AMSEL_R &= ~0xFF;      // disable analog functionality on PB7-0
+  GPIO_PORTB_AFSEL_R |= 0xB0;       // alternate function on PB 7,5,4
+  GPIO_PORTB_DEN_R |= 0xB0;         // enable digital I/O on PB 7,5,4
+  GPIO_PORTB_PCTL_R = (GPIO_PORTB_PCTL_R & 0x0F00FFFF) + 0x20220000; // 4) PB 7,5,4 = DAC,SSIO
+  
+  SSI2_CR1_R = 0x00000000;        // disable SSI, master mode
+  SSI2_CPSR_R = 0x04;             // 20 MHz SSIClk 
+  SSI2_CR0_R |= 0x04F;            // DSS = 16-bit data, SPO = 1, SPH = 0
+  SSI2_CR1_R |= 0x00000002;       // enable SSI
 }
 
 /* Summary: Send data to DAC, uses SSI3
@@ -93,21 +86,19 @@ void DAC_Test() {
 	switch (DAC_TEST_NUMBER)
 	{
 		case 1:
-			while (1) {
-				for (int i = 0; i < 32; ++i) {
-					DAC_Out(SinewaveDAC[i]);
-					for (int j = 0; j < 8096; ++j){}
-				}
-			}
-		break;
+            while (1) {
+              for (int i = 0; i < 32; ++i) {
+                DAC_Out(SinewaveDAC[i]);
+                for (int j = 0; j < 8096; ++j){}
+              }
+            }
 		case 2:
-			while (1) {
-				for (int i = 0; i < 8; ++i) {
-					DAC_Out(Sawtoothwave[i]);
-					for (int j = 0; j < 8096; ++j){}
-				}
-			}
-		break;
+            while (1) {
+              for (int i = 0; i < 8; ++i) {
+                DAC_Out(Sawtoothwave[i]);
+                for (int j = 0; j < 8096; ++j){}
+              }
+            }
 	}
 }
 

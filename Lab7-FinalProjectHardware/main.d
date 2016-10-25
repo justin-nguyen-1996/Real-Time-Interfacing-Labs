@@ -3,3 +3,5 @@
 .\main.o: ../inc/tm4c123gh6pm.h
 .\main.o: PLL.h
 .\main.o: Init.h
+.\main.o: Buttons.h
+.\main.o: DAC.h
