@@ -1,0 +1,407 @@
+Net "Gnd"
+C14.2
+GND2.1
+C13.2
+GND1.1
+GND7.1
+Reset.1
+C9.2
+GND4.1
+C2.2
+RedLED.1
+C1.2
+LogAn1.1
+GND18.1
+LogAn1.8
+LogAn1.4
+LogAn1.5
+LogAn1.6
+LogAn1.7
+LogAn1.3
+LogAn1.2
+Reset.2
+Bat.2
+C12.2
+C11.2
+C10.2
+GND10.1
+C8.2
+GND8.1
+C7.2
+C6.2
+C5.2
+C4.2
+C3.2
+GND9.1
+JTAG.1
+U1.35
+U1.34
+U1.3
+U1.12
+U1.27
+U1.39
+U1.55
+GND12.1
+GND5.1
+LCD.1
+Rs2.1
+GND11.1
+ShntRef.3
+GND13.1
+DAC.3
+DAC.5
+GND6.1
+C15.2
+GND14.1
+CB.2
+CS.2
+GND15.1
+GND19.1
+ESP8266.Gnd
+C17.2
+GND21.1
+C16.2
+Accel.5
+GND20.1
+GND17.1
+Thumb1.1
+Thumb2.1
+LogAn2.1
+GND22.1
+LogAn2.2
+LogAn2.3
+LogAn2.4
+LogAn2.5
+LogAn2.6
+LogAn2.7
+LogAn2.8
+Reg.2
+Ground.2
+Ground.1
+U2.1
+U2.7
+
+Net "OSC1"
+Crystal.1
+C14.1
+U1.41
+
+Net "RST"
+R2.1
+Reset.4
+Reset.3
+U1.38
+
+Net "Battery"
+C1.1
+TPRgIn.1
+Bat.1
+Reg.1
+
+Net "PA3"
+LCD.6
+U1.20
+
+Net "PA2"
+LCD.8
+U1.19
+
+Net "PA1"
+U1.18
+PA1.1
+
+Net "PA0"
+U1.17
+LCD.5
+
+Net "PA5"
+LCD.7
+U1.22
+
+Net "PA6"
+LCD.4
+U1.23
+
+Net "PA4"
+LCD.9
+U1.21
+
+Net "PB0"
+ESP8266.RXI
+U1.45
+LogAn1.13
+
+Net "PB1"
+ESP8266.TXO
+U1.46
+LogAn1.12
+
+Net "PB3"
+PB3.1
+U1.48
+
+Net "OSC0"
+Crystal.2
+C13.1
+U1.40
+
+Net "LDO"
+C9.1
+C10.1
+C11.1
+C12.1
+U1.25
+U1.56
+
+Net "PC2"
+JTAG.4
+U1.50
+
+Net "PC0"
+JTAG.2
+U1.52
+
+Net "PC3"
+JTAG.5
+U1.49
+
+Net "PC1"
+JTAG.3
+U1.51
+
+Net "PowerLED"
+R3.2
+RedLED.2
+LogAn1.9
+
+Net "Speaker+"
+RF.2
+Spkr.1
+TPspkr.1
+U2.5
+
+Net "DACout"
+DAC.7
+CI.2
+TPdac.1
+
+Net "Speaker-"
+U2.8
+Spkr.2
+
+Net "PE1"
+Accel.3
+U1.8
+TPxlY.1
+
+Net "PE0"
+Accel.4
+U1.9
+TPxlX.1
+
+Net "PD0"
+Thumb1.4
+U1.61
+TPty1.1
+
+Net "PD1"
+Thumb1.3
+U1.62
+TPtx1.1
+
+Net "PD2"
+Thumb2.4
+U1.63
+TPty2.1
+
+Net "PD4"
+Thumb1.2
+U1.43
+LogAn1.15
+
+Net "PD5"
+Thumb2.2
+U1.44
+LogAn1.14
+
+Net "PD6"
+U1.53
+LogAn1.11
+SwitchA.2
+
+Net "PD7"
+U1.10
+LogAn2.15
+SwitchB.2
+
+Net "PB2"
+ESP8266.RST
+U1.47
+
+Net "PB7"
+DAC.1
+U1.4
+LogAn2.16
+
+Net "PC7"
+U1.13
+PC7.1
+
+Net "PC6"
+U1.14
+PC6.1
+
+Net "PC5"
+U1.15
+PC5.1
+
+Net "PC4"
+U1.16
+PC4.1
+
+Net "Wake"
+R1.1
+U1.32
+
+Net "PA7"
+LCD.3
+U1.24
+
+Net "PD3"
+Thumb2.3
+U1.64
+TPtx2.1
+
+Net "+3.3V"
+REF8.1
+Rs.2
+REF10.1
+DAC.8
+C15.1
+REF6.1
+CS.1
+REF12.1
+ESP8266.GPIO2
+ESP8266.VCC
+ESP8266.GPIO0
+R6.2
+C17.1
+REF9.1
+REF13.1
+C16.1
+Accel.6
+REF11.1
+Thumb1.5
+Thumb2.5
+REF4.1
+R2.2
+C2.1
+R3.1
+TPRgO.1
+R1.2
+REF5.1
+REF3.1
+C3.1
+C4.1
+C5.1
+C6.1
+C7.1
+C8.1
+U1.37
+U1.2
+U1.11
+U1.26
+U1.42
+U1.54
+REF7.1
+LCD.10
+LCD.2
+Reg.3
+SwitchA.1
+SwitchB.1
+SwitchStart.1
+Switch666.1
+U2.6
+
+Net "LM4041+"
+Rs1.2
+ShntRef.2
+Rs.1
+DAC.6
+TPvref.1
+
+Net "AmpIn+"
+CB.1
+U2.2
+U2.3
+
+Net "AmpIn-"
+RI.1
+RF.1
+U2.4
+
+Net "LM4041FB"
+Rs1.1
+Rs2.2
+ShntRef.1
+
+Net "DacOutCap"
+CI.1
+RI.2
+
+Net "CHPD"
+ESP8266.CHPD
+R6.1
+
+Net "PB4"
+DAC.2
+U1.58
+
+Net "PB5"
+DAC.4
+U1.57
+
+Net "PE5"
+U1.60
+LogAn2.13
+Switch666.2
+
+Net "PE2"
+Accel.2
+U1.7
+TPxlZ.1
+
+Net "PE3"
+Accel.1
+U1.6
+LogAn2.14
+
+Net "PE4"
+U1.59
+LogAn1.10
+SwitchStart.2
+
+Net "PB6"
+U1.1
+LogAn1.16
+
+Net "PF0"
+LogAn2.12
+U1.28
+
+Net "PF1"
+LogAn2.11
+U1.29
+
+Net "PF2"
+LogAn2.10
+U1.30
+
+Net "PF3"
+LogAn2.9
+U1.31
+
+Net "PF4"
+U1.5
+PF4.1
+

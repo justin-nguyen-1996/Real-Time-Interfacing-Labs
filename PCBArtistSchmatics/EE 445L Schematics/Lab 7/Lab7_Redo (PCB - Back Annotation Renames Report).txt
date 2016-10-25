@@ -1,17 +1,19 @@
 Back Annotation Renames Report
 ------------------------------
 
-Report File:        C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\Lab7_Redo (PCB - Back Annotation Renames Report).txt
+Report File:        C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\Lab7_Redo (PCB - Back Annotation Renames Report).txt
 Report Written:     Tuesday, October 25, 2016
-Design Path:        C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\Lab7_Redo.pcb
+Design Path:        C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\Lab7_Redo.pcb
 Design Title:       
 Created:            1/29/2013 12:01:41 AM
-Last Saved:         10/25/2016 3:16:35 AM
-Editing Time:       2001 min
+Last Saved:         10/25/2016 4:05:35 PM
+Editing Time:       2119 min
 Units:              mil (precision 0)
 
 Outstanding PCB renames awaiting back annotation to the Schematics design.
 
-Rename Component from "J1" to "Ground".
+Rename Component from "ESP" to "ESP8266".
+Rename Component from "TPRegIn" to "TPRgIn".
+Rename Component from "TPRegOut" to "TPRgO".
 
 End Of Report.

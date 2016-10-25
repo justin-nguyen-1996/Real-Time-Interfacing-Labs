@@ -1,0 +1,18 @@
+Unconnected Pins Report
+-----------------------
+
+Report File:        C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\Lab7_Redo (SCH - Unconnected Pins Report).txt
+Report Written:     Tuesday, October 25, 2016
+Design Path:        C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\Lab7_Redo.sch
+Design Title:       
+Created:            
+Last Saved:         10/25/2016 4:16:48 PM
+Editing Time:       4887 min
+Units:              mil (precision 0)
+
+Component U1 Pin U1-36 (XOSC1)
+Component U1 Pin U1-33 (HIB*)
+
+Unconnected pins found : 2
+
+End Of Report.

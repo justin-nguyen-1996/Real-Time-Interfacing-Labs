@@ -1,0 +1,61 @@
+Design Status Report
+--------------------
+
+Report File:        C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\Lab7_Redo (SCH - Design Status Report).txt
+Report Written:     Tuesday, October 25, 2016
+Design Path:        C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\Lab7_Redo.sch
+Design Title:       
+Created:            
+Last Saved:         10/25/2016 4:16:48 PM
+Editing Time:       4887 min
+Units:              mil (precision 0)
+
+
+Component List
+==============
+
+Comp Type      Package  Components Pins Unused Gates
+------------------------------------------------------------
+frame                            2    0            2
+0.125Wresistor DIL               9   18            0
+Ceramic        C                13   26            0
+Gnd                             20   20            0
+tantalum       C                 4    8            0
+B3F-1050       DIP               1    4            0
++3.3V                           11   11            0
+LEDT1.75       SIP               1    2            0
+LogicAnalyzer  DIP               2   32            0
+Header2        SIP               2    4            0
+XTAL           NX5032            1    2            0
+Header5        SIP               1    5            0
+TM4C123GH6PM   LQFP              1   64            0
+ST7735         LCD               1   10            0
+testpoint      SIP              12   12            0
+TLV5616        DIP               1    8            0
+LM4041         MISC              1    3            0
+Ceramic0.2     C                 3    6            0
+Speaker        DIP               1    2            0
+ADXL335        USER              1    6            0
+Thumbstick2    USER              2   10            0
+ESP8266        USER              1    8            0
+LM2937ET-3.3   TO220             1    3            0
+Soft Switch    USER              4    8            0
+AmpSurfboard   USER              1    8            0
+testpoint      BIG               7    7            0
+------------------------------------------------------------
+Total:                         104  287            2
+------------------------------------------------------------
+
+Net List
+========
+
+Net Class Nets
+-----------------
+Signal    131
+Power     7
+Ground    1
+-----------------
+Total:    139
+-----------------
+
+End Of Report.

@@ -1,22 +1,16 @@
 Forward Design Changes Report
 -----------------------------
 
-Report File:        C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\Lab7_Redo (PCB - Forward Design Changes Report).txt
+Report File:        C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\Lab7_Redo (PCB - Forward Design Changes Report).txt
 Report Written:     Tuesday, October 25, 2016
-Design Path:        C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\Lab7_Redo.pcb
+Design Path:        C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\Lab7_Redo.pcb
 Design Title:       
 Created:            1/29/2013 12:01:41 AM
-Last Saved:         10/25/2016 1:27:00 PM
-Editing Time:       2004 min
+Last Saved:         10/25/2016 4:30:47 PM
+Editing Time:       2144 min
 Units:              mil (precision 0)
 
-Net N0783 renamed to PB3
-Net N0784 renamed to PA1
-Net N0785 renamed to PF4
-Net N0786 renamed to PC7
-Net N0787 renamed to PC6
-Net N0788 renamed to PC5
-Net N0789 renamed to PC4
+The designs are the same, so no design changes to forward.
 
 
 End Of Report.
