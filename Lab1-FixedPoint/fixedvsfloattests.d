@@ -1,0 +1,1 @@
+.\fixedvsfloattests.o: FixedVsFloatTests.s

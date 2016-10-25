@@ -2,24 +2,6 @@
 #include "../inc/tm4c123gh6pm.h"
 #include "Switch.h"
 
-void PortB_Init(void) 
-{
-  SYSCTL_RCGCGPIO_R |= 0x02;        // 1) activate port B
-  while((SYSCTL_PRGPIO_R&0x02)==0){};   // 2) allow time for clock to stabilize
-  GPIO_PORTB_AMSEL_R &= ~0x03;      // 3) disable analog functionality on PB7-0
-  GPIO_PORTB_PCTL_R &= ~0xFF; // 4) GPIO
-  GPIO_PORTB_DIR_R &= ~0x03;         // 5) make PB1-0 in
-  GPIO_PORTB_AFSEL_R &= ~0x03;      // 6) regular port function
-  GPIO_PORTB_DEN_R |= 0x03;         // 7) enable digital I/O on PB1-0
-  GPIO_PORTB_IS_R &= ~0x03;         // 8) edge-sensitive
-  GPIO_PORTB_IBE_R |= 0x03;        // 9) not both edges
-//  GPIO_PORTB_IEV_R |= 0xFF;         // 10) rising edge event
-  GPIO_PORTB_ICR_R = 0x03;          // 11) clear flags
-//  GPIO_PORTB_IM_R |= 0xFF;          // 12) arm interrupts on PB7-0 
-//  NVIC_PRI0_R = (NVIC_PRI0_R&0xFFFF00FF)|0x0000A000; // 13) priority 5
-//  NVIC_EN0_R = 0x00000002;          // 13) enable interrupt 1 in NVIC
-}
-
 //Arming functions for debouncing
 void Timer2Arm(void)
 {

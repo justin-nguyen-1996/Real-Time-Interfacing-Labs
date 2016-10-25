@@ -1,0 +1,201 @@
+#include <stdint.h>
+#include "../inc/tm4c123gh6pm.h"
+#include "Init.h"
+
+void PortA_Init(void){} // see commonInit() in ST7735.c
+
+void PortB_Init(void) {
+  SYSCTL_RCGCGPIO_R |= 0x02;
+  while((SYSCTL_PRGPIO_R&0x02)==0){};
+}
+
+void PortC_Init(void) {
+  SYSCTL_RCGCGPIO_R |= 0x04;
+  while((SYSCTL_PRGPIO_R&0x04)==0){};
+}
+
+void PortD_Init(void) {
+  SYSCTL_RCGCGPIO_R |= 0x08;
+  while((SYSCTL_PRGPIO_R&0x08)==0){};
+}
+
+void PortE_Init(void) {
+  SYSCTL_RCGCGPIO_R |= 0x10;
+  while((SYSCTL_PRGPIO_R&0x10)==0){};
+}
+
+void PortF_Init(void) {
+  SYSCTL_RCGCGPIO_R |= 0x20;
+  while((SYSCTL_PRGPIO_R&0x20)==0){};
+}
+
+void Thumbstick_Init(void) {
+  SYSCTL_RCGCADC_R |= 0x0001;     // activate ADC0 
+  GPIO_PORTD_DIR_R &= ~0x0F;      // make PD 3,2,1,0 input
+  GPIO_PORTD_AFSEL_R |= 0x0F;     // enable alternate function on PD 3,2,1,0
+  GPIO_PORTD_DEN_R &= ~0x0F;      // disable digital I/O on PD 3,2,1,0
+  GPIO_PORTD_AMSEL_R |= 0x0F;     // enable analog functionality on PD 3,2,1,0
+
+  ADC0_PC_R &= ~0xF;              // clear max sample rate field
+  ADC0_PC_R |= 0x1;               // configure for 125K samples/sec
+  ADC0_SSPRI_R = 0x0123;          // Sequencer 3 is highest priority
+  ADC0_ACTSS_R &= ~0x0008;        // disable sample sequencer 3
+  ADC0_EMUX_R &= ~0xF000;         // seq3 is software trigger
+  ADC0_SSMUX3_R &= ~0x000F;       // clear SS3 field
+  ADC0_SSMUX3_R += 9;             // set channel
+  ADC0_SSCTL3_R = 0x0006;         // no TS0 D0, yes IE0 END0
+  ADC0_IM_R &= ~0x0008;           // disable SS3 interrupts
+  ADC0_ACTSS_R |= 0x0008;         // enable sample sequencer 3
+}
+
+void Accel_Init(void) {
+  
+}
+
+void Buttons_Init(void) {
+  GPIO_PORTD_LOCK_R = 0x4C4F434B;   // unlock GPIO Port D
+  GPIO_PORTD_CR_R = 0x80;           // allow changes to PD 7
+  GPIO_PORTD_DIR_R &= ~0xF0;        // make PD 7,6,5,4 input
+  GPIO_PORTD_AFSEL_R &= ~0xF0;      // disable alternate function on PD 7,6,5,4
+  GPIO_PORTD_DEN_R |= 0xF0;         // enable digital I/O on PD 7,6,5,4
+  GPIO_PORTD_AMSEL_R &= ~0xF0;      // disable analog functionality on PD 7,6,5,4
+  
+  GPIO_PORTE_DIR_R &= ~0x38;        // make PE 5,4,3 input
+  GPIO_PORTE_AFSEL_R &= ~0x38;      // disable alternate function on PE 5,4,3
+  GPIO_PORTE_DEN_R |= 0x38;         // enable digital I/O on PE 5,4,3
+  GPIO_PORTE_AMSEL_R &= ~0x38;      // disable analog functionality on PE 5,4,3
+}
+
+void DAC_Init2(void) { // TODO: change back to DAC_Init
+  SYSCTL_RCGCSSI_R |= 0x04;         // activate SSI2
+  GPIO_PORTB_AMSEL_R &= ~0xFF;      // disable analog functionality on PB7-0
+  GPIO_PORTB_AFSEL_R |= 0xB0;       // alternate function on PB 7,5,4
+  GPIO_PORTB_DEN_R |= 0xB0;         // enable digital I/O on PB 7,5,4
+  GPIO_PORTB_PCTL_R = (GPIO_PORTB_PCTL_R & 0x0F00FFFF) + 0x20220000; // 4) PB 7,5,4 = DAC,SSIO
+  
+  SSI2_CR1_R = 0x00000000;        // disable SSI, master mode
+  SSI2_CPSR_R = 0x04;             // 20 MHz SSIClk 
+  SSI2_CR0_R |= 0x04F;            // DSS = 16-bit data, SPO = 1, SPH = 0
+  SSI2_CR1_R |= 0x00000002;       // enable SSI
+}
+
+void ESP_Init(void){
+  // see ESP8266_InitUART() in esp8266.c
+}
+
+void BoardLEDS_Init() {
+  GPIO_PORTF_PCTL_R &= ~0x000FFFFF; // regular GPIO
+  GPIO_PORTF_LOCK_R = 0x4C4F434B;   // unlock GPIO Port F
+  GPIO_PORTF_CR_R = 0x01;           // allow changes to PF 0
+  GPIO_PORTF_AMSEL_R &= ~0x1F;      // disable analog function on PF 4,3,2,1,0
+  GPIO_PORTF_AFSEL_R &= ~0x1F;      // regular port function
+  GPIO_PORTF_PUR_R |= 0x11;         // pullup for PF 4,0
+  GPIO_PORTF_DIR_R |= 0x0E;         // set direction to output PF 3,2,1
+  GPIO_PORTF_DIR_R &= ~0x11;        // set direction to input PF 4,0
+  GPIO_PORTF_DEN_R |= 0x1F;         // enable digital port
+}
+
+// TODO: remove these
+void DisableInterrupts(void); // Disable interrupts
+void EnableInterrupts(void);  // Enable interrupts
+long StartCritical (void);    // previous I bit, disable interrupts
+void EndCritical(long sr);    // restore I bit to previous value
+void WaitForInterrupt(void);  // low power mode
+void (*PeriodicTask)(void);   // user function
+
+void Timer0A_Init(void (*task)(void), uint32_t period){long sr;
+  sr = StartCritical(); 
+  SYSCTL_RCGCTIMER_R |= 0x01;   // 0) activate TIMER0
+  PeriodicTask = task;          // user function
+  TIMER0_CTL_R = 0x00000000;    // 1) disable TIMER0A during setup
+  TIMER0_CFG_R = 0x00000000;    // 2) configure for 32-bit mode
+  TIMER0_TAMR_R = 0x00000002;   // 3) configure for periodic mode, default down-count settings
+  TIMER0_TAILR_R = period-1;    // 4) reload value
+  TIMER0_TAPR_R = 0;            // 5) bus clock resolution
+  TIMER0_ICR_R = 0x00000001;    // 6) clear TIMER0A timeout flag
+  TIMER0_IMR_R = 0x00000001;    // 7) arm timeout interrupt
+  NVIC_PRI4_R = (NVIC_PRI4_R&0x00FFFFFF)|0x80000000; // 8) priority 4
+  NVIC_EN0_R = 1<<19;           // 9) enable IRQ 19 in NVIC
+  TIMER0_CTL_R = 0x00000001;    // 10) enable TIMER0A
+  EndCritical(sr);
+}
+
+void Timer0A_Handler(void){
+  TIMER0_ICR_R = TIMER_ICR_TATOCINT;// acknowledge timer0A timeout
+  (*PeriodicTask)();                // execute user task
+}
+
+// ***************** TIMER1_Init ****************
+// Activate TIMER1 interrupts to run user task periodically
+// Inputs:  task is a pointer to a user function
+//          period in units (1/clockfreq)
+// Outputs: none
+void Timer1_Init(void(*task)(void), uint32_t period){
+  SYSCTL_RCGCTIMER_R |= 0x02;   // 0) activate TIMER1
+  PeriodicTask = task;          // user function
+  TIMER1_CTL_R = 0x00000000;    // 1) disable TIMER1A during setup
+  TIMER1_CFG_R = 0x00000000;    // 2) configure for 32-bit mode
+  TIMER1_TAMR_R = 0x00000002;   // 3) configure for periodic mode, default down-count settings
+  TIMER1_TAILR_R = period-1;    // 4) reload value
+  TIMER1_TAPR_R = 0;            // 5) bus clock resolution
+  TIMER1_ICR_R = 0x00000001;    // 6) clear TIMER1A timeout flag
+  TIMER1_IMR_R = 0x00000001;    // 7) arm timeout interrupt
+  NVIC_PRI5_R = (NVIC_PRI5_R&0xFFFF00FF)|0x00008000; // 8) priority 4
+  NVIC_EN0_R = 1<<21;           // 9) enable IRQ 21 in NVIC
+  TIMER1_CTL_R = 0x00000001;    // 10) enable TIMER1A
+}
+
+void Timer1A_Handler(void){
+  TIMER1_ICR_R = TIMER_ICR_TATOCINT;// acknowledge TIMER1A timeout
+  (*PeriodicTask)();                // execute user task
+}
+
+// ***************** Timer2_Init ****************
+// Activate Timer2 interrupts to run user task periodically
+// Inputs:  task is a pointer to a user function
+//          period in units (1/clockfreq)
+// Outputs: none
+void Timer2_Init(void(*task)(void), unsigned long period){
+  SYSCTL_RCGCTIMER_R |= 0x04;   // 0) activate timer2
+  PeriodicTask = task;          // user function
+  TIMER2_CTL_R = 0x00000000;    // 1) disable timer2A during setup
+  TIMER2_CFG_R = 0x00000000;    // 2) configure for 32-bit mode
+  TIMER2_TAMR_R = 0x00000002;   // 3) configure for periodic mode, default down-count settings
+  TIMER2_TAILR_R = period-1;    // 4) reload value
+  TIMER2_TAPR_R = 0;            // 5) bus clock resolution
+  TIMER2_ICR_R = 0x00000001;    // 6) clear timer2A timeout flag
+  TIMER2_IMR_R = 0x00000001;    // 7) arm timeout interrupt
+  NVIC_PRI5_R = (NVIC_PRI5_R&0x00FFFFFF)|0x80000000; // 8) priority 4
+  NVIC_EN0_R = 1<<23;           // 9) enable IRQ 23 in NVIC
+  TIMER2_CTL_R = 0x00000001;    // 10) enable timer2A
+}
+
+void Timer2A_Handler(void){
+  TIMER2_ICR_R = TIMER_ICR_TATOCINT;// acknowledge TIMER2A timeout
+  (*PeriodicTask)();                // execute user task
+}
+
+// ***************** Timer3_Init ****************
+// Activate Timer3 interrupts to run user task periodically
+// Inputs:  task is a pointer to a user function
+//          period in units (1/clockfreq)
+// Outputs: none
+void Timer3_Init(void(*task)(void), unsigned long period){
+  SYSCTL_RCGCTIMER_R |= 0x08;   // 0) activate TIMER3
+  PeriodicTask = task;          // user function
+  TIMER3_CTL_R = 0x00000000;    // 1) disable TIMER3A during setup
+  TIMER3_CFG_R = 0x00000000;    // 2) configure for 32-bit mode
+  TIMER3_TAMR_R = 0x00000002;   // 3) configure for periodic mode, default down-count settings
+  TIMER3_TAILR_R = period-1;    // 4) reload value
+  TIMER3_TAPR_R = 0;            // 5) bus clock resolution
+  TIMER3_ICR_R = 0x00000001;    // 6) clear TIMER3A timeout flag
+  TIMER3_IMR_R = 0x00000001;    // 7) arm timeout interrupt
+  NVIC_PRI8_R = (NVIC_PRI8_R&0x00FFFFFF)|0x80000000; // 8) priority 4
+  NVIC_EN1_R = 1<<(35-32);      // 9) enable IRQ 35 in NVIC
+  TIMER3_CTL_R = 0x00000001;    // 10) enable TIMER3A
+}
+
+void Timer3A_Handler(void){
+  TIMER3_ICR_R = TIMER_ICR_TATOCINT;// acknowledge TIMER3A timeout
+  (*PeriodicTask)();                // execute user task
+}

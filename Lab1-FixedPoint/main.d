@@ -1,0 +1,9 @@
+.\main.o: main.c
+.\main.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h
+.\main.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\main.o: C:\Keil\ARM\ARMCC\bin\..\include\string.h
+.\main.o: ../h/ST7735.h
+.\main.o: ../h/PLL.h
+.\main.o: ../h/fixed.h
+.\main.o: ../h/SysTick.h
+.\main.o: ../inc/tm4c123gh6pm.h
