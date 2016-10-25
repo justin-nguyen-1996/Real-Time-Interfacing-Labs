@@ -8,19 +8,22 @@ Project File Date:  10/24/2016
 
 <h2>Output:</h2>
 Build target 'Lab7'
-compiling Init.c...
-Init.c(44): warning:  #223-D: function "RxFifo_Init" declared implicitly
-    RxFifo_Init();                        // initialize empty FIFOs
-Init.c(45): warning:  #223-D: function "TxFifo_Init" declared implicitly
-    TxFifo_Init();
-Init.c: 2 warnings, 0 errors
+compiling main.c...
 linking...
-Program Size: Code=3784 RO-data=2496 RW-data=100 ZI-data=6276  
-".\Lab7.axf" - 0 Error(s), 2 Warning(s).
-to list image symbols.
+Program Size: Code=2424 RO-data=32 RW-data=88 ZI-data=6272  
+".\Lab7.axf" - 0 Error(s), 0 Warning(s).
+ information to list image symbols.
 Not enough information to list the image map.
 Finished: 2 information, 0 warning and 1 error messages.
-".\Lab7.axf" - 1 Error(s), 2 Warning(s).
+".\Lab7.axf" - 1 Error(s), 0 Warning(s).
 Target not created
-ize: Code=3896 RO-data=2496 RW-data=100 ZI-data=6276  
-".\Lab7.axf" - 0 Error(s), 3 Warning(s).
+ol Timer1A_Handler multiply defined (by init.o and main.o).
+.\Lab7.axf: Error: L6200E: Symbol Timer2A_Handler multiply defined (by init.o and switch.o).
+.\Lab7.axf: Error: L6200E: Symbol PortF_Init multiply defined (by init.o and main.o).
+.\Lab7.axf: Error: L6200E: Symbol Timer0A_Init multiply defined (by init.o and main.o).
+.\Lab7.axf: Error: L6200E: Symbol Timer1_Init multiply defined (by init.o and main.o).
+Not enough information to list image symbols.
+Not enough information to list the image map.
+Finished: 2 information, 0 warning and 6 error messages.
+".\Lab7.axf" - 6 Error(s), 1 Warning(s).
+Target not created

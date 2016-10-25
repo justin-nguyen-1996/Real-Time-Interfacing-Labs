@@ -215,16 +215,16 @@ void ESP8266_InitUART(uint32_t baud, int echo){ volatile int delay;
   SYSCTL_RCGCGPIO_R |= 0x02; // Enable PORT B clock gating
   while((SYSCTL_PRGPIO_R&0x02)==0){}; 
   GPIO_PORTB_AFSEL_R |= 0x03;
-  GPIO_PORTB_DIR_R |= 0x20; // PB5 output to reset
-  GPIO_PORTB_PCTL_R =(GPIO_PORTB_PCTL_R&0xFF0FFF00)|0x00000011;
-  GPIO_PORTB_DEN_R   |= 0x23; //23 
-  GPIO_PORTB_DATA_R |= 0x20; // reset high
+  GPIO_PORTB_DIR_R |= 0x04; // PB2 output to reset
+  GPIO_PORTB_PCTL_R =(GPIO_PORTB_PCTL_R&0xFFFFFF00)|0x00000011;
+  GPIO_PORTB_DEN_R   |= 0x07; // PB 2,1,0
+  GPIO_PORTB_DATA_R |= 0x04; // reset high
+    
   UART1_CTL_R &= ~UART_CTL_UARTEN;                  // Clear UART1 enable bit during config
   UART1_IBRD_R = 5000000/baud;   
   UART1_FBRD_R = ((64*(5000000%baud))+baud/2)/baud;      
    // UART1_IBRD_R = 43;       // IBRD = int(80,000,000 / (16 * 115,200)) = int(43.403)
    // UART1_FBRD_R = 26;       // FBRD = round(0.4028 * 64 ) = 26
-
   UART1_LCRH_R = (UART_LCRH_WLEN_8|UART_LCRH_FEN);  // 8 bit word length, 1 stop, no parity, FIFOs enabled
   UART1_IFLS_R &= ~0x3F;                            // Clear TX and RX interrupt FIFO level fields
   UART1_IFLS_R += UART_IFLS_RX1_8 ;                 // RX FIFO interrupt threshold >= 1/8th full
