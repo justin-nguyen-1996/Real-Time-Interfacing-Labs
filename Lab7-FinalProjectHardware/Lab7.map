@@ -766,9 +766,9 @@ Removing Unused input sections from the image.
     Removing graphics.o(i.convertDec), (72 bytes).
     Removing graphics.o(.bss), (12 bytes).
     Removing graphics.o(.data), (28 bytes).
-    Removing gamerules.o(.bss), (256 bytes).
+    Removing gamerules.o(.bss), (1280 bytes).
 
-104 unused section(s) (total 10876 bytes) removed from the image.
+104 unused section(s) (total 11900 bytes) removed from the image.
 
 ==============================================================================
 

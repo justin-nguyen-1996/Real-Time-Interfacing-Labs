@@ -67,7 +67,7 @@ F (.\Graphics.c)(0x581267AD)(-c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_
 I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C88A34)
 I (ST7735.h)(0x5806A17D)
 I (Graphics.h)(0x58126739)
-F (.\GameRules.c)(0x581269C1)(-c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --c99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\gamerules.o --omf_browse .\gamerules.crf --depend .\gamerules.d)
+F (.\GameRules.c)(0x5812761D)(-c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --c99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\gamerules.o --omf_browse .\gamerules.crf --depend .\gamerules.d)
 I (../inc/tm4c123gh6pm.h)(0x57FB1D83)
-I (GameRules.h)(0x581269CB)
+I (GameRules.h)(0x5812767A)
 I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C88A34)

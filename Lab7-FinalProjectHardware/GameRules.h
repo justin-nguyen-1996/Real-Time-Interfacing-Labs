@@ -8,12 +8,12 @@
 #define LASER_ENTITY       2
 #define MISSILE_ENTITY     3
 
-typedef enum Entity {
+typedef enum {
   ASTEROID,
   SHIP,
   LASER,
   MISSILE
-} Entity;
+} EntityType;
 
 typedef struct Loc {
   uint8_t x;
@@ -24,6 +24,12 @@ typedef struct Vel {
   uint8_t speed;
   uint8_t dir;
 } Vel;
+
+typedef struct Entity {
+  Vel vel;
+  Loc loc;
+  EntityType id;
+} Entity;
 
 typedef struct Asteroid {
   Vel vel;
