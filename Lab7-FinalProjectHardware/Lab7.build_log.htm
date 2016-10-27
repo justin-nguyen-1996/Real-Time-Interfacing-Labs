@@ -8,18 +8,37 @@ Project File Date:  10/26/2016
 
 <h2>Output:</h2>
 Build target 'Lab7'
-compiling main.c...
-Accel.h(6): warning:  #1-D: last line of file ends without a newline
-  #endif
-main.c: 1 warning, 0 errors
+compiling GameRules.c...
+GameRules.c(4): warning:  #177-D: variable "entityList" was declared but never referenced
+  static Entity entityList[256];
+GameRules.c: 1 warning, 0 errors
 linking...
-Program Size: Code=7510 RO-data=46 RW-data=100 ZI-data=6524  
+Program Size: Code=7706 RO-data=46 RW-data=100 ZI-data=6524  
 ".\Lab7.axf" - 0 Error(s), 1 Warning(s).
-}
-Thumbstick.c: 1 warning, 0 errors
+7706 RO-data=46 RW-data=100 ZI-data=6524  
+".\Lab7.axf" - 0 Error(s), 2 Warning(s).
+" - 0 Error(s), 2 Warning(s).
+ive arg types
+  void drawMissile();
+main.c: 4 warnings, 0 errors
+compiling Graphics.c...
+Graphics.h(84): warning:  #1295-D: Deprecated declaration drawShip - give arg types
+  void drawShip();
+Graphics.h(85): warning:  #1295-D: Deprecated declaration drawAsteroid - give arg types
+  void drawAsteroid();
+Graphics.h(86): warning:  #1295-D: Deprecated declaration drawLaser - give arg types
+  void drawLaser();
+Graphics.h(87): warning:  #1295-D: Deprecated declaration drawMissile - give arg types
+  void drawMissile();
+Graphics.c(246): warning:  #1295-D: Deprecated declaration drawShip - give arg types
+  void drawShip();
+Graphics.c(247): warning:  #1295-D: Deprecated declaration drawAsteroid - give arg types
+  void drawAsteroid();
+Graphics.c(248): warning:  #1295-D: Deprecated declaration drawLaser - give arg types
+  void drawLaser();
+Graphics.c(249): warning:  #1295-D: Deprecated declaration drawMissile - give arg types
+  void drawMissile();
+Graphics.c: 8 warnings, 0 errors
 linking...
-.\Lab7.axf: Error: L6218E: Undefined symbol Accel_Init (referred from main.o).
-Not enough information to list image symbols.
-Finished: 1 information, 0 warning and 1 error messages.
-".\Lab7.axf" - 1 Error(s), 2 Warning(s).
-Target not created
+Program Size: Code=7706 RO-data=46 RW-data=100 ZI-data=6524  
+".\Lab7.axf" - 0 Error(s), 12 Warning(s).

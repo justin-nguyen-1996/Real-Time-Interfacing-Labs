@@ -81,5 +81,10 @@ void ST7735_Xcount_Yplot(uint32_t num, uint32_t bufY[]);
  */
 void ST7735_Line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2); 
 
+void drawShip(void);
+void drawAsteroid(void);
+void drawLaser(void);
+void drawMissile(void);
+
 
 #endif

@@ -8,3 +8,4 @@
 .\main.o: esp8266.h
 .\main.o: Thumbstick.h
 .\main.o: Accel.h
+.\main.o: Graphics.h
