@@ -470,6 +470,11 @@
               <FileType>5</FileType>
               <FilePath>.\InitAll.txt</FilePath>
             </File>
+            <File>
+              <FileName>Buttons.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Buttons.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

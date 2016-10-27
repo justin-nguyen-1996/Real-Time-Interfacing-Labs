@@ -68,9 +68,9 @@ void DAC_Init(void) { // TODO: change back to DAC_Init
  */
 void DAC_Out(uint16_t code){   
   //while((SSI3_SR_R&0x00000002)==0){};// SSI Transmit FIFO Not Full
-  while ((SSI_SR_TNF & SSI3_SR_R) == 0) {}
-  SSI3_DR_R = code & 0x0FFF;                  // data out
-  //while((SSI3_SR_R&0x00000004)==0){};// SSI Receive FIFO Not Empty
+  while ((SSI_SR_TNF & SSI2_SR_R) == 0) {}
+  SSI2_DR_R = code & 0x0FFF;                  // data out
+  //while((SSI2_SR_R&0x00000004)==0){};// SSI Receive FIFO Not Empty
 }
 
 const unsigned short SinewaveDAC[32] = {  
@@ -81,9 +81,8 @@ const unsigned short SinewaveDAC[32] = {
 
 const unsigned short Sawtoothwave[8] = { 0, 512, 1024, 1536, 2048, 2560, 3072, 3584 };
 
-#define DAC_TEST_NUMBER 2
-void DAC_Test() {
-	switch (DAC_TEST_NUMBER)
+void DAC_Test(int testNumber) {
+	switch (testNumber)
 	{
 		case 1:
             while (1) {
