@@ -1,0 +1,37 @@
+Measure Report
+--------------
+
+Report File:        C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\UTX-2016F310 (PCB - Measure Report).txt
+Report Written:     Thursday, October 27, 2016
+Design Path:        C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\PCBArtistSchmatics\EE 445L Schematics\Lab 7\UTX-2016F310.pcb
+Design Title:       
+Created:            1/29/2013 12:01:41 AM
+Last Saved:         10/26/2016 11:54:06 PM
+Editing Time:       2327 min
+Units:              mil (precision 0)
+
+    Units: mil
+    
+
+From:  Point
+============
+
+X: 9052
+Y: 8635
+
+To:  Point
+==========
+
+X: 8576
+Y: 8726
+
+Distance
+========
+
+  Distance: 485
+         X: -477
+         Y: 91
+     Angle:  169.2
+
+
+End Of Report.
