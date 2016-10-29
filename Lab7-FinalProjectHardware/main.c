@@ -7,6 +7,7 @@
 #include "esp8266.h"
 #include "Thumbstick.h"
 #include "Accel.h"
+#include "ADC.h"
 #include "Graphics.h"
 
 void DisableInterrupts(void); // Disable interrupts
