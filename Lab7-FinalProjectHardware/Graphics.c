@@ -9,6 +9,7 @@
 
 #include <stdint.h>
 #include "ST7735.h"
+#include "Graphics.h"
 
 typedef struct vector {
   int32_t x; 
@@ -242,4 +243,7 @@ void ST7735_Xcount_Yplot(uint32_t num, uint32_t bufY[]){
 	}
 }
 
-
+void drawShip(void);
+void drawAsteroid(void);
+void drawLaser(void);
+void drawMissile(void);

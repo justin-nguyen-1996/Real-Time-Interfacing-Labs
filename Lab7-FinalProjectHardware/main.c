@@ -4,12 +4,18 @@
 #include "Init.h"
 #include "Buttons.h"
 #include "DAC.h"
+#include "esp8266.h"
+#include "Thumbstick.h"
+#include "Accel.h"
+#include "Graphics.h"
 
 void DisableInterrupts(void); // Disable interrupts
 void EnableInterrupts(void);  // Enable interrupts
 long StartCritical (void);    // previous I bit, disable interrupts
 void EndCritical(long sr);    // restore I bit to previous value
 void WaitForInterrupt(void);  // low power mode
+
+static const int BAUD_RATE = 115200;
 
 int main(void) {
   PortA_Init();
@@ -22,4 +28,7 @@ int main(void) {
   PLL_Init(Bus80MHz);
   Buttons_Init();
   DAC_Init();
+  Thumbstick_Init();
+  Accel_Init();
+  ESP8266_Init(BAUD_RATE);
 }
