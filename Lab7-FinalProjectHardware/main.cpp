@@ -1,14 +1,17 @@
-#include <stdint.h>
-#include "../inc/tm4c123gh6pm.h"
-#include "PLL.h"
-#include "Init.h"
-#include "Buttons.h"
-#include "DAC.h"
-#include "esp8266.h"
-#include "Thumbstick.h"
-#include "Accel.h"
-#include "ADC.h"
-#include "Graphics.h"
+extern "C" {
+	#include <stdint.h>
+	#include "../inc/tm4c123gh6pm.h"
+	#include "PLL.h"
+	#include "Init.h"
+	#include "Buttons.h"
+	#include "DAC.h"
+	#include "esp8266.h"
+	#include "Thumbstick.h"
+	#include "Accel.h"
+	#include "ADC.h"
+	#include "Graphics.h"
+}
+#include "GameRules.h"
 
 void DisableInterrupts(void); // Disable interrupts
 void EnableInterrupts(void);  // Enable interrupts
