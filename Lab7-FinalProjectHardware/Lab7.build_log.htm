@@ -3,34 +3,185 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
-C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\Lab7-FinalProjectHardware\Lab7.uvproj
-Project File Date:  10/27/2016
+C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\Lab7-FinalProjectHardware\Lab7.uvproj
+Project File Date:  10/29/2016
 
 <h2>Output:</h2>
 Build target 'Lab7'
-compiling main.c...
-compiling ADC.c...
+compiling GameRules.cpp...
+compiling main.cpp...
 linking...
-Program Size: Code=7706 RO-data=46 RW-data=100 ZI-data=6524  
+Program Size: Code=7084 RO-data=44 RW-data=96 ZI-data=6528  
 ".\Lab7.axf" - 0 Error(s), 0 Warning(s).
-</pre>
-</body>
-</html>
- ZI-data=6524  
-".\Lab7.axf" - 0 Error(s), 1 Warning(s).
-icks
-ADC.c(37): error:  #20: identifier "TSTICK1_H" is undefined
-    tstick[TSTICK1_H] = ADC0_SSFIFO0_R&0xFFF;  
-ADC.c(38): error:  #20: identifier "TSTICK2_V" is undefined
-    tstick[TSTICK2_V] = ADC0_SSFIFO0_R&0xFFF;  
-ADC.c(40): error:  #20: identifier "ACCEL_X" is undefined
-    accel[ACCEL_X]    = ADC0_SSFIFO0_R&0xFFF;  // 4) read ADC conversions on accelerometers
-ADC.c(41): error:  #20: identifier "ACCEL_Y" is undefined
-    accel[ACCEL_Y]    = ADC0_SSFIFO0_R&0xFFF;
-ADC.c(42): error:  #20: identifier "ACCEL_Z" is undefined
-    accel[ACCEL_Z]    = ADC0_SSFIFO0_R&0xFFF;  
-ADC.c: 1 warning, 6 errors
-".\Lab7.axf" - 6 Error(s), 1 Warning(s).
+ += Velocity;
+GameRules.cpp(20): error:  #349: no operator "+=" matches these operands
+            operand types are: Vector += Vector
+        Velocity += Acceleration;
+GameRules.cpp: 0 warnings, 2 errors
+".\Lab7.axf" - 2 Error(s), 0 Warning(s).
 Target not created
- - 2 Error(s), 2 Warning(s).
+meRules.cpp(10): error:  #70: incomplete type is not allowed
+  void resolveCollision(Entity* a, Entity* b);
+GameRules.cpp(10): error:  #18: expected a ")"
+  void resolveCollision(Entity* a, Entity* b);
+GameRules.cpp(11): error:  #70: incomplete type is not allowed
+  void updateLoc(Entity* e);
+GameRules.cpp(11): error:  #20: identifier "e" is undefined
+  void updateLoc(Entity* e);
+GameRules.cpp(12): error:  #70: incomplete type is not allowed
+  void updateVel(Entity* e);
+GameRules.cpp(13): error:  #70: incomplete type is not allowed
+  void updateState(Entity* e);
+GameRules.cpp(17): error:  #349: no operator "+=" matches these operands
+            operand types are: Vector += Vector
+        Position += Velocity;
+GameRules.cpp(18): error:  #349: no operator "+=" matches these operands
+            operand types are: Vector += Vector
+        Velocity += Acceleration;
+GameRules.cpp(7): warning:  #177-D: variable "entityList" was declared but never referenced
+  static Entity entityList[256];
+GameRules.cpp: 1 warning, 12 errors
+compiling main.cpp...
+".\Lab7.axf" - 12 Error(s), 1 Warning(s).
+Target not created
+ error:  #247: variable "updateLoc" has already been defined
+  void updateLoc(Entity* e);
+GameRules.cpp(11): error:  #70: incomplete type is not allowed
+  void updateLoc(Entity* e);
+GameRules.cpp(12): error:  #247: variable "updateVel" has already been defined
+  void updateVel(Entity* e);
+GameRules.cpp(12): error:  #70: incomplete type is not allowed
+  void updateVel(Entity* e);
+GameRules.cpp(13): error:  #247: variable "updateState" has already been defined
+  void updateState(Entity* e);
+GameRules.cpp(13): error:  #70: incomplete type is not allowed
+  void updateState(Entity* e);
+GameRules.cpp(17): error:  #349: no operator "+=" matches these operands
+            operand types are: Vector += Vector
+        Position += Velocity;
+GameRules.cpp(18): error:  #349: no operator "+=" matches these operands
+            operand types are: Vector += Vector
+        Velocity += Acceleration;
+GameRules.cpp(7): warning:  #177-D: variable "entityList" was declared but never referenced
+  static Entity entityList[256];
+GameRules.cpp: 1 warning, 23 errors
+compiling main.cpp...
+GameRules.h(94): error:  #20: identifier "Entity" is undefined
+  uint8_t isCollision(Entity* a, Entity* b);
+GameRules.h(94): error:  #20: identifier "a" is undefined
+  uint8_t isCollision(Entity* a, Entity* b);
+GameRules.h(94): error:  #18: expected a ")"
+  uint8_t isCollision(Entity* a, Entity* b);
+GameRules.h(95): error:  #70: incomplete type is not allowed
+  void resolveCollision(Entity* a, Entity* b);
+GameRules.h(95): error:  #18: expected a ")"
+  void resolveCollision(Entity* a, Entity* b);
+GameRules.h(96): error:  #70: incomplete type is not allowed
+  void updateLoc(Entity* e);
+GameRules.h(96): error:  #20: identifier "e" is undefined
+  void updateLoc(Entity* e);
+GameRules.h(97): error:  #70: incomplete type is not allowed
+  void updateVel(Entity* e);
+GameRules.h(98): error:  #70: incomplete type is not allowed
+  void updateState(Entity* e);
+main.cpp: 0 warnings, 9 errors
+".\Lab7.axf" - 32 Error(s), 1 Warning(s).
+Target not created
+ a ")"
+  uint8_t isCollision(Entity* a, Entity* b);
+GameRules.h(95): error:  #70: incomplete type is not allowed
+  void resolveCollision(Entity* a, Entity* b);
+GameRules.h(95): error:  #18: expected a ")"
+  void resolveCollision(Entity* a, Entity* b);
+GameRules.h(96): error:  #70: incomplete type is not allowed
+  void updateLoc(Entity* e);
+GameRules.h(96): error:  #20: identifier "e" is undefined
+  void updateLoc(Entity* e);
+GameRules.h(97): error:  #70: incomplete type is not allowed
+  void updateVel(Entity* e);
+GameRules.h(98): error:  #70: incomplete type is not allowed
+  void updateState(Entity* e);
+main.cpp: 0 warnings, 10 errors
+".\Lab7.axf" - 34 Error(s), 2 Warning(s).
+Target not created
+Entity* e);
+GameRules.cpp(7): error:  #757: "Entity" is not a type name
+  static Entity entityList[256];
+GameRules.cpp(9): error:  #247: variable "isCollision" has already been defined
+  uint8_t isCollision(Entity* a, Entity* b);
+GameRules.cpp(9): error:  #18: expected a ")"
+  uint8_t isCollision(Entity* a, Entity* b);
+GameRules.cpp(10): error:  #247: variable "resolveCollision" has already been defined
+  void resolveCollision(Entity* a, Entity* b);
+GameRules.cpp(10): error:  #70: incomplete type is not allowed
+  void resolveCollision(Entity* a, Entity* b);
+GameRules.cpp(10): error:  #18: expected a ")"
+  void resolveCollision(Entity* a, Entity* b);
+GameRules.cpp(11): error:  #247: variable "updateLoc" has already been defined
+  void updateLoc(Entity* e);
+GameRules.cpp(11): error:  #70: incomplete type is not allowed
+  void updateLoc(Entity* e);
+GameRules.cpp(12): error:  #247: variable "updateVel" has already been defined
+  void updateVel(Entity* e);
+GameRules.cpp(12): error:  #70: incomplete type is not allowed
+  void updateVel(Entity* e);
+GameRules.cpp(13): error:  #247: variable "updateState" has already been defined
+  void updateState(Entity* e);
+GameRules.cpp(13): error:  #70: incomplete type is not allowed
+  void updateState(Entity* e);
+GameRules.cpp(17): error:  #349: no operator "+=" matches these operands
+            operand types are: Vector += Vector
+        Position += Velocity;
+GameRules.cpp(18): error:  #349: no operator "+=" matches these operands
+            operand types are: Vector += Vector
+        Velocity += Acceleration;
+GameRules.cpp(7): warning:  #177-D: variable "entityList" was declared but never referenced
+  static Entity entityList[256];
+GameRules.cpp: 1 warning, 24 errors
+compiling main.cpp...
+GameRules.h(79): error:  #20: identifier "T" is undefined
+        Shoot (Vector P, Vector V, Vector A, uint8_t d) : Spatial(P, V, T), damage(d) {}
+GameRules.h(94): error:  #20: identifier "Entity" is undefined
+  uint8_t isCollision(Entity* a, Entity* b);
+GameRules.h(94): error:  #20: identifier "a" is undefined
+  uint8_t isCollision(Entity* a, Entity* b);
+GameRules.h(94): error:  #18: expected a ")"
+  uint8_t isCollision(Entity* a, Entity* b);
+GameRules.h(95): error:  #70: incomplete type is not allowed
+  void resolveCollision(Entity* a, Entity* b);
+GameRules.h(95): error:  #18: expected a ")"
+  void resolveCollision(Entity* a, Entity* b);
+GameRules.h(96): error:  #70: incomplete type is not allowed
+  void updateLoc(Entity* e);
+GameRules.h(96): error:  #20: identifier "e" is undefined
+  void updateLoc(Entity* e);
+GameRules.h(97): error:  #70: incomplete type is not allowed
+  void updateVel(Entity* e);
+GameRules.h(98): error:  #70: incomplete type is not allowed
+  void updateState(Entity* e);
+main.cpp: 0 warnings, 10 errors
+".\Lab7.axf" - 61 Error(s), 1 Warning(s).
+Target not created
+94): error:  #291: no default constructor exists for class "Shoot"
+  uint8_t isCollision(Entity* a, Entity* b);
+GameRules.h(94): error:  #65: expected a ";"
+  uint8_t isCollision(Entity* a, Entity* b);
+GameRules.h(95): error:  #70: incomplete type is not allowed
+  void resolveCollision(Entity* a, Entity* b);
+GameRules.h(95): error:  #20: identifier "Entity" is undefined
+  void resolveCollision(Entity* a, Entity* b);
+GameRules.h(95): error:  #20: identifier "a" is undefined
+  void resolveCollision(Entity* a, Entity* b);
+GameRules.h(95): error:  #18: expected a ")"
+  void resolveCollision(Entity* a, Entity* b);
+GameRules.h(96): error:  #70: incomplete type is not allowed
+  void updateLoc(Entity* e);
+GameRules.h(96): error:  #20: identifier "e" is undefined
+  void updateLoc(Entity* e);
+GameRules.h(97): error:  #70: incomplete type is not allowed
+  void updateVel(Entity* e);
+GameRules.h(98): error:  #70: incomplete type is not allowed
+  void updateState(Entity* e);
+main.cpp: 0 warnings, 13 errors
+".\Lab7.axf" - 67 Error(s), 2 Warning(s).
 Target not created
