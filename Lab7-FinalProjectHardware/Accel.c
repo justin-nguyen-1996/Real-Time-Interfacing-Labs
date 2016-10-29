@@ -1,5 +1,6 @@
 #include <stdint.h>
 #include "../inc/tm4c123gh6pm.h"
+#include "Accel.h"
 
 void Accel_Init(void) {
   SYSCTL_RCGCADC_R |= 0x0001;     // activate ADC0 

@@ -1,5 +1,6 @@
 #include <stdint.h>
 #include "../inc/tm4c123gh6pm.h"
+#include "Thumbstick.h"
 
 void Thumbstick_Init(void) {
   SYSCTL_RCGCADC_R |= 0x0001;     // activate ADC0 
