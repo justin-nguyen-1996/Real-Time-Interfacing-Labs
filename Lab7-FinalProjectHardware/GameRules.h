@@ -15,20 +15,14 @@ typedef enum {
   MISSILE
 } EntityType;
 
-//typedef struct Loc {
-//  uint8_t x;
-//  uint8_t y;
-//} Loc;
-//
-//typedef struct Vel {
-//  uint8_t speed;
-//  uint8_t dir;
-//} Vel;
-
-typedef struct Vector {
+class Vector {
 	public:
 	uint16_t x;
 	uint16_t y;
+  
+  Vector() : x(0), y(0) {}
+  Vector(uint16_t xx, uint16_t yy) : x(xx), y(yy) {}
+    // TODO: Vector(Vector v) : x(v.x), y(v.y) {}
 
 	Vector operator+(const Vector & v)
 	{
@@ -44,11 +38,11 @@ typedef struct Vector {
 		y = y + v.y;
 		return *this;
 	} 
-} Vector;
+};
 
 class Spatial {
 	public:
-	Vector Position;
+  Vector Position;
 	Vector Velocity;
 	Vector Acceleration;
 	
@@ -56,12 +50,6 @@ class Spatial {
 	void update (void);
 };
 	
-//typedef struct Entity {
-//  Vel vel;
-//  Loc loc;
-//  EntityType id;
-//} Entity;
-
 class Asteroid : public Spatial {
 	public:
 	uint8_t radius;
@@ -85,18 +73,6 @@ class Shoot : public Spatial {
 	uint16_t timer;
 	Shoot (Vector P, Vector V, Vector A, uint8_t d, uint16_t t) : Spatial(P, V, A), damage(d), timer(t) {}
 };
-
-//typedef struct Laser {
-//  Vel vel;
-//  Loc loc;
-//  Entity id;
-//} Laser;
-//
-//typedef struct Missile {
-//  Vel vel;
-//  Loc loc;
-//  Entity id;
-//} Missile;
 
 //still reading about collisions in a quadtree
 

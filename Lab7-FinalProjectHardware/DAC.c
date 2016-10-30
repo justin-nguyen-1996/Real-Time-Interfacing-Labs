@@ -49,7 +49,7 @@
 #include "DAC.h"
 #include "../inc/tm4c123gh6pm.h"
 
-void DAC_Init(void) { // TODO: change back to DAC_Init
+void DAC_Init(void) {
   SYSCTL_RCGCSSI_R |= 0x04;         // activate SSI2
   GPIO_PORTB_AMSEL_R &= ~0xFF;      // disable analog functionality on PB7-0
   GPIO_PORTB_AFSEL_R |= 0xB0;       // alternate function on PB 7,5,4

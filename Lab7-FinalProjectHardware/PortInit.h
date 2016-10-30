@@ -15,6 +15,9 @@
 #define PIN6  0x40
 #define PIN7  0x80
 
+#define LEFTSWITCH  (*((volatile uint32_t *)0x40025040))
+#define RIGHTSWITCH (*((volatile uint32_t *)0x40025004))
+
 #define PA0   (*((volatile uint32_t *)0x40004004))
 #define PA1   (*((volatile uint32_t *)0x40004008))
 #define PA2   (*((volatile uint32_t *)0x40004010))

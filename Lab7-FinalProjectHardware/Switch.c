@@ -50,7 +50,6 @@ void GPIOPortB_Handler(void)
 
 void Switch_Init(void)
 {
-	PortB_Init();	
 	Timer2Arm();
 }
 

@@ -243,6 +243,10 @@ void ST7735_Xcount_Yplot(uint32_t num, uint32_t bufY[]){
 	}
 }
 
+void ST7735_Test() {
+  ST7735_OutString((char*) "Trevor murCOCK\n");
+}
+
 void drawShip(void);
 void drawAsteroid(void);
 void drawLaser(void);

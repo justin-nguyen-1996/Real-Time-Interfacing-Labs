@@ -2,19 +2,22 @@
 #include "ADC.h"
 #include "Accel.h"
 #include "Thumbstick.h"
+#include "Debug.h"
 
 // 125k max sampling
 // SS2 triggering event: software trigger, busy-wait sampling
 void ADC_Init(void) {
-  ADC0_PC_R &= ~0xF;              // 8) clear max sample rate field
-  ADC0_PC_R |= 0x1;               //    configure for 125K samples/sec
-  ADC0_SSPRI_R = 0x3210;          // 9) Sequencer 3 is lowest priority
-  ADC0_ACTSS_R &= ~0x0001;        // 10) disable sample sequencer 0
-  ADC0_EMUX_R &= ~0x000F;         // 11) seq0 is software trigger
-  ADC0_SSMUX0_R = 0x01234567;     // 12) set channels for SS0
-  ADC0_SSCTL0_R = 0x60000000;     // 13) IE7 END7
-  ADC0_IM_R &= ~0x0001;           // 14) disable SS0 interrupts
-  ADC0_ACTSS_R |= 0x0001;         // 15) enable sample sequencer 0
+  SYSCTL_RCGCADC_R |= 0x0001;     // activate ADC0 
+  while ((SYSCTL_RCGCADC_R & 0x0001) == 0) {}
+  ADC0_PC_R &= ~0xF;              // clear max sample rate field
+  ADC0_PC_R |= 0x1;               // configure for 125K samples/sec
+  ADC0_SSPRI_R = 0x3210;          // Sequencer 3 is lowest priority
+  ADC0_ACTSS_R &= ~0x0001;        // disable sample sequencer 0
+  ADC0_EMUX_R &= ~0x000F;         // seq0 is software trigger
+  ADC0_SSMUX0_R = 0x01234567;     // set channels for SS0
+  ADC0_SSCTL0_R = 0x60000000;     // IE7 END7
+  ADC0_IM_R &= ~0x0001;           // disable SS0 interrupts
+  ADC0_ACTSS_R |= 0x0001;         // enable sample sequencer 0
 }
 
 //------------ADC_Out------------
@@ -38,9 +41,37 @@ void ADC_Out(uint16_t tstick[4], uint16_t accel[3]) {
   tstick[TSTICK1_V] = ADC0_SSFIFO0_R&0xFFF;  // 3) read ADC conversions on thumbsticks
   tstick[TSTICK1_H] = ADC0_SSFIFO0_R&0xFFF;  
   tstick[TSTICK2_V] = ADC0_SSFIFO0_R&0xFFF;  
-  tstick[TSTICK1_H] = ADC0_SSFIFO0_R&0xFFF;  
+  tstick[TSTICK2_H] = ADC0_SSFIFO0_R&0xFFF;  
   accel[ACCEL_X]    = ADC0_SSFIFO0_R&0xFFF;  // 4) read ADC conversions on accelerometers
   accel[ACCEL_Y]    = ADC0_SSFIFO0_R&0xFFF;
   accel[ACCEL_Z]    = ADC0_SSFIFO0_R&0xFFF;  
   ADC0_ISC_R = 0x0001;             // 4) acknowledge completion
 }
+
+#ifdef DEBUG
+#include "ST7735.h"
+#include "PortInit.h"
+void ADC_Test() {
+  uint16_t tstick[4] = {0,0,0,0}; uint16_t accel[3] = {0,0,0};
+  while (1) {
+
+    ADC_Out(tstick, accel);
+    
+    ST7735_SetCursor(0,0);
+    ST7735_OutString("TStick_1 X:     "); ST7735_SetCursor(12,0); ST7735_OutUDec(tstick[TSTICK1_V]); ST7735_OutChar('\n');
+    ST7735_OutString("TStick_1 Y:     "); ST7735_SetCursor(12,1); ST7735_OutUDec(tstick[TSTICK1_H]); ST7735_OutChar('\n');
+    ST7735_OutString("TStick_2 X:     "); ST7735_SetCursor(12,2); ST7735_OutUDec(tstick[TSTICK2_V]); ST7735_OutChar('\n');
+    ST7735_OutString("TStick_2 Y:     "); ST7735_SetCursor(12,3); ST7735_OutUDec(tstick[TSTICK2_H]); ST7735_OutChar('\n');
+    ST7735_OutString("Accelrom X:     "); ST7735_SetCursor(12,4);  ST7735_OutUDec(accel[ACCEL_X]); ST7735_OutChar('\n');
+    ST7735_OutString("Accelrom Y:     "); ST7735_SetCursor(12,5);  ST7735_OutUDec(accel[ACCEL_Y]); ST7735_OutChar('\n');
+    ST7735_OutString("Accelrom Z:     "); ST7735_SetCursor(12,6);  ST7735_OutUDec(accel[ACCEL_Z]); ST7735_OutChar('\n');
+    
+    ST7735_OutChar('\n');
+    ST7735_OutString("Keep sampling?\n");
+    ST7735_OutString("Yes --> press L_SW\n");
+    ST7735_OutString("No  --> press R_SW\n");
+    while (LEFTSWITCH == 0x10   &&   RIGHTSWITCH == 0x01) {}
+    if (RIGHTSWITCH == 0x00) { break; }
+  }
+}
+#endif
