@@ -40,6 +40,8 @@ class Vector {
 	} 
 };
 
+// objects in our system will be located at the top left corner of that image's border
+// e.g. if an image has four vertices {(0,0) (0,4) (4,0) (4,4)} then it will be located at (0,0)
 class Rectangle {
   public:
 	uint16_t x;
@@ -55,8 +57,8 @@ class Entity {
 	Rectangle Bounds;
 	Vector Velocity;
 	Vector Acceleration;
-	EntityType type;
-	uint32_t data1;
+	EntityType type; // type will tell us which entity we are working with (shouldn't use Polymorphism in embedded systems)
+	uint32_t data1;  // data will be a generic field used for sending data between objects
 	uint32_t data2;
 	
 	Entity (Rectangle B, Vector V, Vector A, EntityType t, uint32_t d1, uint32_t d2) : 
@@ -64,8 +66,8 @@ class Entity {
 	void update (void);
 };
 
-#define MAX_OBJECTS 10
-#define MAX_LEVELS 5
+#define MAX_OBJECTS   10  // the maximum number of entities per quadtree
+#define MAX_LEVELS    5   // the granularity of our quadtrees (i.e. a quadtree can only be divided this many times)
 
 class EntityList {
 	public:
@@ -74,7 +76,7 @@ class EntityList {
   
 	EntityList(void) : nextIndex(0) {}
 	~EntityList(void) { for (int i = 0; i < nextIndex; i++) { delete List[i]; }	}
-	void removeOs (void);
+	void removeZeroes (void);
 //TODO:
 	void push (Entity * E);
 	Entity * pop (void);
@@ -83,15 +85,15 @@ class EntityList {
 	
 class Quadtree {
 	public:
-	uint8_t level;
-	EntityList objects;
+	uint8_t level;      // the number of times this quadtree has been divided
+	EntityList objects; // list of all the entities in this quadtree
 	Rectangle bounds;
 	Quadtree * nodes[4];
 	
 	Quadtree (uint8_t l, Rectangle b) : level(l), bounds(b) {}
 	void clear (void);
 	void split (void);
-	int8_t getIndex (Rectangle R);
+	int8_t getQuadrant (Rectangle R);
 	void insert (Entity * E); 
 	EntityList retrieve (EntityList returnObjects, Rectangle R);
 	
