@@ -42,18 +42,35 @@ class Vector {
 
 class Entity {
 	public:
-  Vector Position;
+	Rectangle Bounds;
 	Vector Velocity;
 	Vector Acceleration;
 	EntityType type;
 	uint32_t data1;
 	uint32_t data2;
 	
-	Spatial (Vector P, Vector V, Vector A, EntityType t, uint32_t d1, uint32_t d2) : 
-		Position(P), Velocity(V), Acceleration(A), type(t), data1(d1), data2(d2) {};
+	Entity (Rectangle B, Vector V, Vector A, EntityType t, uint32_t d1, uint32_t d2) : 
+		Bounds(B), Velocity(V), Acceleration(A), type(t), data1(d1), data2(d2) {};
 	void update (void);
 };
 
+#define MAX_OBJECTS 10
+#define MAX_LEVELS 5
+
+class EntityList {
+	public:
+	Entity * List[MAX_OBJECTS];
+	uint8_t nextIndex;
+	
+	EntityList(void) : nextIndex(0) {}
+	~EntityList(void) { for (int i = 0; i < nextIndex; i++) { delete List[i]; }	}
+	void removeOs (void);
+//TODO:
+	void push (Entity * E);
+	Entity * pop (void);
+	bool isFull(void);
+}
+	
 typdef struct Rectangle {
 	uint16_t x;
 	uint16_t y;
@@ -61,18 +78,20 @@ typdef struct Rectangle {
 	uint16_t h;
 } Rectangle;
 
-#define MAX_OBJECTS 10
-#define MAX_LEVELS 5
 class Quadtree {
 	public:
 	uint8_t level;
-	Entity * objects[MAX_OBJECTS];
+	EntityList objects
 	Rectangle bounds;
 	Quadtree * nodes[4];
 	
 	Quadtree (uint8_t l, Rectangle b) : level(l), bounds(b) {}
 	void clear (void);
 	void split (void);
+	int8_t getIndex (Rectangle R);
+	void insert (Entity * E); 
+	EntityList retrieve (EntityList returnObjects, Rectangle R);
+	
 } //NOTDONE
 	
 	
