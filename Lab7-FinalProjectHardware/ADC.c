@@ -9,6 +9,7 @@
 void ADC_Init(void) {
   SYSCTL_RCGCADC_R |= 0x0001;     // activate ADC0 
   while ((SYSCTL_RCGCADC_R & 0x0001) == 0) {}
+	int delay = 0; delay++; delay++;
   ADC0_PC_R &= ~0xF;              // clear max sample rate field
   ADC0_PC_R |= 0x1;               // configure for 125K samples/sec
   ADC0_SSPRI_R = 0x3210;          // Sequencer 3 is lowest priority
@@ -38,13 +39,13 @@ void ADC_Init(void) {
 void ADC_Out(uint16_t tstick[4], uint16_t accel[3]) { 
   ADC0_PSSI_R = 0x0001;            // 1) initiate SS0
   while((ADC0_RIS_R&0x01)==0){};   // 2) wait for conversion done
-  tstick[TSTICK1_V] = ADC0_SSFIFO0_R&0xFFF;  // 3) read ADC conversions on thumbsticks
-  tstick[TSTICK1_H] = ADC0_SSFIFO0_R&0xFFF;  
-  tstick[TSTICK2_V] = ADC0_SSFIFO0_R&0xFFF;  
   tstick[TSTICK2_H] = ADC0_SSFIFO0_R&0xFFF;  
-  accel[ACCEL_X]    = ADC0_SSFIFO0_R&0xFFF;  // 4) read ADC conversions on accelerometers
-  accel[ACCEL_Y]    = ADC0_SSFIFO0_R&0xFFF;
+  tstick[TSTICK2_V] = ADC0_SSFIFO0_R&0xFFF;  
+  tstick[TSTICK1_H] = ADC0_SSFIFO0_R&0xFFF;  
+  tstick[TSTICK1_V] = ADC0_SSFIFO0_R&0xFFF;  // 3) read ADC conversions on thumbsticks
   accel[ACCEL_Z]    = ADC0_SSFIFO0_R&0xFFF;  
+  accel[ACCEL_Y]    = ADC0_SSFIFO0_R&0xFFF;
+  accel[ACCEL_X]    = ADC0_SSFIFO0_R&0xFFF;  // 4) read ADC conversions on accelerometers
   ADC0_ISC_R = 0x0001;             // 4) acknowledge completion
 }
 
@@ -70,8 +71,8 @@ void ADC_Test() {
     ST7735_OutString("Keep sampling?\n");
     ST7735_OutString("Yes --> press L_SW\n");
     ST7735_OutString("No  --> press R_SW\n");
-    while (LEFTSWITCH == 0x10   &&   RIGHTSWITCH == 0x01) {}
-    if (RIGHTSWITCH == 0x00) { break; }
+//    while (LEFTSWITCH == 0x10   &&   RIGHTSWITCH == 0x01) {}
+//    if (RIGHTSWITCH == 0x00) { break; }
   }
 }
 #endif
