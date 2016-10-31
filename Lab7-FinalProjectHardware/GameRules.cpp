@@ -102,7 +102,7 @@ void Quadtree::insert (Entity * E)
 		for (int i = 0; i < objectsNextIndex; i++)
 		{
 			int8_t index = getIndex(objects.List[i]->Bounds);
-			if (index != -1) { nodes[index]->insert(objects.List[i]) }
+			if (index != -1) { nodes[index]->insert(objects.List[i]); }
 			objects.List[i] = 0;
 			objects.removeOs;
 		}
