@@ -69,14 +69,9 @@ class Entity {
 
 class EntityList {
 	public:
-  Entity * List[MAX_OBJECTS]; // TODO: supposed to be an array of Entity pointers (which is what it is now) or an array of entities?
+  Entity * List[MAX_OBJECTS];
 	uint8_t nextIndex;
   
-  // TODO: need to overload the subscript operator (but to do this, first resolve previous todo 3 lines up)
-//  Entity& operator[] (const int index) {
-//    return List[index];
-//  }
-	
 	EntityList(void) : nextIndex(0) {}
 	~EntityList(void) { for (int i = 0; i < nextIndex; i++) { delete List[i]; }	}
 	void removeOs (void);

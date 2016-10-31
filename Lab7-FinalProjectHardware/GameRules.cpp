@@ -18,7 +18,7 @@ extern "C"{
 
 void Entity::update (void) 
 {
-	(Vector) {Bounds.x, Bounds.y} += Velocity;
+  Bounds.x += Velocity.x; Bounds.y += Velocity.y;
 	Velocity += Acceleration;
 }
 
@@ -28,17 +28,18 @@ void Entity::update (void)
 void EntityList::removeOs (void)
 {
 	int i = 0;
-	for (int j = 0; j < MAX_OBJECTS; j++)
-	{	
+	for (int j = 0; j < MAX_OBJECTS; j++) 
+  {	
 		if (List[j] != 0) {	List[i++] = List[j]; }
 	}	
+  nextIndex = i;
 }		
 
 // ----------- Quadtree Methods -------------
 
 void Quadtree::clear (void)
 {
-	for (int i = 0; i < MAX_OBJECTS; i++) {delete objects[i];}
+	for (int i = 0; i < MAX_OBJECTS; i++) {delete objects.List[i];}
 	for (int i = 0; i < 4; i++) 
 	{
 		if (nodes[i] != 0)
