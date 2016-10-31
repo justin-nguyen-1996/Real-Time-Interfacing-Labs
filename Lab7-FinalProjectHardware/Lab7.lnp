@@ -2,7 +2,6 @@
 ".\startup.o"
 ".\pll.o"
 ".\dac.o"
-".\switch.o"
 ".\esp8266.o"
 ".\st7735.o"
 ".\buttons.o"
