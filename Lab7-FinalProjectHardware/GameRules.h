@@ -40,46 +40,51 @@ class Vector {
 	} 
 };
 
-class Spatial {
+class Entity {
 	public:
   Vector Position;
 	Vector Velocity;
 	Vector Acceleration;
+	EntityType type;
+	uint32_t data1;
+	uint32_t data2;
 	
-	Spatial (Vector P, Vector V, Vector A) : Position(P), Velocity(V), Acceleration(A) {};
+	Spatial (Vector P, Vector V, Vector A, EntityType t, uint32_t d1, uint32_t d2) : 
+		Position(P), Velocity(V), Acceleration(A), type(t), data1(d1), data2(d2) {};
 	void update (void);
 };
-	
-class Asteroid : public Spatial {
+
+typdef struct Rectangle {
+	uint16_t x;
+	uint16_t y;
+	uint16_t w;
+	uint16_t h;
+} Rectangle;
+
+#define MAX_OBJECTS 10
+#define MAX_LEVELS 5
+class Quadtree {
 	public:
-	uint8_t radius;
-	Asteroid (Vector P, Vector V, Vector A, uint8_t r) : Spatial(P, V, A), radius(r) {}
-};
-
-class Ship : public Spatial {
-	uint8_t playerID;
-	uint16_t health;
-	uint16_t bullets;
-// other things like reload time remaining, rate of fire, special weapons, special abilities, etc.
-	Ship (uint8_t pID, uint16_t h, uint16_t b, Vector P, Vector V, Vector A) : 
-		Spatial(P, V, A), playerID(pID), health(h), bullets(b) {}
+	uint8_t level;
+	Entity * objects[MAX_OBJECTS];
+	Rectangle bounds;
+	Quadtree * nodes[4];
 	
-};
+	Quadtree (uint8_t l, Rectangle b) : level(l), bounds(b) {}
+	void clear (void);
+	void split (void);
+} //NOTDONE
+	
+	
+	
 
-// Base class for things that do damage
-// timer is for things that will dissapear or blow up after some delay
-class Shoot : public Spatial {
-	uint8_t damage;
-	uint16_t timer;
-	Shoot (Vector P, Vector V, Vector A, uint8_t d, uint16_t t) : Spatial(P, V, A), damage(d), timer(t) {}
-};
-
-//still reading about collisions in a quadtree
 
 //uint8_t isCollision(Entity* a, Entity* b);
 //void resolveCollision(Entity* a, Entity* b);
 //void updateLoc(Entity* e);
 //void updateVel(Entity* e);
 //void updateState(Entity* e);
+
+
 
 #endif
