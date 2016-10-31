@@ -3,10 +3,110 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
-C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\Lab7-FinalProjectHardware\Lab7.uvproj
+C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\Lab7-FinalProjectHardware\Lab7.uvproj
 Project File Date:  10/30/2016
 
 <h2>Output:</h2>
-</pre>
-</body>
-</html>
+Build target 'Lab7'
+compiling GameRules.cpp...
+GameRules.cpp(21): error:  #29: expected an expression
+        (Vector) {Bounds.x, Bounds.y} += Velocity;
+GameRules.cpp(41): error:  #349: no operator "[]" matches these operands
+            operand types are: EntityList [ int ]
+        for (int i = 0; i < MAX_OBJECTS; i++) {delete objects[i];}
+GameRules.cpp(94): error:  #413: no suitable conversion function from "Entity" to "Entity *" exists
+                        nodes[index]->insert(*E);
+GameRules.cpp(98): error:  #413: no suitable conversion function from "Entity" to "Entity *" exists
+        else if (!objects.isFull()) { objects.push(*E); }       
+GameRules.cpp(102): error:  #20: identifier "objectsNextIndex" is undefined
+                for (int i = 0; i < objectsNextIndex; i++)
+GameRules.cpp(105): error:  #65: expected a ";"
+                        if (index != -1) { nodes[index]->insert(objects.List[i]) }
+GameRules.cpp(107): error:  #300: a pointer to a bound function may only be used to call the function
+                        objects.removeOs;
+GameRules.cpp: 0 warnings, 7 errors
+compiling main.cpp...
+main.cpp(27): warning:  #177-D: variable "BAUD_RATE" was declared but never referenced
+  static const int BAUD_RATE = 115200;
+main.cpp(28): warning:  #177-D: variable "tstick" was declared but never referenced
+  static uint16_t tstick[4]; static uint16_t accel[3];
+main.cpp(28): warning:  #177-D: variable "accel" was declared but never referenced
+  static uint16_t tstick[4]; static uint16_t accel[3];
+main.cpp: 3 warnings, 0 errors
+".\Lab7.axf" - 7 Error(s), 3 Warning(s).
+Target not created
+#177-D: variable "subWidth" was declared but never referenced
+        uint16_t subWidth = bounds.w >> 1;
+GameRules.cpp(57): warning:  #177-D: variable "subHeight" was declared but never referenced
+        uint16_t subHeight = bounds.h >> 1;
+GameRules.cpp(89): error:  #20: identifier "NULL" is undefined
+        if (nodes[0] != NULL)
+GameRules.cpp(94): error:  #413: no suitable conversion function from "Entity" to "Entity *" exists
+                        nodes[index]->insert(*E);
+GameRules.cpp(98): error:  #413: no suitable conversion function from "Entity" to "Entity *" exists
+        else if (!objects.isFull()) { objects.push(*E); }       
+GameRules.cpp(102): error:  #20: identifier "objectsNextIndex" is undefined
+                for (int i = 0; i < objectsNextIndex; i++)
+GameRules.cpp(105): error:  #65: expected a ";"
+                        if (index != -1) { nodes[index]->insert(objects.List[i]) }
+GameRules.cpp(107): error:  #300: a pointer to a bound function may only be used to call the function
+                        objects.removeOs;
+GameRules.cpp(116): error:  #20: identifier "NULL" is undefined
+        if (index != -1 && nodes[0] != NULL)
+GameRules.cpp: 4 warnings, 17 errors
+compiling main.cpp...
+GameRules.h(45): error:  #20: identifier "Rectangle" is undefined
+        Rectangle Bounds;
+GameRules.h(52): error:  #20: identifier "Rectangle" is undefined
+        Entity (Rectangle B, Vector V, Vector A, EntityType t, uint32_t d1, uint32_t d2) : 
+main.cpp(27): warning:  #177-D: variable "BAUD_RATE" was declared but never referenced
+  static const int BAUD_RATE = 115200;
+main.cpp(28): warning:  #177-D: variable "tstick" was declared but never referenced
+  static uint16_t tstick[4]; static uint16_t accel[3];
+main.cpp(28): warning:  #177-D: variable "accel" was declared but never referenced
+  static uint16_t tstick[4]; static uint16_t accel[3];
+main.cpp: 3 warnings, 2 errors
+".\Lab7.axf" - 19 Error(s), 7 Warning(s).
+Target not created
+s[index]->insert(objects.List[i]) }
+GameRules.cpp(107): error:  #300: a pointer to a bound function may only be used to call the function
+                        objects.removeOs;
+GameRules.cpp(113): error:  #20: identifier "Rectangle" is undefined
+  EntityList Quadtree::retrieve (EntityList returnObjects, Rectangle R)
+GameRules.cpp(116): error:  #20: identifier "NULL" is undefined
+        if (index != -1 && nodes[0] != NULL)
+GameRules.cpp: 2 warnings, 28 errors
+compiling main.cpp...
+GameRules.h(45): error:  #20: identifier "Rectangle" is undefined
+        Rectangle Bounds;
+GameRules.h(52): error:  #20: identifier "Rectangle" is undefined
+        Entity (Rectangle B, Vector V, Vector A, EntityType t, uint32_t d1, uint32_t d2) : 
+GameRules.h(74): error:  #65: expected a ";"
+  typdef struct Rectangle {
+GameRules.h(79): warning:  #12-D: parsing restarts here after previous syntax error
+  } Rectangle;
+GameRules.h(85): error:  #65: expected a ";"
+        Rectangle bounds;
+GameRules.h(88): error:  #20: identifier "Rectangle" is undefined
+        Quadtree (uint8_t l, Rectangle b) : level(l), bounds(b) {}
+GameRules.h(91): error:  #20: identifier "Rectangle" is undefined
+        int8_t getIndex (Rectangle R);
+GameRules.h(93): error:  #20: identifier "Rectangle" is undefined
+        EntityList retrieve (EntityList returnObjects, Rectangle R);
+GameRules.h(95): warning:  #2770-D: definition at end of file not followed by a semicolon or a declarator
+  } //NOTDONE
+GameRules.h(88): error:  #292: "bounds" is not a nonstatic data member or base class of class "Quadtree"
+        Quadtree (uint8_t l, Rectangle b) : level(l), bounds(b) {}
+PortInit.h(70): error:  #65: expected a ";"
+  void PortA_Init(void);
+main.cpp(27): warning:  #177-D: variable "BAUD_RATE" was declared but never referenced
+  static const int BAUD_RATE = 115200;
+main.cpp(28): warning:  #177-D: variable "tstick" was declared but never referenced
+  static uint16_t tstick[4]; static uint16_t accel[3];
+main.cpp(28): warning:  #177-D: variable "accel" was declared but never referenced
+  static uint16_t tstick[4]; static uint16_t accel[3];
+main.cpp: 5 warnings, 9 errors
+compiling PortInit.c...
+compiling LED.c...
+".\Lab7.axf" - 37 Error(s), 7 Warning(s).
+Target not created

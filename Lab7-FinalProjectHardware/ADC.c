@@ -29,23 +29,23 @@ void ADC_Init(void) {
 // 125k max sampling
 // software trigger, busy-wait sampling
 // data returned by reference
-// data[0] is ADC7 (PD0) 0 to 4095
-// data[1] is ADC6 (PD1) 0 to 4095
-// data[2] is ADC5 (PD2) 0 to 4095
-// data[3] is ADC4 (PD3) 0 to 4095
-// data[4] is ADC3 (PE0) 0 to 4095
-// data[5] is ADC2 (PE1) 0 to 4095
-// data[6] is ADC1 (PE2) 0 to 4095
+// TSTICK1_V is ADC7 (PD0) 0 to 4095
+// TSTICK1_H is ADC6 (PD1) 0 to 4095
+// TSTICK2_V is ADC5 (PD2) 0 to 4095
+// TSTICK2_H is ADC4 (PD3) 0 to 4095
+// ACCEL_X   is ADC3 (PE0) 0 to 4095
+// ACCEL_Y   is ADC2 (PE1) 0 to 4095
+// ACCEL_Z   is ADC1 (PE2) 0 to 4095
 void ADC_Out(uint16_t tstick[4], uint16_t accel[3]) { 
   ADC0_PSSI_R = 0x0001;            // 1) initiate SS0
   while((ADC0_RIS_R&0x01)==0){};   // 2) wait for conversion done
-  tstick[TSTICK2_H] = ADC0_SSFIFO0_R&0xFFF;  
-  tstick[TSTICK2_V] = ADC0_SSFIFO0_R&0xFFF;  
-  tstick[TSTICK1_H] = ADC0_SSFIFO0_R&0xFFF;  
-  tstick[TSTICK1_V] = ADC0_SSFIFO0_R&0xFFF;  // 3) read ADC conversions on thumbsticks
   accel[ACCEL_Z]    = ADC0_SSFIFO0_R&0xFFF;  
-  accel[ACCEL_Y]    = ADC0_SSFIFO0_R&0xFFF;
+  tstick[TSTICK1_V] = ADC0_SSFIFO0_R&0xFFF;  // 3) read ADC conversions on thumbsticks
+  tstick[TSTICK1_H] = ADC0_SSFIFO0_R&0xFFF;  
+  tstick[TSTICK2_V] = ADC0_SSFIFO0_R&0xFFF;
+  tstick[TSTICK2_H] = ADC0_SSFIFO0_R&0xFFF;
   accel[ACCEL_X]    = ADC0_SSFIFO0_R&0xFFF;  // 4) read ADC conversions on accelerometers
+  accel[ACCEL_Y]    = ADC0_SSFIFO0_R&0xFFF;
   ADC0_ISC_R = 0x0001;             // 4) acknowledge completion
 }
 
@@ -57,12 +57,13 @@ void ADC_Test() {
   while (1) {
 
     ADC_Out(tstick, accel);
+    PE3 = 0x00; // Self-Test is disabled
     
     ST7735_SetCursor(0,0);
-    ST7735_OutString("TStick_1 X:     "); ST7735_SetCursor(12,0); ST7735_OutUDec(tstick[TSTICK1_V]); ST7735_OutChar('\n');
-    ST7735_OutString("TStick_1 Y:     "); ST7735_SetCursor(12,1); ST7735_OutUDec(tstick[TSTICK1_H]); ST7735_OutChar('\n');
-    ST7735_OutString("TStick_2 X:     "); ST7735_SetCursor(12,2); ST7735_OutUDec(tstick[TSTICK2_V]); ST7735_OutChar('\n');
-    ST7735_OutString("TStick_2 Y:     "); ST7735_SetCursor(12,3); ST7735_OutUDec(tstick[TSTICK2_H]); ST7735_OutChar('\n');
+    ST7735_OutString("TStick_1 Y:     "); ST7735_SetCursor(12,0); ST7735_OutUDec(tstick[TSTICK1_V]); ST7735_OutChar('\n');
+    ST7735_OutString("TStick_1 X:     "); ST7735_SetCursor(12,1); ST7735_OutUDec(tstick[TSTICK1_H]); ST7735_OutChar('\n');
+    ST7735_OutString("TStick_2 Y:     "); ST7735_SetCursor(12,2); ST7735_OutUDec(tstick[TSTICK2_V]); ST7735_OutChar('\n');
+    ST7735_OutString("TStick_2 X:     "); ST7735_SetCursor(12,3); ST7735_OutUDec(tstick[TSTICK2_H]); ST7735_OutChar('\n');
     ST7735_OutString("Accelrom X:     "); ST7735_SetCursor(12,4);  ST7735_OutUDec(accel[ACCEL_X]); ST7735_OutChar('\n');
     ST7735_OutString("Accelrom Y:     "); ST7735_SetCursor(12,5);  ST7735_OutUDec(accel[ACCEL_Y]); ST7735_OutChar('\n');
     ST7735_OutString("Accelrom Z:     "); ST7735_SetCursor(12,6);  ST7735_OutUDec(accel[ACCEL_Z]); ST7735_OutChar('\n');

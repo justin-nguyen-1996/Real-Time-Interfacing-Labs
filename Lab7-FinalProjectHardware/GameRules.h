@@ -40,6 +40,16 @@ class Vector {
 	} 
 };
 
+class Rectangle {
+  public:
+	uint16_t x;
+	uint16_t y;
+	uint16_t w;
+	uint16_t h;
+  
+  Rectangle(uint16_t xx, uint16_t yy, uint16_t ww, uint16_t hh) : x(xx), y(yy), w(ww), h(hh) {}
+}; 
+
 class Entity {
 	public:
 	Rectangle Bounds;
@@ -69,19 +79,12 @@ class EntityList {
 	void push (Entity * E);
 	Entity * pop (void);
 	bool isFull(void);
-}
+};
 	
-typdef struct Rectangle {
-	uint16_t x;
-	uint16_t y;
-	uint16_t w;
-	uint16_t h;
-} Rectangle;
-
 class Quadtree {
 	public:
 	uint8_t level;
-	EntityList objects
+	EntityList objects;
 	Rectangle bounds;
 	Quadtree * nodes[4];
 	
@@ -92,7 +95,7 @@ class Quadtree {
 	void insert (Entity * E); 
 	EntityList retrieve (EntityList returnObjects, Rectangle R);
 	
-} //NOTDONE
+}; //NOTDONE
 	
 	
 	

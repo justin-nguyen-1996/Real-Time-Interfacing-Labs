@@ -30,7 +30,7 @@ void EntityList::removeOs (void)
 	int i = 0;
 	for (int j = 0; j < MAX_OBJECTS; j++)
 	{	
-		if (List[j] != NULL) {	List[i++] = List[j]; }
+		if (List[j] != 0) {	List[i++] = List[j]; }
 	}	
 }		
 
@@ -41,10 +41,10 @@ void Quadtree::clear (void)
 	for (int i = 0; i < MAX_OBJECTS; i++) {delete objects[i];}
 	for (int i = 0; i < 4; i++) 
 	{
-		if (nodes[i] != NULL)
+		if (nodes[i] != 0)
 		{
 			nodes[i]->clear();
-			nodes[i] = NULL;
+			nodes[i] = 0;
 		}
 	}
 }
@@ -56,10 +56,10 @@ void Quadtree::split (void)
 	uint16_t subWidth = bounds.w >> 1;
 	uint16_t subHeight = bounds.h >> 1;
 	
-	nodes[0] = new Quadtree(level+1, {x, y, subWidth, subHeight});
-	nodes[1] = new Quadtree(level+1, {x, y+subHeight, subWidth, subHeight});
-	nodes[2] = new Quadtree(level+1, {x+subWidth, y, subWidth, subHeight});
-	nodes[3] = new Quadtree(level+1, {x+subWidth, y+subHeight, subWidth, subHeight});
+	nodes[0] = new Quadtree(level+1, Rectangle(x, y, subWidth, subHeight));
+	nodes[1] = new Quadtree(level+1, Rectangle(x, y+subHeight, subWidth, subHeight));
+	nodes[2] = new Quadtree(level+1, Rectangle(x+subWidth, y, subWidth, subHeight));
+	nodes[3] = new Quadtree(level+1, Rectangle(x+subWidth, y+subHeight, subWidth, subHeight));
 }
 
 int8_t Quadtree::getIndex (Rectangle R) 
@@ -86,7 +86,7 @@ int8_t Quadtree::getIndex (Rectangle R)
 //the quadtree is going past the max levels or I'm shit at pointers
 void Quadtree::insert (Entity * E)
 {
-	if (nodes[0] != NULL)
+	if (nodes[0] != 0)
 	{
 		int8_t index = getIndex(E->Bounds);
 		if (index != -1) 
@@ -98,7 +98,7 @@ void Quadtree::insert (Entity * E)
 	else if (!objects.isFull()) { objects.push(*E); }	
 	else if (objects.isFull() && level < MAX_LEVELS)
 	{
-		if (nodes[0] == NULL) { split(); }
+		if (nodes[0] == 0) { split(); }
 		for (int i = 0; i < objectsNextIndex; i++)
 		{
 			int8_t index = getIndex(objects.List[i]->Bounds);
@@ -113,7 +113,7 @@ void Quadtree::insert (Entity * E)
 EntityList Quadtree::retrieve (EntityList returnObjects, Rectangle R)
 {
 	int8_t index = getIndex(R); 
-	if (index != -1 && nodes[0] != NULL)
+	if (index != -1 && nodes[0] != 0)
 	{
 		nodes[index]->retrieve(returnObjects, R);
 	}
