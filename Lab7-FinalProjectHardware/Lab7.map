@@ -386,8 +386,6 @@ Section Cross References
     gamerules.o(.ARM.exidx) refers to gamerules.o(i._ZN10EntityList3popEv) for i._ZN10EntityList3popEv
     gamerules.o(.ARM.exidx) refers to gamerules.o(i._ZN10EntityList7isEmptyEv) for i._ZN10EntityList7isEmptyEv
     gamerules.o(.ARM.exidx) refers to gamerules.o(i._Z12DrawEntities10EntityList) for i._Z12DrawEntities10EntityList
-    gamerules.o(.ARM.exidx) refers to gamerules.o(i._Z15Timer3A_Handlerv) for i._Z15Timer3A_Handlerv
-    gamerules.o(.ARM.exidx) refers to gamerules.o(i._Z13GameTick_Initv) for i._Z13GameTick_Initv
     gamerules.o(.ARM.exidx) refers to gamerules.o(i._ZN10EntityList4pushEP6Entity) for i._ZN10EntityList4pushEP6Entity
     gamerules.o(.ARM.exidx) refers to gamerules.o(i._ZN8Quadtree11getQuadrantE9Rectangle) for i._ZN8Quadtree11getQuadrantE9Rectangle
     gamerules.o(.ARM.exidx) refers to gamerules.o(i._ZN8Quadtree8retrieveEP10EntityList9Rectangle) for i._ZN8Quadtree8retrieveEP10EntityList9Rectangle
@@ -398,6 +396,7 @@ Section Cross References
     gamerules.o(.ARM.exidx) refers to gamerules.o(i._Z13GameRulesTestv) for i._Z13GameRulesTestv
     gamerules.o(.ARM.exidx) refers to gamerules.o(i._ZN6Entity6updateEv) for i._ZN6Entity6updateEv
     gamerules.o(.ARM.exidx) refers to gamerules.o(i._ZN8Quadtree5clearEv) for i._ZN8Quadtree5clearEv
+    main.o(i._Z15Timer3A_Handlerv) refers to main.o(.data) for Flag_GameTick
     main.o(i.main) refers to portinit.o(i.PortA_Init) for PortA_Init
     main.o(i.main) refers to portinit.o(i.PortB_Init) for PortB_Init
     main.o(i.main) refers to portinit.o(i.PortC_Init) for PortC_Init
@@ -416,6 +415,8 @@ Section Cross References
     main.o(i.main) refers to main.o(i._Z12waitForTouchv) for waitForTouch()
     main.o(i.main) refers to st7735.o(i.Output_Clear) for Output_Clear
     main.o(.ARM.exidx) refers to main.o(i._Z12waitForTouchv) for i._Z12waitForTouchv
+    main.o(.ARM.exidx) refers to main.o(i._Z15Timer3A_Handlerv) for i._Z15Timer3A_Handlerv
+    main.o(.ARM.exidx) refers to main.o(i._Z13GameTick_Initv) for i._Z13GameTick_Initv
     main.o(.ARM.exidx) refers to main.o(i.main) for i.main
     __2printf.o(.text) refers to _printf_char_file.o(.text) for _printf_char_file
     __2printf.o(.text) refers to stdio_streams.o(.bss) for __stdout
@@ -994,8 +995,6 @@ Removing Unused input sections from the image.
     Removing graphics.o(.data), (28 bytes).
     Removing gamerules.o(i._Z12DrawEntities10EntityList), (76 bytes).
     Removing gamerules.o(i._Z13GameRulesTestv), (252 bytes).
-    Removing gamerules.o(i._Z13GameTick_Initv), (92 bytes).
-    Removing gamerules.o(i._Z15Timer3A_Handlerv), (12 bytes).
     Removing gamerules.o(i._ZN10EntityList12removeZeroesEv), (38 bytes).
     Removing gamerules.o(i._ZN10EntityList3popEv), (20 bytes).
     Removing gamerules.o(i._ZN10EntityList4pushEP6Entity), (18 bytes).
@@ -1020,12 +1019,14 @@ Removing Unused input sections from the image.
     Removing gamerules.o(.ARM.exidx), (8 bytes).
     Removing gamerules.o(.ARM.exidx), (8 bytes).
     Removing gamerules.o(.ARM.exidx), (8 bytes).
-    Removing gamerules.o(.ARM.exidx), (8 bytes).
-    Removing gamerules.o(.ARM.exidx), (8 bytes).
     Removing gamerules.o(.constdata), (128 bytes).
+    Removing main.o(i._Z13GameTick_Initv), (92 bytes).
+    Removing main.o(i._Z15Timer3A_Handlerv), (20 bytes).
     Removing main.o(.ARM.exidx), (8 bytes).
     Removing main.o(.ARM.exidx), (8 bytes).
-    Removing main.o(.data), (14 bytes).
+    Removing main.o(.ARM.exidx), (8 bytes).
+    Removing main.o(.ARM.exidx), (8 bytes).
+    Removing main.o(.data), (16 bytes).
     Removing led.o(i.Board_Input), (24 bytes).
     Removing led.o(i.LED_BlueToggle), (20 bytes).
     Removing led.o(i.LED_GreenOff), (12 bytes).
@@ -1045,7 +1046,7 @@ Removing Unused input sections from the image.
     Removing gamerules.o(i._ZN6VectorC1Ett), (6 bytes).
     Removing gamerules.o(.ARM.exidx), (8 bytes).
 
-137 unused section(s) (total 9510 bytes) removed from the image.
+137 unused section(s) (total 9520 bytes) removed from the image.
 
 ==============================================================================
 
@@ -1808,7 +1809,7 @@ Memory Map of the image
     0x00001398   0x00000058   Code   RO          638    i.UART0_Handler     uart.o
     0x000013f0   0x00000030   Code   RO           96    i.UART1_Handler     esp8266.o
     0x00001420   0x00000034   Code   RO          646    i.UART_OutCharNonBlock  uart.o
-    0x00001454   0x00000010   Code   RO         1065    i._Z12waitForTouchv  main.o
+    0x00001454   0x00000010   Code   RO         1051    i._Z12waitForTouchv  main.o
     0x00001464   0x00000056   Code   RO          332    i.commandList       st7735.o
     0x000014ba   0x00000002   PAD
     0x000014bc   0x00000184   Code   RO          333    i.commonInit        st7735.o
@@ -1816,7 +1817,7 @@ Memory Map of the image
     0x0000166c   0x0000002c   Code   RO          651    i.copySoftwareToHardware  uart.o
     0x00001698   0x00000048   Code   RO          336    i.fillmessage       st7735.o
     0x000016e0   0x0000000e   Code   RO           97    i.lc                esp8266.o
-    0x000016ee   0x0000004e   Code   RO         1066    i.main              main.o
+    0x000016ee   0x0000004e   Code   RO         1054    i.main              main.o
     0x0000173c   0x00000012   Code   RO          337    i.pushColor         st7735.o
     0x0000174e   0x00000002   PAD
     0x00001750   0x00000074   Code   RO          338    i.setAddrWindow     st7735.o
@@ -1863,7 +1864,7 @@ Image component sizes
        482         76          0         64       3104       4509   esp8266.o
          0          0          0          0          0       3080   gamerules.o
        108         20          0          0          0        391   led.o
-        94          4          0          0          0        826   main.o
+        94          4          0          0          0        818   main.o
        124          6          0          0          0       4639   pll.o
        182         50          0          0          0       2198   portinit.o
       1944        220       2018         44         12      13760   st7735.o
@@ -1872,7 +1873,7 @@ Image component sizes
        456         80          0         16       2048       5084   uart.o
 
     ----------------------------------------------------------------------
-      5816       1494       2052        132       7212      41515   Object Totals
+      5816       1494       2052        132       7212      41507   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         10          0          2          0          0          0   (incl. Padding)
 
@@ -1922,8 +1923,8 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      6164       1510       2052        132       7308      39155   Grand Totals
-      6164       1510       2052        132       7308      39155   ELF Image Totals
+      6164       1510       2052        132       7308      39147   Grand Totals
+      6164       1510       2052        132       7308      39147   ELF Image Totals
       6164       1510       2052        132          0          0   ROM Totals
 
 ==============================================================================
