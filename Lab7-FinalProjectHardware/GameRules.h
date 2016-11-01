@@ -97,8 +97,6 @@ class Quadtree {
 	
 }; //NOTDONE
 
-	
-
 void GameRulesTest(void);
 	
 const unsigned short Bitmap_Ship[] = {
