@@ -79,8 +79,8 @@ ARM Macro Assembler    Page 2
    43 00000000         ;
    44 00000000         ;*******************************************************
                        ***********************
-   45 00000000 00000000 
-                       Heap    EQU              0x00000000
+   45 00000000 00000400 
+                       Heap    EQU              0x00000400
    46 00000000         
    47 00000000         ;*******************************************************
                        ***********************
@@ -107,26 +107,26 @@ ARM Macro Assembler    Page 2
    63 00000000         __heap_base
    64 00000000         HeapMem
    65 00000000                 SPACE            Heap
-   66 00000000         __heap_limit
-   67 00000000         
-   68 00000000         ;*******************************************************
+   66 00000400         __heap_limit
+   67 00000400         
+   68 00000400         ;*******************************************************
                        ***********************
-   69 00000000         ;
-   70 00000000         ; Indicate that the code in this file preserves 8-byte a
+   69 00000400         ;
+   70 00000400         ; Indicate that the code in this file preserves 8-byte a
                        lignment of the stack.
-   71 00000000         ;
-   72 00000000         ;*******************************************************
+   71 00000400         ;
+   72 00000400         ;*******************************************************
                        ***********************
-   73 00000000                 PRESERVE8
-   74 00000000         
-   75 00000000         ;*******************************************************
+   73 00000400                 PRESERVE8
+   74 00000400         
+   75 00000400         ;*******************************************************
                        ***********************
-   76 00000000         ;
-   77 00000000         ; Place code into the reset code section.
-   78 00000000         ;
-   79 00000000         ;*******************************************************
+   76 00000400         ;
+   77 00000400         ; Place code into the reset code section.
+   78 00000400         ;
+   79 00000400         ;*******************************************************
                        ***********************
-   80 00000000                 AREA             RESET, CODE, READONLY
+   80 00000400                 AREA             RESET, CODE, READONLY
    81 00000000                 THUMB
 
 
@@ -1064,8 +1064,8 @@ ARM Macro Assembler    Page 17
   654 0000001A         __user_initial_stackheap
   655 0000001A 4802            LDR              R0, =HeapMem
   656 0000001C 4902            LDR              R1, =(StackMem + Stack)
-  657 0000001E 4A01            LDR              R2, =(HeapMem + Heap)
-  658 00000020 4B02            LDR              R3, =StackMem
+  657 0000001E 4A03            LDR              R2, =(HeapMem + Heap)
+  658 00000020 4B03            LDR              R3, =StackMem
   659 00000022 4770            BX               LR
   660 00000024                 ENDIF
   661 00000024         
@@ -1088,10 +1088,12 @@ ARM Macro Assembler    Page 17
   674 00000024                 END
               00000000 
               00000400 
+              00000400 
               00000000 
 Command Line: --debug --xref --cpu=Cortex-M4 --apcs=interwork --depend=.\startu
-p.d -o.\startup.o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\CMSIS\Include -IC:\Keil\
-ARM\Inc\Luminary --list=.\startup.lst startup.s
+p.d -o.\startup.o -I"C:\Program Files\Keil\ARM\RV31\INC" -I"C:\Program Files\Ke
+il\ARM\CMSIS\Include" -I"C:\Program Files\Keil\ARM\Inc\Luminary" --predefine="_
+_EVAL SETA 1" --list=.\startup.lst startup.s
 
 
 
@@ -1156,7 +1158,7 @@ Symbol: __heap_base
    Uses
       None
 Comment: __heap_base unused
-__heap_limit 00000000
+__heap_limit 00000400
 
 Symbol: __heap_limit
    Definitions
@@ -2495,7 +2497,7 @@ Comment: __user_initial_stackheap used once
 ARM Macro Assembler    Page 1 Alphabetic symbol ordering
 Absolute symbols
 
-Heap 00000000
+Heap 00000400
 
 Symbol: Heap
    Definitions
@@ -2538,4 +2540,4 @@ Symbol: __use_two_region_memory
       None
 Comment: __use_two_region_memory unused
 2 symbols
-479 symbols in table
+480 symbols in table

@@ -3,7 +3,6 @@ extern "C" {
 	#include "../inc/tm4c123gh6pm.h"
 	#include "PLL.h"
 	#include "DAC.h"
-  //#include "Switch.h" // TODO: probably combine switch.c into buttons.c
   #include "LED.h"
 	#include "esp8266.h"
   #include "ST7735.h"
@@ -13,10 +12,9 @@ extern "C" {
 	#include "Accel.h"
 	#include "Graphics.h"
 	#include "ADC.h"
-  #include "GameRules.h"
 	#include "PortInit.h"
 }
-//#include "GameRules.h"
+#include "GameRules.h"
 
 void DisableInterrupts(void); // Disable interrupts
 void EnableInterrupts(void);  // Enable interrupts
@@ -47,13 +45,14 @@ int main(void) {
 //  ESP8266_Init(BAUD_RATE);
   ST7735_InitR(INITR_REDTAB);
 //  Buttons_Init();
-  Thumbstick_Init();
-  Accel_Init();
-  ADC_Init();
+//  Thumbstick_Init();
+//  Accel_Init();
+//  ADC_Init();
   
-  ST7735_Test();  waitForTouch(); Output_Clear();
-  DAC_Test(2);    waitForTouch(); Output_Clear();
+//  ST7735_Test();  waitForTouch(); Output_Clear();
+//  DAC_Test(2);    waitForTouch(); Output_Clear();
 //  Buttons_Test(); waitForTouch(); Output_Clear();
 //  ADC_Test();     waitForTouch(); Output_Clear();
+	GameRulesTest();
   
 }
