@@ -3,11 +3,12 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
-C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\Lab7-FinalProjectHardware\Lab7.uvproj
-Project File Date:  11/01/2016
+C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\Lab7-FinalProjectHardware\Lab7.uvproj
+Project File Date:  10/31/2016
 
 <h2>Output:</h2>
 Build target 'Lab7'
+<<<<<<< HEAD
 compiling main.cpp...
 main.cpp(26): warning:  #177-D: variable "BAUD_RATE" was declared but never referenced
   static const int BAUD_RATE = 115200;
@@ -39,6 +40,36 @@ Finished: 2 information, 0 warning and 6 error messages.
 ".\Lab7.axf" - 6 Error(s), 3 Warning(s).
 Target not created
 n't use Polymorphism in embedded systems)
+=======
+compiling UART.c...
+linking...
+Program Size: Code=6164 RO-data=2052 RW-data=132 ZI-data=7308  
+".\Lab7.axf" - 0 Error(s), 0 Warning(s).
+119): error:  #166: invalid floating constant
+  >>>>>>> 90eaceb90c003faa36d98dfbd21e489e30814250
+UART.h(43): warning:  #12-D: parsing restarts here after previous syntax error
+  void UART_Init(void);
+UART.c: 1 warning, 2 errors
+compiling GameRules.cpp...
+compiling main.cpp...
+main.cpp(25): warning:  #177-D: variable "BAUD_RATE" was declared but never referenced
+  static const int BAUD_RATE = 115200;
+main.cpp(26): warning:  #177-D: variable "tstick" was declared but never referenced
+  static uint16_t tstick[4]; static uint16_t accel[3];
+main.cpp(26): warning:  #177-D: variable "accel" was declared but never referenced
+  static uint16_t tstick[4]; static uint16_t accel[3];
+main.cpp: 3 warnings, 0 errors
+".\Lab7.axf" - 2 Error(s), 4 Warning(s).
+Target not created
+ is not a type name
+        GameActionType type;
+main.cpp(17): error:  #169: expected a declaration
+  }
+GameRules.h(14): warning:  #12-D: parsing restarts here after previous syntax error
+  } EntityType;
+GameRules.h(58): error:  #20: identifier "EntityType" is undefined
+        EntityType type; // type will tell us which entity we are working with (shouldn't use Polymorphism in embedded systems)
+>>>>>>> becb19b06336e7d3487ab74470b83f485fa618d7
 GameRules.h(62): error:  #20: identifier "EntityType" is undefined
         Entity (Rectangle B, Vector V, Vector A, EntityType t, uint32_t d1, uint32_t d2) : 
 main.cpp(26): warning:  #177-D: variable "BAUD_RATE" was declared but never referenced
@@ -49,4 +80,13 @@ main.cpp(27): warning:  #177-D: variable "accel" was declared but never referenc
   static uint16_t tstick[4]; static uint16_t accel[3];
 main.cpp: 5 warnings, 7 errors
 ".\Lab7.axf" - 11 Error(s), 6 Warning(s).
+Target not created
+E" was declared but never referenced
+  static const int BAUD_RATE = 115200;
+main.cpp(27): warning:  #177-D: variable "tstick" was declared but never referenced
+  static uint16_t tstick[4]; static uint16_t accel[3];
+main.cpp(27): warning:  #177-D: variable "accel" was declared but never referenced
+  static uint16_t tstick[4]; static uint16_t accel[3];
+main.cpp: 6 warnings, 8 errors
+".\Lab7.axf" - 13 Error(s), 8 Warning(s).
 Target not created
