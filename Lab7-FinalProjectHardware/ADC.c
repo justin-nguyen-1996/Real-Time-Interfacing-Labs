@@ -9,14 +9,15 @@
 void ADC_Init(void) {
   SYSCTL_RCGCADC_R |= 0x0001;     // activate ADC0 
   while ((SYSCTL_RCGCADC_R & 0x0001) == 0) {}
-	int delay = 0; delay++; delay++;
+  for (int delay = 0; delay < 1; ++delay) {} // for some reason needs extra delay ... magic unicorns
   ADC0_PC_R &= ~0xF;              // clear max sample rate field
   ADC0_PC_R |= 0x1;               // configure for 125K samples/sec
   ADC0_SSPRI_R = 0x3210;          // Sequencer 3 is lowest priority
   ADC0_ACTSS_R &= ~0x0001;        // disable sample sequencer 0
   ADC0_EMUX_R &= ~0x000F;         // seq0 is software trigger
-  ADC0_SSMUX0_R = 0x01234567;     // set channels for SS0
-  ADC0_SSCTL0_R = 0x60000000;     // IE7 END7
+  ADC0_SSMUX0_R &= ~0x0FFFFFFF;   // clear SSMUX0 fields
+  ADC0_SSMUX0_R += 0x01234567;    // set channels for SS0
+  ADC0_SSCTL0_R = 0x06000000;     // IE6 END6
   ADC0_IM_R &= ~0x0001;           // disable SS0 interrupts
   ADC0_ACTSS_R |= 0x0001;         // enable sample sequencer 0
 }

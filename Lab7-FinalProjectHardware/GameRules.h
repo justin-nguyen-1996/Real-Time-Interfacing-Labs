@@ -80,7 +80,6 @@ class EntityList {
 	void push (Entity * E);
 	Entity * pop (void);
 	bool isFull(void);
-	
 };
 	
 class Quadtree {
