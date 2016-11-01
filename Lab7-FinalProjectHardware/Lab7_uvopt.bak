@@ -167,7 +167,11 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
+<<<<<<< HEAD
           <LineNumber>74</LineNumber>
+=======
+          <LineNumber>52</LineNumber>
+>>>>>>> 017c773433b0683b2af9b9c787b4b798176b3a21
           <EnabledFlag>1</EnabledFlag>
           <Address>0</Address>
           <ByteObject>0</ByteObject>
@@ -176,7 +180,11 @@
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>0</BreakIfRCount>
+<<<<<<< HEAD
           <Filename>.\Buttons.c</Filename>
+=======
+          <Filename>.\main.cpp</Filename>
+>>>>>>> 017c773433b0683b2af9b9c787b4b798176b3a21
           <ExecCommand></ExecCommand>
           <Expression></Expression>
         </Bp>
@@ -434,8 +442,13 @@
       <Focus>0</Focus>
       <ColumnNumber>64</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
+<<<<<<< HEAD
       <TopLine>4</TopLine>
       <CurrentLine>13</CurrentLine>
+=======
+      <TopLine>3</TopLine>
+      <CurrentLine>22</CurrentLine>
+>>>>>>> 017c773433b0683b2af9b9c787b4b798176b3a21
       <bDave2>0</bDave2>
       <PathWithFileName>.\ADC.c</PathWithFileName>
       <FilenameWithoutPath>ADC.c</FilenameWithoutPath>
@@ -466,8 +479,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>28</TopLine>
-      <CurrentLine>34</CurrentLine>
+      <TopLine>30</TopLine>
+      <CurrentLine>31</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\main.cpp</PathWithFileName>
       <FilenameWithoutPath>main.cpp</FilenameWithoutPath>

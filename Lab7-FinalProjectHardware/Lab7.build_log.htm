@@ -8,48 +8,31 @@ Project File Date:  10/31/2016
 
 <h2>Output:</h2>
 Build target 'Lab7'
-compiling ADC.c...
-linking...
-Program Size: Code=6160 RO-data=2052 RW-data=132 ZI-data=6284  
-".\Lab7.axf" - 0 Error(s), 0 Warning(s).
-Load "C:\\Keil\\ValvanoWareTM4C123\\EE-445L-Labs\\Lab7-FinalProjectHardware\\Lab7.axf" 
-Connecting: Mode=JTAG, Speed=1000000Hz
-Erase Done.
-Programming Done.
-Verify OK.
-</pre>
-</body>
-</html>
-l" was declared but never referenced
+compiling main.cpp...
+main.cpp(25): warning:  #177-D: variable "BAUD_RATE" was declared but never referenced
+  static const int BAUD_RATE = 115200;
+main.cpp(26): warning:  #177-D: variable "tstick" was declared but never referenced
+  static uint16_t tstick[4]; static uint16_t accel[3];
+main.cpp(26): warning:  #177-D: variable "accel" was declared but never referenced
   static uint16_t tstick[4]; static uint16_t accel[3];
 main.cpp: 3 warnings, 0 errors
 linking...
-Program Size: Code=6160 RO-data=2052 RW-data=132 ZI-data=6284  
+Program Size: Code=7160 RO-data=2180 RW-data=132 ZI-data=7300  
 ".\Lab7.axf" - 0 Error(s), 3 Warning(s).
-Load "C:\\Keil\\ValvanoWareTM4C123\\EE-445L-Labs\\Lab7-FinalProjectHardware\\Lab7.axf" 
-Connecting: Mode=JTAG, Speed=1000000Hz
-Erase Done.
-Programming Done.
-Verify OK.
-e.
-Verify OK.
-led  -  Target DLL has been cancelled
-Load "C:\\Keil\\ValvanoWareTM4C123\\EE-445L-Labs\\Lab7-FinalProjectHardware\\Lab7.axf" 
-Connecting: Mode=JTAG, Speed=1000000Hz
-Erase Done.
-Programming Done.
-Verify OK.
-;
-main.cpp: 3 warnings, 0 errors
-compiling PortInit.c...
-compiling LED.c...
-".\Lab7.axf" - 1 Error(s), 3 Warning(s).
-Target not created
-tic uint16_t tstick[4]; static uint16_t accel[3];
-main.cpp(28): warning:  #177-D: variable "accel" was declared but never referenced
+or:  #29: expected an expression
+  =======
+main.cpp(67): error:  #29: expected an expression
+  >>>>>>> 017c773433b0683b2af9b9c787b4b798176b3a21
+main.cpp(69): error:  #65: expected a ";"
+  }
+main.cpp(25): warning:  #177-D: variable "BAUD_RATE" was declared but never referenced
+  static const int BAUD_RATE = 115200;
+main.cpp(26): warning:  #177-D: variable "tstick" was declared but never referenced
   static uint16_t tstick[4]; static uint16_t accel[3];
-main.cpp: 3 warnings, 0 errors
+main.cpp(26): warning:  #177-D: variable "accel" was declared but never referenced
+  static uint16_t tstick[4]; static uint16_t accel[3];
+main.cpp: 4 warnings, 5 errors
 compiling PortInit.c...
 compiling LED.c...
-".\Lab7.axf" - 6 Error(s), 3 Warning(s).
+".\Lab7.axf" - 5 Error(s), 4 Warning(s).
 Target not created

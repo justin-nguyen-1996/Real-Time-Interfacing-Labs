@@ -59,7 +59,11 @@ void EntityList::push (Entity * E) {
 }
 
 bool EntityList::isFull(void) {
-	return (nextIndex < MAX_OBJECTS);
+	return (nextIndex >= MAX_OBJECTS);
+}
+
+bool EntityList::isEmpty(void) {
+	return (!nextIndex);
 }
 
 // ********************************************
@@ -146,7 +150,7 @@ void Quadtree::insert (Entity * E)
 }
 
 //retrieves all objects that could potentially collide in a bounding box
-EntityList Quadtree::retrieve (EntityList returnObjects, Rectangle R)
+EntityList * Quadtree::retrieve (EntityList * returnObjects, Rectangle R)
 {
 	int8_t index = getQuadrant(R); 
 	if (index != INVALID && nodes[0] != NULL)
@@ -156,7 +160,7 @@ EntityList Quadtree::retrieve (EntityList returnObjects, Rectangle R)
 	
 	for (int i = 0; i < objects.nextIndex; i++)
 	{
-		returnObjects.push(objects.List[i]);
+		returnObjects->push(objects.List[i]);
 	}	
 	return returnObjects;
 }
@@ -166,8 +170,15 @@ void DrawEntities(EntityList L)
 	Entity * E = L.pop();
 	if (E->type == SHIP)
 	{
-		//ST7735_DrawBitmap(E->Bounds.x, E->Bounds.y, Bitmap_Ship, E->Bounds.w, E->Bounds.h);
-	}
+    while (!L.isEmpty())
+    {	
+      Entity * E = L.pop();
+      if (E->type == SHIP)
+      {
+        ST7735_DrawBitmap(E->Bounds.x, E->Bounds.y, Bitmap_Ship, E->Bounds.w, E->Bounds.h);
+      }
+    }
+  }
 }
 		
 
@@ -176,14 +187,9 @@ void GameRulesTest(void)
 	Quadtree * WorldSpace = new Quadtree(0, Rectangle(0,0,128,160)); // initializes gamespace the same size as screen
 	Entity * Player = new Entity(Rectangle(50,50,8,8), Vector(0,0), Vector(0,0), SHIP, 0, 0);
 	WorldSpace->insert(Player);
+	
+//	ST7735_DrawBitmap(50,50, Bitmap_Ship, 8, 8);
+	EntityList entitiesToDraw;
+	WorldSpace->retrieve(&entitiesToDraw, Rectangle(50,50,8,8));
+	DrawEntities(entitiesToDraw);
 }
-	
-	
-	
-
-
-
-
-
-
-
