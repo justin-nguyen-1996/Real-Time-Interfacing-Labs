@@ -77,10 +77,10 @@ class EntityList {
 	EntityList(void) : nextIndex(0) {}
 	~EntityList(void) { for (int i = 0; i < nextIndex; i++) { delete List[i]; }	}
 	void removeZeroes (void);
-//TODO:
 	void push (Entity * E);
 	Entity * pop (void);
 	bool isFull(void);
+	
 };
 	
 class Quadtree {

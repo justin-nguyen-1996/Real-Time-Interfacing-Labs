@@ -3,25 +3,12 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
-C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\Lab7-FinalProjectHardware\Lab7.uvproj
+C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\Lab7-FinalProjectHardware\Lab7.uvproj
 Project File Date:  10/30/2016
 
 <h2>Output:</h2>
 Build target 'Lab7'
 compiling GameRules.cpp...
-GameRules.cpp(95): error:  #413: no suitable conversion function from "Entity" to "Entity *" exists
-                        nodes[index]->insert(*E);
-GameRules.cpp(99): error:  #413: no suitable conversion function from "Entity" to "Entity *" exists
-        else if (!objects.isFull()) { objects.push(*E); }       
-GameRules.cpp(103): error:  #20: identifier "objectsNextIndex" is undefined
-                for (int i = 0; i < objectsNextIndex; i++)
-GameRules.cpp(108): error:  #300: a pointer to a bound function may only be used to call the function
-                        objects.removeOs;
-GameRules.cpp: 0 warnings, 4 errors
-".\Lab7.axf" - 4 Error(s), 0 Warning(s).
-Target not created
-moveOs;
-GameRules.cpp: 0 warnings, 5 errors
 compiling main.cpp...
 main.cpp(27): warning:  #177-D: variable "BAUD_RATE" was declared but never referenced
   static const int BAUD_RATE = 115200;
@@ -30,10 +17,94 @@ main.cpp(28): warning:  #177-D: variable "tstick" was declared but never referen
 main.cpp(28): warning:  #177-D: variable "accel" was declared but never referenced
   static uint16_t tstick[4]; static uint16_t accel[3];
 main.cpp: 3 warnings, 0 errors
-".\Lab7.axf" - 5 Error(s), 3 Warning(s).
-Target not created
-"accel" was declared but never referenced
+linking...
+Program Size: Code=5744 RO-data=2052 RW-data=124 ZI-data=6284  
+".\Lab7.axf" - 0 Error(s), 3 Warning(s).
+enced
+  static const int BAUD_RATE = 115200;
+main.cpp(28): warning:  #177-D: variable "tstick" was declared but never referenced
+  static uint16_t tstick[4]; static uint16_t accel[3];
+main.cpp(28): warning:  #177-D: variable "accel" was declared but never referenced
   static uint16_t tstick[4]; static uint16_t accel[3];
 main.cpp: 3 warnings, 0 errors
-".\Lab7.axf" - 6 Error(s), 3 Warning(s).
+".\Lab7.axf" - 3 Error(s), 4 Warning(s).
+Target not created
+d
+  static const int BAUD_RATE = 115200;
+main.cpp(28): warning:  #177-D: variable "tstick" was declared but never referenced
+  static uint16_t tstick[4]; static uint16_t accel[3];
+main.cpp(28): warning:  #177-D: variable "accel" was declared but never referenced
+  static uint16_t tstick[4]; static uint16_t accel[3];
+main.cpp: 3 warnings, 0 errors
+".\Lab7.axf" - 6 Error(s), 4 Warning(s).
+Target not created
+stick[4]; static uint16_t accel[3];
+main.cpp: 3 warnings, 0 errors
+".\Lab7.axf" - 7 Error(s), 4 Warning(s).
+Target not created
+fier "uint16_t" is undefined
+  void ST7735_FillScreen(uint16_t color);
+ST7735.h(183): error:  #20: identifier "int16_t" is undefined
+  void ST7735_FillRect(int16_t x, int16_t y, int16_t w, int16_t h, uint16_t color);
+ST7735.h(183): error:  #20: identifier "int16_t" is undefined
+  void ST7735_FillRect(int16_t x, int16_t y, int16_t w, int16_t h, uint16_t color);
+ST7735.h(183): error:  #20: identifier "int16_t" is undefined
+  void ST7735_FillRect(int16_t x, int16_t y, int16_t w, int16_t h, uint16_t color);
+ST7735.h(183): error:  #20: identifier "int16_t" is undefined
+  void ST7735_FillRect(int16_t x, int16_t y, int16_t w, int16_t h, uint16_t color);
+ST7735.h(183): error:  #20: identifier "uint16_t" is undefined
+  void ST7735_FillRect(int16_t x, int16_t y, int16_t w, int16_t h, uint16_t color);
+ST7735.h(192): error:  #20: identifier "uint16_t" is undefined
+  uint16_t ST7735_Color565(uint8_t r, uint8_t g, uint8_t b);
+ST7735.h(192): error:  #20: identifier "uint8_t" is undefined
+  uint16_t ST7735_Color565(uint8_t r, uint8_t g, uint8_t b);
+ST7735.h(192): error:  #20: identifier "uint8_t" is undefined
+  uint16_t ST7735_Color565(uint8_t r, uint8_t g, uint8_t b);
+ST7735.h(192): error:  #20: identifier "uint8_t" is undefined
+  uint16_t ST7735_Color565(uint8_t r, uint8_t g, uint8_t b);
+ST7735.h(199): error:  #20: identifier "uint16_t" is undefined
+  uint16_t ST7735_SwapColor(uint16_t x) ;
+ST7735.h(199): error:  #20: identifier "uint16_t" is undefined
+  uint16_t ST7735_SwapColor(uint16_t x) ;
+ST7735.h(221): error:  #20: identifier "int16_t" is undefined
+  void ST7735_DrawBitmap(int16_t x, int16_t y, const uint16_t *image, int16_t w, int16_t h);
+ST7735.h(221): error:  #20: identifier "int16_t" is undefined
+  void ST7735_DrawBitmap(int16_t x, int16_t y, const uint16_t *image, int16_t w, int16_t h);
+ST7735.h(221): error:  #20: identifier "uint16_t" is undefined
+  void ST7735_DrawBitmap(int16_t x, int16_t y, const uint16_t *image, int16_t w, int16_t h);
+ST7735.h(221): error:  #20: identifier "int16_t" is undefined
+  void ST7735_DrawBitmap(int16_t x, int16_t y, const uint16_t *image, int16_t w, int16_t h);
+ST7735.h(221): error:  #20: identifier "int16_t" is undefined
+  void ST7735_DrawBitmap(int16_t x, int16_t y, const uint16_t *image, int16_t w, int16_t h);
+ST7735.h(238): error:  #20: identifier "int16_t" is undefined
+  void ST7735_DrawCharS(int16_t x, int16_t y, char c, int16_t textColor, int16_t bgColor, uint8_t size);
+ST7735.h(238): error:  #20: identifier "int16_t" is undefined
+  void ST7735_DrawCharS(int16_t x, int16_t y, char c, int16_t textColor, int16_t bgColor, uint8_t size);
+GameRules.cpp: 0 warnings, 30 errors
+".\Lab7.axf" - 30 Error(s), 0 Warning(s).
+Target not created
+16_t h);
+ST7735.h(221): error:  #20: identifier "int16_t" is undefined
+  void ST7735_DrawBitmap(int16_t x, int16_t y, const uint16_t *image, int16_t w, int16_t h);
+ST7735.h(238): error:  #20: identifier "int16_t" is undefined
+  void ST7735_DrawCharS(int16_t x, int16_t y, char c, int16_t textColor, int16_t bgColor, uint8_t size);
+ST7735.h(238): error:  #20: identifier "int16_t" is undefined
+  void ST7735_DrawCharS(int16_t x, int16_t y, char c, int16_t textColor, int16_t bgColor, uint8_t size);
+GameRules.cpp: 0 warnings, 30 errors
+".\Lab7.axf" - 36 Error(s), 0 Warning(s).
+Target not created
+r:  #20: identifier "int16_t" is undefined
+  void ST7735_DrawCharS(int16_t x, int16_t y, char c, int16_t textColor, int16_t bgColor, uint8_t size);
+GameRules.cpp: 0 warnings, 30 errors
+compiling main.cpp...
+main.cpp(27): warning:  #177-D: variable "BAUD_RATE" was declared but never referenced
+  static const int BAUD_RATE = 115200;
+main.cpp(28): warning:  #177-D: variable "tstick" was declared but never referenced
+  static uint16_t tstick[4]; static uint16_t accel[3];
+main.cpp(28): warning:  #177-D: variable "accel" was declared but never referenced
+  static uint16_t tstick[4]; static uint16_t accel[3];
+main.cpp: 3 warnings, 0 errors
+compiling PortInit.c...
+compiling LED.c...
+".\Lab7.axf" - 36 Error(s), 3 Warning(s).
 Target not created

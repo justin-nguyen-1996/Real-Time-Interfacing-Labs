@@ -1,6 +1,7 @@
 
 extern "C"{
 	#include "../inc/tm4c123gh6pm.h"
+//	#include "ST7735.h"
 }
 #include "GameRules.h"
 #define NULL       0
@@ -49,10 +50,11 @@ void EntityList::removeZeroes (void)
 }		
 
 Entity * EntityList::pop (void) {
-	return (objects.List[--nextIndex]);
+	return (List[--nextIndex]);
+}
 
 void EntityList::push (Entity * E) {
-  objects.List[nextIndex++] = E;
+  List[nextIndex++] = E;
 }
 
 bool EntityList::isFull(void) {
@@ -159,10 +161,15 @@ EntityList Quadtree::retrieve (EntityList returnObjects, Rectangle R)
 }
 
 
+
 void GameRulesTest(void)
 {
-	Quadtree * WorldSpace = new Quadtree(0, {0,0,128,160}); // initializes gamespace the same size as screen
-	Entity * Player = new Entity({50,50,8,8}, {0,0}, {0,0}, SHIP, 0, 0);
+	Quadtree * WorldSpace = new Quadtree(0, Rectangle(0,0,128,160)); // initializes gamespace the same size as screen
+	Entity * Player = new Entity(Rectangle(50,50,8,8), Vector(0,0), Vector(0,0), SHIP, 0, 0);
+	WorldSpace->insert(Player);
+}
+	
+	
 	
 
 
