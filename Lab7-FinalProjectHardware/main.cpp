@@ -52,8 +52,8 @@ int main(void) {
   ADC_Init();
   
   ST7735_Test();  waitForTouch(); Output_Clear();
-//  DAC_Test(2);    waitForTouch(); Output_Clear();
+  DAC_Test(2);    waitForTouch(); Output_Clear();
 //  Buttons_Test(); waitForTouch(); Output_Clear();
-  ADC_Test();     waitForTouch(); Output_Clear();
+//  ADC_Test();     waitForTouch(); Output_Clear();
   
 }
