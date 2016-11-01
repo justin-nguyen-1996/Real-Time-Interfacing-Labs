@@ -166,7 +166,7 @@ void DrawEntities(EntityList L)
 	Entity * E = L.pop();
 	if (E->type == SHIP)
 	{
-		ST7735_DrawBitmap(E->Bounds.x, E->Bounds.y, Bitmap_Ship, E->Bounds.w, E->Bounds.h);
+		//ST7735_DrawBitmap(E->Bounds.x, E->Bounds.y, Bitmap_Ship, E->Bounds.w, E->Bounds.h);
 	}
 }
 		

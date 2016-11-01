@@ -40,13 +40,13 @@ void ADC_Init(void) {
 void ADC_Out(uint16_t tstick[4], uint16_t accel[3]) { 
   ADC0_PSSI_R = 0x0001;            // 1) initiate SS0
   while((ADC0_RIS_R&0x01)==0){};   // 2) wait for conversion done
-  accel[ACCEL_Z]    = ADC0_SSFIFO0_R&0xFFF;  
   tstick[TSTICK1_V] = ADC0_SSFIFO0_R&0xFFF;  // 3) read ADC conversions on thumbsticks
   tstick[TSTICK1_H] = ADC0_SSFIFO0_R&0xFFF;  
   tstick[TSTICK2_V] = ADC0_SSFIFO0_R&0xFFF;
   tstick[TSTICK2_H] = ADC0_SSFIFO0_R&0xFFF;
   accel[ACCEL_X]    = ADC0_SSFIFO0_R&0xFFF;  // 4) read ADC conversions on accelerometers
   accel[ACCEL_Y]    = ADC0_SSFIFO0_R&0xFFF;
+  accel[ACCEL_Z]    = ADC0_SSFIFO0_R&0xFFF;  
   ADC0_ISC_R = 0x0001;             // 4) acknowledge completion
 }
 

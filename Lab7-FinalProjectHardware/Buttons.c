@@ -11,6 +11,8 @@
 #define SW_MISC       (*((volatile uint32_t *)0x40024040)) // miscellaneous button
 #define SW_START      (*((volatile uint32_t *)0x40024080)) // start button
 
+volatile static unsigned long Last;      // previous button state
+
 void Buttons_Init(void) {
   GPIO_PORTD_LOCK_R = 0x4C4F434B;   // unlock GPIO Port D
   GPIO_PORTD_CR_R = 0xF0;           // allow changes to PD 7
@@ -18,19 +20,25 @@ void Buttons_Init(void) {
   GPIO_PORTD_AFSEL_R &= ~0xF0;      // disable alternate function on PD 7,6,5,4
   GPIO_PORTD_DEN_R |= 0xF0;         // enable digital I/O on PD 7,6,5,4
   GPIO_PORTD_AMSEL_R &= ~0xF0;      // disable analog functionality on PD 7,6,5,4
+  GPIO_PORTD_PDR_R |= 0xF0;
   
   GPIO_PORTD_IS_R &= ~0xF0;         // PD 7,6,5,4 are edge-sensitive
-  GPIO_PORTD_IEV_R |= 0xF0;         // only trigger on rising edge
-                                    // use IBE if want to trigger on both edges
+  GPIO_PORTD_IBE_R &= ~0xF0;        // disable trigger on both edges
+  GPIO_PORTD_IEV_R |= 0xF0;         // only trigger on rising edges
   
   GPIO_PORTE_DIR_R &= ~0x38;        // make PE 5,4,3 input
   GPIO_PORTE_AFSEL_R &= ~0x38;      // disable alternate function on PE 5,4,3
   GPIO_PORTE_DEN_R |= 0x38;         // enable digital I/O on PE 5,4,3
   GPIO_PORTE_AMSEL_R &= ~0x38;      // disable analog functionality on PE 5,4,3
   
+  GPIO_PORTE_IS_R &= ~0x30;         // PE 5,4 are edge-sensitive
+  GPIO_PORTE_IBE_R &= ~0x30;
+  GPIO_PORTE_IEV_R |= 0x30;         // only trigger on rising edges
+  
   PortD_Arm(); PortE_Arm();
   SYSCTL_RCGCTIMER_R |= 0x04;       // activate timer2
   while ((SYSCTL_RCGCTIMER_R & 0x04) == 0) {}
+  Last = 1;
 }
 
 // allow interrupts on Timer2
@@ -64,16 +72,19 @@ void PortE_Arm(void){
 }
 
 // Interrupt on rising edges of PD 7,6,5,4
+static int counter = 0;
 void GPIOPortD_Handler(void){
   GPIO_PORTD_IM_R &= ~0xF0;     // disarm interrupt on PD 7,6,5,4
   
   // TODO: arrange these in order of priority to decide what happens if more than one button is pressed at the same time
   // TODO: fill these out based on action desired
   // TODO: assign proper priorities to buttons on Port D & E
-  if      (SW_TSTICK_1) {} 
-  else if (SW_TSTICK_2) {}
-  else if (SW_A)        {}
-  else if (SW_B)        {}
+  if (Last) {
+    if      (SW_TSTICK_1) { } 
+    else if (SW_TSTICK_2) { }
+    else if (SW_A)        { }
+    else if (SW_B)        { counter += 1; }
+  }
     
   Timer2_Arm(); // start one shot debouncing
 }
@@ -94,6 +105,7 @@ void GPIOPortE_Handler(void){
 // Interrupt 10 ms after rising edge of a button trigger
 void Timer2A_Handler(void){
   TIMER2_IMR_R = 0x00000000;    // disarm timeout interrupt
+  Last = SW_TSTICK_1 | SW_TSTICK_2 | SW_A | SW_B | SW_MISC | SW_START;
   PortD_Arm();                  // re-enable button interrupts
   PortE_Arm();
 }
@@ -102,20 +114,19 @@ void Timer2A_Handler(void){
 #include "ST7735.h"   // TODO: remove me when done testing
 #include "PortInit.h" // TODO: remove me when done testing
 void Buttons_Test(void) {
-  uint8_t counter = 0;
 //  ST7735_SetCursor(0,0); ST7735_OutString("Counter:    "); ST7735_SetCursor(9,0); ST7735_OutUDec(counter);
 //  ST7735_OutString("\nPush TStick_1 button"); while(PD4 == 0){}; counter += 1;
 //  ST7735_SetCursor(0,0); ST7735_OutString("Counter:    "); ST7735_SetCursor(9,0); ST7735_OutUDec(counter);
 //  ST7735_OutString("\nPush TStick_2 button"); while(PD5 == 0){}; counter += 1;
-  ST7735_SetCursor(0,0); ST7735_OutString("Counter:    "); ST7735_SetCursor(9,0); ST7735_OutUDec(counter);
-  ST7735_OutString("\nPush 'A' button"); while(PD6 == 0){}; counter += 1;
-  ST7735_SetCursor(0,0); ST7735_OutString("Counter:    "); ST7735_SetCursor(9,0); ST7735_OutUDec(counter);
-  ST7735_OutString("\nPush 'B' button"); while(PD7 == 0){}; counter += 1;
-  ST7735_SetCursor(0,0); ST7735_OutString("Counter:    "); ST7735_SetCursor(9,0); ST7735_OutUDec(counter);
-  ST7735_OutString("\nPush Start button"); while(PE5 == 0){}; counter += 1;
-  ST7735_SetCursor(0,0); ST7735_OutString("Counter:    "); ST7735_SetCursor(9,0); ST7735_OutUDec(counter);
-  ST7735_OutString("\nPush the IDK button"); while(PE4 == 0){}; counter += 1;
-  ST7735_SetCursor(0,0); ST7735_OutString("Counter:    "); ST7735_SetCursor(9,0); ST7735_OutUDec(counter);
+  while (1) {
+    ST7735_SetCursor(0,0); ST7735_OutString("Counter:    "); ST7735_SetCursor(9,0); ST7735_OutUDec(counter);
+    ST7735_OutString("\nPush 'B' button"); while(PD7 == 0){};
+  }
+//  ST7735_SetCursor(0,0); ST7735_OutString("Counter:    "); ST7735_SetCursor(9,0); ST7735_OutUDec(counter);
+//  ST7735_OutString("\nPush Start button"); while(PE5 == 0){}; counter += 1;
+//  ST7735_SetCursor(0,0); ST7735_OutString("Counter:    "); ST7735_SetCursor(9,0); ST7735_OutUDec(counter);
+//  ST7735_OutString("\nPush the IDK button"); while(PE4 == 0){}; counter += 1;
+//  ST7735_SetCursor(0,0); ST7735_OutString("Counter:    "); ST7735_SetCursor(9,0); ST7735_OutUDec(counter);
 }
 #endif
 // TODO: test for debouncing --> maybe increment counter in the ISR and print out counter after each button press
