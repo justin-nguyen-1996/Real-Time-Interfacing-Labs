@@ -1,7 +1,8 @@
 
 extern "C"{
+	#include <stdint.h>
 	#include "../inc/tm4c123gh6pm.h"
-//	#include "ST7735.h"
+	#include "ST7735.h"
 }
 #include "GameRules.h"
 #define NULL       0
@@ -160,7 +161,15 @@ EntityList Quadtree::retrieve (EntityList returnObjects, Rectangle R)
 	return returnObjects;
 }
 
-
+void DrawEntities(EntityList L)
+{
+	Entity * E = L.pop();
+	if (E->type == SHIP)
+	{
+		ST7735_DrawBitmap(E->Bounds.x, E->Bounds.y, Bitmap_Ship, E->Bounds.w, E->Bounds.h);
+	}
+}
+		
 
 void GameRulesTest(void)
 {
