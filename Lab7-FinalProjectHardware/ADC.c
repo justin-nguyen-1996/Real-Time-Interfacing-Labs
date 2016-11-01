@@ -22,7 +22,7 @@ void ADC_Init(void) {
   ADC0_ACTSS_R |= 0x0001;         // enable sample sequencer 0
 }
 
-//------------ADC_Out------------
+//------------ADC_In------------
 // Busy-wait Analog to digital conversion
 // Input: none
 // Output: 7 12-bit results of ADC conversions
@@ -37,7 +37,7 @@ void ADC_Init(void) {
 // ACCEL_X   is ADC3 (PE0) 0 to 4095
 // ACCEL_Y   is ADC2 (PE1) 0 to 4095
 // ACCEL_Z   is ADC1 (PE2) 0 to 4095
-void ADC_Out(uint16_t tstick[4], uint16_t accel[3]) { 
+void ADC_In(uint16_t tstick[4], uint16_t accel[3]) { 
   ADC0_PSSI_R = 0x0001;            // 1) initiate SS0
   while((ADC0_RIS_R&0x01)==0){};   // 2) wait for conversion done
   tstick[TSTICK1_V] = ADC0_SSFIFO0_R&0xFFF;  // 3) read ADC conversions on thumbsticks
@@ -57,7 +57,7 @@ void ADC_Test() {
   uint16_t tstick[4] = {0,0,0,0}; uint16_t accel[3] = {0,0,0};
   while (1) {
 
-    ADC_Out(tstick, accel);
+    ADC_In(tstick, accel);
     PE3 = 0x00; // Self-Test is disabled
     
     ST7735_SetCursor(0,0);
