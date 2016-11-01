@@ -113,4 +113,16 @@ unsigned short NAME ## Fifo_Size (void){\
 // SIZE can be any size
 // creates RxFifo_Init() RxFifo_Get() and RxFifo_Put()
 
+typedef enum{
+	GAMETICK;
+	SOUND;
+} GameActionType;
+
+typedef struct GameFifoData{
+	GameActionType type;
+	uint32_t data;
+} GameFifoData;
+
+AddIndexFifo(GameFifo,32,GameFifoData,1,0)
+
 #endif //  __FIFO_H__

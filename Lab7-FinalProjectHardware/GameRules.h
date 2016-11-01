@@ -97,7 +97,7 @@ class Quadtree {
 	
 }; //NOTDONE
 
-	
+
 
 void GameRulesTest(void);
 	

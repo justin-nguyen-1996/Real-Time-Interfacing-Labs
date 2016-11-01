@@ -181,6 +181,11 @@ void DrawEntities(EntityList L)
   }
 }
 		
+void ResolveCollisions (Quadtree * Space)
+{}
+	
+	
+	
 
 void GameRulesTest(void)
 {
@@ -190,6 +195,6 @@ void GameRulesTest(void)
 	
 //	ST7735_DrawBitmap(50,50, Bitmap_Ship, 8, 8);
 	EntityList entitiesToDraw;
-	WorldSpace->retrieve(&entitiesToDraw, Rectangle(50,50,8,8));
+	WorldSpace->retrieve(&entitiesToDraw, Rectangle(0,0,128,160));
 	DrawEntities(entitiesToDraw);
 }

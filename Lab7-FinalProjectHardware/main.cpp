@@ -7,12 +7,13 @@ extern "C" {
 	#include "esp8266.h"
   #include "ST7735.h"
 	#include "Buttons.h"
-  //#include "UART.h"
+  #include "UART.h"
 	#include "Thumbstick.h"
 	#include "Accel.h"
 	#include "Graphics.h"
 	#include "ADC.h"
 	#include "PortInit.h"
+	#include "FIFO.h"
 }
 #include "GameRules.h"
 
@@ -24,6 +25,7 @@ void WaitForInterrupt(void);  // low power mode
 
 static const int BAUD_RATE = 115200;
 static uint16_t tstick[4]; static uint16_t accel[3];
+
 
 void waitForTouch() {
   while (RIGHTSWITCH == 0x01) {}
