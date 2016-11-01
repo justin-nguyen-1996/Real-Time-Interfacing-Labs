@@ -43,17 +43,20 @@ void EntityList::removeZeroes (void)
 	int i = 0;
 	for (int j = 0; j < MAX_OBJECTS; j++) 
   {	
-		if (List[j] != NULL) {	List[i++] = List[j]; } // TODO: doesn't copy over elements, just reassigns pointers ... could cause issues
+		if (List[j] != NULL) {	List[i++] = List[j]; } // TODO: doesn't copy over elements, just Moves pointers ... could cause issues
 	}	
   nextIndex = i;
 }		
 
+Entity * EntityList::pop (void) {
+	return (objects.List[--nextIndex]);
+
 void EntityList::push (Entity * E) {
-  
+  objects.List[nextIndex++] = E;
 }
 
 bool EntityList::isFull(void) {
-  return false; // TODO: remove me
+	return (nextIndex < MAX_OBJECTS);
 }
 
 // ********************************************
@@ -105,8 +108,8 @@ int8_t Quadtree::getQuadrant (Rectangle R)
 	else if (topHalf && rightHalf)    { index = TOP_RIGHT; }
 	else if (bottomHalf && rightHalf) { index = BOT_RIGHT; }
 
-	return index; // TODO: doesn't account for when rectangles overlap the quadrants
-                // TODO: doesn't account for when rectangles are off the screen
+	return index; // doesn't account for when rectangles overlap the quadrants -- yes it does. Returns -1
+                // doesn't account for when rectangles are off the screen -- implementation issue, not method issue
 }
 
 //so this thing errors silently. If there are bugs look here first.
@@ -116,7 +119,7 @@ int8_t Quadtree::getQuadrant (Rectangle R)
 // recursively finds the smallest quadrant in which to insert the given entity
 void Quadtree::insert (Entity * E)
 {
-	if (nodes[0] != NULL) // TODO: why nodes[0] ???
+	if (nodes[0] != NULL) // why nodes[0] -- Check if any are initialized. Since all get "new"-ed at the same time during split()
 	{
 		int8_t quadrant = getQuadrant(E->Bounds);
 		if (quadrant != INVALID) 
@@ -154,5 +157,17 @@ EntityList Quadtree::retrieve (EntityList returnObjects, Rectangle R)
 	}	
 	return returnObjects;
 }
+
+
+void GameRulesTest(void)
+{
+	Quadtree * WorldSpace = new Quadtree(0, {0,0,128,160}); // initializes gamespace the same size as screen
+	Entity * Player = new Entity({50,50,8,8}, {0,0}, {0,0}, SHIP, 0, 0);
+	
+
+
+
+
+
 
 
