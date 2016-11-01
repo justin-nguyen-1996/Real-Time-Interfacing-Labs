@@ -8,35 +8,37 @@ Project File Date:  11/01/2016
 
 <h2>Output:</h2>
 Build target 'Lab7'
-compiling UART.c...
-FIFO.h(117): error:  #67: expected a "}"
-        GAMETICK;
-FIFO.h(117): warning:  #375-D: declaration requires a typedef name
-        GAMETICK;
-FIFO.h(118): error:  #77-D: this declaration has no storage class or type specifier
-        SOUND;
-FIFO.h(119): error:  #169: expected a declaration
-  } GameActionType;
-FIFO.h(122): error:  #20: identifier "GameActionType" is undefined
-        GameActionType type;
-UART.c: 1 warning, 4 errors
 compiling main.cpp...
-FIFO.h(117): error:  #67: expected a "}"
-        GAMETICK;
-FIFO.h(117): warning:  #375-D: declaration requires a typedef name
-        GAMETICK;
-FIFO.h(118): error:  #77-D: this declaration has no storage class or type specifier
-        SOUND;
-FIFO.h(119): error:  #77-D: this declaration has no storage class or type specifier
-  } GameActionType;
-FIFO.h(122): error:  #757: variable "GameActionType" is not a type name
-        GameActionType type;
-main.cpp(17): error:  #169: expected a declaration
-  }
-GameRules.h(14): warning:  #12-D: parsing restarts here after previous syntax error
-  } EntityType;
-GameRules.h(58): error:  #20: identifier "EntityType" is undefined
-        EntityType type; // type will tell us which entity we are working with (shouldn't use Polymorphism in embedded systems)
+main.cpp(26): warning:  #177-D: variable "BAUD_RATE" was declared but never referenced
+  static const int BAUD_RATE = 115200;
+main.cpp(27): warning:  #177-D: variable "tstick" was declared but never referenced
+  static uint16_t tstick[4]; static uint16_t accel[3];
+main.cpp(27): warning:  #177-D: variable "accel" was declared but never referenced
+  static uint16_t tstick[4]; static uint16_t accel[3];
+main.cpp: 3 warnings, 0 errors
+linking...
+Program Size: Code=8640 RO-data=2180 RW-data=132 ZI-data=7308  
+".\Lab7.axf" - 0 Error(s), 3 Warning(s).
+Load "C:\\Users\\T\\Downloads\\_PDFS\\ValvanoWareTM4C123\\Real-Time-Interfacing-Labs\\Lab7-FinalProjectHardware\\Lab7.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+</pre>
+</body>
+</html>
+rget DLL has been cancelled
+Load "C:\\Users\\T\\Downloads\\_PDFS\\ValvanoWareTM4C123\\Real-Time-Interfacing-Labs\\Lab7-FinalProjectHardware\\Lab7.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+ugh information to list image symbols.
+Not enough information to list the image map.
+Finished: 2 information, 0 warning and 6 error messages.
+".\Lab7.axf" - 6 Error(s), 3 Warning(s).
+Target not created
+n't use Polymorphism in embedded systems)
 GameRules.h(62): error:  #20: identifier "EntityType" is undefined
         Entity (Rectangle B, Vector V, Vector A, EntityType t, uint32_t d1, uint32_t d2) : 
 main.cpp(26): warning:  #177-D: variable "BAUD_RATE" was declared but never referenced

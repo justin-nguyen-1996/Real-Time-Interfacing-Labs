@@ -113,5 +113,4 @@ unsigned short NAME ## Fifo_Size (void){\
 // SIZE can be any size
 // creates RxFifo_Init() RxFifo_Get() and RxFifo_Put()
 
-
 #endif //  __FIFO_H__
