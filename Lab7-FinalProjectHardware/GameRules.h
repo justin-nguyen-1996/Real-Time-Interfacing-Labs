@@ -62,6 +62,7 @@ class Entity {
 	Entity (Rectangle B, Vector V, Vector A, EntityType t, uint32_t d1, uint32_t d2) : 
 		Bounds(B), Velocity(V), Acceleration(A), type(t), data1(d1), data2(d2) {};
 	void update (void);
+	void WallCollision(Rectangle B);
 };
 
 #define MAX_OBJECTS   10  // the maximum number of entities per quadtree
@@ -73,12 +74,14 @@ class EntityList {
 	uint8_t nextIndex;
   
 	EntityList(void) : nextIndex(0) {}
-	~EntityList(void) { for (int i = 0; i < nextIndex; i++) { delete List[i]; }	}
+	//~EntityList(void) { for (int i = 0; i < nextIndex; i++) { delete List[i]; }	}
+//	~EntitiyList(void) {}
 	void removeZeroes (void);
 	void push (Entity * E);
 	Entity * pop (void);
 	bool isFull(void);
 	bool isEmpty(void);
+	void update(uint16_t * tstick, uint16_t * accel);
 };
 	
 class Quadtree {
@@ -93,11 +96,14 @@ class Quadtree {
 	void split (void);
 	int8_t getQuadrant (Rectangle R);
 	void insert (Entity * E); 
+	void insert (EntityList * E);
 	EntityList * retrieve (EntityList * returnObjects, Rectangle R);
 	
 }; //NOTDONE
 
+void NormalizeAnalogInputs(uint16_t * tstick, uint16_t * accel );
 void GameRulesTest(void);
+void DrawEntities(EntityList * L);
 	
 const unsigned short Bitmap_Ship[] = {
  0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x07E0, 0x0000, 0x0000, 0x0000, 0x0000, 0x07E0, 0x0000,

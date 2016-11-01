@@ -3,7 +3,7 @@
 
 #include <stdint.h>
 void ADC_Init(void);
-void ADC_Out(uint16_t tstick[4], uint16_t accel[3]);
+void ADC_In(uint16_t tstick[4], uint16_t accel[3]);
 void ADC_Test(void);
 
 #endif

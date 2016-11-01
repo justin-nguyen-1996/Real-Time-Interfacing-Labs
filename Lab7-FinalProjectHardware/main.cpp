@@ -13,14 +13,14 @@ extern "C" {
 	#include "Graphics.h"
 	#include "ADC.h"
 	#include "PortInit.h"
+	void DisableInterrupts(void); // Disable interrupts
+	void EnableInterrupts(void);  // Enable interrupts
+	long StartCritical (void);    // previous I bit, disable interrupts
+	void EndCritical(long sr);    // restore I bit to previous value
+	void WaitForInterrupt(void);  // low power mode
 }
 #include "GameRules.h"
 
-void DisableInterrupts(void); // Disable interrupts
-void EnableInterrupts(void);  // Enable interrupts
-long StartCritical (void);    // previous I bit, disable interrupts
-void EndCritical(long sr);    // restore I bit to previous value
-void WaitForInterrupt(void);  // low power mode
 
 static const int BAUD_RATE = 115200;
 static uint16_t tstick[4]; static uint16_t accel[3];
@@ -31,9 +31,11 @@ void waitForTouch() {
 }
 
 // handles each game tick interrupt
+extern "C" {
 void Timer3A_Handler(void){
   TIMER3_ICR_R = TIMER_ICR_TATOCINT;// acknowledge TIMER3A timeout
   Flag_GameTick = 1;
+}
 }
 
 // each game tick will occur at 180HZ
@@ -51,6 +53,27 @@ void GameTick_Init(void) {
   TIMER3_CTL_R = 0x00000001;    // enable TIMER3A
 }
 
+
+
+//#define NVIC_ST_CTRL_COUNT      0x00010000  // Count flag
+//#define NVIC_ST_CTRL_CLK_SRC    0x00000004  // Clock Source
+//#define NVIC_ST_CTRL_INTEN      0x00000002  // Interrupt enable
+//#define NVIC_ST_CTRL_ENABLE     0x00000001  // Counter mode
+//
+//// Initialize SysTick with busy wait running at bus clock.
+//void SysTick_Init(void){
+//  NVIC_ST_CTRL_R = 0;                   // disable SysTick during setup
+//  NVIC_ST_RELOAD_R = 444444;  // maximum reload value
+//  NVIC_ST_CURRENT_R = 0;                // any write to current clears it
+//                                        // enable SysTick with core clock
+//  NVIC_ST_CTRL_R = NVIC_ST_CTRL_ENABLE+NVIC_ST_CTRL_INTEN+NVIC_ST_CTRL_CLK_SRC;
+//}
+//extern "C"{
+//void SysTick_Handler(void)
+//{
+//	Flag_GameTick = 1;
+//}
+//}
 int main(void) {
   
   PortA_Init();
@@ -70,6 +93,9 @@ int main(void) {
   Thumbstick_Init();
   Accel_Init();
   ADC_Init();
+ GameTick_Init(); 
+//	SysTick_Init();
+	EnableInterrupts();
   
 //  ST7735_Test();  waitForTouch(); Output_Clear();
 //  DAC_Test(2);    waitForTouch(); Output_Clear();
@@ -77,8 +103,31 @@ int main(void) {
   //ADC_Test();     waitForTouch(); Output_Clear();
 	//GameRulesTest(); waitForTouch(); Output_Clear();  
 
+	Rectangle Screen (0,0,128<<7,160<<7);
+	Quadtree * WorldSpace = new Quadtree(0, Screen); // initializes gamespace the same size as screen
+	Entity * Player = new Entity(Rectangle(50<<7,50<<7,8<<7,8<<7), Vector(0,0), Vector(0,0), SHIP, 0, 0);
+	WorldSpace->insert(Player);
+	uint32_t tick = 0;
   while (1) {
-    if (Flag_GameTick) {
+		if (Flag_GameTick) {
+			Flag_GameTick = 0;
+
+	  	ST7735_SetCursor(0,0);
+			ST7735_OutUDec(tick++);
+			uint16_t tstick[4]; uint16_t accel[3];
+			ADC_In(tstick, accel);
+			NormalizeAnalogInputs(tstick, accel);
+
+			EntityList AllEntities;
+			WorldSpace->retrieve(&AllEntities, Screen);
+			AllEntities.update(tstick, accel);
+			WorldSpace->clear();
+			WorldSpace->insert(&AllEntities);
+
+			EntityList entitiesToDraw;
+			WorldSpace->retrieve(&entitiesToDraw, Screen);
+			DrawEntities(&entitiesToDraw);
+
       // update entities
       // check for collisions
     }
