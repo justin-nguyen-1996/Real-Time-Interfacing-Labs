@@ -1,0 +1,12 @@
+*.o
+*.swp
+*.dep
+*.crf
+*.d
+*.lst
+*.swo
+*.swn
+*.uvopt
+*.uvopt.bak
+*.build_log.htm
+
