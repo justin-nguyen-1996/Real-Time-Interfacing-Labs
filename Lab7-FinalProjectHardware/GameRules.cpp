@@ -33,7 +33,14 @@ void Entity::update (void)
 	Velocity += Acceleration;
 }
 
-// TODO: push pop isFull
+void Entity::WallCollision(Rectangle B)
+{
+	if (Bounds.x < B.x) {Bounds.x = B.x;}
+	if (Bounds.x + Bounds.w > B.x + B.w) { Bounds.x = B.x + B.w - Bounds.w; }
+	if (Bounds.y < B.y) {Bounds.y = B.y;}
+	if (Bounds.y + Bounds.h > B.y + B.h) { Bounds.y = B.y + B.h - Bounds.h; }
+}
+
 
 // ********************************************
 // *            EntityList Methods            *
@@ -65,6 +72,21 @@ bool EntityList::isFull(void) {
 bool EntityList::isEmpty(void) {
 	return (!nextIndex);
 }
+
+void EntityList::update(uint16_t * tstick, uint16_t * accel) {
+	for (int i = 0; i < nextIndex; i++)
+	{
+		Entity * E = List[i];
+		E->update();
+		if (E->type == SHIP)
+		{
+			E->Velocity.x = tstick[3]; //Thumbstick 2 X
+			E->Velocity.y = tstick[2]; //Thumbstick 2 Y
+		}
+	}
+}
+			
+	
 
 // ********************************************
 // *             Quadtree Methods             *
@@ -149,6 +171,16 @@ void Quadtree::insert (Entity * E)
 	}
 }
 
+//only call this function when inserting to root node of the quadtree
+void Quadtree::insert (EntityList * L) 
+{
+	for (int i = 0; i < L->nextIndex; i++)
+	{
+		if (L->List[i]->type == SHIP && getQuadrant(L->List[i]->Bounds) == -1) { L->List[i]->WallCollision(bounds); }
+		insert(L->List[i]);
+	}
+}
+
 //retrieves all objects that could potentially collide in a bounding box
 EntityList * Quadtree::retrieve (EntityList * returnObjects, Rectangle R)
 {
@@ -165,20 +197,30 @@ EntityList * Quadtree::retrieve (EntityList * returnObjects, Rectangle R)
 	return returnObjects;
 }
 
-void DrawEntities(EntityList L)
+
+void DrawEntities(EntityList * L)
 {
-	Entity * E = L.pop();
-	if (E->type == SHIP)
+	while (!L->isEmpty())
+	{	
+		Entity * E = L->pop();
+		if (E->type == SHIP)
+		{
+			ST7735_DrawBitmap(E->Bounds.x >> 7, E->Bounds.y >> 7, Bitmap_Ship, E->Bounds.w >> 7, E->Bounds.h >> 7);
+		}
+	}
+}
+
+#define DEADZONE_TSTICK_MIN 1000
+#define DEADZONE_TSTICK_MAX 3000
+void NormalizeAnalogInputs( uint16_t * tstick, uint16_t * accel )
+{
+	for (int i = 0; i < 4; i++)
 	{
-    while (!L.isEmpty())
-    {	
-      Entity * E = L.pop();
-      if (E->type == SHIP)
-      {
-        ST7735_DrawBitmap(E->Bounds.x, E->Bounds.y, Bitmap_Ship, E->Bounds.w, E->Bounds.h);
-      }
-    }
-  }
+		if (DEADZONE_TSTICK_MIN <= tstick[i] && DEADZONE_TSTICK_MAX >= tstick[i]) { tstick[i] = 0; }
+		else if (DEADZONE_TSTICK_MIN > tstick[i]) { tstick[i] = (tstick[i] - DEADZONE_TSTICK_MIN) >> 3; } // left shift 7 (for precision) and divide by 1000 (>>10)
+		else { tstick[i] = (tstick[i] - DEADZONE_TSTICK_MAX) >> 3; } // left shift 7 (for precision) and divide by 1000 (>>10)
+	}	
+	//TODO: ACCELEROMETER NORMALIZE
 }
 
 void GameRulesTest(void)
@@ -188,7 +230,7 @@ void GameRulesTest(void)
 	WorldSpace->insert(Player);
 	
 //	ST7735_DrawBitmap(50,50, Bitmap_Ship, 8, 8);
-	EntityList entitiesToDraw;
-	WorldSpace->retrieve(&entitiesToDraw, Rectangle(50,50,8,8));
+	EntityList * entitiesToDraw;
+	WorldSpace->retrieve(entitiesToDraw, Rectangle(50,50,8,8));
 	DrawEntities(entitiesToDraw);
 }
