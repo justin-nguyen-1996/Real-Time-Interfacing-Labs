@@ -1,0 +1,9 @@
+/* Three ways to initiate ADC process:
+	1) Software triggered [ADC_EMUX_R = 0x0]
+	1.5) Timer triggered [ADC_EMUX_R = 0x5]
+	2) PWM triggered [ADC_EMUX_R = 0x6 - 0x9]
+	3) Continuously sample [ADC_EMUX_R = 0xF]
+
+	ALSO: Comparator triggered [0x1 - 0x3], AND external gpio [0x4] */
+
+	
