@@ -3,6 +3,7 @@ extern "C"{
 	#include <stdint.h>
 	#include "../inc/tm4c123gh6pm.h"
 	#include "ST7735.h"
+	#include "Graphics.h"
 }
 #include "GameRules.h"
 #define NULL       0
@@ -35,10 +36,13 @@ void Entity::update (void)
 
 void Entity::WallCollision(Rectangle B)
 {
-	if (Bounds.x < B.x) {Bounds.x = B.x;}
-	if (Bounds.x + Bounds.w > B.x + B.w) { Bounds.x = B.x + B.w - Bounds.w; }
-	if (Bounds.y < B.y) {Bounds.y = B.y;}
-	if (Bounds.y + Bounds.h > B.y + B.h) { Bounds.y = B.y + B.h - Bounds.h; }
+	if (type == SHIP)
+	{
+		if (Bounds.x < B.x) {Bounds.x = B.x;}
+		if (Bounds.x + Bounds.w > B.x + B.w) { Bounds.x = B.x + B.w - Bounds.w; }
+		if (Bounds.y < B.y) {Bounds.y = B.y;}
+		if (Bounds.y + Bounds.h > B.y + B.h) { Bounds.y = B.y + B.h - Bounds.h; }
+	}
 }
 
 
@@ -80,10 +84,18 @@ void EntityList::update(uint16_t * tstick, uint16_t * accel) {
 		E->update();
 		if (E->type == SHIP)
 		{
-			E->Velocity.x = tstick[3]; //Thumbstick 2 X
-			E->Velocity.y = tstick[2]; //Thumbstick 2 Y
+			E->Velocity.x = (int16_t) tstick[3]; //Thumbstick 2 X
+			E->Velocity.y = (int16_t) tstick[2]; //Thumbstick 2 Y
 		}
 	}
+}
+
+void EntityList::clear(void) {
+	for (int i = 0; i < MAX_OBJECTS; i++)
+	{
+		List[i] = 0;
+	}	
+	nextIndex = 0;
 }
 			
 	
@@ -95,7 +107,7 @@ void EntityList::update(uint16_t * tstick, uint16_t * accel) {
 // recursively clears all quadtrees that are descendants of this quadtree
 void Quadtree::clear (void)
 {
-	for (int i = 0; i < MAX_OBJECTS; i++) {delete objects.List[i];}
+	objects.clear();
 	for (int i = 0; i < 4; i++) 
 	{
 		if (nodes[i] != NULL)
@@ -109,8 +121,8 @@ void Quadtree::clear (void)
 // splits a quadtree into four new sub-quadtrees
 void Quadtree::split (void)
 {
-	uint16_t x = bounds.x;
-	uint16_t y = bounds.y;
+	int16_t x = bounds.x;
+	int16_t y = bounds.y;
 	uint16_t subWidth = bounds.w >> 1;
 	uint16_t subHeight = bounds.h >> 1;
 	
@@ -124,13 +136,13 @@ void Quadtree::split (void)
 int8_t Quadtree::getQuadrant (Rectangle R) 
 {
 	int8_t index = INVALID;
-	uint32_t horizontalMidpoint = bounds.x + (bounds.w >> 1);
-	uint32_t verticalMidpoint = bounds.y + (bounds.h >> 1);
+	int16_t horizontalMidpoint = bounds.x + (bounds.w >> 1);
+	int16_t verticalMidpoint = bounds.y + (bounds.h >> 1);
 	
-	bool topHalf = (R.y < verticalMidpoint)  &&  (R.y + R.h < verticalMidpoint);
-	bool bottomHalf = (R.y > verticalMidpoint);
-	bool leftHalf = (R.x < horizontalMidpoint)  &&  (R.x + R.w < horizontalMidpoint);
-	bool rightHalf = (R.x > horizontalMidpoint);
+	bool topHalf = (R.y > bounds.y)  &&  (R.y + R.h < verticalMidpoint);
+	bool bottomHalf = (R.y > verticalMidpoint) && (R.y + R.h < bounds.y + bounds.h);
+	bool leftHalf = (R.x > bounds.x)  &&  (R.x + R.w < horizontalMidpoint);
+	bool rightHalf = (R.x > horizontalMidpoint) && (R.x + R.w < bounds.x + bounds.w);
 	
 	if (topHalf && leftHalf)          { index = TOP_LEFT; }
 	else if (bottomHalf && leftHalf)  { index = BOT_LEFT; }
@@ -197,21 +209,45 @@ EntityList * Quadtree::retrieve (EntityList * returnObjects, Rectangle R)
 	return returnObjects;
 }
 
+void Quadtree::drawBounds (void)
+{
+	ST7735_Line(bounds.x>>7, bounds.y>>7, (bounds.x + bounds.w)>>7, bounds.y>>7); 
+	ST7735_Line((bounds.x + bounds.w)>>7, bounds.y>>7, (bounds.x + bounds.w)>>7, (bounds.y + bounds.h)>>7); 
+	ST7735_Line(bounds.x>>7, (bounds.y + bounds.h)>>7, (bounds.x + bounds.w)>>7, (bounds.y + bounds.h)>>7); 
+	ST7735_Line(bounds.x>>7, bounds.y>>7, bounds.x>>7, (bounds.y + bounds.h)>>7); 
+	if (nodes[0] != NULL)
+	{
+		nodes[0]->drawBounds();
+		nodes[1]->drawBounds();
+		nodes[2]->drawBounds();
+		nodes[3]->drawBounds();
+	}
+}
+
 
 void DrawEntities(EntityList * L)
 {
-	while (!L->isEmpty())
+	for (int i = 0; i < L->nextIndex; i++)
 	{	
-		Entity * E = L->pop();
+		Entity * E = L->List[i];
 		if (E->type == SHIP)
 		{
-			ST7735_DrawBitmap(E->Bounds.x >> 7, E->Bounds.y >> 7, Bitmap_Ship, E->Bounds.w >> 7, E->Bounds.h >> 7);
+			ST7735_DrawBitmap(E->Bounds.x >> 7, E->Bounds.y + E->Bounds.h >> 7, Bitmap_Ship, E->Bounds.w >> 7, E->Bounds.h >> 7);
 		}
 	}
 }
 
-#define DEADZONE_TSTICK_MIN 1000
-#define DEADZONE_TSTICK_MAX 3000
+void EraseEntities(EntityList * L)
+{
+	for (int i = 0; i < L->nextIndex; i++)
+	{	
+		Entity * E = L->List[i];
+		ST7735_FillRect((E->Bounds.x>>7), (E->Bounds.y>>7), (E->Bounds.w>>7), (E->Bounds.h>>7), ST7735_BLACK);
+	}
+}
+
+#define DEADZONE_TSTICK_MIN 1800
+#define DEADZONE_TSTICK_MAX 2200
 void NormalizeAnalogInputs( uint16_t * tstick, uint16_t * accel )
 {
 	for (int i = 0; i < 4; i++)

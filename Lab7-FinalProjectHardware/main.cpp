@@ -98,9 +98,9 @@ int main(void) {
 	EnableInterrupts();
   
 //  ST7735_Test();  waitForTouch(); Output_Clear();
-//  DAC_Test(2);    waitForTouch(); Output_Clear();
+  DAC_Test(2);    waitForTouch(); Output_Clear();
 //  Buttons_Test(); waitForTouch(); Output_Clear();
-  //ADC_Test();     waitForTouch(); Output_Clear();
+ // ADC_Test();     waitForTouch(); Output_Clear();
 	//GameRulesTest(); waitForTouch(); Output_Clear();  
 
 	Rectangle Screen (0,0,128<<7,160<<7);
@@ -112,23 +112,24 @@ int main(void) {
 		if (Flag_GameTick) {
 			Flag_GameTick = 0;
 
-	  	ST7735_SetCursor(0,0);
-			ST7735_OutUDec(tick++);
-			uint16_t tstick[4]; uint16_t accel[3];
+	  	//ST7735_SetCursor(0,0);
+		//	ST7735_OutUDec(tick++);
+			uint16_t tstick[4] = {0,0,0,0}; uint16_t accel[3] = {0,0,0};
 			ADC_In(tstick, accel);
 			NormalizeAnalogInputs(tstick, accel);
 
+      // update entities
 			EntityList AllEntities;
 			WorldSpace->retrieve(&AllEntities, Screen);
+			EraseEntities(&AllEntities);			
 			AllEntities.update(tstick, accel);
 			WorldSpace->clear();
 			WorldSpace->insert(&AllEntities);
+			DrawEntities(&AllEntities);
 
-			EntityList entitiesToDraw;
-			WorldSpace->retrieve(&entitiesToDraw, Screen);
-			DrawEntities(&entitiesToDraw);
+			//WorldSpace->drawBounds();
 
-      // update entities
+
       // check for collisions
     }
   }

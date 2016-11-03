@@ -15,11 +15,11 @@ typedef enum {
 
 class Vector {
 	public:
-	uint16_t x;
-	uint16_t y;
+	int16_t x;
+	int16_t y;
   
   Vector() : x(0), y(0) {}
-  Vector(uint16_t xx, uint16_t yy) : x(xx), y(yy) {}
+  Vector(int16_t xx, int16_t yy) : x(xx), y(yy) {}
     // TODO: Vector(Vector v) : x(v.x), y(v.y) {}
 
 	Vector operator+(const Vector & v)
@@ -42,12 +42,12 @@ class Vector {
 // e.g. if an image has four vertices {(0,0) (0,4) (4,0) (4,4)} then it will be located at (0,0)
 class Rectangle {
   public:
-	uint16_t x;
-	uint16_t y;
+	int16_t x;
+	int16_t y;
 	uint16_t w;
 	uint16_t h;
   
-  Rectangle(uint16_t xx, uint16_t yy, uint16_t ww, uint16_t hh) : x(xx), y(yy), w(ww), h(hh) {}
+  Rectangle(int16_t xx, int16_t yy, uint16_t ww, uint16_t hh) : x(xx), y(yy), w(ww), h(hh) {}
 }; 
 
 class Entity {
@@ -75,13 +75,14 @@ class EntityList {
   
 	EntityList(void) : nextIndex(0) {}
 	//~EntityList(void) { for (int i = 0; i < nextIndex; i++) { delete List[i]; }	}
-//	~EntitiyList(void) {}
+	~EntityList(void) {}
 	void removeZeroes (void);
 	void push (Entity * E);
 	Entity * pop (void);
 	bool isFull(void);
 	bool isEmpty(void);
 	void update(uint16_t * tstick, uint16_t * accel);
+	void clear(void);
 };
 	
 class Quadtree {
@@ -98,12 +99,14 @@ class Quadtree {
 	void insert (Entity * E); 
 	void insert (EntityList * E);
 	EntityList * retrieve (EntityList * returnObjects, Rectangle R);
+	void drawBounds(void);
 	
 }; //NOTDONE
 
 void NormalizeAnalogInputs(uint16_t * tstick, uint16_t * accel );
 void GameRulesTest(void);
 void DrawEntities(EntityList * L);
+void EraseEntities(EntityList * L);
 	
 const unsigned short Bitmap_Ship[] = {
  0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x07E0, 0x0000, 0x0000, 0x0000, 0x0000, 0x07E0, 0x0000,
