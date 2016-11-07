@@ -6,16 +6,32 @@ Section Cross References
 
     startup.o(RESET) refers to startup.o(STACK) for StackMem
     startup.o(RESET) refers to adct0atrigger.o(i.ADC0Seq3_Handler) for ADC0Seq3_Handler
+    startup.o(RESET) refers to dac.o(i.Timer1A_Handler) for Timer1A_Handler
     startup.o(RESET) refers to entry.o(.ARM.Collect$$$$00000000) for __main
-    adct0atrigger.o(i.ADC0Seq3_Handler) refers to adct0atrigger.o(.data) for ADCvalue
+    adct0atrigger.o(i.ADC0Seq3_Handler) refers to adctestmain.o(.bss) for data
     adct0atrigger.o(i.ADC0Seq3_Handler) refers to adctestmain.o(.data) for counter
     adct0atrigger.o(i.ADC0_InitTimer0ATriggerSeq3) refers to startup.o(.text) for DisableInterrupts
+    adctestmain.o(i.Test_AliasingEffect) refers to adct0atrigger.o(i.ADC0_InitTimer0ATriggerSeq3) for ADC0_InitTimer0ATriggerSeq3
+    adctestmain.o(i.Test_AliasingEffect) refers to dac.o(i.Timer1_Init) for Timer1_Init
+    adctestmain.o(i.Test_AliasingEffect) refers to adctestmain.o(i.getNumSamples) for getNumSamples
+    adctestmain.o(i.Test_NyquistTheorem) refers to adct0atrigger.o(i.ADC0_InitTimer0ATriggerSeq3) for ADC0_InitTimer0ATriggerSeq3
+    adctestmain.o(i.Test_NyquistTheorem) refers to dac.o(i.Timer1_Init) for Timer1_Init
+    adctestmain.o(i.Test_NyquistTheorem) refers to adctestmain.o(i.getNumSamples) for getNumSamples
+    adctestmain.o(i.Test_ValvanoPostulate) refers to adct0atrigger.o(i.ADC0_InitTimer0ATriggerSeq3) for ADC0_InitTimer0ATriggerSeq3
+    adctestmain.o(i.Test_ValvanoPostulate) refers to dac.o(i.Timer1_Init) for Timer1_Init
+    adctestmain.o(i.Test_ValvanoPostulate) refers to adctestmain.o(i.getNumSamples) for getNumSamples
+    adctestmain.o(i.getNumSamples) refers to startup.o(.text) for WaitForInterrupt
+    adctestmain.o(i.getNumSamples) refers to adctestmain.o(i.disableAdcTimer) for disableAdcTimer
+    adctestmain.o(i.getNumSamples) refers to adctestmain.o(.data) for counter
     adctestmain.o(i.main) refers to pll.o(i.PLL_Init) for PLL_Init
-    adctestmain.o(i.main) refers to adct0atrigger.o(i.ADC0_InitTimer0ATriggerSeq3) for ADC0_InitTimer0ATriggerSeq3
+    adctestmain.o(i.main) refers to uart.o(i.UART_Init) for UART_Init
+    adctestmain.o(i.main) refers to dac.o(i.DAC_Init) for DAC_Init
     adctestmain.o(i.main) refers to startup.o(.text) for EnableInterrupts
-    adctestmain.o(i.main) refers to adct0atrigger.o(.data) for ADCvalue
-    adctestmain.o(i.main) refers to adctestmain.o(.bss) for data
-    adctestmain.o(i.main) refers to adctestmain.o(.data) for counter
+    uart.o(i.UART_OutString) refers to uart.o(i.UART_OutChar) for UART_OutChar
+    uart.o(i.UART_OutUDec) refers to uart.o(i.UART_OutChar) for UART_OutChar
+    dac.o(i.Timer1A_Handler) refers to dac.o(i.DAC_Out) for DAC_Out
+    dac.o(i.Timer1A_Handler) refers to dac.o(.constdata) for SinewaveDAC
+    dac.o(i.Timer1A_Handler) refers to dac.o(.data) for sineIndex
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry10a.o(.ARM.Collect$$$$0000000D) for __rt_final_cpp
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry11a.o(.ARM.Collect$$$$0000000F) for __rt_final_exit
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry7b.o(.ARM.Collect$$$$00000008) for _main_clock
@@ -38,9 +54,22 @@ Section Cross References
 Removing Unused input sections from the image.
 
     Removing startup.o(HEAP), (0 bytes).
+    Removing adct0atrigger.o(i.ADC0_InitTimer0ATriggerSeq3), (1068 bytes).
     Removing adct0atrigger.o(i.ADC0_InitTimer0ATriggerSeq3PD3), (300 bytes).
+    Removing adct0atrigger.o(.data), (4 bytes).
+    Removing adctestmain.o(i.PortF_Init), (112 bytes).
+    Removing adctestmain.o(i.Test_AliasingEffect), (32 bytes).
+    Removing adctestmain.o(i.Test_NyquistTheorem), (32 bytes).
+    Removing adctestmain.o(i.Test_ValvanoPostulate), (32 bytes).
+    Removing adctestmain.o(i.disableAdcTimer), (12 bytes).
+    Removing adctestmain.o(i.getNumSamples), (56 bytes).
+    Removing uart.o(i.UART_InChar), (24 bytes).
+    Removing uart.o(i.UART_OutChar), (24 bytes).
+    Removing uart.o(i.UART_OutString), (22 bytes).
+    Removing uart.o(i.UART_OutUDec), (42 bytes).
+    Removing dac.o(i.Timer1_Init), (88 bytes).
 
-2 unused section(s) (total 300 bytes) removed from the image.
+15 unused section(s) (total 1848 bytes) removed from the image.
 
 ==============================================================================
 
@@ -51,22 +80,24 @@ Image Symbol Table
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
     RESET                                    0x00000000   Section      644  startup.o(RESET)
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
     ADCT0ATrigger.c                          0x00000000   Number         0  adct0atrigger.o ABSOLUTE
     ADCTestmain.c                            0x00000000   Number         0  adctestmain.o ABSOLUTE
+    DAC.c                                    0x00000000   Number         0  dac.o ABSOLUTE
     PLL.c                                    0x00000000   Number         0  pll.o ABSOLUTE
+    UART.c                                   0x00000000   Number         0  uart.o ABSOLUTE
     dc.s                                     0x00000000   Number         0  dc.o ABSOLUTE
     handlers.s                               0x00000000   Number         0  handlers.o ABSOLUTE
     init.s                                   0x00000000   Number         0  init.o ABSOLUTE
@@ -84,15 +115,20 @@ Image Symbol Table
     .text                                    0x00000298   Section       28  startup.o(.text)
     .text                                    0x000002b4   Section       36  init.o(.text)
     i.ADC0Seq3_Handler                       0x000002d8   Section        0  adct0atrigger.o(i.ADC0Seq3_Handler)
-    i.ADC0_InitTimer0ATriggerSeq3            0x00000308   Section        0  adct0atrigger.o(i.ADC0_InitTimer0ATriggerSeq3)
-    i.PLL_Init                               0x00000734   Section        0  pll.o(i.PLL_Init)
-    i.__scatterload_copy                     0x000007b0   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x000007be   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x000007c0   Section       14  handlers.o(i.__scatterload_zeroinit)
-    i.main                                   0x000007d0   Section        0  adctestmain.o(i.main)
-    .data                                    0x20000000   Section        4  adct0atrigger.o(.data)
-    .data                                    0x20000004   Section        2  adctestmain.o(.data)
-    .bss                                     0x20000008   Section      400  adctestmain.o(.bss)
+    i.DAC_Init                               0x00000310   Section        0  dac.o(i.DAC_Init)
+    i.DAC_Out                                0x000003b0   Section        0  dac.o(i.DAC_Out)
+    i.PLL_Init                               0x000003cc   Section        0  pll.o(i.PLL_Init)
+    i.Timer1A_Handler                        0x00000448   Section        0  dac.o(i.Timer1A_Handler)
+    i.UART_Init                              0x00000484   Section        0  uart.o(i.UART_Init)
+    i.__scatterload_copy                     0x0000050c   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x0000051a   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x0000051c   Section       14  handlers.o(i.__scatterload_zeroinit)
+    i.main                                   0x0000052a   Section        0  adctestmain.o(i.main)
+    .constdata                               0x00000542   Section       64  dac.o(.constdata)
+    .data                                    0x20000000   Section        2  adctestmain.o(.data)
+    .data                                    0x20000002   Section        2  dac.o(.data)
+    sineIndex                                0x20000002   Data           2  dac.o(.data)
+    .bss                                     0x20000004   Section      400  adctestmain.o(.bss)
     STACK                                    0x20000198   Section     1024  startup.o(STACK)
     StackMem                                 0x20000198   Data           0  startup.o(STACK)
 
@@ -197,7 +233,6 @@ Image Symbol Table
     SysCtl_Handler                           0x00000283   Thumb Code     0  startup.o(RESET)
     Timer0A_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
     Timer0B_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
-    Timer1A_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
     Timer1B_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
     Timer2A_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
     Timer2B_Handler                          0x00000283   Thumb Code     0  startup.o(RESET)
@@ -247,18 +282,21 @@ Image Symbol Table
     WaitForInterrupt                         0x000002af   Thumb Code     0  startup.o(.text)
     __scatterload                            0x000002b5   Thumb Code    28  init.o(.text)
     __scatterload_rt2                        0x000002b5   Thumb Code     0  init.o(.text)
-    ADC0Seq3_Handler                         0x000002d9   Thumb Code    32  adct0atrigger.o(i.ADC0Seq3_Handler)
-    ADC0_InitTimer0ATriggerSeq3              0x00000309   Thumb Code  1014  adct0atrigger.o(i.ADC0_InitTimer0ATriggerSeq3)
-    PLL_Init                                 0x00000735   Thumb Code   118  pll.o(i.PLL_Init)
-    __scatterload_copy                       0x000007b1   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x000007bf   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x000007c1   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    main                                     0x000007d1   Thumb Code   160  adctestmain.o(i.main)
-    Region$$Table$$Base                      0x00000894   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x000008b4   Number         0  anon$$obj.o(Region$$Table)
-    ADCvalue                                 0x20000000   Data           4  adct0atrigger.o(.data)
-    counter                                  0x20000004   Data           2  adctestmain.o(.data)
-    data                                     0x20000008   Data         400  adctestmain.o(.bss)
+    ADC0Seq3_Handler                         0x000002d9   Thumb Code    38  adct0atrigger.o(i.ADC0Seq3_Handler)
+    DAC_Init                                 0x00000311   Thumb Code   132  dac.o(i.DAC_Init)
+    DAC_Out                                  0x000003b1   Thumb Code    22  dac.o(i.DAC_Out)
+    PLL_Init                                 0x000003cd   Thumb Code   118  pll.o(i.PLL_Init)
+    Timer1A_Handler                          0x00000449   Thumb Code    48  dac.o(i.Timer1A_Handler)
+    UART_Init                                0x00000485   Thumb Code   118  uart.o(i.UART_Init)
+    __scatterload_copy                       0x0000050d   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x0000051b   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x0000051d   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    main                                     0x0000052b   Thumb Code    24  adctestmain.o(i.main)
+    SinewaveDAC                              0x00000542   Data          64  dac.o(.constdata)
+    Region$$Table$$Base                      0x00000584   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x000005a4   Number         0  anon$$obj.o(Region$$Table)
+    counter                                  0x20000000   Data           2  adctestmain.o(.data)
+    data                                     0x20000004   Data         400  adctestmain.o(.bss)
     __initial_sp                             0x20000598   Data           0  startup.o(STACK)
 
 
@@ -269,48 +307,53 @@ Memory Map of the image
 
   Image Entry point : 0x0000026d
 
-  Load Region LR_1 (Base: 0x00000000, Size: 0x000008bc, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x00000000, Size: 0x000005a8, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_RO (Base: 0x00000000, Size: 0x000008b4, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Base: 0x00000000, Size: 0x000005a4, Max: 0xffffffff, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x00000000   0x00000284   Code   RO            3  * RESET               startup.o
-    0x00000284   0x00000000   Code   RO           82  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
-    0x00000284   0x00000004   Code   RO           85    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
-    0x00000288   0x00000004   Code   RO           88    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
-    0x0000028c   0x00000000   Code   RO           90    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
-    0x0000028c   0x00000000   Code   RO           92    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
-    0x0000028c   0x00000008   Code   RO           93    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
-    0x00000294   0x00000000   Code   RO           95    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
-    0x00000294   0x00000000   Code   RO           97    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
-    0x00000294   0x00000004   Code   RO           86    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
+    0x00000284   0x00000000   Code   RO          194  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x00000284   0x00000004   Code   RO          197    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
+    0x00000288   0x00000004   Code   RO          200    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x0000028c   0x00000000   Code   RO          202    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x0000028c   0x00000000   Code   RO          204    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x0000028c   0x00000008   Code   RO          205    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x00000294   0x00000000   Code   RO          207    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
+    0x00000294   0x00000000   Code   RO          209    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
+    0x00000294   0x00000004   Code   RO          198    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
     0x00000298   0x0000001c   Code   RO            4    .text               startup.o
-    0x000002b4   0x00000024   Code   RO           99    .text               mc_w.l(init.o)
-    0x000002d8   0x00000030   Code   RO           12    i.ADC0Seq3_Handler  adct0atrigger.o
-    0x00000308   0x0000042c   Code   RO           13    i.ADC0_InitTimer0ATriggerSeq3  adct0atrigger.o
-    0x00000734   0x0000007c   Code   RO           70    i.PLL_Init          pll.o
-    0x000007b0   0x0000000e   Code   RO          103    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x000007be   0x00000002   Code   RO          104    i.__scatterload_null  mc_w.l(handlers.o)
-    0x000007c0   0x0000000e   Code   RO          105    i.__scatterload_zeroinit  mc_w.l(handlers.o)
-    0x000007ce   0x00000002   PAD
-    0x000007d0   0x000000c4   Code   RO           50    i.main              adctestmain.o
-    0x00000894   0x00000020   Data   RO          101    Region$$Table       anon$$obj.o
+    0x000002b4   0x00000024   Code   RO          211    .text               mc_w.l(init.o)
+    0x000002d8   0x00000038   Code   RO           12    i.ADC0Seq3_Handler  adct0atrigger.o
+    0x00000310   0x000000a0   Code   RO          160    i.DAC_Init          dac.o
+    0x000003b0   0x0000001c   Code   RO          161    i.DAC_Out           dac.o
+    0x000003cc   0x0000007c   Code   RO          112    i.PLL_Init          pll.o
+    0x00000448   0x0000003c   Code   RO          162    i.Timer1A_Handler   dac.o
+    0x00000484   0x00000088   Code   RO          125    i.UART_Init         uart.o
+    0x0000050c   0x0000000e   Code   RO          215    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x0000051a   0x00000002   Code   RO          216    i.__scatterload_null  mc_w.l(handlers.o)
+    0x0000051c   0x0000000e   Code   RO          217    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x0000052a   0x00000018   Code   RO           56    i.main              adctestmain.o
+    0x00000542   0x00000040   Data   RO          164    .constdata          dac.o
+    0x00000582   0x00000002   PAD
+    0x00000584   0x00000020   Data   RO          213    Region$$Table       anon$$obj.o
 
 
-    Execution Region ER_RW (Base: 0x20000000, Size: 0x00000008, Max: 0xffffffff, ABSOLUTE)
-
-    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
-
-    0x20000000   0x00000004   Data   RW           15    .data               adct0atrigger.o
-    0x20000004   0x00000002   Data   RW           52    .data               adctestmain.o
-
-
-    Execution Region ER_ZI (Base: 0x20000008, Size: 0x00000590, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RW (Base: 0x20000000, Size: 0x00000004, Max: 0xffffffff, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000008   0x00000190   Zero   RW           51    .bss                adctestmain.o
+    0x20000000   0x00000002   Data   RW           58    .data               adctestmain.o
+    0x20000002   0x00000002   Data   RW          165    .data               dac.o
+
+
+    Execution Region ER_ZI (Base: 0x20000004, Size: 0x00000594, Max: 0xffffffff, ABSOLUTE)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x20000004   0x00000190   Zero   RW           57    .bss                adctestmain.o
+    0x20000194   0x00000004   PAD
     0x20000198   0x00000400   Zero   RW            1    STACK               startup.o
 
 
@@ -321,15 +364,17 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-      1116         94          0          4          0       6947   adct0atrigger.o
-       196         36          0          2        400       1109   adctestmain.o
+        56         18          0          0          0       4607   adct0atrigger.o
+        24          0          0          2        400       1057   adctestmain.o
+       248         46         64          2          0       1717   dac.o
        124          6          0          0          0        427   pll.o
        672        622          0          0       1024        916   startup.o
+       136         18          0          0          0        392   uart.o
 
     ----------------------------------------------------------------------
-      2108        758         32          8       1424       9399   Object Totals
+      1260        710         98          4       1428       9116   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-         0          0          0          2          0          0   (incl. Padding)
+         0          0          2          0          4          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -347,8 +392,8 @@ Image component sizes
         36          8          0          0          0         68   init.o
 
     ----------------------------------------------------------------------
-        88         16          0          0          0         68   Library Totals
-         2          0          0          0          0          0   (incl. Padding)
+        86         16          0          0          0         68   Library Totals
+         0          0          0          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -357,7 +402,7 @@ Image component sizes
         86         16          0          0          0         68   mc_w.l
 
     ----------------------------------------------------------------------
-        88         16          0          0          0         68   Library Totals
+        86         16          0          0          0         68   Library Totals
 
     ----------------------------------------------------------------------
 
@@ -366,15 +411,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      2196        774         32          8       1424       9363   Grand Totals
-      2196        774         32          8       1424       9363   ELF Image Totals
-      2196        774         32          8          0          0   ROM Totals
+      1346        726         98          4       1428       8924   Grand Totals
+      1346        726         98          4       1428       8924   ELF Image Totals
+      1346        726         98          4          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 2228 (   2.18kB)
+    Total RO  Size (Code + RO Data)                 1444 (   1.41kB)
     Total RW  Size (RW Data + ZI Data)              1432 (   1.40kB)
-    Total ROM Size (Code + RO Data + RW Data)       2236 (   2.18kB)
+    Total ROM Size (Code + RO Data + RW Data)       1448 (   1.41kB)
 
 ==============================================================================
 
