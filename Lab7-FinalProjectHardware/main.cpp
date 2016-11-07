@@ -85,23 +85,22 @@ int main(void) {
   
   PLL_Init(Bus80MHz);
   DAC_Init();
-  //Switch_Init();
   LED_Init();
-//  ESP8266_Init(BAUD_RATE);
+  ESP8266_Init(BAUD_RATE);
   ST7735_InitR(INITR_REDTAB);
   Buttons_Init();
   Thumbstick_Init();
   Accel_Init();
   ADC_Init();
- GameTick_Init(); 
-//	SysTick_Init();
+  GameTick_Init(); 
 	EnableInterrupts();
   
-//  ST7735_Test();  waitForTouch(); Output_Clear();
-  DAC_Test(2);    waitForTouch(); Output_Clear();
-//  Buttons_Test(); waitForTouch(); Output_Clear();
- // ADC_Test();     waitForTouch(); Output_Clear();
-	//GameRulesTest(); waitForTouch(); Output_Clear();  
+//  ST7735_Test();   waitForTouch(); Output_Clear();
+//  DAC_Test(2);     waitForTouch(); Output_Clear();
+//  Buttons_Test();  waitForTouch(); Output_Clear();
+//  ADC_Test();      waitForTouch(); Output_Clear();
+//  ESP_Test();      waitForTouch(); Output_Clear();
+//  GameRulesTest(); waitForTouch(); Output_Clear();  
 
 	Rectangle Screen (0,0,128<<7,160<<7);
 	Quadtree * WorldSpace = new Quadtree(0, Screen); // initializes gamespace the same size as screen
