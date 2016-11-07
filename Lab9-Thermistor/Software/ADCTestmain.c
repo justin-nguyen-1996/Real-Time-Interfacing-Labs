@@ -31,6 +31,8 @@
 #include "PLL.h"
 #include "UART.h"
 #include "DAC.h"
+#include "ST7735.h"
+#include "Graphics.h"
 
 void DisableInterrupts(void); // Disable interrupts
 void EnableInterrupts(void);  // Enable interrupts
@@ -49,7 +51,7 @@ uint32_t data[100];
 uint16_t counter;
 extern uint32_t ADCvalue;
 
-void PortF_Init() {
+void PortF_Init(void) {
   SYSCTL_RCGCGPIO_R |= 0x00000020;         // activate port F
   GPIO_PORTF_DIR_R |= 0x04;                // make PF2 out (built-in LED)
   GPIO_PORTF_AFSEL_R &= ~0x04;             // disable alt funct on PF2
@@ -60,7 +62,7 @@ void PortF_Init() {
   GPIO_PORTF_DATA_R &= ~0x04;              // turn off LED
 }
 
-void disableAdcTimer() {
+void disableAdcTimer(void) {
   TIMER0_CTL_R = 0x00000000;           // disable timer0A to stop ADC sampling  
 }
 
@@ -75,29 +77,67 @@ void getNumSamples(int numSamples) {
   }
 }
 
-void Test_ValvanoPostulate() {
+void Test_ValvanoPostulate(void) {
   ADC0_InitTimer0ATriggerSeq3(0, 80000);   // Sampling frequency: 1000 Hz
   Timer1_Init(800000);                     // Signal frequency:   100 Hz
   getNumSamples(NUM_SAMPLES);
 }
 
-void Test_NyquistTheorem() {
+void Test_NyquistTheorem(void) {
   ADC0_InitTimer0ATriggerSeq3(0, 80000);   // Sampling frequency: 1000 Hz
   Timer1_Init(160000);                     // Signal frequency:   500 Hz
   getNumSamples(NUM_SAMPLES);
 }
 
-void Test_AliasingEffect() {
+void Test_AliasingEffect(void) {
   ADC0_InitTimer0ATriggerSeq3(0, 80000);   // Sampling frequency: 1000 Hz
   Timer1_Init(40000);                      // Signal frequency:   2000 Hz
   getNumSamples(NUM_SAMPLES);
+}
+
+void SweepingGraph_Init(void)
+{
+	ST7735_SetCursor(0,0); ST7735_OutString("Temperature Lab");
+	ST7735_PlotClear(100, 4000); // range from 0 to 4095
+	ST7735_SetCursor(0,1); ST7735_OutString("N=");
+	ST7735_SetCursor(0,2); ST7735_OutString("T="); 
+	ST7735_sDecOut2(1000); ST7735_OutString(" C");	
+}
+	
+static uint16_t count = 0;
+static const uint16_t N = 0x1<<4; //number of data points per pixel (power of two)
+static const uint16_t fs = 1; //sampling frequency
+void SweepingGraph_Print(uint32_t Temp)
+{
+	ST7735_PlotPoint(Temp);	
+	if ((count & (N-1)) == 0) { ST7735_PlotNextErase(); }
+	if ((count % fs) == 0) 
+	{
+		ST7735_SetCursor(3,1); ST7735_OutUDec(Temp);
+		ST7735_SetCursor(2,2); ST7735_sDecOut2(Temp); 
+	}
+	count ++;
+}
+
+void SweepingGraph_Test(void)
+{
+	SweepingGraph_Init();
+	uint16_t data = 0;
+	while(1)
+	{
+		for (int i = 0; i < 10000; i++) {} //delay
+		if (data > 4095) {data = 0;}
+		SweepingGraph_Print(data++);
+	}
 }
 
 int main(void){
   PLL_Init(Bus80MHz);                      // 80 MHz system clock
   UART_Init();                             // initialize UART device
   DAC_Init();
+	ST7735_InitR(INITR_REDTAB);
   EnableInterrupts();
+	SweepingGraph_Test();
 
 //  Test_ValvanoPostulate();
 //  Test_NyquistTheorem();
