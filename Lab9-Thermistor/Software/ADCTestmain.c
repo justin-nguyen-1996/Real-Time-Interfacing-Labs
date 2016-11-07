@@ -29,6 +29,8 @@
 #include "../inc/tm4c123gh6pm.h"
 #include "ADCT0ATrigger.h"
 #include "PLL.h"
+#include "UART.h"
+#include "DAC.h"
 
 void DisableInterrupts(void); // Disable interrupts
 void EnableInterrupts(void);  // Enable interrupts
@@ -47,10 +49,8 @@ uint32_t data[100];
 uint16_t counter;
 extern uint32_t ADCvalue;
 
-int main(void){
-  PLL_Init(Bus80MHz);                      // 80 MHz system clock
+void PortF_Init() {
   SYSCTL_RCGCGPIO_R |= 0x00000020;         // activate port F
-  ADC0_InitTimer0ATriggerSeq3(0, 80000);   // ADC channel 0, 1000 Hz sampling
   GPIO_PORTF_DIR_R |= 0x04;                // make PF2 out (built-in LED)
   GPIO_PORTF_AFSEL_R &= ~0x04;             // disable alt funct on PF2
   GPIO_PORTF_DEN_R |= 0x04;                // enable digital I/O on PF2
@@ -58,16 +58,49 @@ int main(void){
   GPIO_PORTF_PCTL_R = (GPIO_PORTF_PCTL_R&0xFFFFF0FF)+0x00000000;
   GPIO_PORTF_AMSEL_R = 0;                  // disable analog functionality on PF
   GPIO_PORTF_DATA_R &= ~0x04;              // turn off LED
-  EnableInterrupts();
+}
+
+void disableAdcTimer() {
+  TIMER0_CTL_R = 0x00000000;           // disable timer0A to stop ADC sampling  
+}
+
+void getNumSamples(int numSamples) {
   while(1){
     WaitForInterrupt();
-    GPIO_PORTF_DATA_R ^= 0x04;             // toggle LED
-    data[counter] = ADCvalue;
-    if (counter == 100) {
-      for (int i = 0; i < NUM_SAMPLES; ++i) {
-        // print to UART        
-      }
+    GPIO_PORTF_DATA_R ^= 0x04;             // tells you when the ADC sampled the signal
+    if (counter == NUM_SAMPLES) {
+      disableAdcTimer();
+      break;
     }
   }
+}
+
+void Test_ValvanoPostulate() {
+  ADC0_InitTimer0ATriggerSeq3(0, 80000);   // Sampling frequency: 1000 Hz
+  Timer1_Init(800000);                     // Signal frequency:   100 Hz
+  getNumSamples(NUM_SAMPLES);
+}
+
+void Test_NyquistTheorem() {
+  ADC0_InitTimer0ATriggerSeq3(0, 80000);   // Sampling frequency: 1000 Hz
+  Timer1_Init(160000);                     // Signal frequency:   500 Hz
+  getNumSamples(NUM_SAMPLES);
+}
+
+void Test_AliasingEffect() {
+  ADC0_InitTimer0ATriggerSeq3(0, 80000);   // Sampling frequency: 1000 Hz
+  Timer1_Init(40000);                      // Signal frequency:   2000 Hz
+  getNumSamples(NUM_SAMPLES);
+}
+
+int main(void){
+  PLL_Init(Bus80MHz);                      // 80 MHz system clock
+  UART_Init();                             // initialize UART device
+  DAC_Init();
+  EnableInterrupts();
+
+//  Test_ValvanoPostulate();
+//  Test_NyquistTheorem();
+//  Test_AliasingEffect();
 }
 

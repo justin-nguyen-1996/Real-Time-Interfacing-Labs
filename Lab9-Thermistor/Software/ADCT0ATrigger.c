@@ -264,6 +264,6 @@ void ADC0_InitTimer0ATriggerSeq3PD3(uint32_t period){
 
 void ADC0Seq3_Handler(void){
   ADC0_ISC_R = 0x08;          // acknowledge ADC sequence 3 completion
-  ADCvalue = ADC0_SSFIFO3_R & 0x0FFF;  // 12-bit result
+  data[counter] = ADC0_SSFIFO3_R & 0x0FFF;  // 12-bit result
   counter += 1;
 }
