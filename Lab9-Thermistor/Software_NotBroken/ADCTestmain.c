@@ -33,6 +33,7 @@
 #include "DAC.h"
 #include "ST7735.h"
 #include "Graphics.h"
+#include "FIFO.h"
 
 void DisableInterrupts(void); // Disable interrupts
 void EnableInterrupts(void);  // Enable interrupts
@@ -135,13 +136,21 @@ int main(void){
   PLL_Init(Bus80MHz);                      // 80 MHz system clock
   PortF_Init();
   UART_Init();
-  DAC_Init();
+//  DAC_Init();
 	ST7735_InitR(INITR_REDTAB);
+  SweepingGraph_Init();
+  ADC0_InitTimer0ATriggerSeq3PD3(80000);   // sample at 1000 Hz
   EnableInterrupts();
-	SweepingGraph_Test();
+//	SweepingGraph_Test();
 
 //  Test_ValvanoPostulate();
 //  Test_NyquistTheorem();
 //  Test_AliasingEffect();
+  
+  uint16_t index = 0;
+	while(1) {
+		for (int i = 0; i < 10000; i++) {} //delay
+		SweepingGraph_Print(data[counter]);
+	}
 }
 
