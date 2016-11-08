@@ -170,7 +170,7 @@
             <Capability>1</Capability>
             <DriverSelection>4097</DriverSelection>
           </Flash1>
-          <bUseTDR>0</bUseTDR>
+          <bUseTDR>1</bUseTDR>
           <Flash2>BIN\lmidk-agdi.dll</Flash2>
           <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
@@ -431,6 +431,19 @@
               <FilePath>.\UART.c</FilePath>
             </File>
             <File>
+<<<<<<< HEAD
+=======
+              <FileName>ST7735.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\ST7735.c</FilePath>
+            </File>
+            <File>
+              <FileName>Graphics.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Graphics.c</FilePath>
+            </File>
+            <File>
+>>>>>>> 9bd79dbbdf833e8ceb3efb11bea18d1cb3f53da3
               <FileName>DAC.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\DAC.c</FilePath>
