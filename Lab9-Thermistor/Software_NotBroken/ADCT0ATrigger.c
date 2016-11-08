@@ -105,8 +105,8 @@ void WaitForInterrupt(void);  // low power mode
 // SS3 1st sample source: programmable using variable 'channelNum' [0:11]
 // SS3 interrupts: enabled and promoted to controller
 
-extern uint32_t data[100];
-extern uint16_t counter;
+extern uint32_t ADC_InputData[100];
+extern uint16_t ADC_InputCounter;
 uint32_t ADCvalue;
 
 void ADC0_InitTimer0ATriggerSeq3(uint8_t channelNum, uint32_t period){
@@ -264,9 +264,9 @@ void ADC0_InitTimer0ATriggerSeq3PD3(uint32_t period){
 
 void ADC0Seq3_Handler(void){
   ADC0_ISC_R = 0x08;          // acknowledge ADC sequence 3 completion
-  data[counter] = ADC0_SSFIFO3_R & 0x0FFF;  // 12-bit result
-  counter += 1;
-  if (counter == 100) {
-    counter = 0;
+  ADC_InputData[ADC_InputCounter] = ADC0_SSFIFO3_R & 0x0FFF;  // 12-bit result
+  ADC_InputCounter += 1;
+  if (ADC_InputCounter == 100) {
+    ADC_InputCounter = 0;
   }
 }
