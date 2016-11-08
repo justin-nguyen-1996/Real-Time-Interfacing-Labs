@@ -102,7 +102,7 @@ void Timer1_Init(uint32_t period) {
 
 static uint16_t sineIndex = 0;
 void Timer1A_Handler(void) {
-  TIMER0_ICR_R = TIMER_ICR_TATOCINT;// acknowledge timer0A timeout
+  TIMER1_ICR_R = TIMER_ICR_TATOCINT;// acknowledge timer0A timeout
 	uint16_t value = SinewaveDAC[sineIndex] << 2 ;
 	sineIndex = (sineIndex+1) & 0x1F;
 	DAC_Out(value);

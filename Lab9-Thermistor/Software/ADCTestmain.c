@@ -66,8 +66,8 @@ void disableAdcTimer() {
 
 void getNumSamples(int numSamples) {
   while(1){
-    WaitForInterrupt();
-    GPIO_PORTF_DATA_R ^= 0x04;             // tells you when the ADC sampled the signal
+//    WaitForInterrupt();
+//    GPIO_PORTF_DATA_R ^= 0x04;             // tells you when the ADC sampled the signal
     if (counter == NUM_SAMPLES) {
       disableAdcTimer();
       break;
@@ -76,30 +76,31 @@ void getNumSamples(int numSamples) {
 }
 
 void Test_ValvanoPostulate() {
-  ADC0_InitTimer0ATriggerSeq3(0, 80000);   // Sampling frequency: 1000 Hz
+  ADC0_InitTimer0ATriggerSeq3PD3(80000);
   Timer1_Init(800000);                     // Signal frequency:   100 Hz
   getNumSamples(NUM_SAMPLES);
 }
 
 void Test_NyquistTheorem() {
-  ADC0_InitTimer0ATriggerSeq3(0, 80000);   // Sampling frequency: 1000 Hz
+  ADC0_InitTimer0ATriggerSeq3PD3(80000);
   Timer1_Init(160000);                     // Signal frequency:   500 Hz
   getNumSamples(NUM_SAMPLES);
 }
 
 void Test_AliasingEffect() {
-  ADC0_InitTimer0ATriggerSeq3(0, 80000);   // Sampling frequency: 1000 Hz
+  ADC0_InitTimer0ATriggerSeq3PD3(80000);
   Timer1_Init(40000);                      // Signal frequency:   2000 Hz
   getNumSamples(NUM_SAMPLES);
 }
 
 int main(void){
   PLL_Init(Bus80MHz);                      // 80 MHz system clock
-  UART_Init();                             // initialize UART device
+  PortF_Init();
+  UART_Init();
   DAC_Init();
   EnableInterrupts();
 
-//  Test_ValvanoPostulate();
+  Test_ValvanoPostulate();
 //  Test_NyquistTheorem();
 //  Test_AliasingEffect();
 }

@@ -86,7 +86,7 @@ int main(void) {
   PLL_Init(Bus80MHz);
   DAC_Init();
   LED_Init();
-  ESP8266_Init(BAUD_RATE);
+//  ESP8266_Init(BAUD_RATE);
   ST7735_InitR(INITR_REDTAB);
   Buttons_Init();
   Thumbstick_Init();
@@ -96,7 +96,7 @@ int main(void) {
 	EnableInterrupts();
   
 //  ST7735_Test();   waitForTouch(); Output_Clear();
-//  DAC_Test(2);     waitForTouch(); Output_Clear();
+  DAC_Test(2);     waitForTouch(); Output_Clear();
 //  Buttons_Test();  waitForTouch(); Output_Clear();
 //  ADC_Test();      waitForTouch(); Output_Clear();
 //  ESP_Test();      waitForTouch(); Output_Clear();
