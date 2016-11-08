@@ -34,6 +34,7 @@
 #include "ST7735.h"
 #include "Graphics.h"
 #include "FIFO.h"
+#include "calib.h"
 
 void DisableInterrupts(void); // Disable interrupts
 void EnableInterrupts(void);  // Enable interrupts
@@ -103,6 +104,7 @@ uint16_t find(const uint16_t * arr, const uint16_t searchValue)
 	{
 		if (arr[i] >= searchValue) {return i;}
 	}
+	return 0;
 }
 
 uint16_t interpolate(uint16_t data)
@@ -111,10 +113,10 @@ uint16_t interpolate(uint16_t data)
 	if (upperIndex == 0) {return Tdata[0];}
 	uint16_t lowerIndex = upperIndex - 1;
 	uint16_t adcDiff = ADCdata[upperIndex] - ADCdata[lowerIndex];
-	uint16_t tempDiff = Tdata[upperIndex] - ADCdata[lowerIndex];
+	uint16_t tempDiff = Tdata[lowerIndex] - Tdata[upperIndex];
 	uint16_t dataDiff = (data - ADCdata[lowerIndex]) << 4;
-	uint16_t add = (tempDiff * dataDiff / adcDiff) >> 4;
-	return add + Tdata[lowerIndex];
+	uint16_t sub = (tempDiff * dataDiff / adcDiff) >> 4;
+	return Tdata[lowerIndex] - sub;
 }
 
 int main(void){
@@ -132,12 +134,15 @@ int main(void){
 //  Test_NyquistTheorem();
 //  Test_AliasingEffect();
   
-  uint16_t index = 0;
+	uint16_t prevCounter = counter;
 	while(1) {
-		for (int i = 0; i < 10000; i++) {} //delay
-		SweepingGraph_Print( 
-			interpolate( data[counter] ) 
-		);
+		if (prevCounter != counter)
+		{
+			prevCounter = counter;
+			SweepingGraph_Print( 
+				interpolate( data[prevCounter] ) 
+			);
+		}
 	}
 }
 

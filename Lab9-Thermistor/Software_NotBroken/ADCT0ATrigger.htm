@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\ADCT0ATrigger.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\ADCT0ATrigger.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Mon Nov 07 20:04:49 2016
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Mon Nov 07 21:27:51 2016
 <BR><P>
 <H3>Maximum Stack Usage =        192 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -13,11 +13,11 @@ main &rArr; SweepingGraph_Print &rArr; ST7735_sDecOut2 &rArr; ST7735_OutString &
 Functions with no stack information
 </H3><UL>
  <LI><a href="#[7d]">Reset_Handler</a>
- <LI><a href="#[aa]">DisableInterrupts</a>
- <LI><a href="#[a3]">EnableInterrupts</a>
- <LI><a href="#[ab]">StartCritical</a>
- <LI><a href="#[ac]">EndCritical</a>
- <LI><a href="#[ad]">WaitForInterrupt</a>
+ <LI><a href="#[ac]">DisableInterrupts</a>
+ <LI><a href="#[a5]">EnableInterrupts</a>
+ <LI><a href="#[ad]">StartCritical</a>
+ <LI><a href="#[ae]">EndCritical</a>
+ <LI><a href="#[af]">WaitForInterrupt</a>
 </UL>
 </UL>
 <P>
@@ -33,8 +33,8 @@ Mutually Recursive functions
  <LI><a href="#[8]">PendSV_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[8]">PendSV_Handler</a><BR>
  <LI><a href="#[9]">SysTick_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[9]">SysTick_Handler</a><BR>
  <LI><a href="#[18]">ADC0Seq0_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[18]">ADC0Seq0_Handler</a><BR>
- <LI><a href="#[99]">convertDec</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[99]">convertDec</a><BR>
  <LI><a href="#[93]">fillmessage</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[93]">fillmessage</a><BR>
+ <LI><a href="#[99]">convertDec</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[99]">convertDec</a><BR>
 </UL>
 <P>
 <H3>
@@ -581,7 +581,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Reset_Handler
 </UL>
 
-<P><STRONG><a name="[a4]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry2.o(.ARM.Collect$$$$00000001))
+<P><STRONG><a name="[a6]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry2.o(.ARM.Collect$$$$00000001))
 
 <P><STRONG><a name="[7f]"></a>_main_scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry5.o(.ARM.Collect$$$$00000004))
 <BR><BR>[Calls]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
@@ -591,27 +591,27 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
 </UL>
 
-<P><STRONG><a name="[a5]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
+<P><STRONG><a name="[a7]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
 
-<P><STRONG><a name="[a6]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
+<P><STRONG><a name="[a8]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
 
-<P><STRONG><a name="[a7]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
+<P><STRONG><a name="[a9]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
 
-<P><STRONG><a name="[a8]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
+<P><STRONG><a name="[aa]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
 
-<P><STRONG><a name="[a9]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
+<P><STRONG><a name="[ab]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
 
-<P><STRONG><a name="[aa]"></a>DisableInterrupts</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup.o(.text), UNUSED)
+<P><STRONG><a name="[ac]"></a>DisableInterrupts</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup.o(.text), UNUSED)
 
-<P><STRONG><a name="[a3]"></a>EnableInterrupts</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup.o(.text))
+<P><STRONG><a name="[a5]"></a>EnableInterrupts</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[ab]"></a>StartCritical</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup.o(.text), UNUSED)
+<P><STRONG><a name="[ad]"></a>StartCritical</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup.o(.text), UNUSED)
 
-<P><STRONG><a name="[ac]"></a>EndCritical</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup.o(.text), UNUSED)
+<P><STRONG><a name="[ae]"></a>EndCritical</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup.o(.text), UNUSED)
 
-<P><STRONG><a name="[ad]"></a>WaitForInterrupt</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup.o(.text), UNUSED)
+<P><STRONG><a name="[af]"></a>WaitForInterrupt</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup.o(.text), UNUSED)
 
 <P><STRONG><a name="[80]"></a>__scatterload</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, init.o(.text))
 <BR><BR>[Calls]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main_after_scatterload
@@ -619,12 +619,12 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_main_scatterload
 </UL>
 
-<P><STRONG><a name="[ae]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
+<P><STRONG><a name="[b0]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
 
 <P><STRONG><a name="[1b]"></a>ADC0Seq3_Handler</STRONG> (Thumb, 50 bytes, Stack size 0 bytes, adct0atrigger.o(i.ADC0Seq3_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup.o(RESET)
 </UL>
-<P><STRONG><a name="[a2]"></a>ADC0_InitTimer0ATriggerSeq3PD3</STRONG> (Thumb, 262 bytes, Stack size 8 bytes, adct0atrigger.o(i.ADC0_InitTimer0ATriggerSeq3PD3))
+<P><STRONG><a name="[a4]"></a>ADC0_InitTimer0ATriggerSeq3PD3</STRONG> (Thumb, 262 bytes, Stack size 8 bytes, adct0atrigger.o(i.ADC0_InitTimer0ATriggerSeq3PD3))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = ADC0_InitTimer0ATriggerSeq3PD3
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -641,11 +641,11 @@ Global Symbols
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commandList
 </UL>
 
-<P><STRONG><a name="[9f]"></a>PLL_Init</STRONG> (Thumb, 118 bytes, Stack size 0 bytes, pll.o(i.PLL_Init))
+<P><STRONG><a name="[a1]"></a>PLL_Init</STRONG> (Thumb, 118 bytes, Stack size 0 bytes, pll.o(i.PLL_Init))
 <BR><BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[a0]"></a>PortF_Init</STRONG> (Thumb, 90 bytes, Stack size 0 bytes, adctestmain.o(i.PortF_Init))
+<P><STRONG><a name="[a2]"></a>PortF_Init</STRONG> (Thumb, 90 bytes, Stack size 0 bytes, adctestmain.o(i.PortF_Init))
 <BR><BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -782,41 +782,41 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[8f]"></a>ST7735_SetCursor</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, st7735.o(i.ST7735_SetCursor))
-<BR><BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InitR
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SweepingGraph_Print
+<BR><BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SweepingGraph_Print
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SweepingGraph_Init
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InitR
 </UL>
 
 <P><STRONG><a name="[98]"></a>ST7735_sDecOut2</STRONG> (Thumb, 196 bytes, Stack size 24 bytes, graphics.o(i.ST7735_sDecOut2))
 <BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = ST7735_sDecOut2 &rArr; ST7735_OutString &rArr; ST7735_OutChar &rArr; ST7735_DrawString &rArr; ST7735_DrawCharS &rArr; ST7735_FillRect &rArr; setAddrWindow
 </UL>
-<BR>[Calls]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;convertDec
+<BR>[Calls]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_OutString
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;convertDec
 <LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clearConvertedIndex
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_OutString
 </UL>
 <BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SweepingGraph_Print
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SweepingGraph_Init
 </UL>
 
-<P><STRONG><a name="[9b]"></a>SweepingGraph_Init</STRONG> (Thumb, 70 bytes, Stack size 8 bytes, adctestmain.o(i.SweepingGraph_Init))
+<P><STRONG><a name="[9b]"></a>SweepingGraph_Init</STRONG> (Thumb, 70 bytes, Stack size 8 bytes, graphics.o(i.SweepingGraph_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 192<LI>Call Chain = SweepingGraph_Init &rArr; ST7735_sDecOut2 &rArr; ST7735_OutString &rArr; ST7735_OutChar &rArr; ST7735_DrawString &rArr; ST7735_DrawCharS &rArr; ST7735_FillRect &rArr; setAddrWindow
 </UL>
-<BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_sDecOut2
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_SetCursor
+<BR>[Calls]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_SetCursor
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_PlotClear
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_OutString
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_sDecOut2
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[9c]"></a>SweepingGraph_Print</STRONG> (Thumb, 66 bytes, Stack size 8 bytes, adctestmain.o(i.SweepingGraph_Print))
+<P><STRONG><a name="[9c]"></a>SweepingGraph_Print</STRONG> (Thumb, 66 bytes, Stack size 8 bytes, graphics.o(i.SweepingGraph_Print))
 <BR><BR>[Stack]<UL><LI>Max Depth = 192<LI>Call Chain = SweepingGraph_Print &rArr; ST7735_sDecOut2 &rArr; ST7735_OutString &rArr; ST7735_OutChar &rArr; ST7735_DrawString &rArr; ST7735_DrawCharS &rArr; ST7735_FillRect &rArr; setAddrWindow
 </UL>
-<BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_sDecOut2
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_SetCursor
+<BR>[Calls]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_SetCursor
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_PlotPoint
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_PlotNextErase
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_OutUDec
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_sDecOut2
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -828,15 +828,15 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup.o(RESET)
 </UL>
-<P><STRONG><a name="[a1]"></a>UART_Init</STRONG> (Thumb, 118 bytes, Stack size 0 bytes, uart.o(i.UART_Init))
+<P><STRONG><a name="[a3]"></a>UART_Init</STRONG> (Thumb, 118 bytes, Stack size 0 bytes, uart.o(i.UART_Init))
 <BR><BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[af]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
+<P><STRONG><a name="[b1]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
 
-<P><STRONG><a name="[b0]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
+<P><STRONG><a name="[b2]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
 
-<P><STRONG><a name="[b1]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
+<P><STRONG><a name="[b3]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 
 <P><STRONG><a name="[9a]"></a>clearConvertedIndex</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, graphics.o(i.clearConvertedIndex))
 <BR><BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_sDecOut2
@@ -862,18 +862,31 @@ Global Symbols
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_OutUDec
 </UL>
 
-<P><STRONG><a name="[7c]"></a>main</STRONG> (Thumb, 68 bytes, Stack size 0 bytes, adctestmain.o(i.main))
+<P><STRONG><a name="[a0]"></a>find</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, adctestmain.o(i.find))
+<BR><BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;interpolate
+</UL>
+
+<P><STRONG><a name="[9f]"></a>interpolate</STRONG> (Thumb, 106 bytes, Stack size 32 bytes, adctestmain.o(i.interpolate))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = interpolate
+</UL>
+<BR>[Calls]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;find
+</UL>
+<BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[7c]"></a>main</STRONG> (Thumb, 72 bytes, Stack size 0 bytes, adctestmain.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 192 + Unknown Stack Size
 <LI>Call Chain = main &rArr; SweepingGraph_Print &rArr; ST7735_sDecOut2 &rArr; ST7735_OutString &rArr; ST7735_OutChar &rArr; ST7735_DrawString &rArr; ST7735_DrawCharS &rArr; ST7735_FillRect &rArr; setAddrWindow
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Init
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InitR
-<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PLL_Init
+<BR>[Calls]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Init
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SweepingGraph_Print
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SweepingGraph_Init
-<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PortF_Init
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC0_InitTimer0ATriggerSeq3PD3
-<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EnableInterrupts
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InitR
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PLL_Init
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;interpolate
+<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PortF_Init
+<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC0_InitTimer0ATriggerSeq3PD3
+<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EnableInterrupts
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
 </UL><P>

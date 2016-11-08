@@ -283,6 +283,42 @@ void ST7735_Test() {
   ST7735_OutString((char*) "Trevor murCOCK\n");
 }
 
+void SweepingGraph_Init(void)
+{
+	ST7735_SetCursor(0,0); ST7735_OutString("Temperature Lab");
+	ST7735_PlotClear(100, 4000); // range from 0 to 4095
+	ST7735_SetCursor(0,1); ST7735_OutString("N=");
+	ST7735_SetCursor(0,2); ST7735_OutString("T="); 
+	ST7735_sDecOut2(1000); ST7735_OutString(" C");	
+}
+	
+static uint16_t count = 0;
+static const uint16_t N = 0x1<<4; //number of data points per pixel (power of two)
+static const uint16_t fs = 1; //sampling frequency
+void SweepingGraph_Print(uint32_t Temp)
+{
+	ST7735_PlotPoint(Temp);	
+	if ((count & (N-1)) == 0) { ST7735_PlotNextErase(); }
+	if ((count % fs) == 0) 
+	{
+		ST7735_SetCursor(3,1); ST7735_OutUDec(Temp);
+		ST7735_SetCursor(2,2); ST7735_sDecOut2(Temp); 
+	}
+	count ++;
+}
+
+void SweepingGraph_Test(void)
+{
+	SweepingGraph_Init();
+	uint16_t data = 0;
+	while(1)
+	{
+		for (int i = 0; i < 10000; i++) {} //delay
+		if (data > 4095) {data = 0;}
+		SweepingGraph_Print(data++);
+	}
+}
+
 void drawShip(void);
 void drawAsteroid(void);
 void drawLaser(void);
