@@ -96,40 +96,25 @@ void Test_AliasingEffect() {
   getNumSamples(NUM_SAMPLES);
 }
 
-void SweepingGraph_Init(void)
+#define ARRAY_SIZE 53
+uint16_t find(const uint16_t * arr, const uint16_t searchValue)	
 {
-	ST7735_SetCursor(0,0); ST7735_OutString("Temperature Lab");
-	ST7735_PlotClear(100, 4000); // range from 0 to 4095
-	ST7735_SetCursor(0,1); ST7735_OutString("N=");
-	ST7735_SetCursor(0,2); ST7735_OutString("T="); 
-	ST7735_sDecOut2(1000); ST7735_OutString(" C");	
-}
-	
-static uint16_t count = 0;
-static const uint16_t N = 0x1<<4; //number of data points per pixel (power of two)
-static const uint16_t fs = 1; //sampling frequency
-void SweepingGraph_Print(uint32_t Temp)
-{
-	ST7735_PlotPoint(Temp);	
-	if ((count & (N-1)) == 0) { ST7735_PlotNextErase(); }
-	if ((count % fs) == 0) 
+	for (int i = 0; i < ARRAY_SIZE; i++)
 	{
-		ST7735_SetCursor(3,1); ST7735_OutUDec(Temp);
-		ST7735_SetCursor(2,2); ST7735_sDecOut2(Temp); 
+		if (arr[i] >= searchValue) {return i;}
 	}
-	count ++;
 }
 
-void SweepingGraph_Test(void)
+uint16_t interpolate(uint16_t data)
 {
-	SweepingGraph_Init();
-	uint16_t data = 0;
-	while(1)
-	{
-		for (int i = 0; i < 10000; i++) {} //delay
-		if (data > 4095) {data = 0;}
-		SweepingGraph_Print(data++);
-	}
+	uint16_t upperIndex = find(ADCdata, data);
+	if (upperIndex == 0) {return Tdata[0];}
+	uint16_t lowerIndex = upperIndex - 1;
+	uint16_t adcDiff = ADCdata[upperIndex] - ADCdata[lowerIndex];
+	uint16_t tempDiff = Tdata[upperIndex] - ADCdata[lowerIndex];
+	uint16_t dataDiff = (data - ADCdata[lowerIndex]) << 4;
+	uint16_t add = (tempDiff * dataDiff / adcDiff) >> 4;
+	return add + Tdata[lowerIndex];
 }
 
 int main(void){
@@ -150,7 +135,9 @@ int main(void){
   uint16_t index = 0;
 	while(1) {
 		for (int i = 0; i < 10000; i++) {} //delay
-		SweepingGraph_Print(data[counter]);
+		SweepingGraph_Print( 
+			interpolate( data[counter] ) 
+		);
 	}
 }
 
