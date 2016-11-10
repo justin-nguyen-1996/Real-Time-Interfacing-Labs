@@ -29,6 +29,6 @@ void PWM0B_Init(uint16_t period, uint16_t duty);
 void PWM0B_Duty(uint16_t duty);
 
 // turn the motor off
-void Motor_Off();
+void Motor_Off(void);
 
 #endif

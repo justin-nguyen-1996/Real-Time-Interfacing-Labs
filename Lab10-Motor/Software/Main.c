@@ -30,6 +30,7 @@
 #include "Switch.h"
 #include "Tach.h"
 #include "Graphics.h"
+#include "SysTick.h"
 
 void WaitForInterrupt(void);  // low power mode
 
@@ -41,6 +42,7 @@ int main(void){
   
   PWM0A_Init(40000, 30000);         // initialize PWM0, 1000 Hz, 75% duty
   PWM0B_Init(40000, 10000);         // initialize PWM0, 1000 Hz, 25% duty
+	SysTick_Init();
 //  PWM0_Duty(4000);    // 10%
 //  PWM0_Duty(10000);   // 25%
 //  PWM0_Duty(30000);   // 75%
@@ -49,7 +51,22 @@ int main(void){
 //  PWM0_Init(1000, 900);          // initialize PWM0, 40000 Hz, 90% duty
 //  PWM0_Init(1000, 100);          // initialize PWM0, 40000 Hz, 10% duty
 //  PWM0_Init(40, 20);             // initialize PWM0, 1 MHz, 50% duty
-  while(1){
-    WaitForInterrupt();
-  }
+	int count = 0;
+	uint32_t speed = 0;
+  while(1)
+	{
+		SysTick_Wait10ms(1);
+		uint32_t newSpeed = Tach_GetSpeed();
+		if (newSpeed) // TODO: and period ok
+		{
+			count = 0;
+			speed = newSpeed;
+		}
+		else
+		{ 
+			count++;
+			if (count >= 3) {speed = 0;}
+		}
+	}
 }
+

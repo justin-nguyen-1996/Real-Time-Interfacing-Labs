@@ -71,7 +71,7 @@ void PWM0A_Duty(uint16_t duty){
   PWM0_0_CMPA_R = duty - 1;             // 6) count value when output rises
 }
 
-void Motor_Off() {
+void Motor_Off(void) {
   PWM0A_Duty(0);
 }
 
