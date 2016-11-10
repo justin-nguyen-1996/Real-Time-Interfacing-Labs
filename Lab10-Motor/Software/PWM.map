@@ -12,11 +12,150 @@ Section Cross References
     startup.o(.text) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
     startup.o(.text) refers to startup.o(HEAP) for HeapMem
     startup.o(.text) refers to startup.o(STACK) for StackMem
+    motor.o(i.Motor_Off) refers to motor.o(i.PWM0A_Duty) for PWM0A_Duty
     main.o(i.main) refers to pll.o(i.PLL_Init) for PLL_Init
+    main.o(i.main) refers to switch.o(i.Switch_Init) for Switch_Init
     main.o(i.main) refers to motor.o(i.PWM0A_Init) for PWM0A_Init
     main.o(i.main) refers to motor.o(i.PWM0B_Init) for PWM0B_Init
     main.o(i.main) refers to startup.o(.text) for WaitForInterrupt
     systick.o(i.SysTick_Wait10ms) refers to systick.o(i.SysTick_Wait) for SysTick_Wait
+    switch.o(i.Switch_Debounce) refers to switch.o(i.Switch_Input) for Switch_Input
+    switch.o(i.Switch_Debounce) refers to systick.o(i.SysTick_Wait) for SysTick_Wait
+    switch.o(i.Switch_Init) refers to systick.o(i.SysTick_Init) for SysTick_Init
+    switch.o(i.Switch_WaitForTouch) refers to switch.o(i.Switch_Input) for Switch_Input
+    switch.o(i.Switch_WaitForTouch) refers to systick.o(i.SysTick_Wait) for SysTick_Wait
+    graphics.o(i.ST7735_Line) refers to graphics.o(i.ST7735_LineHelper) for ST7735_LineHelper
+    graphics.o(i.ST7735_LineHelper) refers to st7735.o(i.ST7735_DrawPixel) for ST7735_DrawPixel
+    graphics.o(i.ST7735_Test) refers to st7735.o(i.ST7735_OutString) for ST7735_OutString
+    graphics.o(i.ST7735_XYplot) refers to st7735.o(i.ST7735_DrawPixel) for ST7735_DrawPixel
+    graphics.o(i.ST7735_XYplot) refers to graphics.o(.data) for setMinY
+    graphics.o(i.ST7735_XYplotInit) refers to st7735.o(i.ST7735_Color565) for ST7735_Color565
+    graphics.o(i.ST7735_XYplotInit) refers to st7735.o(i.ST7735_FillRect) for ST7735_FillRect
+    graphics.o(i.ST7735_XYplotInit) refers to st7735.o(i.ST7735_SetCursor) for ST7735_SetCursor
+    graphics.o(i.ST7735_XYplotInit) refers to st7735.o(i.ST7735_OutString) for ST7735_OutString
+    graphics.o(i.ST7735_XYplotInit) refers to graphics.o(.data) for setMinX
+    graphics.o(i.ST7735_Xcount_Yplot) refers to graphics.o(i.ST7735_Line) for ST7735_Line
+    graphics.o(i.ST7735_Xcount_Yplot) refers to graphics.o(.data) for setMinY
+    graphics.o(i.ST7735_sDecOut2) refers to graphics.o(i.convertDec) for convertDec
+    graphics.o(i.ST7735_sDecOut2) refers to st7735.o(i.ST7735_OutString) for ST7735_OutString
+    graphics.o(i.ST7735_sDecOut2) refers to graphics.o(i.clearConvertedIndex) for clearConvertedIndex
+    graphics.o(i.ST7735_sDecOut2) refers to graphics.o(.data) for convertedIndex
+    graphics.o(i.ST7735_sDecOut2) refers to graphics.o(.bss) for converted
+    graphics.o(i.ST7735_sDecOut3) refers to graphics.o(i.convertDec) for convertDec
+    graphics.o(i.ST7735_sDecOut3) refers to st7735.o(i.ST7735_OutString) for ST7735_OutString
+    graphics.o(i.ST7735_sDecOut3) refers to graphics.o(i.clearConvertedIndex) for clearConvertedIndex
+    graphics.o(i.ST7735_sDecOut3) refers to graphics.o(.data) for convertedIndex
+    graphics.o(i.ST7735_sDecOut3) refers to graphics.o(.bss) for converted
+    graphics.o(i.ST7735_uBinOut8) refers to graphics.o(i.convertDec) for convertDec
+    graphics.o(i.ST7735_uBinOut8) refers to graphics.o(i.clearConvertedIndex) for clearConvertedIndex
+    graphics.o(i.ST7735_uBinOut8) refers to st7735.o(i.ST7735_OutString) for ST7735_OutString
+    graphics.o(i.ST7735_uBinOut8) refers to graphics.o(.data) for convertedIndex
+    graphics.o(i.ST7735_uBinOut8) refers to graphics.o(.bss) for converted
+    graphics.o(i.SweepingGraph_Init) refers to st7735.o(i.ST7735_SetCursor) for ST7735_SetCursor
+    graphics.o(i.SweepingGraph_Init) refers to st7735.o(i.ST7735_OutString) for ST7735_OutString
+    graphics.o(i.SweepingGraph_Init) refers to st7735.o(i.ST7735_PlotClear) for ST7735_PlotClear
+    graphics.o(i.SweepingGraph_Init) refers to graphics.o(i.ST7735_sDecOut2) for ST7735_sDecOut2
+    graphics.o(i.SweepingGraph_Print) refers to st7735.o(i.ST7735_PlotPoint) for ST7735_PlotPoint
+    graphics.o(i.SweepingGraph_Print) refers to st7735.o(i.ST7735_PlotNextErase) for ST7735_PlotNextErase
+    graphics.o(i.SweepingGraph_Print) refers to st7735.o(i.ST7735_SetCursor) for ST7735_SetCursor
+    graphics.o(i.SweepingGraph_Print) refers to st7735.o(i.ST7735_OutUDec) for ST7735_OutUDec
+    graphics.o(i.SweepingGraph_Print) refers to graphics.o(i.ST7735_sDecOut2) for ST7735_sDecOut2
+    graphics.o(i.SweepingGraph_Print) refers to graphics.o(.data) for count
+    graphics.o(i.SweepingGraph_Test) refers to graphics.o(i.SweepingGraph_Init) for SweepingGraph_Init
+    graphics.o(i.SweepingGraph_Test) refers to graphics.o(i.SweepingGraph_Print) for SweepingGraph_Print
+    graphics.o(i.clearConvertedIndex) refers to graphics.o(.data) for convertedIndex
+    graphics.o(i.convertDec) refers to graphics.o(.bss) for converted
+    graphics.o(i.convertDec) refers to graphics.o(.data) for convertedIndex
+    st7735.o(i.Output_Clear) refers to st7735.o(i.ST7735_FillScreen) for ST7735_FillScreen
+    st7735.o(i.Output_Color) refers to st7735.o(i.ST7735_SetTextColor) for ST7735_SetTextColor
+    st7735.o(i.Output_Off) refers to st7735.o(i.Output_Clear) for Output_Clear
+    st7735.o(i.Output_On) refers to st7735.o(i.ST7735_Output_Init) for ST7735_Output_Init
+    st7735.o(i.ST7735_DrawBitmap) refers to st7735.o(i.setAddrWindow) for setAddrWindow
+    st7735.o(i.ST7735_DrawBitmap) refers to st7735.o(i.writedata) for writedata
+    st7735.o(i.ST7735_DrawBitmap) refers to st7735.o(.data) for _width
+    st7735.o(i.ST7735_DrawChar) refers to st7735.o(i.setAddrWindow) for setAddrWindow
+    st7735.o(i.ST7735_DrawChar) refers to st7735.o(i.pushColor) for pushColor
+    st7735.o(i.ST7735_DrawChar) refers to st7735.o(.data) for _width
+    st7735.o(i.ST7735_DrawChar) refers to st7735.o(.constdata) for Font
+    st7735.o(i.ST7735_DrawCharS) refers to st7735.o(i.ST7735_DrawPixel) for ST7735_DrawPixel
+    st7735.o(i.ST7735_DrawCharS) refers to st7735.o(i.ST7735_FillRect) for ST7735_FillRect
+    st7735.o(i.ST7735_DrawCharS) refers to st7735.o(.data) for _width
+    st7735.o(i.ST7735_DrawCharS) refers to st7735.o(.constdata) for Font
+    st7735.o(i.ST7735_DrawFastHLine) refers to st7735.o(i.setAddrWindow) for setAddrWindow
+    st7735.o(i.ST7735_DrawFastHLine) refers to st7735.o(i.writedata) for writedata
+    st7735.o(i.ST7735_DrawFastHLine) refers to st7735.o(.data) for _width
+    st7735.o(i.ST7735_DrawFastVLine) refers to st7735.o(i.setAddrWindow) for setAddrWindow
+    st7735.o(i.ST7735_DrawFastVLine) refers to st7735.o(i.writedata) for writedata
+    st7735.o(i.ST7735_DrawFastVLine) refers to st7735.o(.data) for _width
+    st7735.o(i.ST7735_DrawPixel) refers to st7735.o(i.setAddrWindow) for setAddrWindow
+    st7735.o(i.ST7735_DrawPixel) refers to st7735.o(i.pushColor) for pushColor
+    st7735.o(i.ST7735_DrawPixel) refers to st7735.o(.data) for _width
+    st7735.o(i.ST7735_DrawString) refers to st7735.o(i.ST7735_DrawCharS) for ST7735_DrawCharS
+    st7735.o(i.ST7735_FillRect) refers to st7735.o(i.setAddrWindow) for setAddrWindow
+    st7735.o(i.ST7735_FillRect) refers to st7735.o(i.writedata) for writedata
+    st7735.o(i.ST7735_FillRect) refers to st7735.o(.data) for _width
+    st7735.o(i.ST7735_FillScreen) refers to st7735.o(i.ST7735_FillRect) for ST7735_FillRect
+    st7735.o(i.ST7735_FillScreen) refers to st7735.o(.data) for _height
+    st7735.o(i.ST7735_InitB) refers to st7735.o(i.commonInit) for commonInit
+    st7735.o(i.ST7735_InitB) refers to st7735.o(i.ST7735_SetCursor) for ST7735_SetCursor
+    st7735.o(i.ST7735_InitB) refers to st7735.o(i.ST7735_FillScreen) for ST7735_FillScreen
+    st7735.o(i.ST7735_InitB) refers to st7735.o(.constdata) for Bcmd
+    st7735.o(i.ST7735_InitB) refers to st7735.o(.data) for StTextColor
+    st7735.o(i.ST7735_InitR) refers to st7735.o(i.commonInit) for commonInit
+    st7735.o(i.ST7735_InitR) refers to st7735.o(i.commandList) for commandList
+    st7735.o(i.ST7735_InitR) refers to st7735.o(i.writecommand) for writecommand
+    st7735.o(i.ST7735_InitR) refers to st7735.o(i.writedata) for writedata
+    st7735.o(i.ST7735_InitR) refers to st7735.o(i.ST7735_SetCursor) for ST7735_SetCursor
+    st7735.o(i.ST7735_InitR) refers to st7735.o(i.ST7735_FillScreen) for ST7735_FillScreen
+    st7735.o(i.ST7735_InitR) refers to st7735.o(.constdata) for Rcmd1
+    st7735.o(i.ST7735_InitR) refers to st7735.o(.data) for ColStart
+    st7735.o(i.ST7735_InvertDisplay) refers to st7735.o(i.writecommand) for writecommand
+    st7735.o(i.ST7735_OutChar) refers to st7735.o(i.ST7735_DrawString) for ST7735_DrawString
+    st7735.o(i.ST7735_OutChar) refers to st7735.o(i.ST7735_DrawCharS) for ST7735_DrawCharS
+    st7735.o(i.ST7735_OutChar) refers to st7735.o(.data) for StY
+    st7735.o(i.ST7735_OutString) refers to st7735.o(i.ST7735_OutChar) for ST7735_OutChar
+    st7735.o(i.ST7735_OutUDec) refers to st7735.o(i.fillmessage) for fillmessage
+    st7735.o(i.ST7735_OutUDec) refers to st7735.o(i.ST7735_DrawString) for ST7735_DrawString
+    st7735.o(i.ST7735_OutUDec) refers to st7735.o(i.ST7735_DrawCharS) for ST7735_DrawCharS
+    st7735.o(i.ST7735_OutUDec) refers to st7735.o(.data) for Messageindex
+    st7735.o(i.ST7735_OutUDec) refers to st7735.o(.bss) for Message
+    st7735.o(i.ST7735_Output_Init) refers to st7735.o(i.ST7735_InitR) for ST7735_InitR
+    st7735.o(i.ST7735_Output_Init) refers to st7735.o(i.ST7735_FillScreen) for ST7735_FillScreen
+    st7735.o(i.ST7735_PlotBar) refers to st7735.o(i.ST7735_DrawFastVLine) for ST7735_DrawFastVLine
+    st7735.o(i.ST7735_PlotBar) refers to st7735.o(.data) for Ymin
+    st7735.o(i.ST7735_PlotClear) refers to st7735.o(i.ST7735_Color565) for ST7735_Color565
+    st7735.o(i.ST7735_PlotClear) refers to st7735.o(i.ST7735_FillRect) for ST7735_FillRect
+    st7735.o(i.ST7735_PlotClear) refers to st7735.o(.data) for Ymax
+    st7735.o(i.ST7735_PlotLine) refers to st7735.o(i.ST7735_DrawPixel) for ST7735_DrawPixel
+    st7735.o(i.ST7735_PlotLine) refers to st7735.o(.data) for Ymin
+    st7735.o(i.ST7735_PlotNext) refers to st7735.o(.data) for X
+    st7735.o(i.ST7735_PlotNextErase) refers to st7735.o(i.ST7735_Color565) for ST7735_Color565
+    st7735.o(i.ST7735_PlotNextErase) refers to st7735.o(i.ST7735_DrawFastVLine) for ST7735_DrawFastVLine
+    st7735.o(i.ST7735_PlotNextErase) refers to st7735.o(.data) for X
+    st7735.o(i.ST7735_PlotPoint) refers to st7735.o(i.ST7735_DrawPixel) for ST7735_DrawPixel
+    st7735.o(i.ST7735_PlotPoint) refers to st7735.o(.data) for Ymin
+    st7735.o(i.ST7735_PlotPoints) refers to st7735.o(i.ST7735_DrawPixel) for ST7735_DrawPixel
+    st7735.o(i.ST7735_PlotPoints) refers to st7735.o(.data) for Ymin
+    st7735.o(i.ST7735_PlotdBfs) refers to st7735.o(i.ST7735_DrawFastVLine) for ST7735_DrawFastVLine
+    st7735.o(i.ST7735_PlotdBfs) refers to st7735.o(.constdata) for dBfs
+    st7735.o(i.ST7735_PlotdBfs) refers to st7735.o(.data) for X
+    st7735.o(i.ST7735_SetCursor) refers to st7735.o(.data) for StX
+    st7735.o(i.ST7735_SetRotation) refers to st7735.o(i.writecommand) for writecommand
+    st7735.o(i.ST7735_SetRotation) refers to st7735.o(i.writedata) for writedata
+    st7735.o(i.ST7735_SetRotation) refers to st7735.o(.data) for Rotation
+    st7735.o(i.ST7735_SetTextColor) refers to st7735.o(.data) for StTextColor
+    st7735.o(i.commandList) refers to st7735.o(i.writecommand) for writecommand
+    st7735.o(i.commandList) refers to st7735.o(i.writedata) for writedata
+    st7735.o(i.commandList) refers to st7735.o(i.Delay1ms) for Delay1ms
+    st7735.o(i.commonInit) refers to st7735.o(i.Delay1ms) for Delay1ms
+    st7735.o(i.commonInit) refers to st7735.o(i.commandList) for commandList
+    st7735.o(i.commonInit) refers to st7735.o(.data) for RowStart
+    st7735.o(i.fillmessage) refers to st7735.o(.bss) for Message
+    st7735.o(i.fillmessage) refers to st7735.o(.data) for Messageindex
+    st7735.o(i.pushColor) refers to st7735.o(i.writedata) for writedata
+    st7735.o(i.setAddrWindow) refers to st7735.o(i.writecommand) for writecommand
+    st7735.o(i.setAddrWindow) refers to st7735.o(i.writedata) for writedata
+    st7735.o(i.setAddrWindow) refers to st7735.o(.data) for ColStart
     __main.o(!!!main) refers to rtentry.o(.ARM.Collect$$rtentry$$00000000) for __rt_entry
     rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to rtentry2.o(.ARM.Collect$$rtentry$$0000000A) for __rt_entry_li
     rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to rtentry2.o(.ARM.Collect$$rtentry$$0000000D) for __rt_entry_main
@@ -119,13 +258,83 @@ Section Cross References
 
 Removing Unused input sections from the image.
 
+    Removing motor.o(i.Motor_Off), (10 bytes).
     Removing motor.o(i.PWM0A_Duty), (12 bytes).
     Removing motor.o(i.PWM0B_Duty), (12 bytes).
-    Removing systick.o(i.SysTick_Init), (28 bytes).
     Removing systick.o(i.SysTick_Wait), (32 bytes).
     Removing systick.o(i.SysTick_Wait10ms), (28 bytes).
+    Removing switch.o(i.Board_Init), (148 bytes).
+    Removing switch.o(i.Board_Input), (12 bytes).
+    Removing switch.o(i.Switch_Debounce), (48 bytes).
+    Removing switch.o(i.Switch_Init3), (112 bytes).
+    Removing switch.o(i.Switch_Input), (12 bytes).
+    Removing switch.o(i.Switch_Input2), (16 bytes).
+    Removing switch.o(i.Switch_Input3), (12 bytes).
+    Removing switch.o(i.Switch_WaitForTouch), (44 bytes).
+    Removing graphics.o(i.ST7735_Line), (40 bytes).
+    Removing graphics.o(i.ST7735_LineHelper), (174 bytes).
+    Removing graphics.o(i.ST7735_Test), (28 bytes).
+    Removing graphics.o(i.ST7735_XYplot), (232 bytes).
+    Removing graphics.o(i.ST7735_XYplotInit), (136 bytes).
+    Removing graphics.o(i.ST7735_Xcount_Yplot), (136 bytes).
+    Removing graphics.o(i.ST7735_sDecOut2), (208 bytes).
+    Removing graphics.o(i.ST7735_sDecOut3), (212 bytes).
+    Removing graphics.o(i.ST7735_uBinOut8), (216 bytes).
+    Removing graphics.o(i.SweepingGraph_Init), (100 bytes).
+    Removing graphics.o(i.SweepingGraph_Print), (88 bytes).
+    Removing graphics.o(i.SweepingGraph_Test), (42 bytes).
+    Removing graphics.o(i.clearConvertedIndex), (12 bytes).
+    Removing graphics.o(i.convertDec), (72 bytes).
+    Removing graphics.o(.bss), (12 bytes).
+    Removing graphics.o(.data), (32 bytes).
+    Removing st7735.o(i.Delay1ms), (32 bytes).
+    Removing st7735.o(i.Output_Clear), (10 bytes).
+    Removing st7735.o(i.Output_Color), (12 bytes).
+    Removing st7735.o(i.Output_Off), (8 bytes).
+    Removing st7735.o(i.Output_On), (8 bytes).
+    Removing st7735.o(i.ST7735_Color565), (24 bytes).
+    Removing st7735.o(i.ST7735_DrawBitmap), (288 bytes).
+    Removing st7735.o(i.ST7735_DrawChar), (268 bytes).
+    Removing st7735.o(i.ST7735_DrawCharS), (244 bytes).
+    Removing st7735.o(i.ST7735_DrawFastHLine), (124 bytes).
+    Removing st7735.o(i.ST7735_DrawFastVLine), (124 bytes).
+    Removing st7735.o(i.ST7735_DrawPixel), (72 bytes).
+    Removing st7735.o(i.ST7735_DrawString), (86 bytes).
+    Removing st7735.o(i.ST7735_FillRect), (172 bytes).
+    Removing st7735.o(i.ST7735_FillScreen), (36 bytes).
+    Removing st7735.o(i.ST7735_InitB), (40 bytes).
+    Removing st7735.o(i.ST7735_InitR), (124 bytes).
+    Removing st7735.o(i.ST7735_InvertDisplay), (22 bytes).
+    Removing st7735.o(i.ST7735_OutChar), (212 bytes).
+    Removing st7735.o(i.ST7735_OutString), (24 bytes).
+    Removing st7735.o(i.ST7735_OutUDec), (140 bytes).
+    Removing st7735.o(i.ST7735_Output_Init), (16 bytes).
+    Removing st7735.o(i.ST7735_PlotBar), (88 bytes).
+    Removing st7735.o(i.ST7735_PlotClear), (92 bytes).
+    Removing st7735.o(i.ST7735_PlotLine), (264 bytes).
+    Removing st7735.o(i.ST7735_PlotNext), (32 bytes).
+    Removing st7735.o(i.ST7735_PlotNextErase), (64 bytes).
+    Removing st7735.o(i.ST7735_PlotPoint), (152 bytes).
+    Removing st7735.o(i.ST7735_PlotPoints), (172 bytes).
+    Removing st7735.o(i.ST7735_PlotdBfs), (60 bytes).
+    Removing st7735.o(i.ST7735_SetCursor), (32 bytes).
+    Removing st7735.o(i.ST7735_SetRotation), (212 bytes).
+    Removing st7735.o(i.ST7735_SetTextColor), (12 bytes).
+    Removing st7735.o(i.ST7735_SwapColor), (18 bytes).
+    Removing st7735.o(i.commandList), (86 bytes).
+    Removing st7735.o(i.commonInit), (388 bytes).
+    Removing st7735.o(i.ferror), (8 bytes).
+    Removing st7735.o(i.fgetc), (6 bytes).
+    Removing st7735.o(i.fillmessage), (72 bytes).
+    Removing st7735.o(i.pushColor), (18 bytes).
+    Removing st7735.o(i.setAddrWindow), (116 bytes).
+    Removing st7735.o(i.writecommand), (48 bytes).
+    Removing st7735.o(i.writedata), (32 bytes).
+    Removing st7735.o(.bss), (12 bytes).
+    Removing st7735.o(.constdata), (2018 bytes).
+    Removing st7735.o(.data), (44 bytes).
 
-5 unused section(s) (total 112 bytes) removed from the image.
+75 unused section(s) (total 8370 bytes) removed from the image.
 
 ==============================================================================
 
@@ -138,54 +347,56 @@ Image Symbol Table
     RESET                                    0x00000000   Section      644  startup.o(RESET)
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit3.o ABSOLUTE
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit2.o ABSOLUTE
-    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardshut.o ABSOLUTE
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit1.o ABSOLUTE
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardshut.o ABSOLUTE
     ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_zi.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit2.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  rtentry4.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  rtentry.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  rtentry2.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit2.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  rtentry.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  rtentry4.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  rt_raise.o ABSOLUTE
     ../clib/angel/scatter.s                  0x00000000   Number         0  __scatter.o ABSOLUTE
     ../clib/angel/startup.s                  0x00000000   Number         0  __main.o ABSOLUTE
     ../clib/angel/sys.s                      0x00000000   Number         0  sys_stackheap_outer.o ABSOLUTE
-    ../clib/angel/sys.s                      0x00000000   Number         0  use_no_semi.o ABSOLUTE
     ../clib/angel/sys.s                      0x00000000   Number         0  indicate_semi.o ABSOLUTE
     ../clib/angel/sys.s                      0x00000000   Number         0  libspace.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  use_no_semi.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_wrch.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_command.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_exit.o ABSOLUTE
-    ../clib/armsys.c                         0x00000000   Number         0  _get_argv_nomalloc.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  no_argv.o ABSOLUTE
-    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  _get_argv_nomalloc.o ABSOLUTE
     ../clib/heapalloc.c                      0x00000000   Number         0  hrguard.o ABSOLUTE
     ../clib/heapaux.c                        0x00000000   Number         0  heapauxi.o ABSOLUTE
-    ../clib/libinit.s                        0x00000000   Number         0  libinit.o ABSOLUTE
-    ../clib/libinit.s                        0x00000000   Number         0  libshutdown.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libshutdown2.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libinit.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libinit2.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libshutdown.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_exit.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_formal.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_outer.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_other.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_segv_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_cppl_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_pvfn_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_stak_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_formal.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_rtred_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_abrt_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_general.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  __raise.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_stak_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_abrt_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_pvfn_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_cppl_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_segv_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_other.o ABSOLUTE
     ../clib/signal.s                         0x00000000   Number         0  defsig.o ABSOLUTE
     ../clib/stdlib.c                         0x00000000   Number         0  exit.o ABSOLUTE
     ../fplib/fpinit.s                        0x00000000   Number         0  fpinit.o ABSOLUTE
+    Graphics.c                               0x00000000   Number         0  graphics.o ABSOLUTE
     Main.c                                   0x00000000   Number         0  main.o ABSOLUTE
     Motor.c                                  0x00000000   Number         0  motor.o ABSOLUTE
     PLL.c                                    0x00000000   Number         0  pll.o ABSOLUTE
+    ST7735.c                                 0x00000000   Number         0  st7735.o ABSOLUTE
     Switch.c                                 0x00000000   Number         0  switch.o ABSOLUTE
     SysTick.c                                0x00000000   Number         0  systick.o ABSOLUTE
     Tach.c                                   0x00000000   Number         0  tach.o ABSOLUTE
@@ -244,7 +455,9 @@ Image Symbol Table
     i.PLL_Init                               0x000003a8   Section        0  pll.o(i.PLL_Init)
     i.PWM0A_Init                             0x00000424   Section        0  motor.o(i.PWM0A_Init)
     i.PWM0B_Init                             0x000004dc   Section        0  motor.o(i.PWM0B_Init)
-    i.main                                   0x00000598   Section        0  main.o(i.main)
+    i.Switch_Init                            0x00000598   Section        0  switch.o(i.Switch_Init)
+    i.SysTick_Init                           0x0000060c   Section        0  systick.o(i.SysTick_Init)
+    i.main                                   0x00000628   Section        0  main.o(i.main)
     .bss                                     0x20000000   Section       96  libspace.o(.bss)
     HEAP                                     0x20000060   Section        0  startup.o(HEAP)
     STACK                                    0x20000060   Section     1024  startup.o(STACK)
@@ -475,9 +688,11 @@ Image Symbol Table
     PLL_Init                                 0x000003a9   Thumb Code   118  pll.o(i.PLL_Init)
     PWM0A_Init                               0x00000425   Thumb Code   158  motor.o(i.PWM0A_Init)
     PWM0B_Init                               0x000004dd   Thumb Code   168  motor.o(i.PWM0B_Init)
-    main                                     0x00000599   Thumb Code    36  main.o(i.main)
-    Region$$Table$$Base                      0x000005bc   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x000005cc   Number         0  anon$$obj.o(Region$$Table)
+    Switch_Init                              0x00000599   Thumb Code   100  switch.o(i.Switch_Init)
+    SysTick_Init                             0x0000060d   Thumb Code    22  systick.o(i.SysTick_Init)
+    main                                     0x00000629   Thumb Code    40  main.o(i.main)
+    Region$$Table$$Base                      0x00000650   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00000660   Number         0  anon$$obj.o(Region$$Table)
     __libspace_start                         0x20000000   Data          96  libspace.o(.bss)
     __temporary_stack_top$libspace           0x20000060   Data           0  libspace.o(.bss)
 
@@ -489,70 +704,72 @@ Memory Map of the image
 
   Image Entry point : 0x0000026d
 
-  Load Region LR_1 (Base: 0x00000000, Size: 0x000005cc, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x00000000, Size: 0x00000660, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_RO (Base: 0x00000000, Size: 0x000005cc, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Base: 0x00000000, Size: 0x00000660, Max: 0xffffffff, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x00000000   0x00000284   Code   RO            3  * RESET               startup.o
-    0x00000284   0x00000008   Code   RO          116  * !!!main             c_w.l(__main.o)
-    0x0000028c   0x00000034   Code   RO          270    !!!scatter          c_w.l(__scatter.o)
-    0x000002c0   0x0000001c   Code   RO          272    !!handler_zi        c_w.l(__scatter_zi.o)
-    0x000002dc   0x00000002   Code   RO          143    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
-    0x000002de   0x00000000   Code   RO          150    .ARM.Collect$$libinit$$00000002  c_w.l(libinit2.o)
-    0x000002de   0x00000000   Code   RO          153    .ARM.Collect$$libinit$$00000008  c_w.l(libinit2.o)
-    0x000002de   0x00000000   Code   RO          155    .ARM.Collect$$libinit$$0000000A  c_w.l(libinit2.o)
-    0x000002de   0x00000000   Code   RO          157    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
-    0x000002de   0x00000000   Code   RO          160    .ARM.Collect$$libinit$$0000000F  c_w.l(libinit2.o)
-    0x000002de   0x00000000   Code   RO          162    .ARM.Collect$$libinit$$00000011  c_w.l(libinit2.o)
-    0x000002de   0x00000000   Code   RO          164    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
-    0x000002de   0x00000000   Code   RO          166    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
-    0x000002de   0x00000000   Code   RO          168    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
-    0x000002de   0x00000000   Code   RO          170    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
-    0x000002de   0x00000000   Code   RO          172    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
-    0x000002de   0x00000000   Code   RO          174    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
-    0x000002de   0x00000000   Code   RO          176    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
-    0x000002de   0x00000000   Code   RO          178    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
-    0x000002de   0x00000000   Code   RO          180    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
-    0x000002de   0x00000000   Code   RO          184    .ARM.Collect$$libinit$$0000002A  c_w.l(libinit2.o)
-    0x000002de   0x00000000   Code   RO          186    .ARM.Collect$$libinit$$0000002C  c_w.l(libinit2.o)
-    0x000002de   0x00000000   Code   RO          188    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
-    0x000002de   0x00000000   Code   RO          190    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
-    0x000002de   0x00000002   Code   RO          191    .ARM.Collect$$libinit$$00000031  c_w.l(libinit2.o)
-    0x000002e0   0x00000002   Code   RO          211    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
-    0x000002e2   0x00000000   Code   RO          225    .ARM.Collect$$libshutdown$$00000003  c_w.l(libshutdown2.o)
-    0x000002e2   0x00000000   Code   RO          228    .ARM.Collect$$libshutdown$$00000006  c_w.l(libshutdown2.o)
-    0x000002e2   0x00000000   Code   RO          231    .ARM.Collect$$libshutdown$$00000009  c_w.l(libshutdown2.o)
-    0x000002e2   0x00000000   Code   RO          233    .ARM.Collect$$libshutdown$$0000000B  c_w.l(libshutdown2.o)
-    0x000002e2   0x00000000   Code   RO          236    .ARM.Collect$$libshutdown$$0000000E  c_w.l(libshutdown2.o)
-    0x000002e2   0x00000002   Code   RO          237    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
-    0x000002e4   0x00000000   Code   RO          118    .ARM.Collect$$rtentry$$00000000  c_w.l(rtentry.o)
-    0x000002e4   0x00000000   Code   RO          120    .ARM.Collect$$rtentry$$00000002  c_w.l(rtentry2.o)
-    0x000002e4   0x00000006   Code   RO          132    .ARM.Collect$$rtentry$$00000004  c_w.l(rtentry4.o)
-    0x000002ea   0x00000000   Code   RO          122    .ARM.Collect$$rtentry$$00000009  c_w.l(rtentry2.o)
-    0x000002ea   0x00000004   Code   RO          123    .ARM.Collect$$rtentry$$0000000A  c_w.l(rtentry2.o)
-    0x000002ee   0x00000000   Code   RO          125    .ARM.Collect$$rtentry$$0000000C  c_w.l(rtentry2.o)
-    0x000002ee   0x00000008   Code   RO          126    .ARM.Collect$$rtentry$$0000000D  c_w.l(rtentry2.o)
-    0x000002f6   0x00000002   Code   RO          147    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
-    0x000002f8   0x00000000   Code   RO          193    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
-    0x000002f8   0x00000004   Code   RO          194    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
-    0x000002fc   0x00000006   Code   RO          195    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
+    0x00000284   0x00000008   Code   RO          544  * !!!main             c_w.l(__main.o)
+    0x0000028c   0x00000034   Code   RO          698    !!!scatter          c_w.l(__scatter.o)
+    0x000002c0   0x0000001c   Code   RO          700    !!handler_zi        c_w.l(__scatter_zi.o)
+    0x000002dc   0x00000002   Code   RO          571    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
+    0x000002de   0x00000000   Code   RO          578    .ARM.Collect$$libinit$$00000002  c_w.l(libinit2.o)
+    0x000002de   0x00000000   Code   RO          581    .ARM.Collect$$libinit$$00000008  c_w.l(libinit2.o)
+    0x000002de   0x00000000   Code   RO          583    .ARM.Collect$$libinit$$0000000A  c_w.l(libinit2.o)
+    0x000002de   0x00000000   Code   RO          585    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
+    0x000002de   0x00000000   Code   RO          588    .ARM.Collect$$libinit$$0000000F  c_w.l(libinit2.o)
+    0x000002de   0x00000000   Code   RO          590    .ARM.Collect$$libinit$$00000011  c_w.l(libinit2.o)
+    0x000002de   0x00000000   Code   RO          592    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
+    0x000002de   0x00000000   Code   RO          594    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
+    0x000002de   0x00000000   Code   RO          596    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
+    0x000002de   0x00000000   Code   RO          598    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
+    0x000002de   0x00000000   Code   RO          600    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
+    0x000002de   0x00000000   Code   RO          602    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
+    0x000002de   0x00000000   Code   RO          604    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
+    0x000002de   0x00000000   Code   RO          606    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
+    0x000002de   0x00000000   Code   RO          608    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
+    0x000002de   0x00000000   Code   RO          612    .ARM.Collect$$libinit$$0000002A  c_w.l(libinit2.o)
+    0x000002de   0x00000000   Code   RO          614    .ARM.Collect$$libinit$$0000002C  c_w.l(libinit2.o)
+    0x000002de   0x00000000   Code   RO          616    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
+    0x000002de   0x00000000   Code   RO          618    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
+    0x000002de   0x00000002   Code   RO          619    .ARM.Collect$$libinit$$00000031  c_w.l(libinit2.o)
+    0x000002e0   0x00000002   Code   RO          639    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
+    0x000002e2   0x00000000   Code   RO          653    .ARM.Collect$$libshutdown$$00000003  c_w.l(libshutdown2.o)
+    0x000002e2   0x00000000   Code   RO          656    .ARM.Collect$$libshutdown$$00000006  c_w.l(libshutdown2.o)
+    0x000002e2   0x00000000   Code   RO          659    .ARM.Collect$$libshutdown$$00000009  c_w.l(libshutdown2.o)
+    0x000002e2   0x00000000   Code   RO          661    .ARM.Collect$$libshutdown$$0000000B  c_w.l(libshutdown2.o)
+    0x000002e2   0x00000000   Code   RO          664    .ARM.Collect$$libshutdown$$0000000E  c_w.l(libshutdown2.o)
+    0x000002e2   0x00000002   Code   RO          665    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
+    0x000002e4   0x00000000   Code   RO          546    .ARM.Collect$$rtentry$$00000000  c_w.l(rtentry.o)
+    0x000002e4   0x00000000   Code   RO          548    .ARM.Collect$$rtentry$$00000002  c_w.l(rtentry2.o)
+    0x000002e4   0x00000006   Code   RO          560    .ARM.Collect$$rtentry$$00000004  c_w.l(rtentry4.o)
+    0x000002ea   0x00000000   Code   RO          550    .ARM.Collect$$rtentry$$00000009  c_w.l(rtentry2.o)
+    0x000002ea   0x00000004   Code   RO          551    .ARM.Collect$$rtentry$$0000000A  c_w.l(rtentry2.o)
+    0x000002ee   0x00000000   Code   RO          553    .ARM.Collect$$rtentry$$0000000C  c_w.l(rtentry2.o)
+    0x000002ee   0x00000008   Code   RO          554    .ARM.Collect$$rtentry$$0000000D  c_w.l(rtentry2.o)
+    0x000002f6   0x00000002   Code   RO          575    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
+    0x000002f8   0x00000000   Code   RO          621    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
+    0x000002f8   0x00000004   Code   RO          622    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
+    0x000002fc   0x00000006   Code   RO          623    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
     0x00000302   0x00000002   PAD
     0x00000304   0x00000030   Code   RO            4    .text               startup.o
-    0x00000334   0x00000006   Code   RO          114    .text               c_w.l(heapauxi.o)
-    0x0000033a   0x0000004a   Code   RO          134    .text               c_w.l(sys_stackheap_outer.o)
-    0x00000384   0x0000000c   Code   RO          136    .text               c_w.l(exit.o)
-    0x00000390   0x00000008   Code   RO          144    .text               c_w.l(libspace.o)
-    0x00000398   0x0000000c   Code   RO          203    .text               c_w.l(sys_exit.o)
-    0x000003a4   0x00000002   Code   RO          214    .text               c_w.l(use_no_semi.o)
-    0x000003a6   0x00000000   Code   RO          216    .text               c_w.l(indicate_semi.o)
+    0x00000334   0x00000006   Code   RO          542    .text               c_w.l(heapauxi.o)
+    0x0000033a   0x0000004a   Code   RO          562    .text               c_w.l(sys_stackheap_outer.o)
+    0x00000384   0x0000000c   Code   RO          564    .text               c_w.l(exit.o)
+    0x00000390   0x00000008   Code   RO          572    .text               c_w.l(libspace.o)
+    0x00000398   0x0000000c   Code   RO          631    .text               c_w.l(sys_exit.o)
+    0x000003a4   0x00000002   Code   RO          642    .text               c_w.l(use_no_semi.o)
+    0x000003a6   0x00000000   Code   RO          644    .text               c_w.l(indicate_semi.o)
     0x000003a6   0x00000002   PAD
     0x000003a8   0x0000007c   Code   RO           12    i.PLL_Init          pll.o
-    0x00000424   0x000000b8   Code   RO           35    i.PWM0A_Init        motor.o
-    0x000004dc   0x000000bc   Code   RO           37    i.PWM0B_Init        motor.o
-    0x00000598   0x00000024   Code   RO           73    i.main              main.o
-    0x000005bc   0x00000010   Data   RO          268    Region$$Table       anon$$obj.o
+    0x00000424   0x000000b8   Code   RO           36    i.PWM0A_Init        motor.o
+    0x000004dc   0x000000bc   Code   RO           38    i.PWM0B_Init        motor.o
+    0x00000598   0x00000074   Code   RO          121    i.Switch_Init       switch.o
+    0x0000060c   0x0000001c   Code   RO           94    i.SysTick_Init      systick.o
+    0x00000628   0x00000028   Code   RO           79    i.main              main.o
+    0x00000650   0x00000010   Data   RO          696    Region$$Table       anon$$obj.o
 
 
     Execution Region ER_RW (Base: 0x20000000, Size: 0x00000000, Max: 0xffffffff, ABSOLUTE)
@@ -564,7 +781,7 @@ Memory Map of the image
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x00000060   Zero   RW          145    .bss                c_w.l(libspace.o)
+    0x20000000   0x00000060   Zero   RW          573    .bss                c_w.l(libspace.o)
     0x20000060   0x00000000   Zero   RW            2    HEAP                startup.o
     0x20000060   0x00000400   Zero   RW            1    STACK               startup.o
 
@@ -576,13 +793,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-        36          0          0          0          0        387   main.o
+        40          0          0          0          0        391   main.o
        372         46          0          0          0       1030   motor.o
        124          6          0          0          0       4635   pll.o
        692        632          0          0       1024        916   startup.o
+       116         16          0          0          0        414   switch.o
+        28          6          0          0          0        371   systick.o
 
     ----------------------------------------------------------------------
-      1224        684         16          0       1024       6968   Object Totals
+      1372        706         16          0       1024       7757   Object Totals
          0          0         16          0          0          0   (incl. Generated)
          0          0          0          0          0          0   (incl. Padding)
 
@@ -630,15 +849,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      1468        700         16          0       1120       7076   Grand Totals
-      1468        700         16          0       1120       7076   ELF Image Totals
-      1468        700         16          0          0          0   ROM Totals
+      1616        722         16          0       1120       7813   Grand Totals
+      1616        722         16          0       1120       7813   ELF Image Totals
+      1616        722         16          0          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 1484 (   1.45kB)
+    Total RO  Size (Code + RO Data)                 1632 (   1.59kB)
     Total RW  Size (RW Data + ZI Data)              1120 (   1.09kB)
-    Total ROM Size (Code + RO Data + RW Data)       1484 (   1.45kB)
+    Total ROM Size (Code + RO Data + RW Data)       1632 (   1.59kB)
 
 ==============================================================================
 

@@ -29,6 +29,7 @@
 #include "Motor.h"
 #include "Switch.h"
 #include "Tach.h"
+#include "Graphics.h"
 
 void WaitForInterrupt(void);  // low power mode
 

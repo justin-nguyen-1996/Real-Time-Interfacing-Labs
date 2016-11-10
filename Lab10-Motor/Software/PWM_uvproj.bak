@@ -416,14 +416,29 @@
               <FilePath>.\PLL.c</FilePath>
             </File>
             <File>
-              <FileName>PWM.c</FileName>
+              <FileName>Motor.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\PWM.c</FilePath>
+              <FilePath>.\Motor.c</FilePath>
             </File>
             <File>
-              <FileName>PWMtest.c</FileName>
+              <FileName>Tach.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\PWMtest.c</FilePath>
+              <FilePath>.\Tach.c</FilePath>
+            </File>
+            <File>
+              <FileName>Main.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Main.c</FilePath>
+            </File>
+            <File>
+              <FileName>SysTick.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SysTick.c</FilePath>
+            </File>
+            <File>
+              <FileName>Switch.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Switch.c</FilePath>
             </File>
           </Files>
         </Group>

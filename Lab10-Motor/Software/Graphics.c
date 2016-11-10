@@ -124,7 +124,7 @@ void ST7735_sDecOut3(int32_t n){
 #define MAX_sDecOut2 10000
 void ST7735_sDecOut2(int32_t n){
 	
-	char sOut[6];
+	char sOut[7];
   //exeeding bounds is an error	
 	if (n >= MAX_sDecOut2 || n <= MIN_sDecOut2) { 
 		sOut[0] = ' ';
@@ -286,7 +286,7 @@ void ST7735_Test() {
 void SweepingGraph_Init(void)
 {
 	ST7735_SetCursor(0,0); ST7735_OutString("Temperature Lab");
-	ST7735_PlotClear(100, 4000); // range from 0 to 4095
+	ST7735_PlotClear(1000, 4000); // range from 0 to 4095
 	ST7735_SetCursor(0,1); ST7735_OutString("N=");
 	ST7735_SetCursor(0,2); ST7735_OutString("T="); 
 	ST7735_sDecOut2(1000); ST7735_OutString(" C");	
@@ -294,7 +294,7 @@ void SweepingGraph_Init(void)
 	
 static uint16_t count = 0;
 static const uint16_t N = 0x1<<4; //number of data points per pixel (power of two)
-static const uint16_t fs = 1; //sampling frequency
+static const uint16_t fs = 1000; //sampling frequency
 void SweepingGraph_Print(uint32_t Temp)
 {
 	ST7735_PlotPoint(Temp);	

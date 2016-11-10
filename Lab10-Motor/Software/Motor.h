@@ -28,4 +28,7 @@ void PWM0B_Init(uint16_t period, uint16_t duty);
 // duty is number of PWM clock cycles output is high  (2<=duty<=period-1)
 void PWM0B_Duty(uint16_t duty);
 
+// turn the motor off
+void Motor_Off();
+
 #endif

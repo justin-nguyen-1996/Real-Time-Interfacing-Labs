@@ -70,6 +70,11 @@ void PWM0A_Init(uint16_t period, uint16_t duty){
 void PWM0A_Duty(uint16_t duty){
   PWM0_0_CMPA_R = duty - 1;             // 6) count value when output rises
 }
+
+void Motor_Off() {
+  PWM0A_Duty(0);
+}
+
 // period is 16-bit number of PWM clock cycles in one period (3<=period)
 // period for PB6 and PB7 must be the same
 // duty is number of PWM clock cycles output is high  (2<=duty<=period-1)
