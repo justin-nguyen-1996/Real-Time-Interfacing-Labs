@@ -294,7 +294,7 @@ void SweepingGraph_Init(void)
 	
 static uint16_t count = 0;
 static const uint16_t N = 0x1<<4; //number of data points per pixel (power of two)
-static const uint16_t fs = 1; //sampling frequency
+static const uint16_t fs = 1000; //sampling frequency
 void SweepingGraph_Print(uint32_t Temp)
 {
 	ST7735_PlotPoint(Temp);	

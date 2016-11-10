@@ -105,8 +105,8 @@ void WaitForInterrupt(void);  // low power mode
 // SS3 1st sample source: programmable using variable 'channelNum' [0:11]
 // SS3 interrupts: enabled and promoted to controller
 
-extern uint32_t data[100];
-extern uint16_t counter;
+extern uint32_t ADC_InputData[100];
+extern uint16_t ADC_InputCounter;
 uint32_t ADCvalue;
 
 void ADC0_InitTimer0ATriggerSeq3(uint8_t channelNum, uint32_t period){
@@ -254,7 +254,8 @@ void ADC0_InitTimer0ATriggerSeq3PD3(uint32_t period){
   ADC0_ACTSS_R &= ~0x08;        // 5) disable sample sequencer 3
   ADC0_EMUX_R = (ADC0_EMUX_R&0xFFFF0FFF)+0x5000; // 6) timer trigger event
   ADC0_SSMUX3_R = 4;            // 7) PD4 is channel 4
-  ADC0_SSCTL3_R = 0x06;         // 8) set flag and end                       
+  ADC0_SSCTL3_R = 0x06;         // 8) set flag and end         
+	ADC0_SAC_R = 0x04; // hardware averaging
   ADC0_IM_R |= 0x08;            // 9) enable SS3 interrupts
   ADC0_ACTSS_R |= 0x08;         // 10) enable sample sequencer 3
   NVIC_PRI4_R = (NVIC_PRI4_R&0xFFFF00FF)|0x00004000; // 11)priority 2
@@ -264,9 +265,9 @@ void ADC0_InitTimer0ATriggerSeq3PD3(uint32_t period){
 
 void ADC0Seq3_Handler(void){
   ADC0_ISC_R = 0x08;          // acknowledge ADC sequence 3 completion
-  data[counter] = ADC0_SSFIFO3_R & 0x0FFF;  // 12-bit result
-  counter += 1;
-  if (counter == 100) {
-    counter = 0;
+  ADC_InputData[ADC_InputCounter] = ADC0_SSFIFO3_R & 0x0FFF;  // 12-bit result
+  ADC_InputCounter += 1;
+  if (ADC_InputCounter == 100) {
+    ADC_InputCounter = 0;
   }
 }

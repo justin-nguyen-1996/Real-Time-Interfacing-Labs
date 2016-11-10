@@ -49,8 +49,8 @@ void WaitForInterrupt(void);  // low power mode
 // debugger and viewed with the variable watch feature.
 
 #define NUM_SAMPLES  100
-uint32_t data[100];
-uint16_t counter;
+uint32_t ADC_InputData[100];
+uint16_t ADC_InputCounter;
 extern uint32_t ADCvalue;
 
 void PortF_Init(void) {
@@ -72,7 +72,7 @@ void getNumSamples(int numSamples) {
   while(1){
 //    WaitForInterrupt();
 //    GPIO_PORTF_DATA_R ^= 0x04;             // tells you when the ADC sampled the signal
-    if (counter == NUM_SAMPLES) {
+    if (ADC_InputCounter == NUM_SAMPLES) {
       disableAdcTimer();
       break;
     }
@@ -110,7 +110,7 @@ uint16_t find(const uint16_t * arr, const uint16_t searchValue)
 uint16_t interpolate(uint16_t data)
 {
 	uint16_t upperIndex = find(ADCdata, data);
-	if (upperIndex == 0) {return Tdata[0];}
+//	if (upperIndex == 0) {return Tdata[0];}
 	uint16_t lowerIndex = upperIndex - 1;
 	uint16_t adcDiff = ADCdata[upperIndex] - ADCdata[lowerIndex];
 	uint16_t tempDiff = Tdata[lowerIndex] - Tdata[upperIndex];
@@ -134,13 +134,13 @@ int main(void){
 //  Test_NyquistTheorem();
 //  Test_AliasingEffect();
   
-	uint16_t prevCounter = counter;
+	uint16_t prevCounter = ADC_InputCounter;
 	while(1) {
-		if (prevCounter != counter)
+		if (prevCounter != ADC_InputCounter)
 		{
-			prevCounter = counter;
+			prevCounter = ADC_InputCounter;
 			SweepingGraph_Print( 
-				interpolate( data[prevCounter] ) 
+				interpolate( ADC_InputData[prevCounter] ) 
 			);
 		}
 	}
