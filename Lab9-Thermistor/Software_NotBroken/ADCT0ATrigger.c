@@ -254,7 +254,8 @@ void ADC0_InitTimer0ATriggerSeq3PD3(uint32_t period){
   ADC0_ACTSS_R &= ~0x08;        // 5) disable sample sequencer 3
   ADC0_EMUX_R = (ADC0_EMUX_R&0xFFFF0FFF)+0x5000; // 6) timer trigger event
   ADC0_SSMUX3_R = 4;            // 7) PD4 is channel 4
-  ADC0_SSCTL3_R = 0x06;         // 8) set flag and end                       
+  ADC0_SSCTL3_R = 0x06;         // 8) set flag and end         
+	ADC0_SAC_R = 0x04; // hardware averaging
   ADC0_IM_R |= 0x08;            // 9) enable SS3 interrupts
   ADC0_ACTSS_R |= 0x08;         // 10) enable sample sequencer 3
   NVIC_PRI4_R = (NVIC_PRI4_R&0xFFFF00FF)|0x00004000; // 11)priority 2
