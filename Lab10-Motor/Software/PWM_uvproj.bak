@@ -440,6 +440,16 @@
               <FileType>1</FileType>
               <FilePath>.\Switch.c</FilePath>
             </File>
+            <File>
+              <FileName>Graphics.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Graphics.c</FilePath>
+            </File>
+            <File>
+              <FileName>ST7735.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\ST7735.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
