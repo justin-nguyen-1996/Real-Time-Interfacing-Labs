@@ -25,9 +25,9 @@
     <ToolsetNumber>0x4</ToolsetNumber>
     <ToolsetName>ARM-ADS</ToolsetName>
     <TargetOption>
-      <CLKADS>8000000</CLKADS>
+      <CLKADS>16000000</CLKADS>
       <OPTTT>
-        <gFlags>0</gFlags>
+        <gFlags>1</gFlags>
         <BeepAtEnd>1</BeepAtEnd>
         <RunSim>1</RunSim>
         <RunTarget>0</RunTarget>
@@ -75,7 +75,7 @@
         <tvExpOptDlg>0</tvExpOptDlg>
         <IsCurrentTarget>1</IsCurrentTarget>
       </OPTFL>
-      <CpuCode>0</CpuCode>
+      <CpuCode>255</CpuCode>
       <DebugOpt>
         <uSim>0</uSim>
         <uTrg>1</uTrg>
@@ -115,27 +115,61 @@
       <TargetDriverDllRegistry>
         <SetRegEntry>
           <Number>0</Number>
+          <Key>DLGUARM</Key>
+        </SetRegEntry>
+        <SetRegEntry>
+          <Number>0</Number>
           <Key>UL2CM3</Key>
           <Name>UL2CM3(-O207 -S0 -C0 -FO7 -FD20000000 -FC800 -FN1 -FF0TM4C123_32 -FS00 -FL08000)</Name>
         </SetRegEntry>
+        <SetRegEntry>
+          <Number>0</Number>
+          <Key>DLGTARM</Key>
+          <Name>(1010=-1,-1,-1,-1,0)(1007=-1,-1,-1,-1,0)(1008=-1,-1,-1,-1,0)(1009=-1,-1,-1,-1,0)(1012=-1,-1,-1,-1,0)</Name>
+        </SetRegEntry>
+        <SetRegEntry>
+          <Number>0</Number>
+          <Key>ARMDBGFLAGS</Key>
+          <Name></Name>
+        </SetRegEntry>
+        <SetRegEntry>
+          <Number>0</Number>
+          <Key>lmidk-agdi</Key>
+          <Name>-U-O4622 -O4622 -S3 -FO29</Name>
+        </SetRegEntry>
       </TargetDriverDllRegistry>
-<<<<<<< HEAD
       <Breakpoint>
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
           <LineNumber>142</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>0</Address>
+          <Address>4424</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>0</BreakIfRCount>
-          <Filename>.\ADCTestmain.c</Filename>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\Lab9-Thermistor\Software_NotBroken\ADCTestmain.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression></Expression>
+          <Expression>\\ADCT0ATrigger\ADCTestmain.c\142</Expression>
+        </Bp>
+        <Bp>
+          <Number>1</Number>
+          <Type>0</Type>
+          <LineNumber>113</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>4272</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>C:\Users\T\Downloads\_PDFS\ValvanoWareTM4C123\Real-Time-Interfacing-Labs\Lab9-Thermistor\Software_NotBroken\ADCTestmain.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\ADCT0ATrigger\ADCTestmain.c\113</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -167,21 +201,18 @@
           <ItemText>0x400253FC</ItemText>
         </Mm>
       </MemoryWindow1>
-=======
-      <Breakpoint/>
->>>>>>> 43516181f5efde84ca727c85fe265f5d430f436f
       <Tracepoint>
         <THDelay>0</THDelay>
       </Tracepoint>
       <DebugFlag>
         <trace>0</trace>
-        <periodic>0</periodic>
-        <aLwin>0</aLwin>
+        <periodic>1</periodic>
+        <aLwin>1</aLwin>
         <aCover>0</aCover>
         <aSer1>0</aSer1>
         <aSer2>0</aSer2>
         <aPa>0</aPa>
-        <viewmode>0</viewmode>
+        <viewmode>1</viewmode>
         <vrSel>0</vrSel>
         <aSym>0</aSym>
         <aTbox>0</aTbox>
@@ -218,13 +249,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-<<<<<<< HEAD
-      <TopLine>274</TopLine>
+      <TopLine>269</TopLine>
       <CurrentLine>277</CurrentLine>
-=======
-      <TopLine>630</TopLine>
-      <CurrentLine>637</CurrentLine>
->>>>>>> 43516181f5efde84ca727c85fe265f5d430f436f
       <bDave2>0</bDave2>
       <PathWithFileName>.\startup.s</PathWithFileName>
       <FilenameWithoutPath>startup.s</FilenameWithoutPath>
@@ -239,13 +265,8 @@
       <Focus>0</Focus>
       <ColumnNumber>23</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-<<<<<<< HEAD
-      <TopLine>247</TopLine>
+      <TopLine>246</TopLine>
       <CurrentLine>269</CurrentLine>
-=======
-      <TopLine>228</TopLine>
-      <CurrentLine>256</CurrentLine>
->>>>>>> 43516181f5efde84ca727c85fe265f5d430f436f
       <bDave2>0</bDave2>
       <PathWithFileName>.\ADCT0ATrigger.c</PathWithFileName>
       <FilenameWithoutPath>ADCT0ATrigger.c</FilenameWithoutPath>
@@ -258,17 +279,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-<<<<<<< HEAD
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>123</TopLine>
-      <CurrentLine>142</CurrentLine>
-=======
-      <ColumnNumber>8</ColumnNumber>
-      <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>104</TopLine>
-      <CurrentLine>56</CurrentLine>
->>>>>>> 43516181f5efde84ca727c85fe265f5d430f436f
+      <CurrentLine>139</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\ADCTestmain.c</PathWithFileName>
       <FilenameWithoutPath>ADCTestmain.c</FilenameWithoutPath>
@@ -313,10 +327,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>31</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>281</TopLine>
-      <CurrentLine>297</CurrentLine>
+      <TopLine>0</TopLine>
+      <CurrentLine>0</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\Graphics.c</PathWithFileName>
       <FilenameWithoutPath>Graphics.c</FilenameWithoutPath>
@@ -331,13 +345,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-<<<<<<< HEAD
       <TopLine>506</TopLine>
       <CurrentLine>517</CurrentLine>
-=======
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
->>>>>>> 43516181f5efde84ca727c85fe265f5d430f436f
       <bDave2>0</bDave2>
       <PathWithFileName>.\ST7735.c</PathWithFileName>
       <FilenameWithoutPath>ST7735.c</FilenameWithoutPath>
@@ -366,17 +375,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-<<<<<<< HEAD
       <ColumnNumber>44</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>37</TopLine>
       <CurrentLine>48</CurrentLine>
-=======
-      <ColumnNumber>0</ColumnNumber>
-      <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
->>>>>>> 43516181f5efde84ca727c85fe265f5d430f436f
       <bDave2>0</bDave2>
       <PathWithFileName>.\FIFO.c</PathWithFileName>
       <FilenameWithoutPath>FIFO.c</FilenameWithoutPath>

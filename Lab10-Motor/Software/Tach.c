@@ -76,8 +76,7 @@ void Timer0A_Handler(void)
 
 uint32_t Tach_GetSpeed (void)
 {
-	Done = 0;
-	if (Done) { return (20000000 / Period); }
+	if (Done) { Done = 0; return (20000000 / Period); }
 	else { return 0; }
 }	
 
