@@ -260,14 +260,13 @@ void ADC0_InitTimer0ATriggerSeq3PD3(uint32_t period){
   ADC0_ACTSS_R |= 0x08;         // 10) enable sample sequencer 3
   NVIC_PRI4_R = (NVIC_PRI4_R&0xFFFF00FF)|0x00004000; // 11)priority 2
   NVIC_EN0_R = 1<<17;           // 12) enable interrupt 17 in NVIC
-
 }
 
 void ADC0Seq3_Handler(void){
   ADC0_ISC_R = 0x08;          // acknowledge ADC sequence 3 completion
   ADC_InputData[ADC_InputCounter] = ADC0_SSFIFO3_R & 0x0FFF;  // 12-bit result
   ADC_InputCounter += 1;
-  if (ADC_InputCounter == 100) {
+  if (ADC_InputCounter >= 100) {
     ADC_InputCounter = 0;
   }
 }

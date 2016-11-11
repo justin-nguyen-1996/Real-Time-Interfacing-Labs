@@ -28,9 +28,10 @@
 #include <stdint.h>
 #include "../inc/tm4c123gh6pm.h"
 #include "ADCT0ATrigger.h"
+//#include "ADCSWTrigger.h"
 #include "PLL.h"
 #include "UART.h"
-#include "DAC.h"
+//#include "DAC.h"
 #include "ST7735.h"
 #include "Graphics.h"
 #include "FIFO.h"
@@ -50,7 +51,7 @@ void WaitForInterrupt(void);  // low power mode
 
 #define NUM_SAMPLES  100
 uint32_t ADC_InputData[100];
-uint16_t ADC_InputCounter;
+uint16_t ADC_InputCounter = 0;
 extern uint32_t ADCvalue;
 
 void PortF_Init(void) {
@@ -73,28 +74,48 @@ void getNumSamples(int numSamples) {
 //    WaitForInterrupt();
 //    GPIO_PORTF_DATA_R ^= 0x04;             // tells you when the ADC sampled the signal
     if (ADC_InputCounter == NUM_SAMPLES) {
-      disableAdcTimer();
+//      disableAdcTimer();
       break;
     }
   }
 }
 
-void Test_ValvanoPostulate() {
-  ADC0_InitTimer0ATriggerSeq3PD3(80000);
-  Timer1_Init(800000);                     // Signal frequency:   100 Hz
-  getNumSamples(NUM_SAMPLES);
-}
+//// ***************** TIMER1_Init ****************
+//// Activate TIMER1 interrupts to run user task periodically
+//// Inputs:  task is a pointer to a user function
+////          period in units (1/clockfreq)
+//// Outputs: none
+//void Timer1_Init(uint32_t period) {
+//  SYSCTL_RCGCTIMER_R |= 0x02;   // 0) activate TIMER1
+//  TIMER1_CTL_R = 0x00000000;    // 1) disable TIMER1A during setup
+//  TIMER1_CFG_R = 0x00000000;    // 2) configure for 32-bit mode
+//  TIMER1_TAMR_R = 0x00000002;   // 3) configure for periodic mode, default down-count settings
+//  TIMER1_TAILR_R = period-1;    // 4) reload value
+//  TIMER1_TAPR_R = 0;            // 5) bus clock resolution
+//  TIMER1_ICR_R = 0x00000001;    // 6) clear TIMER1A timeout flag
+//  TIMER1_IMR_R = 0x00000001;    // 7) arm timeout interrupt
+//  NVIC_PRI5_R = (NVIC_PRI5_R&0xFFFF00FF)|0x00008000; // 8) priority 4
+//  NVIC_EN0_R = 1<<21;           // 9) enable IRQ 21 in NVIC
+//  TIMER1_CTL_R = 0x00000001;    // 10) enable TIMER1A	
+//}
 
-void Test_NyquistTheorem() {
-  ADC0_InitTimer0ATriggerSeq3PD3(80000);
-  Timer1_Init(160000);                     // Signal frequency:   500 Hz
-  getNumSamples(NUM_SAMPLES);
-}
+////static uint16_t sineIndex = 0;
+//void Timer1A_Handler(void) {
+//  TIMER1_ICR_R = TIMER_ICR_TATOCINT;// acknowledge timer0A timeout
+//  ADC_InputData[ADC_InputCounter] = ADC0_InSeq3();
+//  ADC_InputCounter += 1;
+//}
 
-void Test_AliasingEffect() {
+void Test_SamplingTheorems() {
   ADC0_InitTimer0ATriggerSeq3PD3(80000);
-  Timer1_Init(40000);                      // Signal frequency:   2000 Hz
-  getNumSamples(NUM_SAMPLES);
+  ADC_InputCounter = 0;
+  while (ADC_InputCounter < 100) {
+    
+  }
+  for (int i = 0; i < NUM_SAMPLES; ++i) {
+    UART_OutUDec(ADC_InputData[i]);
+    UART_OutString("\n\r");
+  }
 }
 
 #define ARRAY_SIZE 53
@@ -123,22 +144,14 @@ int main(void){
   PLL_Init(Bus80MHz);                      // 80 MHz system clock
   PortF_Init();
   UART_Init();
-//  DAC_Init();
 	ST7735_InitR(INITR_REDTAB);
   SweepingGraph_Init();
   ADC0_InitTimer0ATriggerSeq3PD3(80000);   // sample at 1000 Hz
   EnableInterrupts();
-//	SweepingGraph_Test();
 
-  Test_ValvanoPostulate();
-//  Test_NyquistTheorem();
-//  Test_AliasingEffect();
-	for (int i = 0; i < NUM_SAMPLES; i++)
-	{
-		UART_OutUDec(ADC_InputData[i]);
-	}
-  
-/*
+// 	SweepingGraph_Test();
+//  Test_SamplingTheorems();
+   
 	uint16_t prevCounter = ADC_InputCounter;
 	while(1) {
 		if (prevCounter != ADC_InputCounter)
@@ -149,6 +162,5 @@ int main(void){
 			);
 		}
 	}
-	*/
 }
 
