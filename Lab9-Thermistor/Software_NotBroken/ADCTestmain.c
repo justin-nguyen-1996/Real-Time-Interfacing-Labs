@@ -130,10 +130,15 @@ int main(void){
   EnableInterrupts();
 //	SweepingGraph_Test();
 
-//  Test_ValvanoPostulate();
+  Test_ValvanoPostulate();
 //  Test_NyquistTheorem();
 //  Test_AliasingEffect();
+	for (int i = 0; i < NUM_SAMPLES; i++)
+	{
+		UART_OutUDec(ADC_InputData[i]);
+	}
   
+/*
 	uint16_t prevCounter = ADC_InputCounter;
 	while(1) {
 		if (prevCounter != ADC_InputCounter)
@@ -144,5 +149,6 @@ int main(void){
 			);
 		}
 	}
+	*/
 }
 
