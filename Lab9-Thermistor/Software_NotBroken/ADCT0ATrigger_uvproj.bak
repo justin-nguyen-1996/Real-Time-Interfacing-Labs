@@ -445,6 +445,11 @@
               <FileType>1</FileType>
               <FilePath>.\ADCSWTrigger.c</FilePath>
             </File>
+            <File>
+              <FileName>ADCT0ATrigger.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\ADCT0ATrigger.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
