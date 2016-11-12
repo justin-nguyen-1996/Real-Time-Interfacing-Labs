@@ -411,6 +411,11 @@
               <FilePath>.\startup.s</FilePath>
             </File>
             <File>
+              <FileName>ADCT0ATrigger.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\ADCT0ATrigger.c</FilePath>
+            </File>
+            <File>
               <FileName>ADCTestmain.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\ADCTestmain.c</FilePath>
@@ -419,6 +424,11 @@
               <FileName>PLL.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\PLL.c</FilePath>
+            </File>
+            <File>
+              <FileName>DAC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\DAC.c</FilePath>
             </File>
             <File>
               <FileName>Graphics.c</FileName>
@@ -439,11 +449,6 @@
               <FileName>FIFO.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\FIFO.c</FilePath>
-            </File>
-            <File>
-              <FileName>ADCSWTrigger.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\ADCSWTrigger.c</FilePath>
             </File>
           </Files>
         </Group>
