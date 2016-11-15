@@ -285,16 +285,16 @@ void ST7735_Test() {
 
 void SweepingGraph_Init(void)
 {
-	ST7735_SetCursor(0,0); ST7735_OutString("Temperature Lab");
-	ST7735_PlotClear(1000, 4000); // range from 0 to 4095
+	ST7735_SetCursor(0,0); ST7735_OutString("Motor Lab");
+	ST7735_PlotClear(0, 10000); // range from 0 to 1000
 	ST7735_SetCursor(0,1); ST7735_OutString("N=");
-	ST7735_SetCursor(0,2); ST7735_OutString("T="); 
-	ST7735_sDecOut2(1000); ST7735_OutString(" C");	
+	ST7735_SetCursor(0,2); ST7735_OutString("S="); 
+	ST7735_sDecOut2(0); ST7735_OutString(" rps");	
 }
 	
 static uint16_t count = 0;
 static const uint16_t N = 0x1<<4; //number of data points per pixel (power of two)
-static const uint16_t fs = 1000; //sampling frequency
+static const uint16_t fs = 100; //sampling frequency
 void SweepingGraph_Print(uint32_t Temp)
 {
 	ST7735_PlotPoint(Temp);	

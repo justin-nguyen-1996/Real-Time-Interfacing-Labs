@@ -3,6 +3,6 @@
 
 void Tach_Init (void);
 
-uint32_t Tach_GetSpeed (void);
+uint16_t Tach_GetSpeed (void);
 
 #endif

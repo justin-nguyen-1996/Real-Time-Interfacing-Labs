@@ -36,17 +36,41 @@
 void WaitForInterrupt(void);  // low power mode
 void EnableInterrupts(void);
 
+#define PWM_CLOCK_PERIOD 40000
+
+uint16_t getDuty(uint32_t speed, uint16_t setSpeed, uint16_t currDuty)
+{
+	int16_t difference = setSpeed - (speed / 100);
+	if (difference < 0 && (-difference > currDuty)) { return 2; } // minimum value
+	currDuty += difference>>8;
+	if (currDuty > PWM_CLOCK_PERIOD - 1) { return PWM_CLOCK_PERIOD - 1; }
+	else return currDuty;
+}
+
+#define SIZE_ARRAY 4
+static uint16_t speedArr[SIZE_ARRAY];	
+static int speedi;
+uint16_t avgSpeed(uint16_t inSpeed)
+{
+	if (speedi < SIZE_ARRAY) {speedArr[speedi++] = inSpeed;}
+	else {speedArr[speedi = 0] = inSpeed;}
+	uint32_t total = 0; 
+	for (int i = 0; i < SIZE_ARRAY; i++)	{ total += speedArr[i]; }
+	return (total >> 2);
+}
+
 int main(void){
   PLL_Init(Bus80MHz);               // bus clock at 80 MHz
   Tach_Init ();
 //  Switch_Init();
 	SysTick_Init();
   ST7735_InitR(INITR_REDTAB);
+  SweepingGraph_Init();
 	EnableInterrupts();
 
 //  PWM0A_Init(40000, 30000);         // initialize PWM0, 1000 Hz, 75% duty
   //PWM0B_Init(40000, 20000);         // initialize PWM0, 1000 Hz 50% dooty
-  PWM0B_Init(40000, 39999);         // initialize PWM0, 1000 Hz
+  PWM0B_Init(PWM_CLOCK_PERIOD, 39999);         // initialize PWM0, 1000 Hz
 //  PWM0_Duty(4000);    // 10%
 //  PWM0_Duty(10000);   // 25%
 //  PWM0_Duty(30000);   // 75%
@@ -60,28 +84,39 @@ int main(void){
 	uint32_t speed = 0;
 	ST7735_SetCursor(0,0);
 	ST7735_OutUDec(speed);
-	int delay = 0;
+//	int delay = 0;
+	uint16_t setSpeed = 10;
+	uint16_t setDuty = 30000;
   while(1)
 	{
+/*
 		if (!((delay++)%20))
 		{
 			Output_Clear();
 			ST7735_SetCursor(0,0);
 			ST7735_OutUDec(speed);
 		}
-
+*/
+		
+		uint16_t newSpeed = Tach_GetSpeed();
+		//speed = avgSpeed(newSpeed); 
+		speed = newSpeed;
+		SweepingGraph_Print(speed);
+		setDuty = getDuty(speed, setSpeed, setDuty);
+		PWM0B_Duty(setDuty);
 		SysTick_Wait10ms(1);
-		uint32_t newSpeed = Tach_GetSpeed();
-		if (newSpeed && newSpeed > 1) // TODO: and period ok
+/*
+		if (newSpeed > 100) // TODO: and period ok
 		{
 			count = 0;
-			speed = newSpeed;
+			speed = avgSpeed(newSpeed);
 		}
 		else
 		{ 
 			count++;
-			if (count >= 3) {speed = 0;}
+			if (count >= 3) {speed = avgSpeed(0);}
 		}
+*/
 	}
 }
 
