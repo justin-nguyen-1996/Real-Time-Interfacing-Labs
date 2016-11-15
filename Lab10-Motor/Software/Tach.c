@@ -76,7 +76,7 @@ void Timer0A_Handler(void)
 
 uint16_t Tach_GetSpeed (void)
 {
-	if (Done && 0x000FFFFF > Period) { Done = 0; return (200000000 / Period); }
+	if (Done && 0x000FFFFFF > Period) { Done = 0; return (200000000 / Period); }
 	else { return 0; }
 }	
 
