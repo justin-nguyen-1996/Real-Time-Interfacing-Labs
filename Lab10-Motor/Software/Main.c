@@ -31,18 +31,22 @@
 #include "Tach.h"
 #include "Graphics.h"
 #include "SysTick.h"
+#include "ST7735.h"
 
 void WaitForInterrupt(void);  // low power mode
+void EnableInterrupts(void);
 
 int main(void){
   PLL_Init(Bus80MHz);               // bus clock at 80 MHz
-  Switch_Init();
-//  Motor_Init();
-//  Tach_Init();
-  
-  PWM0A_Init(40000, 30000);         // initialize PWM0, 1000 Hz, 75% duty
-  PWM0B_Init(40000, 10000);         // initialize PWM0, 1000 Hz, 25% duty
+  Tach_Init ();
+//  Switch_Init();
 	SysTick_Init();
+  ST7735_InitR(INITR_REDTAB);
+	EnableInterrupts();
+
+//  PWM0A_Init(40000, 30000);         // initialize PWM0, 1000 Hz, 75% duty
+  //PWM0B_Init(40000, 20000);         // initialize PWM0, 1000 Hz 50% dooty
+  PWM0B_Init(40000, 39999);         // initialize PWM0, 1000 Hz
 //  PWM0_Duty(4000);    // 10%
 //  PWM0_Duty(10000);   // 25%
 //  PWM0_Duty(30000);   // 75%
@@ -51,13 +55,24 @@ int main(void){
 //  PWM0_Init(1000, 900);          // initialize PWM0, 40000 Hz, 90% duty
 //  PWM0_Init(1000, 100);          // initialize PWM0, 40000 Hz, 10% duty
 //  PWM0_Init(40, 20);             // initialize PWM0, 1 MHz, 50% duty
+
 	int count = 0;
 	uint32_t speed = 0;
+	ST7735_SetCursor(0,0);
+	ST7735_OutUDec(speed);
+	int delay = 0;
   while(1)
 	{
+		if (!((delay++)%20))
+		{
+			Output_Clear();
+			ST7735_SetCursor(0,0);
+			ST7735_OutUDec(speed);
+		}
+
 		SysTick_Wait10ms(1);
 		uint32_t newSpeed = Tach_GetSpeed();
-		if (newSpeed) // TODO: and period ok
+		if (newSpeed && newSpeed > 1) // TODO: and period ok
 		{
 			count = 0;
 			speed = newSpeed;

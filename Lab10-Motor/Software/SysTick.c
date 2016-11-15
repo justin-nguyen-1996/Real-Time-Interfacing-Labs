@@ -71,3 +71,5 @@ void SysTick_Wait10ms(uint32_t delay){
     SysTick_Wait(500000);  // wait 10ms (assumes 50 MHz clock)
   }
 }
+
+void SysTick_Handler(void) {}
