@@ -31,6 +31,7 @@
 #include "Tach.h"
 #include "Graphics.h"
 #include "SysTick.h"
+#include "Switch.h"
 #include "ST7735.h"
 
 void WaitForInterrupt(void);  // low power mode
@@ -42,12 +43,12 @@ uint16_t getDuty(uint32_t speed, uint16_t setSpeed, uint16_t currDuty)
 {
 	int16_t difference = setSpeed - (speed / 100);
 	if (difference < 0 && (-difference > currDuty)) { return 2; } // minimum value
-	currDuty += difference>>8;
+	currDuty += (3*difference)>>8;
 	if (currDuty > PWM_CLOCK_PERIOD - 1) { return PWM_CLOCK_PERIOD - 1; }
 	else return currDuty;
 }
 
-#define SIZE_ARRAY 4
+#define SIZE_ARRAY 64
 static uint16_t speedArr[SIZE_ARRAY];	
 static int speedi;
 uint16_t avgSpeed(uint16_t inSpeed)
@@ -56,7 +57,14 @@ uint16_t avgSpeed(uint16_t inSpeed)
 	else {speedArr[speedi = 0] = inSpeed;}
 	uint32_t total = 0; 
 	for (int i = 0; i < SIZE_ARRAY; i++)	{ total += speedArr[i]; }
-	return (total >> 2);
+	return (total >> 8);
+}
+
+void printSet(uint16_t setSpeed)
+{
+	ST7735_SetCursor(12,0);
+	ST7735_OutString("Set:");
+	ST7735_OutUDec(setSpeed);
 }
 
 void Timer2_Init(unsigned long period){
@@ -89,6 +97,7 @@ int main(void){
   Tach_Init ();
 //  Switch_Init();
 	SysTick_Init();
+	Switch_Init();
   ST7735_InitR(INITR_REDTAB);
   SweepingGraph_Init();
   Timer2_Init(800000);
@@ -100,6 +109,7 @@ int main(void){
 
 	int count = 0;
 	uint32_t speed = 0;
+<<<<<<< HEAD
 	uint16_t setSpeed = 10;
 	uint16_t setDuty = 30000;
   while(1)
@@ -128,14 +138,37 @@ int main(void){
 
 /*
 		if (newSpeed > 100) // TODO: and period ok
+=======
+	ST7735_SetCursor(0,0);
+	ST7735_OutUDec(speed);
+//	int delay = 0;
+	uint16_t setDuty = 30000;
+  while(1)
+	{
+		uint16_t setSpeed = getSetSpeed();
+		if (setSpeed || count >= 3) 
+>>>>>>> HEAD@{1}
 		{
+			printSet(setSpeed);
+			uint16_t newSpeed = Tach_GetSpeed();
+			speed = avgSpeed(newSpeed); 
+			SweepingGraph_Print(speed);
+			setDuty = getDuty(speed, setSpeed, setDuty);
+			PWM0B_Duty(setDuty);
+			SysTick_Wait10ms(1);
 			count = 0;
-			speed = avgSpeed(newSpeed);
 		}
+<<<<<<< HEAD
 		else
 		{ 
 			count++;
 			if (count >= 3) {speed = avgSpeed(0);}
 		}
 */
+=======
+		else {count++;}
+
+	}
+}
+>>>>>>> HEAD@{1}
 

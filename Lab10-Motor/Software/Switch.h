@@ -103,3 +103,5 @@ uint32_t Switch_Debounce(void);
 // Output: none
 // debounces switch
 void Switch_WaitForTouch(void);
+
+uint16_t getSetSpeed(void);
