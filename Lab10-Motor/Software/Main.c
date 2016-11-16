@@ -81,94 +81,64 @@ void Timer2_Init(unsigned long period){
   TIMER2_CTL_R = 0x00000001;    // 10) enable timer2A
 }
 
-uint32_t period;
+uint32_t setSpeed;
+uint32_t setDuty;
+uint32_t speed;
+uint32_t prevSpeed = 50;
+uint32_t prevSetSpeed;
+extern uint32_t Period;
+
 void Timer2A_Handler(void){
   TIMER2_ICR_R = TIMER_ICR_TATOCINT;// acknowledge TIMER2A timeout
-  uint32_t speed = 80000000 / period;
-  int32_t E = 250 - speed;
-  int32_t U = U + (3*E)/64;
-  if (U < 40) { U = 40; }
-  if (U > 39960) { U = 39960; }
-  PWM0B_Duty(U);
+//  uint32_t speed = 800000000 / period;
+//  int32_t E = 250 - speed;
+//  int32_t U = U + (3*E)/64;
+//  if (U < 40) { U = 40; }
+//  if (U > 39960) { U = 39960; }
+//  PWM0B_Duty(U);
+  
+//  uint16_t newSpeed = Tach_GetSpeed();
+  uint32_t newSpeed = 800000000 / Period;
+  uint32_t setSpeed = getSetSpeed();
+  speed = avgSpeed(newSpeed); 
+//  if (prevSpeed < newSpeed  &&  prevSetSpeed == setSpeed) {
+//    speed = avgSpeed(prevSpeed);
+//  }
+  setDuty = getDuty(speed, setSpeed, setDuty);
+  PWM0B_Duty(setDuty);
+//  prevSpeed = newSpeed;
+//  prevSetSpeed = setSpeed;
 }
+
+//  ST7735_SetCursor(0,3); ST7735_OutString("         "); ST7735_SetCursor(0,3); ST7735_OutUDec(setSpeed);
 
 int main(void){
   PLL_Init(Bus80MHz);               // bus clock at 80 MHz
   Tach_Init ();
-//  Switch_Init();
 	SysTick_Init();
 	Switch_Init();
   ST7735_InitR(INITR_REDTAB);
   SweepingGraph_Init();
-  Timer2_Init(800000);
+  Timer2_Init(8000000);
 	EnableInterrupts();
-
-//  PWM0A_Init(40000, 30000);         // initialize PWM0, 1000 Hz, 75% duty
-  //PWM0B_Init(40000, 20000);         // initialize PWM0, 1000 Hz 50% dooty
   PWM0B_Init(PWM_CLOCK_PERIOD, 39999);         // initialize PWM0, 1000 Hz
 
-	int count = 0;
-	uint32_t speed = 0;
-<<<<<<< HEAD
-	uint16_t setSpeed = 10;
-	uint16_t setDuty = 30000;
-  while(1)
-	{
-		period = Tach_GetSpeed();
-		uint16_t newSpeed = Tach_GetSpeed();
-		//speed = avgSpeed(newSpeed); 
-		speed = newSpeed;
-		SweepingGraph_Print(speed);
-//		setDuty = getDuty(speed, setSpeed, setDuty);
-    
-		PWM0B_Duty(setDuty);
-		SysTick_Wait10ms(1);
-	}
-}
-
-
-/*
-		if (!((delay++)%20))
-		{
-			Output_Clear();
-			ST7735_SetCursor(0,0);
-			ST7735_OutUDec(speed);
-		}
-*/
-
-/*
-		if (newSpeed > 100) // TODO: and period ok
-=======
+//	uint32_t speed = 0;
+  setSpeed = 10;
 	ST7735_SetCursor(0,0);
 	ST7735_OutUDec(speed);
-//	int delay = 0;
-	uint16_t setDuty = 30000;
+	int delay = 0;
+//	uint16_t setDuty = 30000;
+  setDuty = 30000;
   while(1)
 	{
-		uint16_t setSpeed = getSetSpeed();
-		if (setSpeed || count >= 3) 
->>>>>>> HEAD@{1}
-		{
-			printSet(setSpeed);
-			uint16_t newSpeed = Tach_GetSpeed();
-			speed = avgSpeed(newSpeed); 
-			SweepingGraph_Print(speed);
-			setDuty = getDuty(speed, setSpeed, setDuty);
-			PWM0B_Duty(setDuty);
-			SysTick_Wait10ms(1);
-			count = 0;
-		}
-<<<<<<< HEAD
-		else
-		{ 
-			count++;
-			if (count >= 3) {speed = avgSpeed(0);}
-		}
-*/
-=======
-		else {count++;}
-
+		uint16_t setSpeed2 = getSetSpeed();
+    printSet(setSpeed2);
+//    uint16_t newSpeed = Tach_GetSpeed();
+//    speed = avgSpeed(newSpeed); 
+    SweepingGraph_Print(speed);
+//    setDuty = getDuty(speed, setSpeed, setDuty);
+//    PWM0B_Duty(setDuty);
+//    SysTick_Wait10ms(1);
 	}
 }
->>>>>>> HEAD@{1}
-

@@ -63,8 +63,8 @@ void Tach_Init (void)
   EndCritical(sr);
 }
 
-uint32_t static Period;
-uint32_t static First;
+uint32_t Period;
+uint32_t First;
 int32_t Done;
 void Timer0A_Handler(void)
 {
@@ -76,11 +76,8 @@ void Timer0A_Handler(void)
 
 uint16_t Tach_GetSpeed (void)
 {
-<<<<<<< HEAD
 	if (Done && 0x000FFFFFF > Period) { Done = 0; return (200000000 / Period); }
-=======
-	if (Done && Period < First) { Done = 0; return (2000000000 / Period); }
->>>>>>> HEAD@{1}
+//	if (Done && Period < First) { Done = 0; return (2000000000 / Period); }
 	else { return 0; }
 }	
 
