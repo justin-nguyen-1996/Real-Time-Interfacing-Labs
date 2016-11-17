@@ -87,16 +87,16 @@ void GPIOPortF_Handler(void)
 void Switch2_Init(void){        
   SYSCTL_RCGC2_R |= 0x00000010; // (a) activate clock for port F
   while((SYSCTL_PRGPIO_R & 0x10)!=0x10){}; // wait to finish activating     
-  GPIO_PORTE_DIR_R &= ~0x1;    // (c) make PF4 in (built-in button)
-  GPIO_PORTE_AFSEL_R &= ~0x1;  //     disable alt funct on PF4
-  GPIO_PORTE_DEN_R |= 0x1;     //     enable digital I/O on PF4
-  GPIO_PORTE_AMSEL_R &= ~0x1;  //    disable analog functionality on PF4
+  GPIO_PORTE_DIR_R &= ~0x2;    // (c) make PF4 in (built-in button)
+  GPIO_PORTE_AFSEL_R &= ~0x2;  //     disable alt funct on PF4
+  GPIO_PORTE_DEN_R |= 0x2;     //     enable digital I/O on PF4
+  GPIO_PORTE_AMSEL_R &= ~0x2;  //    disable analog functionality on PF4
     
-  GPIO_PORTE_IS_R &= ~0x1;     // (d) PF4 is edge-sensitive
-  GPIO_PORTE_IBE_R &= ~0x1;    //     PF4 is not both edges
-  GPIO_PORTE_IEV_R &= ~0x1;    //     PF4 falling edge event
-  GPIO_PORTE_ICR_R = 0x1;      // (e) clear flag4
-  GPIO_PORTE_IM_R |= 0x1;      // (f) arm interrupt on PF4
+  GPIO_PORTE_IS_R &= ~0x2;     // (d) PF4 is edge-sensitive
+  GPIO_PORTE_IBE_R &= ~0x2;    //     PF4 is not both edges
+  GPIO_PORTE_IEV_R &= ~0x2;    //     PF4 falling edge event
+  GPIO_PORTE_ICR_R = 0x2;      // (e) clear flag4
+  GPIO_PORTE_IM_R |= 0x2;      // (f) arm interrupt on PF4
   NVIC_EN0_R = 1 << 4;      // (h) enable interrupt 30 in NVIC
 }
  
@@ -108,6 +108,58 @@ void GPIOPortE_Handler(void)
 	while (i<1000){i++;}
 }
 
+void PortD_Init(void) 
+{
+  SYSCTL_RCGCGPIO_R |= 0x08;        // 1) activate port D
+  while((SYSCTL_PRGPIO_R&0x08)==0){};   // allow time for clock to stabilize
+  
+  GPIO_PORTD_AMSEL_R &= ~0xCF;      // 3) disable analog functionality on PD7-0
+  GPIO_PORTD_PCTL_R &= ~0xFFFFFFFF; // 4) GPIO
+  GPIO_PORTD_DIR_R &= ~0xCF;         // 5) make PD7-0 in
+  GPIO_PORTD_AFSEL_R &= ~0xCF;      // 6) regular port function
+  GPIO_PORTD_LOCK_R = 0x4C4F434B ;  // 7) unlock Port D
+  GPIO_PORTD_CR_R |= 0xCF;          // 8) allow changes to PD7-0 (except 4,5)
+  GPIO_PORTD_DEN_R |= 0xCF;         // 7) enable digital I/O on PD7-0
+  GPIO_PORTD_IS_R &= ~0xCF;         // 8) edge-sensitive
+  GPIO_PORTD_IBE_R |= 0xCF;         // 9)  both edges
+//  GPIO_PORTD_IEV_R |= 0xCF;         // 10) rising edge event
+  GPIO_PORTD_ICR_R = 0xCF;          // 11) clear flags
+//  GPIO_PORTD_IM_R |= 0xCF;          // 12) arm interrupts on PD7-0 
+//  NVIC_PRI0_R = (NVIC_PRI0_R&0x00FFFFFF)|0xA0000000; // 13) priority 5
+//  NVIC_EN0_R = 0x00000008;          // 13) enable interrupt 3 in NVIC
+}
+
+void GPIOArm_PortD(void)
+{
+  GPIO_PORTD_ICR_R = 0xCF;          // 11) clear flags
+  GPIO_PORTD_IM_R |= 0xCF;          // 12) arm interrupts on PD7-0 
+  NVIC_PRI0_R = (NVIC_PRI0_R&0x00FFFFFF)|0xA0000000; // 13) priority 5
+  NVIC_EN0_R = 0x00000008;          // 13) enable interrupt 3 in NVIC
+}
+
+void Timer2Arm(void)
+{
+	SYSCTL_RCGCTIMER_R |= 0x04;   // 0) activate timer2
+  TIMER2_CTL_R = 0x00000000;    // 1) disable TIMER2A during setup
+  TIMER2_CFG_R = 0x00000000;    // 2) configure for 32-bit mode
+  TIMER2_TAMR_R = 0x0000001;    // 3) 1-SHOT mode
+  TIMER2_TAILR_R = 160000;      // 4) 10ms reload value
+  TIMER2_TAPR_R = 0;            // 5) bus clock resolution
+  TIMER2_ICR_R = 0x00000001;    // 6) clear TIMER2A timeout flag
+  TIMER2_IMR_R = 0x00000001;    // 7) arm timeout interrupt
+  NVIC_PRI5_R = (NVIC_PRI5_R&0x00FFFFFF)|0x80000000; // 8) priority 4
+// interrupts enabled in the main program after all devices initialized
+// vector number 35, interrupt number 19
+  NVIC_EN0_R = 1<<23;           // 9) enable IRQ 19 in NVIC
+  TIMER2_CTL_R = 0x00000001;    // 10) enable TIMER0A
+}
+
+void GPIOPortD_Handler(void)
+{
+  GPIO_PORTD_IM_R &= ~0xCF;
+  setSpeed += 5;
+  Timer2Arm();
+}
 
 uint16_t getSetSpeed(void)
 {

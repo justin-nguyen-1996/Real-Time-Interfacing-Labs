@@ -105,3 +105,5 @@ uint32_t Switch_Debounce(void);
 void Switch_WaitForTouch(void);
 
 uint16_t getSetSpeed(void);
+void Switch2_Init(void);
+void PortD_Init(void);

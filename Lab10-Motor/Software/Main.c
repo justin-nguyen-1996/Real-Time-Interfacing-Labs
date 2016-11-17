@@ -116,7 +116,7 @@ int main(void){
   PLL_Init(Bus80MHz);               // bus clock at 80 MHz
   Tach_Init ();
 	SysTick_Init();
-	Switch_Init();
+	Switch_Init(); Switch2_Init(); PortD_Init();
   ST7735_InitR(INITR_REDTAB);
   SweepingGraph_Init();
   Timer2_Init(8000000);
