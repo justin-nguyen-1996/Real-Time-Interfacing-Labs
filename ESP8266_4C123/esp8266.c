@@ -56,6 +56,7 @@ ESP8266    TM4C123
 #include "../inc/tm4c123gh6pm.h"
 #include "esp8266.h"
 #include "UART.h"
+#include "ST7735.h"
 // Access point parameters
 #define SSID_NAME  "NETGEAR79"
 #define PASSKEY    "rapidbreeze587"
@@ -295,6 +296,7 @@ void ESP8266FIFOtoBuffer(void){
       LastReturnIndex = CurrentReturnIndex;
       CurrentReturnIndex = RXBufferIndex;
     }    
+		ESP8266ProcessInput(&RXBuffer[RXBufferIndex]);
   }
 }
 
@@ -342,6 +344,97 @@ void DelayMsSearching(uint32_t n){
 ==========          ESP8266 PUBLIC FUNCTIONS                 ==========
 =======================================================================
 */
+
+//esps must have different ids, 1 or 0;
+#define ESP_ID 0
+
+void Trevor_ESPTest(void)
+{
+  ESP8266_InitUART(9600,true); // baud rate, no echo to UART0
+	ESP8266_EnableRXInterrupt();
+  SearchLooking = false;
+  SearchFound = false;
+  ServerResponseSearchLooking = 0; // not looking for "+IPD"
+  ServerResponseSearchFinished = 0;
+  EnableInterrupts();
+
+  printf("ESP8266 Initialization:\n\r");
+  ESP8266_EchoResponse = true; // debugging
+  if(ESP8266_Reset()==0){ 
+    printf("Reset failure, could not reset\n\r"); while(1){};
+  }
+
+	if(ESP8266_SetDataTransmissionMode(0)==0){ 
+    printf("SetDataTransmissionMode, could not make connection\n\r"); while(1){};
+  }
+  ESP8266_InputProcessingEnabled = true; 
+
+	// step 2: AT+CWMODE=1 set wifi mode to client (not an access point)
+  if(ESP8266_SetWifiMode(ESP8266_WIFI_MODE_AP_AND_CLIENT)==0){ 
+    printf("SetWifiMode, could not set mode\n\r"); while(1){};
+  }
+	ESP8266_SetConnectionMux(1);
+		
+	int retVal; 
+	if (ESP_ID) { retVal = ESP8266_ConfigureAccessPoint("JANDTESP1", "pass", 2, 0); }
+	else { retVal = ESP8266_ConfigureAccessPoint("JANDTESP0", "pass", 1, 0); }
+	if (retVal == 0) { printf("Could not configure access point\n\r"); while (1){} }
+	
+	if (ESP_ID) 
+	{
+		ESP8266_EnableServer(0);//port default 333
+		//ESP8266_GetStatus();
+		ESP8266_EnableRXInterrupt();
+		//ESP8266_GetIPAddress();
+	}
+	while (ESP_ID) {}
+/*
+	retVal = 0;
+	while(ESP_ID && retVal == 0)
+	{
+		retVal = ESP8266_JoinAccessPoint("JANDTESP0", "pass");
+	} //id 1 tries to connect
+	retVal = 0;
+*/
+/*
+	ESP8266_EnableRXInterrupt();
+	retVal = 0;
+	while (ESP_ID == 0 && retVal == 0)
+	{
+		int p = 0;
+		for (int i = 0; i < 1000000; i++) {p += i;} //delay
+		ESP8266_GetConnectedIPAddress();
+	}
+*/
+
+	if (ESP_ID) { retVal = ESP8266_JoinAccessPoint("JANDTESP0", "pass"); }
+	else { retVal = ESP8266_JoinAccessPoint("JANDTESP1", "pass"); }
+	if (retVal == 0)
+	{
+		printf("Could not connect to AP\n\r"); while(1){} 
+	}
+
+	if (ESP_ID) { }
+	else 
+	{
+		//retVal = ESP8266_MakeTCPConnection("192.168.4.1"); 
+		retVal = ESP8266_MakeTCPConnection("192.168.4.100"); 
+	}
+	if (retVal == 0)
+	{
+		printf("Could not connect to server\n\r"); while(1){} 
+	}
+
+	while(1)
+	{
+		for (int i = 0; i < 10000; i++) {} //delay
+		retVal = ESP8266_SendTCP("test");
+		if (retVal == 0 ) {printf("Failed to send\n\r");}
+	}
+		
+}
+
+
 //-------------------ESP8266_Init --------------
 // initializes the module as a client
 // Inputs: baud rate: tested with 9600 and 115200
@@ -529,6 +622,21 @@ int ESP8266_GetIPAddress(void){
   return 0; // fail
 }
 
+//---------ESP8266_GetConnectedIPAddress----------
+// Get Connected IP address
+// Input: none
+// output: 1 if success, 0 if fail 
+int ESP8266_GetConnectedIPAddress(void){
+  int try=MAXTRY;
+  SearchStart("ok");
+  while(try){
+    ESP8266SendCommand("AT+CWLIF\r\n");   
+    DelayMsSearching(5000);
+    if(SearchFound) return 1; // success
+    try--;
+  }
+  return 0; // fail
+}
 //---------ESP8266_MakeTCPConnection----------
 // Establish TCP connection 
 // Input: IP address or web page as a string
@@ -537,7 +645,24 @@ int ESP8266_MakeTCPConnection(char *IPaddress){
   int try=MAXTRY;
   SearchStart("ok");
   while(try){
-    sprintf((char*)TXBuffer, "AT+CIPSTART=\"TCP\",\"%s\",80\r\n", IPaddress);
+    sprintf((char*)TXBuffer, "AT+CIPSTART=0,\"TCP\",\"%s\",333\r\n", IPaddress);
+    ESP8266SendCommand(TXBuffer);   // open and connect to a socket
+    DelayMsSearching(8000);
+    if(SearchFound) return 1; // success
+    try--;
+  }
+  return 0; // fail
+}
+
+//---------ESP8266_MakeUDPConnection----------
+// Establish UDP connection 
+// Input: IP address or web page as a string
+// output: 1 if success, 0 if fail 
+int ESP8266_MakeUDPConnection(char *IPaddress){
+  int try=MAXTRY;
+  SearchStart("ok");
+  while(try){
+    sprintf((char*)TXBuffer, "AT+CIPSTART=\"UDP\",\"%s\",80\r\n", IPaddress);
     ESP8266SendCommand(TXBuffer);   // open and connect to a socket
     DelayMsSearching(8000);
     if(SearchFound) return 1; // success
@@ -678,7 +803,7 @@ void ESP8266_SetServerTimeout(uint16_t timeout){
 // Outputs: none
 void ESP8266_EnableServer(uint16_t port){
   ESP8266_ServerPort = port;
-  sprintf((char*)TXBuffer, "AT+CIPSERVER=1,%d\r\n", ESP8266_ServerPort);
+  sprintf((char*)TXBuffer, "AT+CIPSERVER=1\r\n");
   ESP8266SendCommand((const char*)TXBuffer);
 }
 
@@ -716,16 +841,18 @@ void ESP8266ProcessInput(const char* buffer){
     }
     ptr++;
 
-    // check for HTTP GET
-    if (*ptr == 'G' && *(ptr + 1) == 'E' && *(ptr + 2) == 'T') {
-      if (*(ptr + 5) == '?'){ // means data to process
-        char* messagePtr = strstr(ptr, "message=") + 8;
-        printf("Message from ESP8266: %s\n", messagePtr);
-      }
-      ESP8266_PageRequested = true;
-    } else {
+    // check for HTTP GET 
+//    if (*ptr == 'G' && *(ptr + 1) == 'E' && *(ptr + 2) == 'T') {
+//      if (*(ptr + 5) == '?'){ // means data to process
+//        char* messagePtr = strstr(ptr, "message=") + 8;
+//        printf("Message from ESP8266: %s\n", messagePtr);
+//      }
+//      ESP8266_PageRequested = true;
+//    } else {
+			ST7735_SetCursor(0,0);
+			ST7735_OutString(ptr);
       // handle data that may be sent via means other than HTTP GET
-    }
+//    }
   }
 }
 

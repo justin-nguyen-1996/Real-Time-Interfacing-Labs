@@ -87,7 +87,7 @@ int main(void) {
 //  DAC_Init();
 //  LED_Init();
 //  ESP8266_Init(BAUD_RATE);
-  ST7735_InitR(INITR_REDTAB); ST7735_SetRotation(2);
+  ST7735_InitR(INITR_REDTAB); ST7735_SetRotation(3);
   Buttons_Init();
   Thumbstick_Init();
   Accel_Init();

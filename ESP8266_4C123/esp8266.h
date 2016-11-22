@@ -25,6 +25,8 @@
 #define ESP8266_WIFI_MODE_AP                2
 #define ESP8266_WIFI_MODE_AP_AND_CLIENT     3
 
+void Trevor_ESPTest(void);
+
 //-------------------ESP8266_Init --------------
 // initializes the module as a client
 // Inputs: none
@@ -99,11 +101,19 @@ int ESP8266_ConfigureAccessPoint(const char* ssid, const char* password, uint8_t
 // output: 1 if success, 0 if fail 
 int ESP8266_GetIPAddress(void);
 
+//---------ESP8266_GetConnectedIPAddress----------
+// Get connected IP address
+// Input: none
+// output: 1 if success, 0 if fail 
+int ESP8266_GetConnectedIPAddress(void);
+
 //---------ESP8266_MakeTCPConnection----------
 // Establish TCP connection 
 // Input: IP address or web page as a string
 // output: 1 if success, 0 if fail 
 int ESP8266_MakeTCPConnection(char *IPaddress);
+
+int ESP8266_MakeUDPConnection(char *IPaddress);
 
 //---------ESP8266_SendTCP----------
 // Send a TCP packet to server 

@@ -28,6 +28,7 @@
 #include "UART.h"
 #include "esp8266.h"
 #include "LED.h"
+#include "ST7735.h"
 
 // prototypes for functions defined in startup.s
 void DisableInterrupts(void); // Disable interrupts
@@ -41,12 +42,18 @@ char Fetch[] = "GET /data/2.5/weather?q=Austin%20Texas&APPID=697330eea67e0dbffb8
 // 2) Register on the Sign up page
 // 3) get an API key (APPID) replace the 1234567890abcdef1234567890abcdef with your APPID
 
+
+
 int main(void){  
   DisableInterrupts();
   PLL_Init(Bus80MHz);
   LED_Init();  
   Output_Init();       // UART0 only used for debugging
   printf("\n\r-----------\n\rSystem starting...\n\r");
+	ST7735_InitR(INITR_REDTAB);
+
+  Trevor_ESPTest();
+
   ESP8266_Init(9600);      // connect to access point, set up as client
   ESP8266_GetVersionNumber();
   while(1){

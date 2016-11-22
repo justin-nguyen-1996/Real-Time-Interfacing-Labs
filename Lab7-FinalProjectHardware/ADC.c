@@ -68,13 +68,7 @@ void ADC_Test() {
     ST7735_OutString("Accelrom X:     "); ST7735_SetCursor(12,4);  ST7735_OutUDec(accel[ACCEL_X]); ST7735_OutChar('\n');
     ST7735_OutString("Accelrom Y:     "); ST7735_SetCursor(12,5);  ST7735_OutUDec(accel[ACCEL_Y]); ST7735_OutChar('\n');
     ST7735_OutString("Accelrom Z:     "); ST7735_SetCursor(12,6);  ST7735_OutUDec(accel[ACCEL_Z]); ST7735_OutChar('\n');
-    
-    ST7735_OutChar('\n');
-    ST7735_OutString("Keep sampling?\n");
-    ST7735_OutString("Yes --> press L_SW\n");
-    ST7735_OutString("No  --> press R_SW\n");
-//    while (LEFTSWITCH == 0x10   &&   RIGHTSWITCH == 0x01) {}
-//    if (RIGHTSWITCH == 0x00) { break; }
+   
   }
 }
 #endif
