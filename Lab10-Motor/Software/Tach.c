@@ -66,12 +66,24 @@ void Tach_Init (void)
 uint32_t Period;
 uint32_t First;
 int32_t Done;
+
+extern uint32_t startTime;
+extern uint32_t endTime;
+extern uint32_t timeBuffer[1000]; extern uint32_t timeBuffer2[1000];
+extern uint16_t timeBufferIndex; extern uint16_t timeBufferIndex2;
+
 void Timer0A_Handler(void)
 {
+//  startTime = TIMER0_TAR_R;
   TIMER0_ICR_R = TIMER_ICR_CAECINT;// acknowledge timer0A capture match
 	Period = (First - TIMER0_TAR_R) & 0x00FFFFFF;
 	First = TIMER0_TAR_R;
 	Done = 1;
+//  endTime = TIMER0_TAR_R;
+//  if (timeBufferIndex < 400) {
+//    timeBuffer[timeBufferIndex++] = startTime;
+//    timeBuffer2[timeBufferIndex2++] = endTime;
+//  }
 }
 
 uint16_t Tach_GetSpeed (void)

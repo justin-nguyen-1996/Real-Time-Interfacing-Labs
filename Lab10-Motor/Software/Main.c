@@ -88,29 +88,24 @@ uint32_t prevSpeed = 50;
 uint32_t prevSetSpeed;
 extern uint32_t Period;
 
+uint32_t startTime;
+uint32_t endTime;
+uint32_t timeBuffer[1000]; uint32_t timeBuffer2[1000];
+uint16_t timeBufferIndex = 0; uint16_t timeBufferIndex2 = 0;
+
 void Timer2A_Handler(void){
+//  startTime = TIMER2_TAR_R;
   TIMER2_ICR_R = TIMER_ICR_TATOCINT;// acknowledge TIMER2A timeout
-//  uint32_t speed = 800000000 / period;
-//  int32_t E = 250 - speed;
-//  int32_t U = U + (3*E)/64;
-//  if (U < 40) { U = 40; }
-//  if (U > 39960) { U = 39960; }
-//  PWM0B_Duty(U);
-  
-//  uint16_t newSpeed = Tach_GetSpeed();
   uint32_t newSpeed = 800000000 / Period;
   uint32_t setSpeed = getSetSpeed();
   speed = avgSpeed(newSpeed); 
-//  if (prevSpeed < newSpeed  &&  prevSetSpeed == setSpeed) {
-//    speed = avgSpeed(prevSpeed);
-//  }
   setDuty = getDuty(speed, setSpeed, setDuty);
   PWM0B_Duty(setDuty);
-//  prevSpeed = newSpeed;
-//  prevSetSpeed = setSpeed;
+//  endTime = TIMER2_TAR_R;
+//  if (timeBufferIndex < 100) {
+//    timeBuffer[timeBufferIndex++] = startTime - endTime;
+//  }
 }
-
-//  ST7735_SetCursor(0,3); ST7735_OutString("         "); ST7735_SetCursor(0,3); ST7735_OutUDec(setSpeed);
 
 int main(void){
   PLL_Init(Bus80MHz);               // bus clock at 80 MHz
@@ -123,22 +118,20 @@ int main(void){
 	EnableInterrupts();
   PWM0B_Init(PWM_CLOCK_PERIOD, 39999);         // initialize PWM0, 1000 Hz
 
-//	uint32_t speed = 0;
   setSpeed = 10;
 	ST7735_SetCursor(0,0);
-	ST7735_OutUDec(speed);
 	int delay = 0;
-//	uint16_t setDuty = 30000;
   setDuty = 30000;
   while(1)
 	{
 		uint16_t setSpeed2 = getSetSpeed();
     printSet(setSpeed2);
-//    uint16_t newSpeed = Tach_GetSpeed();
-//    speed = avgSpeed(newSpeed); 
     SweepingGraph_Print(speed);
-//    setDuty = getDuty(speed, setSpeed, setDuty);
-//    PWM0B_Duty(setDuty);
-//    SysTick_Wait10ms(1);
+//    if (timeBufferIndex >= (uint32_t) 400) { break; }
 	}
+//  Output_Clear();
+//  ST7735_SetCursor(0,0);
+//  for (int i = 0; i < 10; ++i) {
+//    ST7735_OutUDec(timeBuffer[i]);
+//  }
 }
