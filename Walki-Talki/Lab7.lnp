@@ -1,0 +1,24 @@
+--cpu Cortex-M4
+".\adc.o"
+".\audio.o"
+".\button.o"
+".\dac.o"
+".\draw.o"
+".\esp8266.o"
+".\heartbeat.o"
+".\lcd.o"
+".\led.o"
+".\menu.o"
+".\pll.o"
+".\st7735.o"
+".\switch.o"
+".\timer0.o"
+".\timer1.o"
+".\uart0.o"
+".\uart1.o"
+".\walkntalk.o"
+".\startup.o"
+".\tone.o"
+--ro-base 0x00000000 --entry 0x00000000 --rw-base 0x20000000 --entry Reset_Handler --first __Vectors --strict --summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Lab7.map" -o .\Lab7.axf
