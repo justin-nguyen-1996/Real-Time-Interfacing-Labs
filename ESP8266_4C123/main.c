@@ -54,20 +54,20 @@ int main(void){
 
   Trevor_ESPTest();
 
-  ESP8266_Init(9600);      // connect to access point, set up as client
-  ESP8266_GetVersionNumber();
-  while(1){
-    ESP8266_GetStatus();
-    if(ESP8266_MakeTCPConnection("openweathermap.org")){ // open socket in server
-      LED_GreenOn();
-      ESP8266_SendTCP(Fetch);
-    }
-    ESP8266_CloseTCPConnection();
-    while(Board_Input()==0){// wait for touch
-    }; 
-    LED_GreenOff();
-    LED_RedToggle();
-  }
+//  ESP8266_Init(9600);      // connect to access point, set up as client
+//  ESP8266_GetVersionNumber();
+//  while(1){
+//    ESP8266_GetStatus();
+//    if(ESP8266_MakeTCPConnection("openweathermap.org")){ // open socket in server
+//      LED_GreenOn();
+//      ESP8266_SendTCP(Fetch);
+//    }
+//    ESP8266_CloseTCPConnection();
+//    while(Board_Input()==0){// wait for touch
+//    }; 
+//    LED_GreenOff();
+//    LED_RedToggle();
+//  }
 }
 
 // transparent mode for testing

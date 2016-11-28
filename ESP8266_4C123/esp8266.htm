@@ -3,21 +3,21 @@
 <title>Static Call Graph - [.\esp8266.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\esp8266.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Tue Nov 22 16:44:32 2016
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Sun Nov 27 21:34:45 2016
 <BR><P>
-<H3>Maximum Stack Usage =        192 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =         88 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-UART1_Handler &rArr; ESP8266FIFOtoBuffer &rArr; ESP8266ProcessInput &rArr; ST7735_OutString &rArr; ST7735_OutChar &rArr; ST7735_DrawString &rArr; ST7735_DrawCharS &rArr; ST7735_FillRect &rArr; setAddrWindow
+main &rArr; ST7735_InitR &rArr; ST7735_FillScreen &rArr; ST7735_FillRect &rArr; setAddrWindow
 <P>
 <H3>
 Functions with no stack information
 </H3><UL>
  <LI><a href="#[7f]">Reset_Handler</a>
- <LI><a href="#[c8]">DisableInterrupts</a>
- <LI><a href="#[98]">EnableInterrupts</a>
- <LI><a href="#[a8]">StartCritical</a>
- <LI><a href="#[a9]">EndCritical</a>
- <LI><a href="#[d5]">WaitForInterrupt</a>
+ <LI><a href="#[b7]">DisableInterrupts</a>
+ <LI><a href="#[a7]">EnableInterrupts</a>
+ <LI><a href="#[97]">StartCritical</a>
+ <LI><a href="#[98]">EndCritical</a>
+ <LI><a href="#[c0]">WaitForInterrupt</a>
 </UL>
 </UL>
 <P>
@@ -581,7 +581,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Reset_Handler
 </UL>
 
-<P><STRONG><a name="[cf]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry2.o(.ARM.Collect$$$$00000001))
+<P><STRONG><a name="[ba]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry2.o(.ARM.Collect$$$$00000001))
 
 <P><STRONG><a name="[81]"></a>_main_scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry5.o(.ARM.Collect$$$$00000004))
 <BR><BR>[Calls]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
@@ -591,51 +591,45 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
 </UL>
 
-<P><STRONG><a name="[d0]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
+<P><STRONG><a name="[bb]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
 
-<P><STRONG><a name="[d1]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
+<P><STRONG><a name="[bc]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
 
-<P><STRONG><a name="[d2]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
+<P><STRONG><a name="[bd]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
 
-<P><STRONG><a name="[d3]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
+<P><STRONG><a name="[be]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
 
-<P><STRONG><a name="[d4]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
+<P><STRONG><a name="[bf]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
 
-<P><STRONG><a name="[c8]"></a>DisableInterrupts</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup.o(.text))
+<P><STRONG><a name="[b7]"></a>DisableInterrupts</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[98]"></a>EnableInterrupts</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trevor_ESPTest
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Init
+<P><STRONG><a name="[a7]"></a>EnableInterrupts</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trevor_ESPTest
 </UL>
 
-<P><STRONG><a name="[a8]"></a>StartCritical</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TxFifo_Init
-<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RxFifo_Init
+<P><STRONG><a name="[97]"></a>StartCritical</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TxFifo_Init
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RxFifo_Init
 </UL>
 
-<P><STRONG><a name="[a9]"></a>EndCritical</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TxFifo_Init
-<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RxFifo_Init
+<P><STRONG><a name="[98]"></a>EndCritical</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TxFifo_Init
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RxFifo_Init
 </UL>
 
-<P><STRONG><a name="[d5]"></a>WaitForInterrupt</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup.o(.text), UNUSED)
+<P><STRONG><a name="[c0]"></a>WaitForInterrupt</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup.o(.text), UNUSED)
 
-<P><STRONG><a name="[a2]"></a>strlen</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, strlen.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SendTCP
+<P><STRONG><a name="[a3]"></a>strcpy</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, strcpy.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ServerResponseSearchCheck
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SearchStart
 </UL>
 
-<P><STRONG><a name="[b8]"></a>strcpy</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, strcpy.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ServerResponseSearchStart
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ServerResponseSearchCheck
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SearchStart
-</UL>
+<P><STRONG><a name="[c1]"></a>__aeabi_uidiv</STRONG> (Thumb, 0 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
 
-<P><STRONG><a name="[d6]"></a>__aeabi_uidiv</STRONG> (Thumb, 0 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
-
-<P><STRONG><a name="[c3]"></a>__aeabi_uidivmod</STRONG> (Thumb, 44 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+<P><STRONG><a name="[b2]"></a>__aeabi_uidivmod</STRONG> (Thumb, 44 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
 <P><STRONG><a name="[82]"></a>__scatterload</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, init.o(.text))
@@ -644,506 +638,305 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_main_scatterload
 </UL>
 
-<P><STRONG><a name="[d7]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
+<P><STRONG><a name="[c2]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
 
-<P><STRONG><a name="[cc]"></a>Board_Input</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, led.o(i.Board_Input))
-<BR><BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[c4]"></a>Delay1ms</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, st7735.o(i.Delay1ms))
+<P><STRONG><a name="[b3]"></a>Delay1ms</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, st7735.o(i.Delay1ms))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = Delay1ms
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commonInit
-<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commandList
+<BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commonInit
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commandList
 </UL>
 
-<P><STRONG><a name="[a0]"></a>DelayMs</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, esp8266.o(i.DelayMs))
+<P><STRONG><a name="[90]"></a>DelayMs</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, esp8266.o(i.DelayMs))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = DelayMs
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Reset
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SendTCP
+<BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Reset
 </UL>
 
-<P><STRONG><a name="[8f]"></a>DelayMsSearching</STRONG> (Thumb, 42 bytes, Stack size 8 bytes, esp8266.o(i.DelayMsSearching))
+<P><STRONG><a name="[8d]"></a>DelayMsSearching</STRONG> (Thumb, 42 bytes, Stack size 8 bytes, esp8266.o(i.DelayMsSearching))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = DelayMsSearching
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetWifiMode
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetDataTransmissionMode
-<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetConnectionMux
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Reset
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_ListAccessPoints
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_JoinAccessPoint
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_GetIPAddress
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_ConfigureAccessPoint
-<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_MakeTCPConnection
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_GetVersionNumber
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_GetStatus
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_CloseTCPConnection
+<BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetWifiMode
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetDataTransmissionMode
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetConnectionMux
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Reset
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_MakeTCPConnection
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_JoinAccessPoint
 </UL>
 
-<P><STRONG><a name="[84]"></a>ESP8266FIFOtoBuffer</STRONG> (Thumb, 112 bytes, Stack size 8 bytes, esp8266.o(i.ESP8266FIFOtoBuffer))
-<BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = ESP8266FIFOtoBuffer &rArr; ESP8266ProcessInput &rArr; ST7735_OutString &rArr; ST7735_OutChar &rArr; ST7735_DrawString &rArr; ST7735_DrawCharS &rArr; ST7735_FillRect &rArr; setAddrWindow
+<P><STRONG><a name="[84]"></a>ESP8266FIFOtoBuffer</STRONG> (Thumb, 108 bytes, Stack size 8 bytes, esp8266.o(i.ESP8266FIFOtoBuffer))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = ESP8266FIFOtoBuffer &rArr; UART_OutCharNonBlock &rArr; copySoftwareToHardware
 </UL>
 <BR>[Calls]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_OutCharNonBlock
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ServerResponseSearchCheck
 <LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SearchCheck
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266ProcessInput
 </UL>
 <BR>[Called By]<UL><LI><a href="#[10]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Handler
 </UL>
 
-<P><STRONG><a name="[88]"></a>ESP8266ProcessInput</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, esp8266.o(i.ESP8266ProcessInput))
-<BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = ESP8266ProcessInput &rArr; ST7735_OutString &rArr; ST7735_OutChar &rArr; ST7735_DrawString &rArr; ST7735_DrawCharS &rArr; ST7735_FillRect &rArr; setAddrWindow
-</UL>
-<BR>[Calls]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_SetCursor
-<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_OutString
-</UL>
-<BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266FIFOtoBuffer
-</UL>
-
-<P><STRONG><a name="[8b]"></a>ESP8266SendCommand</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, esp8266.o(i.ESP8266SendCommand))
+<P><STRONG><a name="[88]"></a>ESP8266SendCommand</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, esp8266.o(i.ESP8266SendCommand))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = ESP8266SendCommand
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_PrintChar
+<BR>[Calls]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_PrintChar
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetWifiMode
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetDataTransmissionMode
-<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetConnectionMux
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Reset
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_ListAccessPoints
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_JoinAccessPoint
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_GetIPAddress
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_ConfigureAccessPoint
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SendTCP
-<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_MakeTCPConnection
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_GetVersionNumber
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_GetStatus
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_CloseTCPConnection
+<BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetWifiMode
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetDataTransmissionMode
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetConnectionMux
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Reset
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_MakeTCPConnection
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_JoinAccessPoint
 </UL>
 
-<P><STRONG><a name="[8d]"></a>ESP8266_CloseTCPConnection</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, esp8266.o(i.ESP8266_CloseTCPConnection))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = ESP8266_CloseTCPConnection &rArr; SearchStart
-</UL>
-<BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SearchStart
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DelayMsSearching
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266SendCommand
-</UL>
-<BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<P><STRONG><a name="[a6]"></a>ESP8266_EnableRXInterrupt</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, esp8266.o(i.ESP8266_EnableRXInterrupt))
+<BR><BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trevor_ESPTest
 </UL>
 
-<P><STRONG><a name="[90]"></a>ESP8266_ConfigureAccessPoint</STRONG> (Thumb, 80 bytes, Stack size 32 bytes, esp8266.o(i.ESP8266_ConfigureAccessPoint))
-<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = ESP8266_ConfigureAccessPoint &rArr; __2sprintf
-</UL>
-<BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SearchStart
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DelayMsSearching
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266SendCommand
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
-</UL>
-<BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trevor_ESPTest
+<P><STRONG><a name="[a5]"></a>ESP8266_InitUART</STRONG> (Thumb, 230 bytes, Stack size 0 bytes, esp8266.o(i.ESP8266_InitUART))
+<BR><BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trevor_ESPTest
 </UL>
 
-<P><STRONG><a name="[97]"></a>ESP8266_EnableRXInterrupt</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, esp8266.o(i.ESP8266_EnableRXInterrupt))
-<BR><BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trevor_ESPTest
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Init
-</UL>
-
-<P><STRONG><a name="[92]"></a>ESP8266_GetIPAddress</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, esp8266.o(i.ESP8266_GetIPAddress))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = ESP8266_GetIPAddress &rArr; SearchStart
-</UL>
-<BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SearchStart
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DelayMsSearching
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266SendCommand
-</UL>
-<BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Init
-</UL>
-
-<P><STRONG><a name="[93]"></a>ESP8266_GetStatus</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, esp8266.o(i.ESP8266_GetStatus))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = ESP8266_GetStatus &rArr; SearchStart
-</UL>
-<BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SearchStart
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DelayMsSearching
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266SendCommand
-</UL>
-<BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[94]"></a>ESP8266_GetVersionNumber</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, esp8266.o(i.ESP8266_GetVersionNumber))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = ESP8266_GetVersionNumber &rArr; SearchStart
-</UL>
-<BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SearchStart
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DelayMsSearching
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266SendCommand
-</UL>
-<BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[95]"></a>ESP8266_Init</STRONG> (Thumb, 162 bytes, Stack size 8 bytes, esp8266.o(i.ESP8266_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 48 + Unknown Stack Size
-<LI>Call Chain = ESP8266_Init &rArr; ESP8266_SetWifiMode &rArr; __2sprintf
-</UL>
-<BR>[Calls]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetWifiMode
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetDataTransmissionMode
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Reset
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_ListAccessPoints
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_JoinAccessPoint
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_GetIPAddress
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_InitUART
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_EnableRXInterrupt
-<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EnableInterrupts
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
-</UL>
-<BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[96]"></a>ESP8266_InitUART</STRONG> (Thumb, 230 bytes, Stack size 0 bytes, esp8266.o(i.ESP8266_InitUART))
-<BR><BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trevor_ESPTest
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Init
-</UL>
-
-<P><STRONG><a name="[9c]"></a>ESP8266_JoinAccessPoint</STRONG> (Thumb, 62 bytes, Stack size 16 bytes, esp8266.o(i.ESP8266_JoinAccessPoint))
+<P><STRONG><a name="[8a]"></a>ESP8266_JoinAccessPoint</STRONG> (Thumb, 62 bytes, Stack size 16 bytes, esp8266.o(i.ESP8266_JoinAccessPoint))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = ESP8266_JoinAccessPoint &rArr; __2sprintf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SearchStart
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DelayMsSearching
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266SendCommand
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
+<BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SearchStart
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DelayMsSearching
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266SendCommand
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trevor_ESPTest
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Init
-</UL>
-
-<P><STRONG><a name="[9d]"></a>ESP8266_ListAccessPoints</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, esp8266.o(i.ESP8266_ListAccessPoints))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = ESP8266_ListAccessPoints &rArr; SearchStart
-</UL>
-<BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SearchStart
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DelayMsSearching
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266SendCommand
-</UL>
-<BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Init
+<BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trevor_ESPTest
 </UL>
 
-<P><STRONG><a name="[9f]"></a>ESP8266_MakeTCPConnection</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, esp8266.o(i.ESP8266_MakeTCPConnection))
+<P><STRONG><a name="[8e]"></a>ESP8266_MakeTCPConnection</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, esp8266.o(i.ESP8266_MakeTCPConnection))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = ESP8266_MakeTCPConnection &rArr; __2sprintf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SearchStart
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DelayMsSearching
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266SendCommand
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
+<BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SearchStart
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DelayMsSearching
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266SendCommand
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trevor_ESPTest
-<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[8c]"></a>ESP8266_PrintChar</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, esp8266.o(i.ESP8266_PrintChar))
-<BR><BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266SendCommand
+<BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trevor_ESPTest
 </UL>
 
-<P><STRONG><a name="[9a]"></a>ESP8266_Reset</STRONG> (Thumb, 84 bytes, Stack size 8 bytes, esp8266.o(i.ESP8266_Reset))
+<P><STRONG><a name="[89]"></a>ESP8266_PrintChar</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, esp8266.o(i.ESP8266_PrintChar))
+<BR><BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266SendCommand
+</UL>
+
+<P><STRONG><a name="[8f]"></a>ESP8266_Reset</STRONG> (Thumb, 84 bytes, Stack size 8 bytes, esp8266.o(i.ESP8266_Reset))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = ESP8266_Reset &rArr; SearchStart
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SearchStart
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DelayMsSearching
-<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DelayMs
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266SendCommand
+<BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SearchStart
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DelayMsSearching
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DelayMs
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266SendCommand
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trevor_ESPTest
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Init
-</UL>
-
-<P><STRONG><a name="[a1]"></a>ESP8266_SendTCP</STRONG> (Thumb, 104 bytes, Stack size 24 bytes, esp8266.o(i.ESP8266_SendTCP))
-<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = ESP8266_SendTCP &rArr; __2sprintf
-</UL>
-<BR>[Calls]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ServerResponseSearchStart
-<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DelayMs
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266SendCommand
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
-</UL>
-<BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trevor_ESPTest
-<LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trevor_ESPTest
 </UL>
 
-<P><STRONG><a name="[a4]"></a>ESP8266_SetConnectionMux</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, esp8266.o(i.ESP8266_SetConnectionMux))
+<P><STRONG><a name="[91]"></a>ESP8266_SetConnectionMux</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, esp8266.o(i.ESP8266_SetConnectionMux))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = ESP8266_SetConnectionMux &rArr; __2sprintf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SearchStart
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DelayMsSearching
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266SendCommand
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
+<BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SearchStart
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DelayMsSearching
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266SendCommand
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trevor_ESPTest
+<BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trevor_ESPTest
 </UL>
 
-<P><STRONG><a name="[9e]"></a>ESP8266_SetDataTransmissionMode</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, esp8266.o(i.ESP8266_SetDataTransmissionMode))
+<P><STRONG><a name="[92]"></a>ESP8266_SetDataTransmissionMode</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, esp8266.o(i.ESP8266_SetDataTransmissionMode))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = ESP8266_SetDataTransmissionMode &rArr; __2sprintf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SearchStart
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DelayMsSearching
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266SendCommand
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
+<BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SearchStart
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DelayMsSearching
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266SendCommand
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trevor_ESPTest
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Init
+<BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trevor_ESPTest
 </UL>
 
-<P><STRONG><a name="[9b]"></a>ESP8266_SetWifiMode</STRONG> (Thumb, 66 bytes, Stack size 16 bytes, esp8266.o(i.ESP8266_SetWifiMode))
+<P><STRONG><a name="[93]"></a>ESP8266_SetWifiMode</STRONG> (Thumb, 66 bytes, Stack size 16 bytes, esp8266.o(i.ESP8266_SetWifiMode))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = ESP8266_SetWifiMode &rArr; __2sprintf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SearchStart
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DelayMsSearching
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266SendCommand
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
+<BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SearchStart
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DelayMsSearching
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266SendCommand
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trevor_ESPTest
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Init
+<BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trevor_ESPTest
 </UL>
 
-<P><STRONG><a name="[cd]"></a>LED_GreenOff</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, led.o(i.LED_GreenOff))
+<P><STRONG><a name="[b9]"></a>LED_Init</STRONG> (Thumb, 88 bytes, Stack size 0 bytes, led.o(i.LED_Init))
 <BR><BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[cb]"></a>LED_GreenOn</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, led.o(i.LED_GreenOn))
-<BR><BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[ca]"></a>LED_Init</STRONG> (Thumb, 88 bytes, Stack size 0 bytes, led.o(i.LED_Init))
-<BR><BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[ce]"></a>LED_RedToggle</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, led.o(i.LED_RedToggle))
-<BR><BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[a5]"></a>Output_Init</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, uart.o(i.Output_Init))
+<P><STRONG><a name="[94]"></a>Output_Init</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, uart.o(i.Output_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24 + Unknown Stack Size
 <LI>Call Chain = Output_Init &rArr; UART_Init &rArr; TxFifo_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Init
+<BR>[Calls]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[c9]"></a>PLL_Init</STRONG> (Thumb, 118 bytes, Stack size 0 bytes, pll.o(i.PLL_Init))
+<P><STRONG><a name="[b8]"></a>PLL_Init</STRONG> (Thumb, 118 bytes, Stack size 0 bytes, pll.o(i.PLL_Init))
 <BR><BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[a7]"></a>RxFifo_Init</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, uart.o(i.RxFifo_Init))
+<P><STRONG><a name="[96]"></a>RxFifo_Init</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, uart.o(i.RxFifo_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8 + Unknown Stack Size
 <LI>Call Chain = RxFifo_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EndCritical
-<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StartCritical
+<BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EndCritical
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StartCritical
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Init
-</UL>
-
-<P><STRONG><a name="[c5]"></a>RxFifo_Put</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, uart.o(i.RxFifo_Put))
-<BR><BR>[Called By]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;copyHardwareToSoftware
+<BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Init
 </UL>
 
-<P><STRONG><a name="[c6]"></a>RxFifo_Size</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, uart.o(i.RxFifo_Size))
-<BR><BR>[Called By]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;copyHardwareToSoftware
+<P><STRONG><a name="[b4]"></a>RxFifo_Put</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, uart.o(i.RxFifo_Put))
+<BR><BR>[Called By]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;copyHardwareToSoftware
 </UL>
 
-<P><STRONG><a name="[aa]"></a>ST7735_DrawCharS</STRONG> (Thumb, 232 bytes, Stack size 48 bytes, st7735.o(i.ST7735_DrawCharS))
-<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = ST7735_DrawCharS &rArr; ST7735_FillRect &rArr; setAddrWindow
-</UL>
-<BR>[Calls]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillRect
-<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawPixel
-</UL>
-<BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_OutChar
-<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawString
+<P><STRONG><a name="[b5]"></a>RxFifo_Size</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, uart.o(i.RxFifo_Size))
+<BR><BR>[Called By]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;copyHardwareToSoftware
 </UL>
 
-<P><STRONG><a name="[ab]"></a>ST7735_DrawPixel</STRONG> (Thumb, 64 bytes, Stack size 24 bytes, st7735.o(i.ST7735_DrawPixel))
-<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = ST7735_DrawPixel &rArr; setAddrWindow
-</UL>
-<BR>[Calls]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setAddrWindow
-<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pushColor
-</UL>
-<BR>[Called By]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawCharS
-</UL>
-
-<P><STRONG><a name="[af]"></a>ST7735_DrawString</STRONG> (Thumb, 84 bytes, Stack size 32 bytes, st7735.o(i.ST7735_DrawString))
-<BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = ST7735_DrawString &rArr; ST7735_DrawCharS &rArr; ST7735_FillRect &rArr; setAddrWindow
-</UL>
-<BR>[Calls]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawCharS
-</UL>
-<BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_OutChar
-</UL>
-
-<P><STRONG><a name="[ac]"></a>ST7735_FillRect</STRONG> (Thumb, 164 bytes, Stack size 32 bytes, st7735.o(i.ST7735_FillRect))
+<P><STRONG><a name="[99]"></a>ST7735_FillRect</STRONG> (Thumb, 164 bytes, Stack size 32 bytes, st7735.o(i.ST7735_FillRect))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = ST7735_FillRect &rArr; setAddrWindow
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writedata
-<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setAddrWindow
+<BR>[Calls]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writedata
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setAddrWindow
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillScreen
-<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawCharS
+<BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillScreen
 </UL>
 
-<P><STRONG><a name="[b1]"></a>ST7735_FillScreen</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, st7735.o(i.ST7735_FillScreen))
+<P><STRONG><a name="[9c]"></a>ST7735_FillScreen</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, st7735.o(i.ST7735_FillScreen))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = ST7735_FillScreen &rArr; ST7735_FillRect &rArr; setAddrWindow
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillRect
+<BR>[Calls]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillRect
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InitR
+<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InitR
 </UL>
 
-<P><STRONG><a name="[b2]"></a>ST7735_InitR</STRONG> (Thumb, 90 bytes, Stack size 8 bytes, st7735.o(i.ST7735_InitR))
+<P><STRONG><a name="[9d]"></a>ST7735_InitR</STRONG> (Thumb, 90 bytes, Stack size 8 bytes, st7735.o(i.ST7735_InitR))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = ST7735_InitR &rArr; ST7735_FillScreen &rArr; ST7735_FillRect &rArr; setAddrWindow
 </UL>
-<BR>[Calls]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_SetCursor
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillScreen
-<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writedata
-<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writecommand
-<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commonInit
-<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commandList
+<BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_SetCursor
+<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillScreen
+<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writedata
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writecommand
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commonInit
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commandList
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[b6]"></a>ST7735_OutChar</STRONG> (Thumb, 176 bytes, Stack size 16 bytes, st7735.o(i.ST7735_OutChar))
-<BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = ST7735_OutChar &rArr; ST7735_DrawString &rArr; ST7735_DrawCharS &rArr; ST7735_FillRect &rArr; setAddrWindow
-</UL>
-<BR>[Calls]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawString
-<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawCharS
-</UL>
-<BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_OutString
-</UL>
-
-<P><STRONG><a name="[8a]"></a>ST7735_OutString</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, st7735.o(i.ST7735_OutString))
-<BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = ST7735_OutString &rArr; ST7735_OutChar &rArr; ST7735_DrawString &rArr; ST7735_DrawCharS &rArr; ST7735_FillRect &rArr; setAddrWindow
-</UL>
-<BR>[Calls]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_OutChar
-</UL>
-<BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266ProcessInput
-</UL>
-
-<P><STRONG><a name="[89]"></a>ST7735_SetCursor</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, st7735.o(i.ST7735_SetCursor))
-<BR><BR>[Called By]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266ProcessInput
-<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InitR
+<P><STRONG><a name="[a1]"></a>ST7735_SetCursor</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, st7735.o(i.ST7735_SetCursor))
+<BR><BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InitR
 </UL>
 
 <P><STRONG><a name="[86]"></a>SearchCheck</STRONG> (Thumb, 68 bytes, Stack size 4 bytes, esp8266.o(i.SearchCheck))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = SearchCheck
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lc
+<BR>[Calls]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lc
 </UL>
 <BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266FIFOtoBuffer
 </UL>
 
-<P><STRONG><a name="[8e]"></a>SearchStart</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, esp8266.o(i.SearchStart))
+<P><STRONG><a name="[8b]"></a>SearchStart</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, esp8266.o(i.SearchStart))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SearchStart
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcpy
+<BR>[Calls]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcpy
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetWifiMode
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetDataTransmissionMode
-<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetConnectionMux
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Reset
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_ListAccessPoints
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_JoinAccessPoint
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_GetIPAddress
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_ConfigureAccessPoint
-<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_MakeTCPConnection
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_GetVersionNumber
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_GetStatus
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_CloseTCPConnection
+<BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetWifiMode
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetDataTransmissionMode
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetConnectionMux
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Reset
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_MakeTCPConnection
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_JoinAccessPoint
 </UL>
 
 <P><STRONG><a name="[87]"></a>ServerResponseSearchCheck</STRONG> (Thumb, 180 bytes, Stack size 8 bytes, esp8266.o(i.ServerResponseSearchCheck))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = ServerResponseSearchCheck
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lc
-<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcpy
+<BR>[Calls]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lc
+<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcpy
 </UL>
 <BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266FIFOtoBuffer
 </UL>
 
-<P><STRONG><a name="[a3]"></a>ServerResponseSearchStart</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, esp8266.o(i.ServerResponseSearchStart))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = ServerResponseSearchStart
+<P><STRONG><a name="[a4]"></a>Trevor_ESPTest</STRONG> (Thumb, 170 bytes, Stack size 0 bytes, esp8266.o(i.Trevor_ESPTest))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40 + Unknown Stack Size
+<LI>Call Chain = Trevor_ESPTest &rArr; ESP8266_SetWifiMode &rArr; __2sprintf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcpy
-</UL>
-<BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SendTCP
-</UL>
-
-<P><STRONG><a name="[b9]"></a>Trevor_ESPTest</STRONG> (Thumb, 218 bytes, Stack size 0 bytes, esp8266.o(i.Trevor_ESPTest))
-<BR><BR>[Stack]<UL><LI>Max Depth = 56 + Unknown Stack Size
-<LI>Call Chain = Trevor_ESPTest &rArr; ESP8266_ConfigureAccessPoint &rArr; __2sprintf
-</UL>
-<BR>[Calls]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetWifiMode
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetDataTransmissionMode
-<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetConnectionMux
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Reset
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_JoinAccessPoint
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_ConfigureAccessPoint
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SendTCP
-<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_MakeTCPConnection
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_InitUART
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_EnableRXInterrupt
-<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EnableInterrupts
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetWifiMode
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetDataTransmissionMode
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetConnectionMux
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Reset
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_MakeTCPConnection
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_JoinAccessPoint
+<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_InitUART
+<LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_EnableRXInterrupt
+<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EnableInterrupts
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[c7]"></a>TxFifo_Get</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, uart.o(i.TxFifo_Get))
-<BR><BR>[Called By]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;copySoftwareToHardware
+<P><STRONG><a name="[b6]"></a>TxFifo_Get</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, uart.o(i.TxFifo_Get))
+<BR><BR>[Called By]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;copySoftwareToHardware
 </UL>
 
-<P><STRONG><a name="[ba]"></a>TxFifo_Init</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, uart.o(i.TxFifo_Init))
+<P><STRONG><a name="[a9]"></a>TxFifo_Init</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, uart.o(i.TxFifo_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8 + Unknown Stack Size
 <LI>Call Chain = TxFifo_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EndCritical
-<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StartCritical
+<BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EndCritical
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StartCritical
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Init
+<BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Init
 </UL>
 
-<P><STRONG><a name="[bf]"></a>TxFifo_Put</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, uart.o(i.TxFifo_Put))
+<P><STRONG><a name="[ae]"></a>TxFifo_Put</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, uart.o(i.TxFifo_Put))
 <BR><BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_OutCharNonBlock
-<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_OutChar
+<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_OutChar
 </UL>
 
-<P><STRONG><a name="[bc]"></a>TxFifo_Size</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, uart.o(i.TxFifo_Size))
+<P><STRONG><a name="[ab]"></a>TxFifo_Size</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, uart.o(i.TxFifo_Size))
 <BR><BR>[Called By]<UL><LI><a href="#[f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART0_Handler
-<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;copySoftwareToHardware
+<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;copySoftwareToHardware
 </UL>
 
 <P><STRONG><a name="[f]"></a>UART0_Handler</STRONG> (Thumb, 82 bytes, Stack size 8 bytes, uart.o(i.UART0_Handler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = UART0_Handler &rArr; copySoftwareToHardware
 </UL>
-<BR>[Calls]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TxFifo_Size
-<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;copySoftwareToHardware
-<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;copyHardwareToSoftware
+<BR>[Calls]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TxFifo_Size
+<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;copySoftwareToHardware
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;copyHardwareToSoftware
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup.o(RESET)
 </UL>
 <P><STRONG><a name="[10]"></a>UART1_Handler</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, esp8266.o(i.UART1_Handler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 192<LI>Call Chain = UART1_Handler &rArr; ESP8266FIFOtoBuffer &rArr; ESP8266ProcessInput &rArr; ST7735_OutString &rArr; ST7735_OutChar &rArr; ST7735_DrawString &rArr; ST7735_DrawCharS &rArr; ST7735_FillRect &rArr; setAddrWindow
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = UART1_Handler &rArr; ESP8266FIFOtoBuffer &rArr; UART_OutCharNonBlock &rArr; copySoftwareToHardware
 </UL>
 <BR>[Calls]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266FIFOtoBuffer
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup.o(RESET)
 </UL>
-<P><STRONG><a name="[a6]"></a>UART_Init</STRONG> (Thumb, 174 bytes, Stack size 8 bytes, uart.o(i.UART_Init))
+<P><STRONG><a name="[95]"></a>UART_Init</STRONG> (Thumb, 174 bytes, Stack size 8 bytes, uart.o(i.UART_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16 + Unknown Stack Size
 <LI>Call Chain = UART_Init &rArr; TxFifo_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TxFifo_Init
-<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RxFifo_Init
+<BR>[Calls]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TxFifo_Init
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RxFifo_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Output_Init
+<BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Output_Init
 </UL>
 
-<P><STRONG><a name="[be]"></a>UART_OutChar</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, uart.o(i.UART_OutChar))
+<P><STRONG><a name="[ad]"></a>UART_OutChar</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, uart.o(i.UART_OutChar))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = UART_OutChar &rArr; copySoftwareToHardware
 </UL>
-<BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TxFifo_Put
-<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;copySoftwareToHardware
+<BR>[Calls]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TxFifo_Put
+<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;copySoftwareToHardware
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fputc
 </UL>
@@ -1151,171 +944,148 @@ Global Symbols
 <P><STRONG><a name="[85]"></a>UART_OutCharNonBlock</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, uart.o(i.UART_OutCharNonBlock))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = UART_OutCharNonBlock &rArr; copySoftwareToHardware
 </UL>
-<BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TxFifo_Put
-<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;copySoftwareToHardware
+<BR>[Calls]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TxFifo_Put
+<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;copySoftwareToHardware
 </UL>
 <BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266FIFOtoBuffer
 </UL>
 
-<P><STRONG><a name="[c0]"></a>__0printf$3</STRONG> (Thumb, 22 bytes, Stack size 24 bytes, printf3.o(i.__0printf$3), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+<P><STRONG><a name="[af]"></a>__0printf$3</STRONG> (Thumb, 22 bytes, Stack size 24 bytes, printf3.o(i.__0printf$3), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
-<P><STRONG><a name="[d8]"></a>__1printf$3</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf3.o(i.__0printf$3), UNUSED)
+<P><STRONG><a name="[c3]"></a>__1printf$3</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf3.o(i.__0printf$3), UNUSED)
 
-<P><STRONG><a name="[99]"></a>__2printf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf3.o(i.__0printf$3))
+<P><STRONG><a name="[a8]"></a>__2printf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf3.o(i.__0printf$3))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __2printf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trevor_ESPTest
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Init
+<BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trevor_ESPTest
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[c2]"></a>__0sprintf$3</STRONG> (Thumb, 34 bytes, Stack size 24 bytes, printf3.o(i.__0sprintf$3), UNUSED)
+<P><STRONG><a name="[b1]"></a>__0sprintf$3</STRONG> (Thumb, 34 bytes, Stack size 24 bytes, printf3.o(i.__0sprintf$3), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sputc
-<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
-<P><STRONG><a name="[d9]"></a>__1sprintf$3</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf3.o(i.__0sprintf$3), UNUSED)
+<P><STRONG><a name="[c4]"></a>__1sprintf$3</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf3.o(i.__0sprintf$3), UNUSED)
 
-<P><STRONG><a name="[91]"></a>__2sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf3.o(i.__0sprintf$3))
+<P><STRONG><a name="[8c]"></a>__2sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf3.o(i.__0sprintf$3))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __2sprintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetWifiMode
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetDataTransmissionMode
-<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetConnectionMux
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_JoinAccessPoint
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_ConfigureAccessPoint
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SendTCP
-<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_MakeTCPConnection
+<BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetWifiMode
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetDataTransmissionMode
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetConnectionMux
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_MakeTCPConnection
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_JoinAccessPoint
 </UL>
 
-<P><STRONG><a name="[da]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
+<P><STRONG><a name="[c5]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
 
-<P><STRONG><a name="[db]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
+<P><STRONG><a name="[c6]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
 
-<P><STRONG><a name="[dc]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
+<P><STRONG><a name="[c7]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 
 <P><STRONG><a name="[7d]"></a>fputc</STRONG> (Thumb, 16 bytes, Stack size 16 bytes, uart.o(i.fputc))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = fputc &rArr; UART_OutChar &rArr; copySoftwareToHardware
 </UL>
-<BR>[Calls]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_OutChar
+<BR>[Calls]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_OutChar
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> printf3.o(i.__0printf$3)
 </UL>
-<P><STRONG><a name="[b7]"></a>lc</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, esp8266.o(i.lc))
+<P><STRONG><a name="[a2]"></a>lc</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, esp8266.o(i.lc))
 <BR><BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ServerResponseSearchCheck
 <LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SearchCheck
 </UL>
 
-<P><STRONG><a name="[7c]"></a>main</STRONG> (Thumb, 94 bytes, Stack size 0 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 80 + Unknown Stack Size
+<P><STRONG><a name="[7c]"></a>main</STRONG> (Thumb, 40 bytes, Stack size 8 bytes, main.o(i.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 88 + Unknown Stack Size
 <LI>Call Chain = main &rArr; ST7735_InitR &rArr; ST7735_FillScreen &rArr; ST7735_FillRect &rArr; setAddrWindow
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trevor_ESPTest
-<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InitR
-<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PLL_Init
-<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Output_Init
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_RedToggle
-<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Init
-<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_GreenOn
-<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_GreenOff
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SendTCP
-<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_MakeTCPConnection
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Init
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_GetVersionNumber
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_GetStatus
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_CloseTCPConnection
-<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Board_Input
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisableInterrupts
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<BR>[Calls]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trevor_ESPTest
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InitR
+<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PLL_Init
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Output_Init
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Init
+<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisableInterrupts
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
 </UL><P>
 <H3>
 Local Symbols
 </H3>
-<P><STRONG><a name="[bd]"></a>copyHardwareToSoftware</STRONG> (Thumb, 40 bytes, Stack size 4 bytes, uart.o(i.copyHardwareToSoftware))
+<P><STRONG><a name="[ac]"></a>copyHardwareToSoftware</STRONG> (Thumb, 40 bytes, Stack size 4 bytes, uart.o(i.copyHardwareToSoftware))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = copyHardwareToSoftware
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RxFifo_Size
-<LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RxFifo_Put
+<BR>[Calls]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RxFifo_Size
+<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RxFifo_Put
 </UL>
 <BR>[Called By]<UL><LI><a href="#[f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART0_Handler
 </UL>
 
-<P><STRONG><a name="[bb]"></a>copySoftwareToHardware</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, uart.o(i.copySoftwareToHardware))
+<P><STRONG><a name="[aa]"></a>copySoftwareToHardware</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, uart.o(i.copySoftwareToHardware))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = copySoftwareToHardware
 </UL>
-<BR>[Calls]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TxFifo_Size
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TxFifo_Get
+<BR>[Calls]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TxFifo_Size
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TxFifo_Get
 </UL>
 <BR>[Called By]<UL><LI><a href="#[f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART0_Handler
 <LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_OutCharNonBlock
-<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_OutChar
+<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_OutChar
 </UL>
 
-<P><STRONG><a name="[b4]"></a>commandList</STRONG> (Thumb, 86 bytes, Stack size 24 bytes, st7735.o(i.commandList))
+<P><STRONG><a name="[9f]"></a>commandList</STRONG> (Thumb, 86 bytes, Stack size 24 bytes, st7735.o(i.commandList))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = commandList &rArr; Delay1ms
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay1ms
-<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writedata
-<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writecommand
+<BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay1ms
+<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writedata
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writecommand
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InitR
-<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commonInit
+<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InitR
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commonInit
 </UL>
 
-<P><STRONG><a name="[b3]"></a>commonInit</STRONG> (Thumb, 340 bytes, Stack size 8 bytes, st7735.o(i.commonInit))
+<P><STRONG><a name="[9e]"></a>commonInit</STRONG> (Thumb, 340 bytes, Stack size 8 bytes, st7735.o(i.commonInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = commonInit &rArr; commandList &rArr; Delay1ms
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay1ms
-<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commandList
+<BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay1ms
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commandList
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InitR
-</UL>
-
-<P><STRONG><a name="[ae]"></a>pushColor</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, st7735.o(i.pushColor))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = pushColor
-</UL>
-<BR>[Calls]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writedata
-</UL>
-<BR>[Called By]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawPixel
+<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InitR
 </UL>
 
-<P><STRONG><a name="[ad]"></a>setAddrWindow</STRONG> (Thumb, 106 bytes, Stack size 24 bytes, st7735.o(i.setAddrWindow))
+<P><STRONG><a name="[9a]"></a>setAddrWindow</STRONG> (Thumb, 106 bytes, Stack size 24 bytes, st7735.o(i.setAddrWindow))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = setAddrWindow
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writedata
-<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writecommand
+<BR>[Calls]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writedata
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writecommand
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillRect
-<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_DrawPixel
-</UL>
-
-<P><STRONG><a name="[b5]"></a>writecommand</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, st7735.o(i.writecommand))
-<BR><BR>[Called By]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InitR
-<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setAddrWindow
-<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commandList
+<BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillRect
 </UL>
 
-<P><STRONG><a name="[b0]"></a>writedata</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, st7735.o(i.writedata))
-<BR><BR>[Called By]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InitR
-<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillRect
-<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setAddrWindow
-<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pushColor
-<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commandList
+<P><STRONG><a name="[a0]"></a>writecommand</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, st7735.o(i.writecommand))
+<BR><BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InitR
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setAddrWindow
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commandList
 </UL>
 
-<P><STRONG><a name="[c1]"></a>_printf_core</STRONG> (Thumb, 436 bytes, Stack size 96 bytes, printf3.o(i._printf_core), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
+<P><STRONG><a name="[9b]"></a>writedata</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, st7735.o(i.writedata))
+<BR><BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InitR
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_FillRect
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setAddrWindow
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commandList
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__0sprintf$3
-<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__0printf$3
+
+<P><STRONG><a name="[b0]"></a>_printf_core</STRONG> (Thumb, 436 bytes, Stack size 96 bytes, printf3.o(i._printf_core), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
+</UL>
+<BR>[Called By]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__0sprintf$3
+<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__0printf$3
 </UL>
 
 <P><STRONG><a name="[7e]"></a>_sputc</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, printf3.o(i._sputc))
-<BR><BR>[Called By]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__0sprintf$3
+<BR><BR>[Called By]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__0sprintf$3
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> printf3.o(i.__0sprintf$3)
 </UL><P>

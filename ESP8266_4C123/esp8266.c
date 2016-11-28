@@ -90,6 +90,7 @@ void ESP8266FIFOtoBuffer(void);
 */
 
 uint32_t RXBufferIndex = 0;
+uint32_t LastLastReturnIndex = 0;
 uint32_t LastReturnIndex = 0;
 uint32_t CurrentReturnIndex = 0;
 char RXBuffer[BUFFER_SIZE];
@@ -293,10 +294,10 @@ void ESP8266FIFOtoBuffer(void){
     SearchCheck(letter);               // check for end of command
     ServerResponseSearchCheck(letter); // check for server response
     if(letter == '\n'){
+			LastLastReturnIndex = LastReturnIndex;
       LastReturnIndex = CurrentReturnIndex;
       CurrentReturnIndex = RXBufferIndex;
     }    
-		ESP8266ProcessInput(&RXBuffer[RXBufferIndex]);
   }
 }
 
@@ -351,7 +352,7 @@ void DelayMsSearching(uint32_t n){
 void Trevor_ESPTest(void)
 {
   ESP8266_InitUART(9600,true); // baud rate, no echo to UART0
-	ESP8266_EnableRXInterrupt();
+  ESP8266_EnableRXInterrupt();
   SearchLooking = false;
   SearchFound = false;
   ServerResponseSearchLooking = 0; // not looking for "+IPD"
@@ -367,45 +368,33 @@ void Trevor_ESPTest(void)
 	if(ESP8266_SetDataTransmissionMode(0)==0){ 
     printf("SetDataTransmissionMode, could not make connection\n\r"); while(1){};
   }
-  ESP8266_InputProcessingEnabled = true; 
+ // ESP8266_InputProcessingEnabled = true; 
 
-	// step 2: AT+CWMODE=1 set wifi mode to client (not an access point)
-  if(ESP8266_SetWifiMode(ESP8266_WIFI_MODE_AP_AND_CLIENT)==0){ 
-    printf("SetWifiMode, could not set mode\n\r"); while(1){};
-  }
+	// step 2: AT+CWMODE=1 set wifi mode to client and access point
+	int retVal; 
+	if (ESP_ID) { retVal = ESP8266_SetWifiMode(ESP8266_WIFI_MODE_AP); }
+	else {retVal = ESP8266_SetWifiMode(ESP8266_WIFI_MODE_CLIENT);}
+  if(retVal==0){ printf("SetWifiMode, could not set mode\n\r"); while(1){}; }
+
 	ESP8266_SetConnectionMux(1);
 		
-	int retVal; 
-	if (ESP_ID) { retVal = ESP8266_ConfigureAccessPoint("JANDTESP1", "pass", 2, 0); }
-	else { retVal = ESP8266_ConfigureAccessPoint("JANDTESP0", "pass", 1, 0); }
+	if (ESP_ID) 
+	{ 
+		retVal = ESP8266_ConfigureAccessPoint("JANDTESP1", "pass", 2, 0); 
+		ESP8266_EnableServer(80);
+		DelayMs(4000);
+	}
+	else {}// retVal = ESP8266_ConfigureAccessPoint("JANDTESP0", "pass", 1, 0); }
 	if (retVal == 0) { printf("Could not configure access point\n\r"); while (1){} }
 	
 	if (ESP_ID) 
 	{
-		ESP8266_EnableServer(0);//port default 333
-		//ESP8266_GetStatus();
-		ESP8266_EnableRXInterrupt();
-		//ESP8266_GetIPAddress();
+//		ESP8266_GetStatus();
+		ESP8266_GetIPAddress();
+		ST7735_SetCursor(0,0);
+		ST7735_OutString(&RXBuffer[LastLastReturnIndex]);
 	}
 	while (ESP_ID) {}
-/*
-	retVal = 0;
-	while(ESP_ID && retVal == 0)
-	{
-		retVal = ESP8266_JoinAccessPoint("JANDTESP0", "pass");
-	} //id 1 tries to connect
-	retVal = 0;
-*/
-/*
-	ESP8266_EnableRXInterrupt();
-	retVal = 0;
-	while (ESP_ID == 0 && retVal == 0)
-	{
-		int p = 0;
-		for (int i = 0; i < 1000000; i++) {p += i;} //delay
-		ESP8266_GetConnectedIPAddress();
-	}
-*/
 
 	if (ESP_ID) { retVal = ESP8266_JoinAccessPoint("JANDTESP0", "pass"); }
 	else { retVal = ESP8266_JoinAccessPoint("JANDTESP1", "pass"); }
@@ -417,14 +406,13 @@ void Trevor_ESPTest(void)
 	if (ESP_ID) { }
 	else 
 	{
-		//retVal = ESP8266_MakeTCPConnection("192.168.4.1"); 
 		retVal = ESP8266_MakeTCPConnection("192.168.4.100"); 
 	}
 	if (retVal == 0)
 	{
 		printf("Could not connect to server\n\r"); while(1){} 
 	}
-
+	while(1){}
 	while(1)
 	{
 		for (int i = 0; i < 10000; i++) {} //delay
@@ -645,7 +633,7 @@ int ESP8266_MakeTCPConnection(char *IPaddress){
   int try=MAXTRY;
   SearchStart("ok");
   while(try){
-    sprintf((char*)TXBuffer, "AT+CIPSTART=0,\"TCP\",\"%s\",333\r\n", IPaddress);
+    sprintf((char*)TXBuffer, "AT+CIPSTART=4,\"TCP\",\"%s\",80\r\n", IPaddress);
     ESP8266SendCommand(TXBuffer);   // open and connect to a socket
     DelayMsSearching(8000);
     if(SearchFound) return 1; // success
@@ -803,7 +791,7 @@ void ESP8266_SetServerTimeout(uint16_t timeout){
 // Outputs: none
 void ESP8266_EnableServer(uint16_t port){
   ESP8266_ServerPort = port;
-  sprintf((char*)TXBuffer, "AT+CIPSERVER=1\r\n");
+  sprintf((char*)TXBuffer, "AT+CIPSERVER=1,%d\r\n",port);
   ESP8266SendCommand((const char*)TXBuffer);
 }
 
@@ -853,6 +841,12 @@ void ESP8266ProcessInput(const char* buffer){
 			ST7735_OutString(ptr);
       // handle data that may be sent via means other than HTTP GET
 //    }
+  }
+	else if (buffer[0] == 'A' && buffer[1] == 'T' && buffer[2] == '+' && buffer[3] == 'C' && buffer[4] == 'I' 
+			&& buffer[5] == 'F' && buffer[6] == 'S' && buffer[7] == 'R'){     
+    ptr = (char *)buffer + 8;
+		ST7735_SetCursor(0,0);
+		ST7735_OutString(ptr);
   }
 }
 
