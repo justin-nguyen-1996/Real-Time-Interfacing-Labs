@@ -367,12 +367,19 @@ Section Cross References
     gamerules.o(i._Z13GameRulesTestv) refers to gamerules.o(i._ZN9RectangleC1Esstt) for Rectangle::Rectangle(short, short, unsigned short, unsigned short)
     gamerules.o(i._Z13GameRulesTestv) refers to gamerules.o(i._ZN8QuadtreeC1Eh9Rectangle) for Quadtree::Quadtree(unsigned char, Rectangle)
     gamerules.o(i._Z13GameRulesTestv) refers to gamerules.o(i._ZN6VectorC1Ess) for Vector::Vector(short, short)
+    gamerules.o(i._Z13GameRulesTestv) refers to gamerules.o(i._ZN6EntityC1E9Rectangle6VectorS1_10EntityTypejj) for Entity::Entity(Rectangle, Vector, Vector, EntityType, unsigned, unsigned)
     gamerules.o(i._Z13GameRulesTestv) refers to gamerules.o(i._ZN8Quadtree6insertEP6Entity) for Quadtree::insert(Entity*)
     gamerules.o(i._Z13GameRulesTestv) refers to gamerules.o(i._ZN8Quadtree8retrieveEP10EntityList9Rectangle) for Quadtree::retrieve(EntityList*, Rectangle)
     gamerules.o(i._Z13GameRulesTestv) refers to gamerules.o(i._Z12DrawEntitiesP10EntityList) for DrawEntities(EntityList*)
     gamerules.o(i._ZN10EntityList6updateEPtS0_) refers to gamerules.o(i._ZN6Entity6updateEv) for Entity::update()
     gamerules.o(i._ZN10EntityList6updateEPtS0_) refers to st7735.o(i.ST7735_SetCursor) for ST7735_SetCursor
+    gamerules.o(i._ZN10EntityList6updateEPtS0_) refers to gamerules.o(i._ZN6Entity9directionEv) for Entity::direction()
     gamerules.o(i._ZN10EntityList6updateEPtS0_) refers to st7735.o(i.ST7735_OutUDec) for ST7735_OutUDec
+    gamerules.o(i._ZN10EntityList6updateEPtS0_) refers to new.o(i._Znwj) for operator new(unsigned)
+    gamerules.o(i._ZN10EntityList6updateEPtS0_) refers to gamerules.o(i._ZN6VectorC1Ess) for Vector::Vector(short, short)
+    gamerules.o(i._ZN10EntityList6updateEPtS0_) refers to gamerules.o(i._ZN9RectangleC1Esstt) for Rectangle::Rectangle(short, short, unsigned short, unsigned short)
+    gamerules.o(i._ZN10EntityList6updateEPtS0_) refers to gamerules.o(i._ZN6EntityC1E9Rectangle6VectorS1_10EntityTypejj) for Entity::Entity(Rectangle, Vector, Vector, EntityType, unsigned, unsigned)
+    gamerules.o(i._ZN10EntityList6updateEPtS0_) refers to gamerules.o(i._ZN10EntityList4pushEP6Entity) for EntityList::push(Entity*)
     gamerules.o(i._ZN8Quadtree10drawBoundsEv) refers to graphics.o(i.ST7735_Line) for ST7735_Line
     gamerules.o(i._ZN8Quadtree5clearEv) refers to gamerules.o(i._ZN10EntityList5clearEv) for EntityList::clear()
     gamerules.o(i._ZN8Quadtree5splitEv) refers to new.o(i._Znwj) for operator new(unsigned)
@@ -429,7 +436,7 @@ Section Cross References
     main.o(i.main) refers to new.o(i._Znwj) for operator new(unsigned)
     main.o(i.main) refers to main.o(i._ZN10EntityListC1Ev) for EntityList::EntityList()
     main.o(i.main) refers to gamerules.o(i._ZN6VectorC1Ess) for Vector::Vector(short, short)
-    main.o(i.main) refers to main.o(i._ZN6EntityC1E9Rectangle6VectorS1_10EntityTypejj) for Entity::Entity(Rectangle, Vector, Vector, EntityType, unsigned, unsigned)
+    main.o(i.main) refers to gamerules.o(i._ZN6EntityC1E9Rectangle6VectorS1_10EntityTypejj) for Entity::Entity(Rectangle, Vector, Vector, EntityType, unsigned, unsigned)
     main.o(i.main) refers to gamerules.o(i._ZN8Quadtree6insertEP6Entity) for Quadtree::insert(Entity*)
     main.o(i.main) refers to adc.o(i.ADC_In) for ADC_In
     main.o(i.main) refers to gamerules.o(i._Z21NormalizeAnalogInputsPtS_) for NormalizeAnalogInputs(unsigned short*, unsigned short*)
@@ -845,8 +852,8 @@ Section Cross References
     defsig_other.o(.text) refers to defsig_general.o(.text) for __default_signal_display
     gamerules.o(.ARM.exidx) refers to gamerules.o(i._ZN9RectangleC1Esstt) for i._ZN9RectangleC1Esstt
     gamerules.o(.ARM.exidx) refers to gamerules.o(i._ZN8QuadtreeC1Eh9Rectangle) for i._ZN8QuadtreeC1Eh9Rectangle
+    gamerules.o(.ARM.exidx) refers to gamerules.o(i._ZN6EntityC1E9Rectangle6VectorS1_10EntityTypejj) for i._ZN6EntityC1E9Rectangle6VectorS1_10EntityTypejj
     gamerules.o(.ARM.exidx) refers to gamerules.o(i._ZN6VectorC1Ess) for i._ZN6VectorC1Ess
-    main.o(.ARM.exidx) refers to main.o(i._ZN6EntityC1E9Rectangle6VectorS1_10EntityTypejj) for i._ZN6EntityC1E9Rectangle6VectorS1_10EntityTypejj
     main.o(.ARM.exidx) refers to main.o(i._ZN10EntityListC1Ev) for i._ZN10EntityListC1Ev
     bad_alloc_dtor.o(.constdata__ZTVSt9bad_alloc) refers to bad_alloc_dtor.o(.constdata__ZTISt9bad_alloc) for typeinfo for std::bad_alloc
     bad_alloc_dtor.o(.constdata__ZTVSt9bad_alloc) refers to bad_alloc_dtor.o(i._ZNSt9bad_allocD1Ev) for std::bad_alloc::~bad_alloc()
@@ -1020,7 +1027,7 @@ Removing Unused input sections from the image.
     Removing graphics.o(.bss), (12 bytes).
     Removing graphics.o(.data), (28 bytes).
     Removing adc.o(i.ADC_Test), (380 bytes).
-    Removing gamerules.o(i._Z13GameRulesTestv), (226 bytes).
+    Removing gamerules.o(i._Z13GameRulesTestv), (218 bytes).
     Removing gamerules.o(i._ZN10EntityList3popEv), (20 bytes).
     Removing gamerules.o(i._ZN10EntityList7isEmptyEv), (16 bytes).
     Removing gamerules.o(i._ZN8Quadtree10drawBoundsEv), (190 bytes).
@@ -1062,10 +1069,10 @@ Removing Unused input sections from the image.
     Removing gamerules.o(.ARM.exidx), (8 bytes).
     Removing gamerules.o(.ARM.exidx), (8 bytes).
     Removing gamerules.o(.ARM.exidx), (8 bytes).
-    Removing main.o(.ARM.exidx), (8 bytes).
+    Removing gamerules.o(.ARM.exidx), (8 bytes).
     Removing main.o(.ARM.exidx), (8 bytes).
 
-132 unused section(s) (total 8850 bytes) removed from the image.
+132 unused section(s) (total 8842 bytes) removed from the image.
 
 ==============================================================================
 
@@ -1215,14 +1222,14 @@ Image Symbol Table
     ../clib/stdlib.c                         0x00000000   Number         0  bsearchnoex.o ABSOLUTE
     ../clib/stdlib.c                         0x00000000   Number         0  exit.o ABSOLUTE
     ../clib/stdlib.c                         0x00000000   Number         0  abort.o ABSOLUTE
+    ../clib/string.c                         0x00000000   Number         0  strstr.o ABSOLUTE
     ../clib/string.c                         0x00000000   Number         0  strcpy.o ABSOLUTE
     ../clib/string.c                         0x00000000   Number         0  strlen.o ABSOLUTE
-    ../clib/string.c                         0x00000000   Number         0  strstr.o ABSOLUTE
     ../clib/unwind_pr.c                      0x00000000   Number         0  unwind_pr0.o ABSOLUTE
     ../clib/unwind_pr.c                      0x00000000   Number         0  unwind_prcommon.o ABSOLUTE
-    ../clib/unwinder.c                       0x00000000   Number         0  unwind_activity.o ABSOLUTE
-    ../clib/unwinder.c                       0x00000000   Number         0  unwind_activity.o ABSOLUTE
     ../clib/unwinder.c                       0x00000000   Number         0  unwinder.o ABSOLUTE
+    ../clib/unwinder.c                       0x00000000   Number         0  unwind_activity.o ABSOLUTE
+    ../clib/unwinder.c                       0x00000000   Number         0  unwind_activity.o ABSOLUTE
     ../clib/unwinder.c                       0x00000000   Number         0  unwinder.o ABSOLUTE
     ../fplib/fpinit.s                        0x00000000   Number         0  fpinit.o ABSOLUTE
     ADC.c                                    0x00000000   Number         0  adc.o ABSOLUTE
@@ -1367,50 +1374,50 @@ Image Symbol Table
     i._ZN10EntityList5clearEv                0x00001822   Section        0  gamerules.o(i._ZN10EntityList5clearEv)
     i._ZN10EntityList6isFullEv               0x0000183a   Section        0  gamerules.o(i._ZN10EntityList6isFullEv)
     i._ZN10EntityList6updateEPtS0_           0x0000184c   Section        0  gamerules.o(i._ZN10EntityList6updateEPtS0_)
-    i._ZN10EntityListC1Ev                    0x000018b8   Section        0  main.o(i._ZN10EntityListC1Ev)
-    i._ZN6Entity13WallCollisionE9Rectangle   0x000018c0   Section        0  gamerules.o(i._ZN6Entity13WallCollisionE9Rectangle)
-    i._ZN6Entity6updateEv                    0x0000193e   Section        0  gamerules.o(i._ZN6Entity6updateEv)
-    i._ZN6Entity9directionEv                 0x00001974   Section        0  gamerules.o(i._ZN6Entity9directionEv)
-    i._ZN6EntityC1E9Rectangle6VectorS1_10EntityTypejj 0x00001a10   Section        0  main.o(i._ZN6EntityC1E9Rectangle6VectorS1_10EntityTypejj)
-    i._ZN6VectorC1Ess                        0x00001a36   Section        0  gamerules.o(i._ZN6VectorC1Ess)
-    i._ZN8Quadtree11getQuadrantE9Rectangle   0x00001a3c   Section        0  gamerules.o(i._ZN8Quadtree11getQuadrantE9Rectangle)
-    i._ZN8Quadtree5clearEv                   0x00001b2c   Section        0  gamerules.o(i._ZN8Quadtree5clearEv)
-    i._ZN8Quadtree5splitEv                   0x00001b62   Section        0  gamerules.o(i._ZN8Quadtree5splitEv)
-    i._ZN8Quadtree6insertEP10EntityList      0x00001c66   Section        0  gamerules.o(i._ZN8Quadtree6insertEP10EntityList)
-    i._ZN8Quadtree6insertEP6Entity           0x00001cb6   Section        0  gamerules.o(i._ZN8Quadtree6insertEP6Entity)
-    i._ZN8Quadtree8retrieveEP10EntityList9Rectangle 0x00001d54   Section        0  gamerules.o(i._ZN8Quadtree8retrieveEP10EntityList9Rectangle)
-    i._ZN8QuadtreeC1Eh9Rectangle             0x00001da0   Section        0  gamerules.o(i._ZN8QuadtreeC1Eh9Rectangle)
-    i._ZN9RectangleC1Esstt                   0x00001dbe   Section        0  gamerules.o(i._ZN9RectangleC1Esstt)
-    i._Znwj                                  0x00001dcc   Section        0  new.o(i._Znwj)
-    i.commandList                            0x00001df4   Section        0  st7735.o(i.commandList)
-    commandList                              0x00001df5   Thumb Code    86  st7735.o(i.commandList)
-    i.commonInit                             0x00001e4c   Section        0  st7735.o(i.commonInit)
-    commonInit                               0x00001e4d   Thumb Code   340  st7735.o(i.commonInit)
-    i.copyHardwareToSoftware                 0x00001fd0   Section        0  uart.o(i.copyHardwareToSoftware)
-    copyHardwareToSoftware                   0x00001fd1   Thumb Code    40  uart.o(i.copyHardwareToSoftware)
-    i.copySoftwareToHardware                 0x00001ffc   Section        0  uart.o(i.copySoftwareToHardware)
-    copySoftwareToHardware                   0x00001ffd   Thumb Code    38  uart.o(i.copySoftwareToHardware)
-    i.fillmessage                            0x00002028   Section        0  st7735.o(i.fillmessage)
-    i.lc                                     0x00002070   Section        0  esp8266.o(i.lc)
-    i.main                                   0x00002080   Section        0  main.o(i.main)
-    i.pushColor                              0x00002244   Section        0  st7735.o(i.pushColor)
-    pushColor                                0x00002245   Thumb Code    18  st7735.o(i.pushColor)
-    i.setAddrWindow                          0x00002258   Section        0  st7735.o(i.setAddrWindow)
-    setAddrWindow                            0x00002259   Thumb Code   106  st7735.o(i.setAddrWindow)
-    i.writecommand                           0x000022cc   Section        0  st7735.o(i.writecommand)
-    writecommand                             0x000022cd   Thumb Code    40  st7735.o(i.writecommand)
-    i.writedata                              0x000022fc   Section        0  st7735.o(i.writedata)
-    writedata                                0x000022fd   Thumb Code    24  st7735.o(i.writedata)
-    .constdata                               0x0000231c   Section     2018  st7735.o(.constdata)
-    Font                                     0x0000231c   Data        1275  st7735.o(.constdata)
-    Bcmd                                     0x00002817   Data         103  st7735.o(.constdata)
-    Rcmd1                                    0x0000287e   Data          59  st7735.o(.constdata)
-    Rcmd2green                               0x000028b9   Data          13  st7735.o(.constdata)
-    Rcmd2red                                 0x000028c6   Data          13  st7735.o(.constdata)
-    Rcmd3                                    0x000028d3   Data          43  st7735.o(.constdata)
-    .constdata                               0x00002afe   Section     1056  gamerules.o(.constdata)
-    Bitmap_Ship                              0x00002afe   Data        1024  gamerules.o(.constdata)
-    Bitmap_GreenLaser                        0x00002efe   Data          32  gamerules.o(.constdata)
+    i._ZN10EntityListC1Ev                    0x000019ac   Section        0  main.o(i._ZN10EntityListC1Ev)
+    i._ZN6Entity13WallCollisionE9Rectangle   0x000019b4   Section        0  gamerules.o(i._ZN6Entity13WallCollisionE9Rectangle)
+    i._ZN6Entity6updateEv                    0x00001a32   Section        0  gamerules.o(i._ZN6Entity6updateEv)
+    i._ZN6Entity9directionEv                 0x00001a68   Section        0  gamerules.o(i._ZN6Entity9directionEv)
+    i._ZN6EntityC1E9Rectangle6VectorS1_10EntityTypejj 0x00001b04   Section        0  gamerules.o(i._ZN6EntityC1E9Rectangle6VectorS1_10EntityTypejj)
+    i._ZN6VectorC1Ess                        0x00001b2a   Section        0  gamerules.o(i._ZN6VectorC1Ess)
+    i._ZN8Quadtree11getQuadrantE9Rectangle   0x00001b30   Section        0  gamerules.o(i._ZN8Quadtree11getQuadrantE9Rectangle)
+    i._ZN8Quadtree5clearEv                   0x00001c20   Section        0  gamerules.o(i._ZN8Quadtree5clearEv)
+    i._ZN8Quadtree5splitEv                   0x00001c56   Section        0  gamerules.o(i._ZN8Quadtree5splitEv)
+    i._ZN8Quadtree6insertEP10EntityList      0x00001d5a   Section        0  gamerules.o(i._ZN8Quadtree6insertEP10EntityList)
+    i._ZN8Quadtree6insertEP6Entity           0x00001daa   Section        0  gamerules.o(i._ZN8Quadtree6insertEP6Entity)
+    i._ZN8Quadtree8retrieveEP10EntityList9Rectangle 0x00001e48   Section        0  gamerules.o(i._ZN8Quadtree8retrieveEP10EntityList9Rectangle)
+    i._ZN8QuadtreeC1Eh9Rectangle             0x00001e94   Section        0  gamerules.o(i._ZN8QuadtreeC1Eh9Rectangle)
+    i._ZN9RectangleC1Esstt                   0x00001eb2   Section        0  gamerules.o(i._ZN9RectangleC1Esstt)
+    i._Znwj                                  0x00001ec0   Section        0  new.o(i._Znwj)
+    i.commandList                            0x00001ee8   Section        0  st7735.o(i.commandList)
+    commandList                              0x00001ee9   Thumb Code    86  st7735.o(i.commandList)
+    i.commonInit                             0x00001f40   Section        0  st7735.o(i.commonInit)
+    commonInit                               0x00001f41   Thumb Code   340  st7735.o(i.commonInit)
+    i.copyHardwareToSoftware                 0x000020c4   Section        0  uart.o(i.copyHardwareToSoftware)
+    copyHardwareToSoftware                   0x000020c5   Thumb Code    40  uart.o(i.copyHardwareToSoftware)
+    i.copySoftwareToHardware                 0x000020f0   Section        0  uart.o(i.copySoftwareToHardware)
+    copySoftwareToHardware                   0x000020f1   Thumb Code    38  uart.o(i.copySoftwareToHardware)
+    i.fillmessage                            0x0000211c   Section        0  st7735.o(i.fillmessage)
+    i.lc                                     0x00002164   Section        0  esp8266.o(i.lc)
+    i.main                                   0x00002174   Section        0  main.o(i.main)
+    i.pushColor                              0x00002338   Section        0  st7735.o(i.pushColor)
+    pushColor                                0x00002339   Thumb Code    18  st7735.o(i.pushColor)
+    i.setAddrWindow                          0x0000234c   Section        0  st7735.o(i.setAddrWindow)
+    setAddrWindow                            0x0000234d   Thumb Code   106  st7735.o(i.setAddrWindow)
+    i.writecommand                           0x000023c0   Section        0  st7735.o(i.writecommand)
+    writecommand                             0x000023c1   Thumb Code    40  st7735.o(i.writecommand)
+    i.writedata                              0x000023f0   Section        0  st7735.o(i.writedata)
+    writedata                                0x000023f1   Thumb Code    24  st7735.o(i.writedata)
+    .constdata                               0x00002410   Section     2018  st7735.o(.constdata)
+    Font                                     0x00002410   Data        1275  st7735.o(.constdata)
+    Bcmd                                     0x0000290b   Data         103  st7735.o(.constdata)
+    Rcmd1                                    0x00002972   Data          59  st7735.o(.constdata)
+    Rcmd2green                               0x000029ad   Data          13  st7735.o(.constdata)
+    Rcmd2red                                 0x000029ba   Data          13  st7735.o(.constdata)
+    Rcmd3                                    0x000029c7   Data          43  st7735.o(.constdata)
+    .constdata                               0x00002bf2   Section     1056  gamerules.o(.constdata)
+    Bitmap_Ship                              0x00002bf2   Data        1024  gamerules.o(.constdata)
+    Bitmap_GreenLaser                        0x00002ff2   Data          32  gamerules.o(.constdata)
     .data                                    0x20000000   Section       64  esp8266.o(.data)
     .data                                    0x20000040   Section       44  st7735.o(.data)
     _width                                   0x2000004a   Data           2  st7735.o(.data)
@@ -1746,33 +1753,33 @@ Image Symbol Table
     EntityList::push(Entity*)                0x00001811   Thumb Code    18  gamerules.o(i._ZN10EntityList4pushEP6Entity)
     EntityList::clear()                      0x00001823   Thumb Code    24  gamerules.o(i._ZN10EntityList5clearEv)
     EntityList::isFull()                     0x0000183b   Thumb Code    18  gamerules.o(i._ZN10EntityList6isFullEv)
-    EntityList::update(unsigned short*, unsigned short*) 0x0000184d   Thumb Code   108  gamerules.o(i._ZN10EntityList6updateEPtS0_)
-    EntityList::EntityList()                 0x000018b9   Thumb Code     8  main.o(i._ZN10EntityListC1Ev)
-    EntityList::EntityList__sub_object()     0x000018b9   Thumb Code     0  main.o(i._ZN10EntityListC1Ev)
-    Entity::WallCollision(Rectangle)         0x000018c1   Thumb Code   126  gamerules.o(i._ZN6Entity13WallCollisionE9Rectangle)
-    Entity::update()                         0x0000193f   Thumb Code    54  gamerules.o(i._ZN6Entity6updateEv)
-    Entity::direction()                      0x00001975   Thumb Code   156  gamerules.o(i._ZN6Entity9directionEv)
-    Entity::Entity(Rectangle, Vector, Vector, EntityType, unsigned, unsigned) 0x00001a11   Thumb Code    38  main.o(i._ZN6EntityC1E9Rectangle6VectorS1_10EntityTypejj)
-    Entity::Entity__sub_object(Rectangle, Vector, Vector, EntityType, unsigned, unsigned) 0x00001a11   Thumb Code     0  main.o(i._ZN6EntityC1E9Rectangle6VectorS1_10EntityTypejj)
-    Vector::Vector(short, short)             0x00001a37   Thumb Code     6  gamerules.o(i._ZN6VectorC1Ess)
-    Vector::Vector__sub_object(short, short) 0x00001a37   Thumb Code     0  gamerules.o(i._ZN6VectorC1Ess)
-    Quadtree::getQuadrant(Rectangle)         0x00001a3d   Thumb Code   240  gamerules.o(i._ZN8Quadtree11getQuadrantE9Rectangle)
-    Quadtree::clear()                        0x00001b2d   Thumb Code    54  gamerules.o(i._ZN8Quadtree5clearEv)
-    Quadtree::split()                        0x00001b63   Thumb Code   260  gamerules.o(i._ZN8Quadtree5splitEv)
-    Quadtree::insert(EntityList*)            0x00001c67   Thumb Code    80  gamerules.o(i._ZN8Quadtree6insertEP10EntityList)
-    Quadtree::insert(Entity*)                0x00001cb7   Thumb Code   158  gamerules.o(i._ZN8Quadtree6insertEP6Entity)
-    Quadtree::retrieve(EntityList*, Rectangle) 0x00001d55   Thumb Code    76  gamerules.o(i._ZN8Quadtree8retrieveEP10EntityList9Rectangle)
-    Quadtree::Quadtree(unsigned char, Rectangle) 0x00001da1   Thumb Code    30  gamerules.o(i._ZN8QuadtreeC1Eh9Rectangle)
-    Quadtree::Quadtree__sub_object(unsigned char, Rectangle) 0x00001da1   Thumb Code     0  gamerules.o(i._ZN8QuadtreeC1Eh9Rectangle)
-    Rectangle::Rectangle(short, short, unsigned short, unsigned short) 0x00001dbf   Thumb Code    14  gamerules.o(i._ZN9RectangleC1Esstt)
-    Rectangle::Rectangle__sub_object(short, short, unsigned short, unsigned short) 0x00001dbf   Thumb Code     0  gamerules.o(i._ZN9RectangleC1Esstt)
-    operator new(unsigned)                   0x00001dcd   Thumb Code    34  new.o(i._Znwj)
-    fillmessage                              0x00002029   Thumb Code    64  st7735.o(i.fillmessage)
-    lc                                       0x00002071   Thumb Code    14  esp8266.o(i.lc)
-    main                                     0x00002081   Thumb Code   438  main.o(i.main)
-    dBfs                                     0x000028fe   Data         512  st7735.o(.constdata)
-    Region$$Table$$Base                      0x00002f20   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x00002f40   Number         0  anon$$obj.o(Region$$Table)
+    EntityList::update(unsigned short*, unsigned short*) 0x0000184d   Thumb Code   346  gamerules.o(i._ZN10EntityList6updateEPtS0_)
+    EntityList::EntityList()                 0x000019ad   Thumb Code     8  main.o(i._ZN10EntityListC1Ev)
+    EntityList::EntityList__sub_object()     0x000019ad   Thumb Code     0  main.o(i._ZN10EntityListC1Ev)
+    Entity::WallCollision(Rectangle)         0x000019b5   Thumb Code   126  gamerules.o(i._ZN6Entity13WallCollisionE9Rectangle)
+    Entity::update()                         0x00001a33   Thumb Code    54  gamerules.o(i._ZN6Entity6updateEv)
+    Entity::direction()                      0x00001a69   Thumb Code   156  gamerules.o(i._ZN6Entity9directionEv)
+    Entity::Entity(Rectangle, Vector, Vector, EntityType, unsigned, unsigned) 0x00001b05   Thumb Code    38  gamerules.o(i._ZN6EntityC1E9Rectangle6VectorS1_10EntityTypejj)
+    Entity::Entity__sub_object(Rectangle, Vector, Vector, EntityType, unsigned, unsigned) 0x00001b05   Thumb Code     0  gamerules.o(i._ZN6EntityC1E9Rectangle6VectorS1_10EntityTypejj)
+    Vector::Vector(short, short)             0x00001b2b   Thumb Code     6  gamerules.o(i._ZN6VectorC1Ess)
+    Vector::Vector__sub_object(short, short) 0x00001b2b   Thumb Code     0  gamerules.o(i._ZN6VectorC1Ess)
+    Quadtree::getQuadrant(Rectangle)         0x00001b31   Thumb Code   240  gamerules.o(i._ZN8Quadtree11getQuadrantE9Rectangle)
+    Quadtree::clear()                        0x00001c21   Thumb Code    54  gamerules.o(i._ZN8Quadtree5clearEv)
+    Quadtree::split()                        0x00001c57   Thumb Code   260  gamerules.o(i._ZN8Quadtree5splitEv)
+    Quadtree::insert(EntityList*)            0x00001d5b   Thumb Code    80  gamerules.o(i._ZN8Quadtree6insertEP10EntityList)
+    Quadtree::insert(Entity*)                0x00001dab   Thumb Code   158  gamerules.o(i._ZN8Quadtree6insertEP6Entity)
+    Quadtree::retrieve(EntityList*, Rectangle) 0x00001e49   Thumb Code    76  gamerules.o(i._ZN8Quadtree8retrieveEP10EntityList9Rectangle)
+    Quadtree::Quadtree(unsigned char, Rectangle) 0x00001e95   Thumb Code    30  gamerules.o(i._ZN8QuadtreeC1Eh9Rectangle)
+    Quadtree::Quadtree__sub_object(unsigned char, Rectangle) 0x00001e95   Thumb Code     0  gamerules.o(i._ZN8QuadtreeC1Eh9Rectangle)
+    Rectangle::Rectangle(short, short, unsigned short, unsigned short) 0x00001eb3   Thumb Code    14  gamerules.o(i._ZN9RectangleC1Esstt)
+    Rectangle::Rectangle__sub_object(short, short, unsigned short, unsigned short) 0x00001eb3   Thumb Code     0  gamerules.o(i._ZN9RectangleC1Esstt)
+    operator new(unsigned)                   0x00001ec1   Thumb Code    34  new.o(i._Znwj)
+    fillmessage                              0x0000211d   Thumb Code    64  st7735.o(i.fillmessage)
+    lc                                       0x00002165   Thumb Code    14  esp8266.o(i.lc)
+    main                                     0x00002175   Thumb Code   438  main.o(i.main)
+    dBfs                                     0x000029f2   Data         512  st7735.o(.constdata)
+    Region$$Table$$Base                      0x00003014   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00003034   Number         0  anon$$obj.o(Region$$Table)
     RXBufferIndex                            0x20000000   Data           4  esp8266.o(.data)
     LastReturnIndex                          0x20000004   Data           4  esp8266.o(.data)
     CurrentReturnIndex                       0x20000008   Data           4  esp8266.o(.data)
@@ -1823,94 +1830,94 @@ Memory Map of the image
 
   Image Entry point : 0x0000026d
 
-  Load Region LR_1 (Base: 0x00000000, Size: 0x00002fd4, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x00000000, Size: 0x000030c8, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_RO (Base: 0x00000000, Size: 0x00002f40, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Base: 0x00000000, Size: 0x00003034, Max: 0xffffffff, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x00000000   0x00000284   Code   RO            3  * RESET               startup.o
-    0x00000284   0x00000008   Code   RO         1326  * !!!main             c_w.l(__main.o)
-    0x0000028c   0x00000034   Code   RO         1828    !!!scatter          c_w.l(__scatter.o)
-    0x000002c0   0x0000001a   Code   RO         1830    !!handler_copy      c_w.l(__scatter_copy.o)
+    0x00000284   0x00000008   Code   RO         1327  * !!!main             c_w.l(__main.o)
+    0x0000028c   0x00000034   Code   RO         1829    !!!scatter          c_w.l(__scatter.o)
+    0x000002c0   0x0000001a   Code   RO         1831    !!handler_copy      c_w.l(__scatter_copy.o)
     0x000002da   0x00000002   PAD
-    0x000002dc   0x0000001c   Code   RO         1832    !!handler_zi        c_w.l(__scatter_zi.o)
-    0x000002f8   0x00000002   Code   RO         1704    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
-    0x000002fa   0x00000000   Code   RO         1489    .ARM.Collect$$libinit$$00000002  c_w.l(libinit2.o)
-    0x000002fa   0x00000008   Code   RO         1490    .ARM.Collect$$libinit$$00000003  c_w.l(libinit2.o)
-    0x00000302   0x00000000   Code   RO         1492    .ARM.Collect$$libinit$$00000008  c_w.l(libinit2.o)
-    0x00000302   0x00000000   Code   RO         1494    .ARM.Collect$$libinit$$0000000A  c_w.l(libinit2.o)
-    0x00000302   0x00000000   Code   RO         1496    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
-    0x00000302   0x00000000   Code   RO         1499    .ARM.Collect$$libinit$$0000000F  c_w.l(libinit2.o)
-    0x00000302   0x00000000   Code   RO         1501    .ARM.Collect$$libinit$$00000011  c_w.l(libinit2.o)
-    0x00000302   0x00000000   Code   RO         1503    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
-    0x00000302   0x00000000   Code   RO         1505    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
-    0x00000302   0x00000000   Code   RO         1507    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
-    0x00000302   0x00000000   Code   RO         1509    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
-    0x00000302   0x00000000   Code   RO         1511    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
-    0x00000302   0x00000000   Code   RO         1513    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
-    0x00000302   0x00000000   Code   RO         1515    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
-    0x00000302   0x00000000   Code   RO         1517    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
-    0x00000302   0x00000000   Code   RO         1519    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
-    0x00000302   0x00000000   Code   RO         1523    .ARM.Collect$$libinit$$0000002A  c_w.l(libinit2.o)
-    0x00000302   0x00000000   Code   RO         1525    .ARM.Collect$$libinit$$0000002C  c_w.l(libinit2.o)
-    0x00000302   0x00000000   Code   RO         1527    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
-    0x00000302   0x00000000   Code   RO         1529    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
-    0x00000302   0x00000002   Code   RO         1530    .ARM.Collect$$libinit$$00000031  c_w.l(libinit2.o)
-    0x00000304   0x00000002   Code   RO         1813    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
-    0x00000306   0x00000000   Code   RO         1707    .ARM.Collect$$libshutdown$$00000003  c_w.l(libshutdown2.o)
-    0x00000306   0x00000000   Code   RO         1710    .ARM.Collect$$libshutdown$$00000006  c_w.l(libshutdown2.o)
-    0x00000306   0x00000000   Code   RO         1713    .ARM.Collect$$libshutdown$$00000009  c_w.l(libshutdown2.o)
-    0x00000306   0x00000000   Code   RO         1715    .ARM.Collect$$libshutdown$$0000000B  c_w.l(libshutdown2.o)
-    0x00000306   0x00000000   Code   RO         1718    .ARM.Collect$$libshutdown$$0000000E  c_w.l(libshutdown2.o)
-    0x00000306   0x00000002   Code   RO         1719    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
-    0x00000308   0x00000000   Code   RO         1332    .ARM.Collect$$rtentry$$00000000  c_w.l(rtentry.o)
-    0x00000308   0x00000000   Code   RO         1435    .ARM.Collect$$rtentry$$00000002  c_w.l(rtentry2.o)
-    0x00000308   0x00000006   Code   RO         1447    .ARM.Collect$$rtentry$$00000004  c_w.l(rtentry4.o)
-    0x0000030e   0x00000000   Code   RO         1437    .ARM.Collect$$rtentry$$00000009  c_w.l(rtentry2.o)
-    0x0000030e   0x00000004   Code   RO         1438    .ARM.Collect$$rtentry$$0000000A  c_w.l(rtentry2.o)
-    0x00000312   0x00000000   Code   RO         1440    .ARM.Collect$$rtentry$$0000000C  c_w.l(rtentry2.o)
-    0x00000312   0x00000008   Code   RO         1441    .ARM.Collect$$rtentry$$0000000D  c_w.l(rtentry2.o)
-    0x0000031a   0x00000002   Code   RO         1749    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
-    0x0000031c   0x00000000   Code   RO         1784    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
-    0x0000031c   0x00000004   Code   RO         1785    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
-    0x00000320   0x00000006   Code   RO         1786    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
+    0x000002dc   0x0000001c   Code   RO         1833    !!handler_zi        c_w.l(__scatter_zi.o)
+    0x000002f8   0x00000002   Code   RO         1705    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
+    0x000002fa   0x00000000   Code   RO         1490    .ARM.Collect$$libinit$$00000002  c_w.l(libinit2.o)
+    0x000002fa   0x00000008   Code   RO         1491    .ARM.Collect$$libinit$$00000003  c_w.l(libinit2.o)
+    0x00000302   0x00000000   Code   RO         1493    .ARM.Collect$$libinit$$00000008  c_w.l(libinit2.o)
+    0x00000302   0x00000000   Code   RO         1495    .ARM.Collect$$libinit$$0000000A  c_w.l(libinit2.o)
+    0x00000302   0x00000000   Code   RO         1497    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
+    0x00000302   0x00000000   Code   RO         1500    .ARM.Collect$$libinit$$0000000F  c_w.l(libinit2.o)
+    0x00000302   0x00000000   Code   RO         1502    .ARM.Collect$$libinit$$00000011  c_w.l(libinit2.o)
+    0x00000302   0x00000000   Code   RO         1504    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
+    0x00000302   0x00000000   Code   RO         1506    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
+    0x00000302   0x00000000   Code   RO         1508    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
+    0x00000302   0x00000000   Code   RO         1510    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
+    0x00000302   0x00000000   Code   RO         1512    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
+    0x00000302   0x00000000   Code   RO         1514    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
+    0x00000302   0x00000000   Code   RO         1516    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
+    0x00000302   0x00000000   Code   RO         1518    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
+    0x00000302   0x00000000   Code   RO         1520    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
+    0x00000302   0x00000000   Code   RO         1524    .ARM.Collect$$libinit$$0000002A  c_w.l(libinit2.o)
+    0x00000302   0x00000000   Code   RO         1526    .ARM.Collect$$libinit$$0000002C  c_w.l(libinit2.o)
+    0x00000302   0x00000000   Code   RO         1528    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
+    0x00000302   0x00000000   Code   RO         1530    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
+    0x00000302   0x00000002   Code   RO         1531    .ARM.Collect$$libinit$$00000031  c_w.l(libinit2.o)
+    0x00000304   0x00000002   Code   RO         1814    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
+    0x00000306   0x00000000   Code   RO         1708    .ARM.Collect$$libshutdown$$00000003  c_w.l(libshutdown2.o)
+    0x00000306   0x00000000   Code   RO         1711    .ARM.Collect$$libshutdown$$00000006  c_w.l(libshutdown2.o)
+    0x00000306   0x00000000   Code   RO         1714    .ARM.Collect$$libshutdown$$00000009  c_w.l(libshutdown2.o)
+    0x00000306   0x00000000   Code   RO         1716    .ARM.Collect$$libshutdown$$0000000B  c_w.l(libshutdown2.o)
+    0x00000306   0x00000000   Code   RO         1719    .ARM.Collect$$libshutdown$$0000000E  c_w.l(libshutdown2.o)
+    0x00000306   0x00000002   Code   RO         1720    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
+    0x00000308   0x00000000   Code   RO         1333    .ARM.Collect$$rtentry$$00000000  c_w.l(rtentry.o)
+    0x00000308   0x00000000   Code   RO         1436    .ARM.Collect$$rtentry$$00000002  c_w.l(rtentry2.o)
+    0x00000308   0x00000006   Code   RO         1448    .ARM.Collect$$rtentry$$00000004  c_w.l(rtentry4.o)
+    0x0000030e   0x00000000   Code   RO         1438    .ARM.Collect$$rtentry$$00000009  c_w.l(rtentry2.o)
+    0x0000030e   0x00000004   Code   RO         1439    .ARM.Collect$$rtentry$$0000000A  c_w.l(rtentry2.o)
+    0x00000312   0x00000000   Code   RO         1441    .ARM.Collect$$rtentry$$0000000C  c_w.l(rtentry2.o)
+    0x00000312   0x00000008   Code   RO         1442    .ARM.Collect$$rtentry$$0000000D  c_w.l(rtentry2.o)
+    0x0000031a   0x00000002   Code   RO         1750    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
+    0x0000031c   0x00000000   Code   RO         1785    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
+    0x0000031c   0x00000004   Code   RO         1786    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
+    0x00000320   0x00000006   Code   RO         1787    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
     0x00000326   0x00000002   PAD
-    0x00000328   0x00000000   Code   RO         1663    .emb_text           c_w.l(maybetermalloc1.o)
+    0x00000328   0x00000000   Code   RO         1664    .emb_text           c_w.l(maybetermalloc1.o)
     0x00000328   0x00000034   Code   RO            4    .text               startup.o
-    0x0000035c   0x00000048   Code   RO         1318    .text               c_w.l(strcpy.o)
-    0x000003a4   0x00000006   Code   RO         1324    .text               c_w.l(heapauxi.o)
+    0x0000035c   0x00000048   Code   RO         1319    .text               c_w.l(strcpy.o)
+    0x000003a4   0x00000006   Code   RO         1325    .text               c_w.l(heapauxi.o)
     0x000003aa   0x00000002   PAD
-    0x000003ac   0x00000008   Code   RO         1336    .text               c_w.l(rt_new_handler_addr_intlibspace.o)
-    0x000003b4   0x0000005e   Code   RO         1340    .text               c_w.l(h1_alloc.o)
-    0x00000412   0x00000004   Code   RO         1416    .text               cpprt_w.l(arm_newhandler_noexceptions.o)
+    0x000003ac   0x00000008   Code   RO         1337    .text               c_w.l(rt_new_handler_addr_intlibspace.o)
+    0x000003b4   0x0000005e   Code   RO         1341    .text               c_w.l(h1_alloc.o)
+    0x00000412   0x00000004   Code   RO         1417    .text               cpprt_w.l(arm_newhandler_noexceptions.o)
     0x00000416   0x00000002   PAD
-    0x00000418   0x00000008   Code   RO         1429    .text               c_w.l(libspace.o)
-    0x00000420   0x00000008   Code   RO         1452    .text               c_w.l(rt_heap_descriptor_intlibspace.o)
-    0x00000428   0x00000004   Code   RO         1454    .text               c_w.l(hguard.o)
-    0x0000042c   0x0000008a   Code   RO         1456    .text               c_w.l(init_alloc.o)
-    0x000004b6   0x0000000e   Code   RO         1462    .text               c_w.l(h1_init.o)
-    0x000004c4   0x0000004e   Code   RO         1464    .text               c_w.l(h1_free.o)
-    0x00000512   0x0000001a   Code   RO         1536    .text               cpprt_w.l(arm_exceptions_terminate.o)
-    0x0000052c   0x0000004a   Code   RO         1659    .text               c_w.l(sys_stackheap_outer.o)
-    0x00000576   0x00000034   Code   RO         1665    .text               c_w.l(h1_extend.o)
-    0x000005aa   0x0000000c   Code   RO         1680    .text               c_w.l(exit.o)
-    0x000005b6   0x00000010   Code   RO         1682    .text               c_w.l(abort.o)
-    0x000005c6   0x0000000e   Code   RO         1688    .text               c_w.l(defsig_rtmem_outer.o)
-    0x000005d4   0x00000050   Code   RO         1726    .text               cpprt_w.l(arm_exceptions_globs.o)
-    0x00000624   0x0000000c   Code   RO         1744    .text               c_w.l(sys_exit.o)
-    0x00000630   0x00000002   Code   RO         1746    .text               c_w.l(use_no_semi.o)
-    0x00000632   0x00000000   Code   RO         1748    .text               c_w.l(indicate_semi.o)
+    0x00000418   0x00000008   Code   RO         1430    .text               c_w.l(libspace.o)
+    0x00000420   0x00000008   Code   RO         1453    .text               c_w.l(rt_heap_descriptor_intlibspace.o)
+    0x00000428   0x00000004   Code   RO         1455    .text               c_w.l(hguard.o)
+    0x0000042c   0x0000008a   Code   RO         1457    .text               c_w.l(init_alloc.o)
+    0x000004b6   0x0000000e   Code   RO         1463    .text               c_w.l(h1_init.o)
+    0x000004c4   0x0000004e   Code   RO         1465    .text               c_w.l(h1_free.o)
+    0x00000512   0x0000001a   Code   RO         1537    .text               cpprt_w.l(arm_exceptions_terminate.o)
+    0x0000052c   0x0000004a   Code   RO         1660    .text               c_w.l(sys_stackheap_outer.o)
+    0x00000576   0x00000034   Code   RO         1666    .text               c_w.l(h1_extend.o)
+    0x000005aa   0x0000000c   Code   RO         1681    .text               c_w.l(exit.o)
+    0x000005b6   0x00000010   Code   RO         1683    .text               c_w.l(abort.o)
+    0x000005c6   0x0000000e   Code   RO         1689    .text               c_w.l(defsig_rtmem_outer.o)
+    0x000005d4   0x00000050   Code   RO         1727    .text               cpprt_w.l(arm_exceptions_globs.o)
+    0x00000624   0x0000000c   Code   RO         1745    .text               c_w.l(sys_exit.o)
+    0x00000630   0x00000002   Code   RO         1747    .text               c_w.l(use_no_semi.o)
+    0x00000632   0x00000000   Code   RO         1749    .text               c_w.l(indicate_semi.o)
     0x00000632   0x00000002   PAD
-    0x00000634   0x00000008   Code   RO         1756    .text               c_w.l(rt_eh_globals_addr_intlibspace.o)
-    0x0000063c   0x0000000a   Code   RO         1766    .text               c_w.l(defsig_exit.o)
-    0x00000646   0x0000000e   Code   RO         1768    .text               c_w.l(defsig_abrt_outer.o)
-    0x00000654   0x00000050   Code   RO         1774    .text               c_w.l(defsig_rtmem_inner.o)
-    0x000006a4   0x0000003c   Code   RO         1780    .text               cpprt_w.l(arm_exceptions_mem.o)
-    0x000006e0   0x00000032   Code   RO         1798    .text               c_w.l(defsig_general.o)
+    0x00000634   0x00000008   Code   RO         1757    .text               c_w.l(rt_eh_globals_addr_intlibspace.o)
+    0x0000063c   0x0000000a   Code   RO         1767    .text               c_w.l(defsig_exit.o)
+    0x00000646   0x0000000e   Code   RO         1769    .text               c_w.l(defsig_abrt_outer.o)
+    0x00000654   0x00000050   Code   RO         1775    .text               c_w.l(defsig_rtmem_inner.o)
+    0x000006a4   0x0000003c   Code   RO         1781    .text               cpprt_w.l(arm_exceptions_mem.o)
+    0x000006e0   0x00000032   Code   RO         1799    .text               c_w.l(defsig_general.o)
     0x00000712   0x00000002   PAD
-    0x00000714   0x00000030   Code   RO         1800    .text               c_w.l(defsig_abrt_inner.o)
-    0x00000744   0x0000000e   Code   RO         1802    .text               c_w.l(sys_wrch.o)
+    0x00000714   0x00000030   Code   RO         1801    .text               c_w.l(defsig_abrt_inner.o)
+    0x00000744   0x0000000e   Code   RO         1803    .text               c_w.l(sys_wrch.o)
     0x00000752   0x00000002   PAD
     0x00000754   0x00000064   Code   RO          885    i.ADC_In            adc.o
     0x000007b8   0x00000098   Code   RO          886    i.ADC_Init          adc.o
@@ -1921,15 +1928,15 @@ Memory Map of the image
     0x00000a74   0x00000058   Code   RO          566    i.GPIOPortD_Handler  buttons.o
     0x00000acc   0x0000002c   Code   RO          567    i.GPIOPortE_Handler  buttons.o
     0x00000af8   0x0000007c   Code   RO           12    i.PLL_Init          pll.o
-    0x00000b74   0x00000002   Code   RO         1175    i.PortA_Init        portinit.o
+    0x00000b74   0x00000002   Code   RO         1176    i.PortA_Init        portinit.o
     0x00000b76   0x00000002   PAD
-    0x00000b78   0x00000024   Code   RO         1176    i.PortB_Init        portinit.o
-    0x00000b9c   0x00000024   Code   RO         1177    i.PortC_Init        portinit.o
+    0x00000b78   0x00000024   Code   RO         1177    i.PortB_Init        portinit.o
+    0x00000b9c   0x00000024   Code   RO         1178    i.PortC_Init        portinit.o
     0x00000bc0   0x0000003c   Code   RO          568    i.PortD_Arm         buttons.o
-    0x00000bfc   0x00000024   Code   RO         1178    i.PortD_Init        portinit.o
+    0x00000bfc   0x00000024   Code   RO         1179    i.PortD_Init        portinit.o
     0x00000c20   0x0000003c   Code   RO          569    i.PortE_Arm         buttons.o
-    0x00000c5c   0x00000024   Code   RO         1179    i.PortE_Init        portinit.o
-    0x00000c80   0x00000024   Code   RO         1180    i.PortF_Init        portinit.o
+    0x00000c5c   0x00000024   Code   RO         1180    i.PortE_Init        portinit.o
+    0x00000c80   0x00000024   Code   RO         1181    i.PortF_Init        portinit.o
     0x00000ca4   0x0000003c   Code   RO          632    i.RxFifo_Put        uart.o
     0x00000ce0   0x00000018   Code   RO          633    i.RxFifo_Size       uart.o
     0x00000cf8   0x00000120   Code   RO          304    i.ST7735_DrawBitmap  st7735.o
@@ -1948,7 +1955,7 @@ Memory Map of the image
     0x000013a0   0x00000044   Code   RO          784    i.Thumbstick_Init   thumbstick.o
     0x000013e4   0x0000005c   Code   RO          570    i.Timer2A_Handler   buttons.o
     0x00001440   0x0000004c   Code   RO          571    i.Timer2_Arm        buttons.o
-    0x0000148c   0x00000014   Code   RO         1098    i.Timer3A_Handler   main.o
+    0x0000148c   0x00000014   Code   RO         1105    i.Timer3A_Handler   main.o
     0x000014a0   0x0000003c   Code   RO          634    i.TxFifo_Get        uart.o
     0x000014dc   0x0000003c   Code   RO          636    i.TxFifo_Put        uart.o
     0x00001518   0x00000018   Code   RO          637    i.TxFifo_Size       uart.o
@@ -1957,46 +1964,46 @@ Memory Map of the image
     0x000015b8   0x00000034   Code   RO          646    i.UART_OutCharNonBlock  uart.o
     0x000015ec   0x00000060   Code   RO          912    i._Z12DrawEntitiesP10EntityList  gamerules.o
     0x0000164c   0x0000003c   Code   RO          913    i._Z13EraseEntitiesP10EntityList  gamerules.o
-    0x00001688   0x0000005c   Code   RO         1100    i._Z13GameTick_Initv  main.o
+    0x00001688   0x0000005c   Code   RO         1107    i._Z13GameTick_Initv  main.o
     0x000016e4   0x00000106   Code   RO          915    i._Z21NormalizeAnalogInputsPtS_  gamerules.o
     0x000017ea   0x00000026   Code   RO          916    i._ZN10EntityList12removeZeroesEv  gamerules.o
     0x00001810   0x00000012   Code   RO          918    i._ZN10EntityList4pushEP6Entity  gamerules.o
     0x00001822   0x00000018   Code   RO          919    i._ZN10EntityList5clearEv  gamerules.o
     0x0000183a   0x00000012   Code   RO          920    i._ZN10EntityList6isFullEv  gamerules.o
-    0x0000184c   0x0000006c   Code   RO          921    i._ZN10EntityList6updateEPtS0_  gamerules.o
-    0x000018b8   0x00000008   Code   RO         1137    i._ZN10EntityListC1Ev  main.o
-    0x000018c0   0x0000007e   Code   RO          923    i._ZN6Entity13WallCollisionE9Rectangle  gamerules.o
-    0x0000193e   0x00000036   Code   RO          924    i._ZN6Entity6updateEv  gamerules.o
-    0x00001974   0x0000009c   Code   RO          925    i._ZN6Entity9directionEv  gamerules.o
-    0x00001a10   0x00000026   Code   RO         1131    i._ZN6EntityC1E9Rectangle6VectorS1_10EntityTypejj  main.o
-    0x00001a36   0x00000006   Code   RO         1059    i._ZN6VectorC1Ess   gamerules.o
-    0x00001a3c   0x000000f0   Code   RO          927    i._ZN8Quadtree11getQuadrantE9Rectangle  gamerules.o
-    0x00001b2c   0x00000036   Code   RO          928    i._ZN8Quadtree5clearEv  gamerules.o
-    0x00001b62   0x00000104   Code   RO          929    i._ZN8Quadtree5splitEv  gamerules.o
-    0x00001c66   0x00000050   Code   RO          930    i._ZN8Quadtree6insertEP10EntityList  gamerules.o
-    0x00001cb6   0x0000009e   Code   RO          931    i._ZN8Quadtree6insertEP6Entity  gamerules.o
-    0x00001d54   0x0000004c   Code   RO          932    i._ZN8Quadtree8retrieveEP10EntityList9Rectangle  gamerules.o
-    0x00001da0   0x0000001e   Code   RO         1053    i._ZN8QuadtreeC1Eh9Rectangle  gamerules.o
-    0x00001dbe   0x0000000e   Code   RO         1047    i._ZN9RectangleC1Esstt  gamerules.o
-    0x00001dcc   0x00000028   Code   RO         1328    i._Znwj             cpprt_w.l(new.o)
-    0x00001df4   0x00000056   Code   RO          332    i.commandList       st7735.o
-    0x00001e4a   0x00000002   PAD
-    0x00001e4c   0x00000184   Code   RO          333    i.commonInit        st7735.o
-    0x00001fd0   0x0000002c   Code   RO          650    i.copyHardwareToSoftware  uart.o
-    0x00001ffc   0x0000002c   Code   RO          651    i.copySoftwareToHardware  uart.o
-    0x00002028   0x00000048   Code   RO          336    i.fillmessage       st7735.o
-    0x00002070   0x0000000e   Code   RO           97    i.lc                esp8266.o
-    0x0000207e   0x00000002   PAD
-    0x00002080   0x000001c4   Code   RO         1101    i.main              main.o
-    0x00002244   0x00000012   Code   RO          337    i.pushColor         st7735.o
-    0x00002256   0x00000002   PAD
-    0x00002258   0x00000074   Code   RO          338    i.setAddrWindow     st7735.o
-    0x000022cc   0x00000030   Code   RO          339    i.writecommand      st7735.o
-    0x000022fc   0x00000020   Code   RO          340    i.writedata         st7735.o
-    0x0000231c   0x000007e2   Data   RO          342    .constdata          st7735.o
-    0x00002afe   0x00000420   Data   RO          954    .constdata          gamerules.o
-    0x00002f1e   0x00000002   PAD
-    0x00002f20   0x00000020   Data   RO         1826    Region$$Table       anon$$obj.o
+    0x0000184c   0x00000160   Code   RO          921    i._ZN10EntityList6updateEPtS0_  gamerules.o
+    0x000019ac   0x00000008   Code   RO         1138    i._ZN10EntityListC1Ev  main.o
+    0x000019b4   0x0000007e   Code   RO          923    i._ZN6Entity13WallCollisionE9Rectangle  gamerules.o
+    0x00001a32   0x00000036   Code   RO          924    i._ZN6Entity6updateEv  gamerules.o
+    0x00001a68   0x0000009c   Code   RO          925    i._ZN6Entity9directionEv  gamerules.o
+    0x00001b04   0x00000026   Code   RO         1059    i._ZN6EntityC1E9Rectangle6VectorS1_10EntityTypejj  gamerules.o
+    0x00001b2a   0x00000006   Code   RO         1065    i._ZN6VectorC1Ess   gamerules.o
+    0x00001b30   0x000000f0   Code   RO          927    i._ZN8Quadtree11getQuadrantE9Rectangle  gamerules.o
+    0x00001c20   0x00000036   Code   RO          928    i._ZN8Quadtree5clearEv  gamerules.o
+    0x00001c56   0x00000104   Code   RO          929    i._ZN8Quadtree5splitEv  gamerules.o
+    0x00001d5a   0x00000050   Code   RO          930    i._ZN8Quadtree6insertEP10EntityList  gamerules.o
+    0x00001daa   0x0000009e   Code   RO          931    i._ZN8Quadtree6insertEP6Entity  gamerules.o
+    0x00001e48   0x0000004c   Code   RO          932    i._ZN8Quadtree8retrieveEP10EntityList9Rectangle  gamerules.o
+    0x00001e94   0x0000001e   Code   RO         1053    i._ZN8QuadtreeC1Eh9Rectangle  gamerules.o
+    0x00001eb2   0x0000000e   Code   RO         1047    i._ZN9RectangleC1Esstt  gamerules.o
+    0x00001ec0   0x00000028   Code   RO         1329    i._Znwj             cpprt_w.l(new.o)
+    0x00001ee8   0x00000056   Code   RO          332    i.commandList       st7735.o
+    0x00001f3e   0x00000002   PAD
+    0x00001f40   0x00000184   Code   RO          333    i.commonInit        st7735.o
+    0x000020c4   0x0000002c   Code   RO          650    i.copyHardwareToSoftware  uart.o
+    0x000020f0   0x0000002c   Code   RO          651    i.copySoftwareToHardware  uart.o
+    0x0000211c   0x00000048   Code   RO          336    i.fillmessage       st7735.o
+    0x00002164   0x0000000e   Code   RO           97    i.lc                esp8266.o
+    0x00002172   0x00000002   PAD
+    0x00002174   0x000001c4   Code   RO         1108    i.main              main.o
+    0x00002338   0x00000012   Code   RO          337    i.pushColor         st7735.o
+    0x0000234a   0x00000002   PAD
+    0x0000234c   0x00000074   Code   RO          338    i.setAddrWindow     st7735.o
+    0x000023c0   0x00000030   Code   RO          339    i.writecommand      st7735.o
+    0x000023f0   0x00000020   Code   RO          340    i.writedata         st7735.o
+    0x00002410   0x000007e2   Data   RO          342    .constdata          st7735.o
+    0x00002bf2   0x00000420   Data   RO          954    .constdata          gamerules.o
+    0x00003012   0x00000002   PAD
+    0x00003014   0x00000020   Data   RO         1827    Region$$Table       anon$$obj.o
 
 
     Execution Region ER_RW (Base: 0x20000000, Size: 0x00000094, Max: 0xffffffff, ABSOLUTE)
@@ -2007,7 +2014,7 @@ Memory Map of the image
     0x20000040   0x0000002c   Data   RW          343    .data               st7735.o
     0x2000006c   0x00000008   Data   RW          572    .data               buttons.o
     0x20000074   0x00000010   Data   RW          654    .data               uart.o
-    0x20000084   0x0000000f   Data   RW         1106    .data               main.o
+    0x20000084   0x0000000f   Data   RW         1113    .data               main.o
 
 
     Execution Region ER_ZI (Base: 0x20000094, Size: 0x00001c8c, Max: 0xffffffff, ABSOLUTE)
@@ -2017,7 +2024,7 @@ Memory Map of the image
     0x20000094   0x00000c20   Zero   RW           98    .bss                esp8266.o
     0x20000cb4   0x0000000c   Zero   RW          341    .bss                st7735.o
     0x20000cc0   0x00000800   Zero   RW          653    .bss                uart.o
-    0x200014c0   0x00000060   Zero   RW         1430    .bss                c_w.l(libspace.o)
+    0x200014c0   0x00000060   Zero   RW         1431    .bss                c_w.l(libspace.o)
     0x20001520   0x00000400   Zero   RW            2    HEAP                startup.o
     0x20001920   0x00000400   Zero   RW            1    STACK               startup.o
 
@@ -2033,8 +2040,8 @@ Image component sizes
        252         22          0          0          0       1248   adc.o
        716        136          0          8          0       3062   buttons.o
        482         76          0         64       3104       4509   esp8266.o
-      1878         10       1056          0          0      18607   gamerules.o
-       610         44          0         15          0       5677   main.o
+      2160         16       1056          0          0      19491   gamerules.o
+       572         44          0         15          0       5025   main.o
        124          6          0          0          0       4639   pll.o
        182         50          0          0          0       2198   portinit.o
       2198        208       2018         44         12      13846   st7735.o
@@ -2043,7 +2050,7 @@ Image component sizes
        456         80          0         16       2048       5084   uart.o
 
     ----------------------------------------------------------------------
-      7768       1286       3108        148       7212      60569   Object Totals
+      8012       1292       3108        148       7212      60801   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         10          0          2          1          0          0   (incl. Padding)
 
@@ -2117,15 +2124,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      8988       1424       3108        148       7308      57841   Grand Totals
-      8988       1424       3108        148       7308      57841   ELF Image Totals
-      8988       1424       3108        148          0          0   ROM Totals
+      9232       1430       3108        148       7308      58073   Grand Totals
+      9232       1430       3108        148       7308      58073   ELF Image Totals
+      9232       1430       3108        148          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                12096 (  11.81kB)
+    Total RO  Size (Code + RO Data)                12340 (  12.05kB)
     Total RW  Size (RW Data + ZI Data)              7456 (   7.28kB)
-    Total ROM Size (Code + RO Data + RW Data)      12244 (  11.96kB)
+    Total ROM Size (Code + RO Data + RW Data)      12488 (  12.20kB)
 
 ==============================================================================
 

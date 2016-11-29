@@ -6,6 +6,7 @@ extern "C"{
 	#include "Graphics.h"
 	#include "Thumbstick.h"
 	#include "Accel.h"
+  #include "bmp.h"
 }
 #include "GameRules.h"
 #define NULL       0
@@ -63,13 +64,13 @@ uint8_t Entity::direction(void)
   else if (!neg_x && near_90) return 2;
 	else if (neg_y && near_0)   return 4;
 	else if (neg_x && near_90)  return 6;
-	else if (!neg_x && !neg_y)  return 1; 
+	else if (!neg_x && !neg_y)  return 1;
 	else if (!neg_x && neg_y)   return 3;
 	else if (neg_x && neg_y)    return 5;
 	else if (neg_x && !neg_y)   return 7;
 	else return 0xFF; // can't return -1 because of return type
 }
-		
+
 
 
 // ********************************************
@@ -103,21 +104,37 @@ bool EntityList::isEmpty(void) {
 	return (!nextIndex);
 }
 
+#define BULLET_SPEED 15
 void EntityList::update(uint16_t * tstick, uint16_t * accel) {
 	for (int i = 0; i < nextIndex; i++) {
 		Entity * E = List[i];
 		E->update();
 
 		if (E->type == SHIP) {
-			E->Velocity.x = (int16_t) tstick[TSTICK2_H];
-			E->Velocity.y = (int16_t) tstick[TSTICK2_V];
+			E->Velocity.x = (int16_t) tstick[TSTICK2_H] >> 2; // shift to slow ship movement
+			E->Velocity.y = (int16_t) tstick[TSTICK2_V] >> 2;
+
+			// if thumbstick1 (right thumbstick) is not stationary --> add a laser entity to the list
+			if ((tstick[TSTICK1_H] < DEADZONE_TSTICK_MIN  ||  tstick[TSTICK1_H] > DEADZONE_TSTICK_MAX)
+					|| (tstick[TSTICK1_V] < DEADZONE_TSTICK_MIN  ||  tstick[TSTICK1_V] > DEADZONE_TSTICK_MAX))
+      {
+        for (int i = 0; i < 2; i++) { // normalize shoot direction
+          if (DEADZONE_TSTICK_MIN <= tstick[i] && DEADZONE_TSTICK_MAX >= tstick[i]) { tstick[i] = 0; }
+          else if (DEADZONE_TSTICK_MIN > tstick[i]) { tstick[i] =  -BULLET_SPEED; }
+          else { tstick[i] = BULLET_SPEED; }
+        }
+
+				Entity* laser = new Entity(
+					Rectangle(E->Bounds.x + 500, E->Bounds.y, 4<<7, 4<<7),  // x + 500 so bullet fires from center instead of top left corner
+          Vector(tstick[TSTICK1_H], tstick[TSTICK1_V]),  // velocity // TODO: direction is weird but corresponds to left thumbstick
+          Vector(0,0), LASER, 0, 0);
+				push(laser);
+			}
+
 		} else if (E->type == MISSILE) {
-			ST7735_SetCursor(0,0); ST7735_OutUDec(accel[ACCEL_X]);
-			ST7735_SetCursor(0,1); ST7735_OutUDec(accel[ACCEL_Y]);
 			E->Velocity.x = (int16_t) accel[ACCEL_X];
 			E->Velocity.y = (int16_t) accel[ACCEL_Y];
 		}
-    
 	}
 }
 
@@ -262,10 +279,10 @@ void DrawEntities(EntityList * L)
 	{
 		Entity * E = L->List[i];
 		const unsigned short* bitmap;
-		
+
 		if (E->type == SHIP) { bitmap = Bitmap_Ship[E->direction()]; }
 		else if (E->type == LASER) { bitmap = Bitmap_GreenLaser; }
-		
+
 		ST7735_DrawBitmap(E->Bounds.x >> 7, (E->Bounds.y + E->Bounds.h) >> 7, bitmap, E->Bounds.w >> 7, E->Bounds.h >> 7);
 	}
 }
@@ -279,13 +296,6 @@ void EraseEntities(EntityList * L)
 	}
 }
 
-#define DEADZONE_TSTICK_MIN    1800
-#define DEADZONE_TSTICK_MAX    2200
-#define DEADZONE_ACCEL_XY_MIN  1900
-#define DEADZONE_ACCEL_XY_MAX  2100
-#define DEADZONE_ACCEL_Z_MIN   1500
-#define DEADZONE_ACCEL_Z_MAX   1700
-
 void NormalizeAnalogInputs( uint16_t * tstick, uint16_t * accel )
 {
 	// left shift 7 (for precision) and divide by 1000 (>>10)
@@ -293,7 +303,7 @@ void NormalizeAnalogInputs( uint16_t * tstick, uint16_t * accel )
 	// second if clauses are checking for negative numbers ... stuff gets typecasted to signed numbers in update ... yeah we know it's bad
 	// third if clauses are similar --> simply check and calibrate
 
-	for (int i = 0; i < 4; i++) { // normalize thumbsticks
+	for (int i = 2; i < 4; i++) { // normalize thumbstick2 for movement calibration, no need for shoot direction calibration
 		if (DEADZONE_TSTICK_MIN <= tstick[i] && DEADZONE_TSTICK_MAX >= tstick[i]) { tstick[i] = 0; }
 		else if (DEADZONE_TSTICK_MIN > tstick[i]) { tstick[i] = ((tstick[i] - DEADZONE_TSTICK_MIN) << 7) >> 10; }
 		else { tstick[i] = ((tstick[i] - DEADZONE_TSTICK_MAX) << 7) >> 10; }

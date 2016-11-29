@@ -3,9 +3,9 @@
 <title>Static Call Graph - [.\Lab7.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Lab7.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Tue Nov 29 01:22:47 2016
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Tue Nov 29 04:08:27 2016
 <BR><P>
-<H3>Maximum Stack Usage =        248 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        312 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 __rt_entry_main &rArr; main &rArr; EntityList::update(unsigned short*, unsigned short*) &rArr; ST7735_OutUDec &rArr; ST7735_DrawString &rArr; ST7735_DrawCharS &rArr; ST7735_FillRect &rArr; setAddrWindow
 <P>
@@ -14,7 +14,7 @@ Functions with no stack information
 </H3><UL>
  <LI><a href="#[8c]">Reset_Handler</a>
  <LI><a href="#[11e]">DisableInterrupts</a>
- <LI><a href="#[f7]">EnableInterrupts</a>
+ <LI><a href="#[f9]">EnableInterrupts</a>
  <LI><a href="#[120]">StartCritical</a>
  <LI><a href="#[121]">EndCritical</a>
  <LI><a href="#[122]">WaitForInterrupt</a>
@@ -34,9 +34,9 @@ Mutually Recursive functions
  <LI><a href="#[16]">PendSV_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[16]">PendSV_Handler</a><BR>
  <LI><a href="#[17]">SysTick_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[17]">SysTick_Handler</a><BR>
  <LI><a href="#[26]">ADC0Seq0_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[26]">ADC0Seq0_Handler</a><BR>
- <LI><a href="#[e6]">Quadtree::retrieve(EntityList*, Rectangle)</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[e6]">Quadtree::retrieve(EntityList*, Rectangle)</a><BR>
- <LI><a href="#[e2]">Quadtree::insert(Entity*)</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[e2]">Quadtree::insert(Entity*)</a><BR>
- <LI><a href="#[d9]">Quadtree::clear()</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[d9]">Quadtree::clear()</a><BR>
+ <LI><a href="#[e8]">Quadtree::retrieve(EntityList*, Rectangle)</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[e8]">Quadtree::retrieve(EntityList*, Rectangle)</a><BR>
+ <LI><a href="#[e5]">Quadtree::insert(Entity*)</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[e5]">Quadtree::insert(Entity*)</a><BR>
+ <LI><a href="#[de]">Quadtree::clear()</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[de]">Quadtree::clear()</a><BR>
  <LI><a href="#[cc]">fillmessage</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[cc]">fillmessage</a><BR>
 </UL>
 <P>
@@ -685,7 +685,7 @@ Global Symbols
 <P><STRONG><a name="[11b]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$00000009))
 
 <P><STRONG><a name="[98]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
-<BR><BR>[Stack]<UL><LI>Max Depth = 248 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 312 + Unknown Stack Size
 <LI>Call Chain = __rt_entry_main &rArr; main &rArr; EntityList::update(unsigned short*, unsigned short*) &rArr; ST7735_OutUDec &rArr; ST7735_DrawString &rArr; ST7735_DrawCharS &rArr; ST7735_FillRect &rArr; setAddrWindow
 </UL>
 <BR>[Calls]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -712,7 +712,7 @@ Global Symbols
 
 <P><STRONG><a name="[11f]"></a>_maybe_terminate_alloc</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, maybetermalloc1.o(.emb_text), UNUSED)
 
-<P><STRONG><a name="[f7]"></a>EnableInterrupts</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup.o(.text))
+<P><STRONG><a name="[f9]"></a>EnableInterrupts</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -738,8 +738,8 @@ Global Symbols
 
 <P><STRONG><a name="[2]"></a>__rt_heap_expand</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
 
-<P><STRONG><a name="[e7]"></a>__rt_new_handler_addr</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, rt_new_handler_addr_intlibspace.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;operator new(unsigned)
+<P><STRONG><a name="[e9]"></a>__rt_new_handler_addr</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, rt_new_handler_addr_intlibspace.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;operator new(unsigned)
 </UL>
 
 <P><STRONG><a name="[9f]"></a>malloc</STRONG> (Thumb, 94 bytes, Stack size 16 bytes, h1_alloc.o(.text))
@@ -748,7 +748,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__Heap_Full
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_heap_descriptor
 </UL>
-<BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;operator new(unsigned)
+<BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;operator new(unsigned)
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_exceptions_buffer_init
 <LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__cxa_get_globals
 </UL>
@@ -969,11 +969,11 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[f5]"></a>ADC_Init</STRONG> (Thumb, 134 bytes, Stack size 0 bytes, adc.o(i.ADC_Init))
+<P><STRONG><a name="[f7]"></a>ADC_Init</STRONG> (Thumb, 134 bytes, Stack size 0 bytes, adc.o(i.ADC_Init))
 <BR><BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[f4]"></a>Accel_Init</STRONG> (Thumb, 88 bytes, Stack size 0 bytes, accel.o(i.Accel_Init))
+<P><STRONG><a name="[f6]"></a>Accel_Init</STRONG> (Thumb, 88 bytes, Stack size 0 bytes, accel.o(i.Accel_Init))
 <BR><BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -986,7 +986,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[e8]"></a>Delay1ms</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, st7735.o(i.Delay1ms))
+<P><STRONG><a name="[ea]"></a>Delay1ms</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, st7735.o(i.Delay1ms))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = Delay1ms
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commonInit
@@ -1017,19 +1017,19 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup.o(RESET)
 </UL>
-<P><STRONG><a name="[f2]"></a>PLL_Init</STRONG> (Thumb, 118 bytes, Stack size 0 bytes, pll.o(i.PLL_Init))
+<P><STRONG><a name="[f4]"></a>PLL_Init</STRONG> (Thumb, 118 bytes, Stack size 0 bytes, pll.o(i.PLL_Init))
 <BR><BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[ec]"></a>PortA_Init</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, portinit.o(i.PortA_Init))
+<P><STRONG><a name="[ee]"></a>PortA_Init</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, portinit.o(i.PortA_Init))
 <BR><BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[ed]"></a>PortB_Init</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, portinit.o(i.PortB_Init))
+<P><STRONG><a name="[ef]"></a>PortB_Init</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, portinit.o(i.PortB_Init))
 <BR><BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[ee]"></a>PortC_Init</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, portinit.o(i.PortC_Init))
+<P><STRONG><a name="[f0]"></a>PortC_Init</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, portinit.o(i.PortC_Init))
 <BR><BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -1038,7 +1038,7 @@ Global Symbols
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Buttons_Init
 </UL>
 
-<P><STRONG><a name="[ef]"></a>PortD_Init</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, portinit.o(i.PortD_Init))
+<P><STRONG><a name="[f1]"></a>PortD_Init</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, portinit.o(i.PortD_Init))
 <BR><BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -1047,19 +1047,19 @@ Global Symbols
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Buttons_Init
 </UL>
 
-<P><STRONG><a name="[f0]"></a>PortE_Init</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, portinit.o(i.PortE_Init))
+<P><STRONG><a name="[f2]"></a>PortE_Init</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, portinit.o(i.PortE_Init))
 <BR><BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[f1]"></a>PortF_Init</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, portinit.o(i.PortF_Init))
+<P><STRONG><a name="[f3]"></a>PortF_Init</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, portinit.o(i.PortF_Init))
 <BR><BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[e9]"></a>RxFifo_Put</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, uart.o(i.RxFifo_Put))
+<P><STRONG><a name="[eb]"></a>RxFifo_Put</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, uart.o(i.RxFifo_Put))
 <BR><BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;copyHardwareToSoftware
 </UL>
 
-<P><STRONG><a name="[ea]"></a>RxFifo_Size</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, uart.o(i.RxFifo_Size))
+<P><STRONG><a name="[ec]"></a>RxFifo_Size</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, uart.o(i.RxFifo_Size))
 <BR><BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;copyHardwareToSoftware
 </UL>
 
@@ -1172,7 +1172,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266FIFOtoBuffer
 </UL>
 
-<P><STRONG><a name="[f3]"></a>Thumbstick_Init</STRONG> (Thumb, 58 bytes, Stack size 0 bytes, thumbstick.o(i.Thumbstick_Init))
+<P><STRONG><a name="[f5]"></a>Thumbstick_Init</STRONG> (Thumb, 58 bytes, Stack size 0 bytes, thumbstick.o(i.Thumbstick_Init))
 <BR><BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -1192,7 +1192,7 @@ Global Symbols
 <P><STRONG><a name="[3b]"></a>Timer3A_Handler</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, main.o(i.Timer3A_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup.o(RESET)
 </UL>
-<P><STRONG><a name="[eb]"></a>TxFifo_Get</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, uart.o(i.TxFifo_Get))
+<P><STRONG><a name="[ed]"></a>TxFifo_Get</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, uart.o(i.TxFifo_Get))
 <BR><BR>[Called By]<UL><LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;copySoftwareToHardware
 </UL>
 
@@ -1247,7 +1247,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[f6]"></a>GameTick_Init()</STRONG> (Thumb, 70 bytes, Stack size 0 bytes, main.o(i._Z13GameTick_Initv))
+<P><STRONG><a name="[f8]"></a>GameTick_Init()</STRONG> (Thumb, 70 bytes, Stack size 0 bytes, main.o(i._Z13GameTick_Initv))
 <BR><BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -1257,45 +1257,52 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[e5]"></a>EntityList::removeZeroes()</STRONG> (Thumb, 38 bytes, Stack size 12 bytes, gamerules.o(i._ZN10EntityList12removeZeroesEv))
+<P><STRONG><a name="[e7]"></a>EntityList::removeZeroes()</STRONG> (Thumb, 38 bytes, Stack size 12 bytes, gamerules.o(i._ZN10EntityList12removeZeroesEv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = EntityList::removeZeroes()
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::insert(Entity*)
+<BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::insert(Entity*)
 </UL>
 
-<P><STRONG><a name="[e4]"></a>EntityList::push(Entity*)</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, gamerules.o(i._ZN10EntityList4pushEP6Entity))
-<BR><BR>[Called By]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::retrieve(EntityList*, Rectangle)
-<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::insert(Entity*)
+<P><STRONG><a name="[dd]"></a>EntityList::push(Entity*)</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, gamerules.o(i._ZN10EntityList4pushEP6Entity))
+<BR><BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::retrieve(EntityList*, Rectangle)
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::insert(Entity*)
+<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EntityList::update(unsigned short*, unsigned short*)
 </UL>
 
-<P><STRONG><a name="[da]"></a>EntityList::clear()</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, gamerules.o(i._ZN10EntityList5clearEv))
-<BR><BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::clear()
+<P><STRONG><a name="[df]"></a>EntityList::clear()</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, gamerules.o(i._ZN10EntityList5clearEv))
+<BR><BR>[Called By]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::clear()
 </UL>
 
-<P><STRONG><a name="[e3]"></a>EntityList::isFull()</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, gamerules.o(i._ZN10EntityList6isFullEv))
-<BR><BR>[Called By]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::insert(Entity*)
+<P><STRONG><a name="[e6]"></a>EntityList::isFull()</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, gamerules.o(i._ZN10EntityList6isFullEv))
+<BR><BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::insert(Entity*)
 </UL>
 
-<P><STRONG><a name="[d7]"></a>EntityList::update(unsigned short*, unsigned short*)</STRONG> (Thumb, 108 bytes, Stack size 24 bytes, gamerules.o(i._ZN10EntityList6updateEPtS0_))
-<BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = EntityList::update(unsigned short*, unsigned short*) &rArr; ST7735_OutUDec &rArr; ST7735_DrawString &rArr; ST7735_DrawCharS &rArr; ST7735_FillRect &rArr; setAddrWindow
+<P><STRONG><a name="[d7]"></a>EntityList::update(unsigned short*, unsigned short*)</STRONG> (Thumb, 346 bytes, Stack size 88 bytes, gamerules.o(i._ZN10EntityList6updateEPtS0_))
+<BR><BR>[Stack]<UL><LI>Max Depth = 240<LI>Call Chain = EntityList::update(unsigned short*, unsigned short*) &rArr; ST7735_OutUDec &rArr; ST7735_DrawString &rArr; ST7735_DrawCharS &rArr; ST7735_FillRect &rArr; setAddrWindow
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_SetCursor
 <LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_OutUDec
+<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;operator new(unsigned)
+<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Rectangle::Rectangle(short, short, unsigned short, unsigned short)
+<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vector::Vector(short, short)
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Entity::Entity(Rectangle, Vector, Vector, EntityType, unsigned, unsigned)
+<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Entity::direction()
 <LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Entity::update()
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EntityList::push(Entity*)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[f8]"></a>EntityList::EntityList()</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, main.o(i._ZN10EntityListC1Ev))
+<P><STRONG><a name="[fa]"></a>EntityList::EntityList()</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, main.o(i._ZN10EntityListC1Ev))
 <BR><BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[12d]"></a>EntityList::EntityList__sub_object()</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, main.o(i._ZN10EntityListC1Ev), UNUSED)
 
-<P><STRONG><a name="[e1]"></a>Entity::WallCollision(Rectangle)</STRONG> (Thumb, 126 bytes, Stack size 16 bytes, gamerules.o(i._ZN6Entity13WallCollisionE9Rectangle))
+<P><STRONG><a name="[e4]"></a>Entity::WallCollision(Rectangle)</STRONG> (Thumb, 126 bytes, Stack size 16 bytes, gamerules.o(i._ZN6Entity13WallCollisionE9Rectangle))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = Entity::WallCollision(Rectangle)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::insert(EntityList*)
+<BR>[Called By]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::insert(EntityList*)
 </UL>
 
 <P><STRONG><a name="[d8]"></a>Entity::update()</STRONG> (Thumb, 54 bytes, Stack size 12 bytes, gamerules.o(i._ZN6Entity6updateEv))
@@ -1307,115 +1314,120 @@ Global Symbols
 <P><STRONG><a name="[d5]"></a>Entity::direction()</STRONG> (Thumb, 156 bytes, Stack size 20 bytes, gamerules.o(i._ZN6Entity9directionEv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = Entity::direction()
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawEntities(EntityList*)
+<BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EntityList::update(unsigned short*, unsigned short*)
+<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawEntities(EntityList*)
 </UL>
 
-<P><STRONG><a name="[fa]"></a>Entity::Entity(Rectangle, Vector, Vector, EntityType, unsigned, unsigned)</STRONG> (Thumb, 38 bytes, Stack size 32 bytes, main.o(i._ZN6EntityC1E9Rectangle6VectorS1_10EntityTypejj))
+<P><STRONG><a name="[dc]"></a>Entity::Entity(Rectangle, Vector, Vector, EntityType, unsigned, unsigned)</STRONG> (Thumb, 38 bytes, Stack size 32 bytes, gamerules.o(i._ZN6EntityC1E9Rectangle6VectorS1_10EntityTypejj))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = Entity::Entity(Rectangle, Vector, Vector, EntityType, unsigned, unsigned)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EntityList::update(unsigned short*, unsigned short*)
 </UL>
 
-<P><STRONG><a name="[12e]"></a>Entity::Entity__sub_object(Rectangle, Vector, Vector, EntityType, unsigned, unsigned)</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, main.o(i._ZN6EntityC1E9Rectangle6VectorS1_10EntityTypejj), UNUSED)
+<P><STRONG><a name="[12e]"></a>Entity::Entity__sub_object(Rectangle, Vector, Vector, EntityType, unsigned, unsigned)</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, gamerules.o(i._ZN6EntityC1E9Rectangle6VectorS1_10EntityTypejj), UNUSED)
 
-<P><STRONG><a name="[f9]"></a>Vector::Vector(short, short)</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, gamerules.o(i._ZN6VectorC1Ess))
+<P><STRONG><a name="[da]"></a>Vector::Vector(short, short)</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, gamerules.o(i._ZN6VectorC1Ess))
 <BR><BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EntityList::update(unsigned short*, unsigned short*)
 </UL>
 
 <P><STRONG><a name="[12f]"></a>Vector::Vector__sub_object(short, short)</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, gamerules.o(i._ZN6VectorC1Ess), UNUSED)
 
-<P><STRONG><a name="[e0]"></a>Quadtree::getQuadrant(Rectangle)</STRONG> (Thumb, 240 bytes, Stack size 40 bytes, gamerules.o(i._ZN8Quadtree11getQuadrantE9Rectangle))
+<P><STRONG><a name="[e3]"></a>Quadtree::getQuadrant(Rectangle)</STRONG> (Thumb, 240 bytes, Stack size 40 bytes, gamerules.o(i._ZN8Quadtree11getQuadrantE9Rectangle))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = Quadtree::getQuadrant(Rectangle)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::retrieve(EntityList*, Rectangle)
-<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::insert(Entity*)
-<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::insert(EntityList*)
+<BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::retrieve(EntityList*, Rectangle)
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::insert(Entity*)
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::insert(EntityList*)
 </UL>
 
-<P><STRONG><a name="[d9]"></a>Quadtree::clear()</STRONG> (Thumb, 54 bytes, Stack size 12 bytes, gamerules.o(i._ZN8Quadtree5clearEv))
+<P><STRONG><a name="[de]"></a>Quadtree::clear()</STRONG> (Thumb, 54 bytes, Stack size 12 bytes, gamerules.o(i._ZN8Quadtree5clearEv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12 + In Cycle
 <LI>Call Chain = Quadtree::clear() &rArr;  Quadtree::clear() (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::clear()
-<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EntityList::clear()
+<BR>[Calls]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::clear()
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EntityList::clear()
 </UL>
 <BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::clear()
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::clear()
 </UL>
 
-<P><STRONG><a name="[db]"></a>Quadtree::split()</STRONG> (Thumb, 260 bytes, Stack size 48 bytes, gamerules.o(i._ZN8Quadtree5splitEv))
+<P><STRONG><a name="[e0]"></a>Quadtree::split()</STRONG> (Thumb, 260 bytes, Stack size 48 bytes, gamerules.o(i._ZN8Quadtree5splitEv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = Quadtree::split() &rArr; operator new(unsigned) &rArr; malloc &rArr; __Heap_Full &rArr; __Heap_ProvideMemory &rArr; free
 </UL>
-<BR>[Calls]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;operator new(unsigned)
-<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Rectangle::Rectangle(short, short, unsigned short, unsigned short)
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::Quadtree(unsigned char, Rectangle)
+<BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;operator new(unsigned)
+<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Rectangle::Rectangle(short, short, unsigned short, unsigned short)
+<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::Quadtree(unsigned char, Rectangle)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::insert(Entity*)
+<BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::insert(Entity*)
 </UL>
 
-<P><STRONG><a name="[df]"></a>Quadtree::insert(EntityList*)</STRONG> (Thumb, 80 bytes, Stack size 24 bytes, gamerules.o(i._ZN8Quadtree6insertEP10EntityList))
+<P><STRONG><a name="[e2]"></a>Quadtree::insert(EntityList*)</STRONG> (Thumb, 80 bytes, Stack size 24 bytes, gamerules.o(i._ZN8Quadtree6insertEP10EntityList))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = Quadtree::insert(EntityList*) &rArr; Quadtree::insert(Entity*) &rArr;  Quadtree::insert(Entity*) (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::insert(Entity*)
-<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::getQuadrant(Rectangle)
-<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Entity::WallCollision(Rectangle)
+<BR>[Calls]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::insert(Entity*)
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::getQuadrant(Rectangle)
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Entity::WallCollision(Rectangle)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[e2]"></a>Quadtree::insert(Entity*)</STRONG> (Thumb, 158 bytes, Stack size 24 bytes, gamerules.o(i._ZN8Quadtree6insertEP6Entity))
+<P><STRONG><a name="[e5]"></a>Quadtree::insert(Entity*)</STRONG> (Thumb, 158 bytes, Stack size 24 bytes, gamerules.o(i._ZN8Quadtree6insertEP6Entity))
 <BR><BR>[Stack]<UL><LI>Max Depth = 128 + In Cycle
 <LI>Call Chain = Quadtree::insert(Entity*) &rArr;  Quadtree::insert(Entity*) (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::insert(Entity*)
-<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::split()
-<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::getQuadrant(Rectangle)
-<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EntityList::isFull()
-<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EntityList::push(Entity*)
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EntityList::removeZeroes()
+<BR>[Calls]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::insert(Entity*)
+<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::split()
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::getQuadrant(Rectangle)
+<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EntityList::isFull()
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EntityList::push(Entity*)
+<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EntityList::removeZeroes()
 </UL>
 <BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::insert(Entity*)
-<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::insert(EntityList*)
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::insert(Entity*)
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::insert(EntityList*)
 </UL>
 
-<P><STRONG><a name="[e6]"></a>Quadtree::retrieve(EntityList*, Rectangle)</STRONG> (Thumb, 76 bytes, Stack size 36 bytes, gamerules.o(i._ZN8Quadtree8retrieveEP10EntityList9Rectangle))
+<P><STRONG><a name="[e8]"></a>Quadtree::retrieve(EntityList*, Rectangle)</STRONG> (Thumb, 76 bytes, Stack size 36 bytes, gamerules.o(i._ZN8Quadtree8retrieveEP10EntityList9Rectangle))
 <BR><BR>[Stack]<UL><LI>Max Depth = 76 + In Cycle
 <LI>Call Chain = Quadtree::retrieve(EntityList*, Rectangle) &rArr;  Quadtree::retrieve(EntityList*, Rectangle) (Cycle)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::retrieve(EntityList*, Rectangle)
-<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::getQuadrant(Rectangle)
-<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EntityList::push(Entity*)
+<BR>[Calls]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::retrieve(EntityList*, Rectangle)
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::getQuadrant(Rectangle)
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EntityList::push(Entity*)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::retrieve(EntityList*, Rectangle)
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::retrieve(EntityList*, Rectangle)
 </UL>
 
-<P><STRONG><a name="[de]"></a>Quadtree::Quadtree(unsigned char, Rectangle)</STRONG> (Thumb, 30 bytes, Stack size 24 bytes, gamerules.o(i._ZN8QuadtreeC1Eh9Rectangle))
+<P><STRONG><a name="[e1]"></a>Quadtree::Quadtree(unsigned char, Rectangle)</STRONG> (Thumb, 30 bytes, Stack size 24 bytes, gamerules.o(i._ZN8QuadtreeC1Eh9Rectangle))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = Quadtree::Quadtree(unsigned char, Rectangle)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::split()
+<BR>[Called By]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::split()
 </UL>
 
 <P><STRONG><a name="[130]"></a>Quadtree::Quadtree__sub_object(unsigned char, Rectangle)</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, gamerules.o(i._ZN8QuadtreeC1Eh9Rectangle), UNUSED)
 
-<P><STRONG><a name="[dd]"></a>Rectangle::Rectangle(short, short, unsigned short, unsigned short)</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, gamerules.o(i._ZN9RectangleC1Esstt))
+<P><STRONG><a name="[db]"></a>Rectangle::Rectangle(short, short, unsigned short, unsigned short)</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, gamerules.o(i._ZN9RectangleC1Esstt))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = Rectangle::Rectangle(short, short, unsigned short, unsigned short)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::split()
+<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::split()
+<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EntityList::update(unsigned short*, unsigned short*)
 </UL>
 
 <P><STRONG><a name="[131]"></a>Rectangle::Rectangle__sub_object(short, short, unsigned short, unsigned short)</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, gamerules.o(i._ZN9RectangleC1Esstt), UNUSED)
 
-<P><STRONG><a name="[dc]"></a>operator new(unsigned)</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, new.o(i._Znwj))
+<P><STRONG><a name="[d9]"></a>operator new(unsigned)</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, new.o(i._Znwj))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = operator new(unsigned) &rArr; malloc &rArr; __Heap_Full &rArr; __Heap_ProvideMemory &rArr; free
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;malloc
-<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_new_handler_addr
+<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_new_handler_addr
 </UL>
 <BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::split()
+<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::split()
+<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EntityList::update(unsigned short*, unsigned short*)
 </UL>
 
 <P><STRONG><a name="[cc]"></a>fillmessage</STRONG> (Thumb, 64 bytes, Stack size 12 bytes, st7735.o(i.fillmessage))
@@ -1434,38 +1446,38 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[99]"></a>main</STRONG> (Thumb, 438 bytes, Stack size 72 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 248 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 312 + Unknown Stack Size
 <LI>Call Chain = main &rArr; EntityList::update(unsigned short*, unsigned short*) &rArr; ST7735_OutUDec &rArr; ST7735_DrawString &rArr; ST7735_DrawCharS &rArr; ST7735_FillRect &rArr; setAddrWindow
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Buttons_Init
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_SetRotation
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InitR
-<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PLL_Init
-<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EnableInterrupts
-<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;operator new(unsigned)
-<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PortF_Init
-<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PortE_Init
-<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PortD_Init
-<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PortC_Init
-<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PortB_Init
-<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PortA_Init
-<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Entity::Entity(Rectangle, Vector, Vector, EntityType, unsigned, unsigned)
-<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EntityList::EntityList()
-<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GameTick_Init()
-<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Rectangle::Rectangle(short, short, unsigned short, unsigned short)
-<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::retrieve(EntityList*, Rectangle)
-<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::insert(Entity*)
-<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::insert(EntityList*)
-<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::clear()
-<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vector::Vector(short, short)
+<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PLL_Init
+<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EnableInterrupts
+<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;operator new(unsigned)
+<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PortF_Init
+<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PortE_Init
+<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PortD_Init
+<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PortC_Init
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PortB_Init
+<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PortA_Init
+<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EntityList::EntityList()
+<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GameTick_Init()
+<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Rectangle::Rectangle(short, short, unsigned short, unsigned short)
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::retrieve(EntityList*, Rectangle)
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::insert(Entity*)
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::insert(EntityList*)
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quadtree::clear()
+<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Vector::Vector(short, short)
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Entity::Entity(Rectangle, Vector, Vector, EntityType, unsigned, unsigned)
 <LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EntityList::update(unsigned short*, unsigned short*)
 <LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NormalizeAnalogInputs(unsigned short*, unsigned short*)
 <LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EraseEntities(EntityList*)
 <LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DrawEntities(EntityList*)
-<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_Init
+<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_Init
 <LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_In
-<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Accel_Init
-<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Thumbstick_Init
+<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Accel_Init
+<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Thumbstick_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
@@ -1476,7 +1488,7 @@ Local Symbols
 <P><STRONG><a name="[c8]"></a>commandList</STRONG> (Thumb, 86 bytes, Stack size 24 bytes, st7735.o(i.commandList))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = commandList &rArr; Delay1ms
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay1ms
+<BR>[Calls]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay1ms
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writedata
 <LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writecommand
 </UL>
@@ -1487,7 +1499,7 @@ Local Symbols
 <P><STRONG><a name="[c7]"></a>commonInit</STRONG> (Thumb, 340 bytes, Stack size 8 bytes, st7735.o(i.commonInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = commonInit &rArr; commandList &rArr; Delay1ms
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay1ms
+<BR>[Calls]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay1ms
 <LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commandList
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ST7735_InitR
@@ -1532,8 +1544,8 @@ Local Symbols
 <P><STRONG><a name="[d2]"></a>copyHardwareToSoftware</STRONG> (Thumb, 40 bytes, Stack size 4 bytes, uart.o(i.copyHardwareToSoftware))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = copyHardwareToSoftware
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RxFifo_Size
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RxFifo_Put
+<BR>[Calls]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RxFifo_Size
+<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RxFifo_Put
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART0_Handler
 </UL>
@@ -1542,7 +1554,7 @@ Local Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = copySoftwareToHardware
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TxFifo_Size
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TxFifo_Get
+<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TxFifo_Get
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_OutCharNonBlock
 <LI><a href="#[1d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART0_Handler

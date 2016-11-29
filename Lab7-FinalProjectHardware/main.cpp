@@ -99,7 +99,7 @@ int main(void) {
 	//  ST7735_Test();   waitForTouch(); Output_Clear();
 	//  DAC_Test(2);     waitForTouch(); Output_Clear();
 	//  Buttons_Test();  waitForTouch(); Output_Clear();
-	//  ADC_Test();      waitForTouch(); Output_Clear();
+  //  ADC_Test();      waitForTouch(); Output_Clear();
 	//  ESP_Test();      waitForTouch(); Output_Clear();
 	//  GameRulesTest(); waitForTouch(); Output_Clear();
 
@@ -107,8 +107,7 @@ int main(void) {
 	Quadtree * WorldSpace = new Quadtree(0, Screen); // initializes gamespace the same size as screen
 	
 	Entity * Player = new Entity(Rectangle(50<<7,50<<7,8<<7,8<<7), Vector(0,0), Vector(0,0), SHIP, 0, 0);
-	Entity * laser = new Entity(Rectangle(60<<7,60<<7,4<<7,4<<7), Vector(0,0), Vector(0,0), LASER, 0, 0);
-	
+	Entity * laser = new Entity(Rectangle(60<<7,60<<7,4<<7,4<<7), Vector(0,0), Vector(0,0), LASER, 0, 0); 
 	WorldSpace->insert(Player);
 	WorldSpace->insert(laser);
 	
