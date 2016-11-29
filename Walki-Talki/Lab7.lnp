@@ -14,7 +14,6 @@
 ".\switch.o"
 ".\timer0.o"
 ".\timer1.o"
-".\uart0.o"
 ".\uart1.o"
 ".\walkntalk.o"
 ".\startup.o"

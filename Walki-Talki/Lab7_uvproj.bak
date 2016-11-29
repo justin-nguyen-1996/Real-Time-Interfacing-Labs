@@ -481,6 +481,11 @@
               <FilePath>.\Timer1.c</FilePath>
             </File>
             <File>
+              <FileName>UART0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\UART0.c</FilePath>
+            </File>
+            <File>
               <FileName>UART1.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\UART1.c</FilePath>
