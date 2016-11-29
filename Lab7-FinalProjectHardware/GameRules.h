@@ -10,7 +10,8 @@ typedef enum {
   ASTEROID,
   SHIP,
   LASER,
-  MISSILE
+  MISSILE,
+	PARTICLE
 } EntityType;
 
 class Vector {

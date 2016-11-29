@@ -4,6 +4,7 @@ extern "C"{
 	#include "../inc/tm4c123gh6pm.h"
 	#include "ST7735.h"
 	#include "Graphics.h"
+	#include <stdlib.h>
 }
 #include "GameRules.h"
 #define NULL       0
@@ -32,6 +33,7 @@ void Entity::update (void)
 {
   Bounds.x += Velocity.x; Bounds.y += Velocity.y;
 	Velocity += Acceleration;
+	if (type == PARTICLE) { if (--data1 <= 0) dead = 1; }
 }
 
 void Entity::WallCollision(Rectangle B)
@@ -90,6 +92,7 @@ Entity * EntityList::pop (void) {
 }
 
 void EntityList::push (Entity * E) {
+	if (E == NULL) return;
   List[nextIndex++] = E;
 }
 
@@ -110,8 +113,15 @@ void EntityList::update(uint16_t * tstick, uint16_t * accel) {
 		{
 			E->Velocity.x = (int16_t) tstick[3] >> 2; //Thumbstick 2 X
 			E->Velocity.y = - (int16_t) tstick[2] >> 2; //Thumbstick 2 Y
+			if ( rand()%2 ) //create fire
+			{
+				Rectangle R( E->Bounds.x + ((2 + rand()%5)<<7), E->Bounds.y + ((2 + rand()%5)<<7), 1<<7, 1<<7);
+		//		push( new Entity( R, Vector(0,0), Vector(0,0), PARTICLE, 5+rand()%5, 0 ));
+			}
 		}
+		if (E->dead) { delete E; List[i] = NULL; }
 	}
+	removeZeroes();
 }
 
 void EntityList::clear(void) {
@@ -184,6 +194,7 @@ int8_t Quadtree::getQuadrant (Rectangle R)
 // recursively finds the smallest quadrant in which to insert the given entity
 void Quadtree::insert (Entity * E)
 {
+	if (E == NULL) return;
 	if (nodes[0] != NULL) // why nodes[0] -- Check if any are initialized. Since all get "new"-ed at the same time during split()
 	{
 		int8_t quadrant = getQuadrant(E->Bounds);
@@ -257,6 +268,10 @@ void DrawEntities(EntityList * L)
 		if (E->type == SHIP)
 		{
 			ST7735_DrawBitmap(E->Bounds.x >> 7, E->Bounds.y + E->Bounds.h >> 7, Bitmap_Ship[E->direction()], E->Bounds.w >> 7, E->Bounds.h >> 7);
+		}
+		if (E->type == PARTICLE)
+		{
+			ST7735_DrawPixel(E->Bounds.x >> 7, E->Bounds.y >> 7, ST7735_RED); 
 		}
 	}
 }

@@ -9,34 +9,53 @@ Project File Date:  11/07/2016
 <h2>Output:</h2>
 Build target 'Lab7'
 compiling GameRules.cpp...
-GameRules.cpp(68): warning:  #68-D: integer conversion resulted in a change of sign
+GameRules.cpp(70): warning:  #68-D: integer conversion resulted in a change of sign
         else return -1;
-GameRules.cpp(58): warning:  #177-D: variable "near_45" was declared but never referenced
+GameRules.cpp(60): warning:  #177-D: variable "near_45" was declared but never referenced
         bool near_45 = !near_0 && !near_90;
 GameRules.cpp: 2 warnings, 0 errors
 linking...
-Program Size: Code=8004 RO-data=3076 RW-data=148 ZI-data=7300  
+Program Size: Code=8384 RO-data=3076 RW-data=148 ZI-data=7524  
 ".\Lab7.axf" - 0 Error(s), 2 Warning(s).
 Load "C:\\Users\\T\\Downloads\\_PDFS\\ValvanoWareTM4C123\\Real-Time-Interfacing-Labs\\Lab7-FinalProjectHardware\\Lab7.axf" 
 Connecting: Mode=JTAG, Speed=1000000Hz
 Erase Done.
 Programming Done.
 Verify OK.
- RO-data=3076 RW-data=148 ZI-data=7300  
-".\Lab7.axf" - 0 Error(s), 4 Warning(s).
-Load "C:\\Users\\T\\Downloads\\_PDFS\\ValvanoWareTM4C123\\Real-Time-Interfacing-Labs\\Lab7-FinalProjectHardware\\Lab7.axf" 
-Connecting: Mode=JTAG, Speed=1000000Hz
-Erase Done.
-Programming Done.
-Verify OK.
-=7984 RO-data=3076 RW-data=148 ZI-data=7300  
-".\Lab7.axf" - 0 Error(s), 4 Warning(s).
-Load "C:\\Users\\T\\Downloads\\_PDFS\\ValvanoWareTM4C123\\Real-Time-Interfacing-Labs\\Lab7-FinalProjectHardware\\Lab7.axf" 
-Connecting: Mode=JTAG, Speed=1000000Hz
-Erase Done.
-Programming Done.
-Verify OK.
-c uint16_t tstick[4]; static uint16_t accel[3];
+</pre>
+</body>
+</html>
+nced
+        uint32_t tick = 0;
+main.cpp(25): warning:  #177-D: variable "BAUD_RATE" was declared but never referenced
+  static const int BAUD_RATE = 115200;
+main.cpp(26): warning:  #177-D: variable "tstick" was declared but never referenced
+  static uint16_t tstick[4]; static uint16_t accel[3];
+main.cpp(26): warning:  #177-D: variable "accel" was declared but never referenced
+  static uint16_t tstick[4]; static uint16_t accel[3];
 main.cpp: 4 warnings, 0 errors
-".\Lab7.axf" - 4 Error(s), 6 Warning(s).
+compiling PortInit.c...
+compiling LED.c...
+linking...
+Program Size: Code=8504 RO-data=3076 RW-data=148 ZI-data=7524  
+".\Lab7.axf" - 0 Error(s), 6 Warning(s).
+Load "C:\\Users\\T\\Downloads\\_PDFS\\ValvanoWareTM4C123\\Real-Time-Interfacing-Labs\\Lab7-FinalProjectHardware\\Lab7.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+eal-Time-Interfacing-Labs\Lab7-FinalProjectHardware\Lab7.axf'
+               ST7735_DrawPixel(E->x >> 7, E->y >> 7, ST7735_RED); 
+GameRules.cpp: 2 warnings, 7 errors
+compiling main.cpp...
+main.cpp(109): warning:  #177-D: variable "tick" was declared but never referenced
+        uint32_t tick = 0;
+main.cpp(25): warning:  #177-D: variable "BAUD_RATE" was declared but never referenced
+  static const int BAUD_RATE = 115200;
+main.cpp(26): warning:  #177-D: variable "tstick" was declared but never referenced
+  static uint16_t tstick[4]; static uint16_t accel[3];
+main.cpp(26): warning:  #177-D: variable "accel" was declared but never referenced
+  static uint16_t tstick[4]; static uint16_t accel[3];
+main.cpp: 4 warnings, 0 errors
+".\Lab7.axf" - 7 Error(s), 6 Warning(s).
 Target not created
