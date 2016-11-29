@@ -57,15 +57,15 @@ I (Thumbstick.h)(0x583D0454)
 I (Debug.h)(0x581577EF)
 I (ST7735.h)(0x5806936D)
 I (PortInit.h)(0x58157C23)
-F (.\GameRules.cpp)(0x583D2186)(--cpp -c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\..-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\gamerules.o --omf_browse .\gamerules.crf --depend .\gamerules.d)
+F (.\GameRules.cpp)(0x583D2CC6)(--cpp -c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\..-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\gamerules.o --omf_browse .\gamerules.crf --depend .\gamerules.d)
 I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C87C24)
 I (../inc/tm4c123gh6pm.h)(0x57FB0F73)
 I (ST7735.h)(0x5806936D)
 I (Graphics.h)(0x581568BA)
 I (Thumbstick.h)(0x583D0454)
 I (Accel.h)(0x58157A7E)
-I (GameRules.h)(0x583D2387)
-F (.\main.cpp)(0x583D2426)(--cpp -c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\..-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\main.o --omf_browse .\main.crf --depend .\main.d)
+I (GameRules.h)(0x583D2BC4)
+F (.\main.cpp)(0x583D2987)(--cpp -c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\..-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\main.o --omf_browse .\main.crf --depend .\main.d)
 I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C87C24)
 I (../inc/tm4c123gh6pm.h)(0x57FB0F73)
 I (PLL.h)(0x57F3F374)
@@ -79,7 +79,7 @@ I (Accel.h)(0x58157A7E)
 I (Graphics.h)(0x581568BA)
 I (ADC.h)(0x5819434B)
 I (PortInit.h)(0x58157C23)
-I (GameRules.h)(0x583D2387)
+I (GameRules.h)(0x583D2BC4)
 F (.\PortInit.c)(0x5814D83A)(--c99 -c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\..-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\portinit.o --omf_browse .\portinit.crf --depend .\portinit.d)
 I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C87C24)
 I (../inc/tm4c123gh6pm.h)(0x57FB0F73)

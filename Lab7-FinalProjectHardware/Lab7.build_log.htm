@@ -8,36 +8,103 @@ Project File Date:  11/04/2016
 
 <h2>Output:</h2>
 Build target 'Lab7'
+compiling GameRules.cpp...
+linking...
+Program Size: Code=8988 RO-data=3108 RW-data=148 ZI-data=7308  
+".\Lab7.axf" - 0 Error(s), 0 Warning(s).
+_0 && !near_90;
+GameRules.cpp: 1 warning, 0 errors
+linking...
+Program Size: Code=9004 RO-data=3108 RW-data=148 ZI-data=7308  
+".\Lab7.axf" - 0 Error(s), 1 Warning(s).
+..
+Program Size: Code=9004 RO-data=3108 RW-data=148 ZI-data=7308  
+".\Lab7.axf" - 0 Error(s), 2 Warning(s).
+p_Ship[E->direction]; }
+GameRules.cpp: 2 warnings, 1 error
 compiling main.cpp...
 main.cpp(115): warning:  #177-D: variable "tick" was declared but never referenced
         uint32_t tick = 0;
 main.cpp: 1 warning, 0 errors
-linking...
-Program Size: Code=8816 RO-data=2212 RW-data=148 ZI-data=7308  
-".\Lab7.axf" - 0 Error(s), 1 Warning(s).
-Load "C:\\Keil\\ValvanoWareTM4C123\\EE-445L-Labs\\Lab7-FinalProjectHardware\\Lab7.axf" 
-Connecting: Mode=JTAG, Speed=1000000Hz
-Erase Done.
-Programming Done.
-Verify OK.
-ain.cpp: 1 warning, 0 errors
-".\Lab7.axf" - 1 Error(s), 2 Warning(s).
+".\Lab7.axf" - 1 Error(s), 3 Warning(s).
 Target not created
-Load "C:\\Keil\\ValvanoWareTM4C123\\EE-445L-Labs\\Lab7-FinalProjectHardware\\Lab7.axf" 
-_____^
-*** error 56: cannot open file
-Error: Flash Download failed  -  Could not load file 'C:\Keil\ValvanoWareTM4C123\EE-445L-Labs\Lab7-FinalProjectHardware\Lab7.axf'
-ning:  #177-D: variable "accel" was declared but never referenced
-  static uint16_t tstick[4]; static uint16_t accel[3];
-main.cpp: 4 warnings, 0 errors
-".\Lab7.axf" - 2 Error(s), 5 Warning(s).
+ax error
+        },
+GameRules.h(136): warning:  #991-D: extra braces are nonstandard
+        { //Ship3 (downRight)
+GameRules.h(137): error:  #67: expected a "}"
+GameRules.h(141): warning:  #12-D: parsing restarts here after previous syntax error
+        },
+GameRules.h(142): warning:  #991-D: extra braces are nonstandard
+        { //Ship4 (down)
+GameRules.h(143): error:  #67: expected a "}"
+GameRules.h(147): warning:  #12-D: parsing restarts here after previous syntax error
+        },      
+GameRules.h(148): warning:  #991-D: extra braces are nonstandard
+        {//Ship5 (downLeft)
+GameRules.h(149): error:  #67: expected a "}"
+GameRules.h(153): warning:  #12-D: parsing restarts here after previous syntax error
+        },      
+GameRules.h(154): warning:  #991-D: extra braces are nonstandard
+        { //Ship6 (Left)
+GameRules.h(155): error:  #67: expected a "}"
+GameRules.h(159): warning:  #12-D: parsing restarts here after previous syntax error
+        },
+GameRules.h(160): warning:  #991-D: extra braces are nonstandard
+        { //Ship7 (upLeft)
+GameRules.h(161): error:  #67: expected a "}"
+GameRules.h(165): warning:  #12-D: parsing restarts here after previous syntax error
+        }
+GameRules.cpp(70): warning:  #68-D: integer conversion resulted in a change of sign
+        else return -1;
+GameRules.cpp(60): warning:  #177-D: variable "near_45" was declared but never referenced
+        bool near_45 = !near_0 && !near_90;
+GameRules.cpp(266): error:  #300: a pointer to a bound function may only be used to call the function
+                if (E->type == SHIP) { bitmap = Bitmap_Ship[E->direction]; }
+GameRules.cpp: 18 warnings, 9 errors
+compiling main.cpp...
+GameRules.h(118): warning:  #991-D: extra braces are nonstandard
+        { //Ship0 (up)
+GameRules.h(119): error:  #67: expected a "}"
+GameRules.h(123): warning:  #12-D: parsing restarts here after previous syntax error
+        },
+GameRules.h(124): warning:  #991-D: extra braces are nonstandard
+        { //Ship1 (upRight)
+GameRules.h(125): error:  #67: expected a "}"
+GameRules.h(129): warning:  #12-D: parsing restarts here after previous syntax error
+        },
+GameRules.h(130): warning:  #991-D: extra braces are nonstandard
+        { //Ship2 (Right)
+GameRules.h(131): error:  #67: expected a "}"
+GameRules.h(135): warning:  #12-D: parsing restarts here after previous syntax error
+        },
+GameRules.h(136): warning:  #991-D: extra braces are nonstandard
+        { //Ship3 (downRight)
+GameRules.h(137): error:  #67: expected a "}"
+GameRules.h(141): warning:  #12-D: parsing restarts here after previous syntax error
+        },
+GameRules.h(142): warning:  #991-D: extra braces are nonstandard
+        { //Ship4 (down)
+GameRules.h(143): error:  #67: expected a "}"
+GameRules.h(147): warning:  #12-D: parsing restarts here after previous syntax error
+        },      
+GameRules.h(148): warning:  #991-D: extra braces are nonstandard
+        {//Ship5 (downLeft)
+GameRules.h(149): error:  #67: expected a "}"
+GameRules.h(153): warning:  #12-D: parsing restarts here after previous syntax error
+        },      
+GameRules.h(154): warning:  #991-D: extra braces are nonstandard
+        { //Ship6 (Left)
+GameRules.h(155): error:  #67: expected a "}"
+GameRules.h(159): warning:  #12-D: parsing restarts here after previous syntax error
+        },
+GameRules.h(160): warning:  #991-D: extra braces are nonstandard
+        { //Ship7 (upLeft)
+GameRules.h(161): error:  #67: expected a "}"
+GameRules.h(165): warning:  #12-D: parsing restarts here after previous syntax error
+        }
+main.cpp(115): warning:  #177-D: variable "tick" was declared but never referenced
+        uint32_t tick = 0;
+main.cpp: 17 warnings, 8 errors
+".\Lab7.axf" - 17 Error(s), 35 Warning(s).
 Target not created
-\\Keil\\ValvanoWareTM4C123\\EE-445L-Labs\\Lab7-FinalProjectHardware\\Lab7.axf" 
-Connecting: Mode=JTAG, Speed=1000000Hz
-Connection failed!, error code=&d
-Error: Flash Download failed  -  Target DLL has been cancelled
-Load "C:\\Keil\\ValvanoWareTM4C123\\EE-445L-Labs\\Lab7-FinalProjectHardware\\Lab7.axf" 
-Connecting: Mode=JTAG, Speed=1000000Hz
-Erase Done.
-Programming Done.
-Verify OK.

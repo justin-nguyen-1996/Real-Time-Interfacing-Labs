@@ -103,7 +103,7 @@ int main(void) {
 	//  ESP_Test();      waitForTouch(); Output_Clear();
 	//  GameRulesTest(); waitForTouch(); Output_Clear();
 
-	Rectangle Screen (0,0,128<<7,160<<7);
+	Rectangle Screen (0,0,160<<7,128<<7);
 	Quadtree * WorldSpace = new Quadtree(0, Screen); // initializes gamespace the same size as screen
 	
 	Entity * Player = new Entity(Rectangle(50<<7,50<<7,8<<7,8<<7), Vector(0,0), Vector(0,0), SHIP, 0, 0);
@@ -128,12 +128,11 @@ int main(void) {
 			WorldSpace->retrieve(&AllEntities, Screen);
 			EraseEntities(&AllEntities);
 			AllEntities.update(tstick, accel);
+			DrawEntities(&AllEntities);
 			WorldSpace->clear();
 			WorldSpace->insert(&AllEntities);
-			DrawEntities(&AllEntities);
 
 			//WorldSpace->drawBounds();
-
 
 			// check for collisions
 		}

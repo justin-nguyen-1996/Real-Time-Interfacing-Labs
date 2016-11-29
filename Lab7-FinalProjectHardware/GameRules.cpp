@@ -47,6 +47,30 @@ void Entity::WallCollision(Rectangle B)
 	}
 }
 
+uint8_t Entity::direction(void)
+{
+	int16_t x = Velocity.x;
+  int16_t y = -(Velocity.y);
+  bool neg_x = x<0; //x is negative
+	bool neg_y = y<0; //y is negative
+	x = neg_x ? -x : x;
+	y = neg_y ? -y : y;
+	bool near_0 = 500*x<207*y; // a/b < 207107/500000
+	bool near_90 = 207*x>500*y; // a/b > 500000/207107
+//	bool near_45 = !near_0 && !near_90;
+
+	if (!neg_y && near_0)       return 0;
+  else if (!neg_x && near_90) return 2;
+	else if (neg_y && near_0)   return 4;
+	else if (neg_x && near_90)  return 6;
+	else if (!neg_x && !neg_y)  return 1; 
+	else if (!neg_x && neg_y)   return 3;
+	else if (neg_x && neg_y)    return 5;
+	else if (neg_x && !neg_y)   return 7;
+	else return 0xFF; // can't return -1 because of return type
+}
+		
+
 
 // ********************************************
 // *            EntityList Methods            *
@@ -87,12 +111,13 @@ void EntityList::update(uint16_t * tstick, uint16_t * accel) {
 		if (E->type == SHIP) {
 			E->Velocity.x = (int16_t) tstick[TSTICK2_H];
 			E->Velocity.y = (int16_t) tstick[TSTICK2_V];
-		} else if (E->type == MISSILE  ||  E->type == SHIP) {
+		} else if (E->type == MISSILE) {
 			ST7735_SetCursor(0,0); ST7735_OutUDec(accel[ACCEL_X]);
 			ST7735_SetCursor(0,1); ST7735_OutUDec(accel[ACCEL_Y]);
 			E->Velocity.x = (int16_t) accel[ACCEL_X];
 			E->Velocity.y = (int16_t) accel[ACCEL_Y];
 		}
+    
 	}
 }
 
@@ -238,10 +263,10 @@ void DrawEntities(EntityList * L)
 		Entity * E = L->List[i];
 		const unsigned short* bitmap;
 		
-		if (E->type == SHIP) { bitmap = Bitmap_Ship; }
+		if (E->type == SHIP) { bitmap = Bitmap_Ship[E->direction()]; }
 		else if (E->type == LASER) { bitmap = Bitmap_GreenLaser; }
 		
-		ST7735_DrawBitmap(E->Bounds.x >> 7, E->Bounds.y + E->Bounds.h >> 7, bitmap, E->Bounds.w >> 7, E->Bounds.h >> 7);
+		ST7735_DrawBitmap(E->Bounds.x >> 7, (E->Bounds.y + E->Bounds.h) >> 7, bitmap, E->Bounds.w >> 7, E->Bounds.h >> 7);
 	}
 }
 
@@ -250,7 +275,7 @@ void EraseEntities(EntityList * L)
 	for (int i = 0; i < L->nextIndex; i++)
 	{
 		Entity * E = L->List[i];
-		ST7735_FillRect((E->Bounds.x>>7), (E->Bounds.y>>7), (E->Bounds.w>>7), (E->Bounds.h>>7), ST7735_BLACK);
+		ST7735_FillRect((E->Bounds.x>>7), (E->Bounds.y>>7), (E->Bounds.w>>7)+1, (E->Bounds.h>>7)+1, ST7735_BLACK);
 	}
 }
 
