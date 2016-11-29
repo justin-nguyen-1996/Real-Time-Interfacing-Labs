@@ -364,7 +364,9 @@ void Trevor_ESPTest(void)
   if(ESP8266_Reset()==0){ 
     printf("Reset failure, could not reset\n\r"); while(1){};
   }
-
+	if(ESP8266_Restore()==0){ 
+    printf("Restore failure, could not restore\n\r"); while(1){};
+  }
 	if(ESP8266_SetDataTransmissionMode(0)==0){ 
     printf("SetDataTransmissionMode, could not make connection\n\r"); while(1){};
   }
@@ -373,16 +375,17 @@ void Trevor_ESPTest(void)
 	// step 2: AT+CWMODE=1 set wifi mode to client and access point
 	int retVal; 
 	if (ESP_ID) { retVal = ESP8266_SetWifiMode(ESP8266_WIFI_MODE_AP); }
-	else {retVal = ESP8266_SetWifiMode(ESP8266_WIFI_MODE_CLIENT);}
+	else {retVal = ESP8266_SetWifiMode(ESP8266_WIFI_MODE_AP_AND_CLIENT);}
   if(retVal==0){ printf("SetWifiMode, could not set mode\n\r"); while(1){}; }
 
-	ESP8266_SetConnectionMux(1);
 		
 	if (ESP_ID) 
 	{ 
+		ESP8266_SetConnectionMux(1);
 		retVal = ESP8266_ConfigureAccessPoint("JANDTESP1", "pass", 2, 0); 
 		ESP8266_EnableServer(80);
 		DelayMs(4000);
+		ESP8266_SetServerTimeout(600);
 	}
 	else {}// retVal = ESP8266_ConfigureAccessPoint("JANDTESP0", "pass", 1, 0); }
 	if (retVal == 0) { printf("Could not configure access point\n\r"); while (1){} }
@@ -473,11 +476,30 @@ void ESP8266_Init(uint32_t baud){
   ESP8266_InputProcessingEnabled = false; // not a server
 }
 
+//---------ESP8266_Restore-----
+// Restore the ESP8266 module to default values
+// Inputs: none
+// Outputs: 1 if success, 0 if fail
+int ESP8266_Restore(void) {
+	int try=MAXTRY;
+  SearchStart("ready");
+  while(try){
+		ESP8266SendCommand("+++\r\n");
+		DelayMs(4000);
+		ESP8266SendCommand("AT+RESTORE\r\n");
+		if(SearchFound) return 1; //success
+		try--;
+	}
+  return 0; // fail
+}
+
 //----------ESP8266_Reset------------
 // resets the esp8266 module
 // input:  none
 // output: 1 if success, 0 if fail
-int ESP8266_Reset(){int try=MAXTRY;
+int ESP8266_Reset()
+{
+	int try=MAXTRY;
   SearchStart("ready");
   while(try){
     GPIO_PORTB_DATA_R &= ~0x04; // reset low
@@ -633,7 +655,7 @@ int ESP8266_MakeTCPConnection(char *IPaddress){
   int try=MAXTRY;
   SearchStart("ok");
   while(try){
-    sprintf((char*)TXBuffer, "AT+CIPSTART=4,\"TCP\",\"%s\",80\r\n", IPaddress);
+    sprintf((char*)TXBuffer, "AT+CIPSTART=\"TCP\",\"%s\",80,600\r\n", IPaddress);
     ESP8266SendCommand(TXBuffer);   // open and connect to a socket
     DelayMsSearching(8000);
     if(SearchFound) return 1; // success

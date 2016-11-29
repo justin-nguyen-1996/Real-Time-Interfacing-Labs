@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\esp8266.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\esp8266.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Mon Nov 28 19:05:49 2016
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Mon Nov 28 21:40:08 2016
 <BR><P>
 <H3>Maximum Stack Usage =         88 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -650,7 +650,8 @@ Global Symbols
 <P><STRONG><a name="[90]"></a>DelayMs</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, esp8266.o(i.DelayMs))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = DelayMs
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Reset
+<BR>[Called By]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Restore
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Reset
 </UL>
 
 <P><STRONG><a name="[8d]"></a>DelayMsSearching</STRONG> (Thumb, 42 bytes, Stack size 8 bytes, esp8266.o(i.DelayMsSearching))
@@ -658,7 +659,6 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetWifiMode
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetDataTransmissionMode
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetConnectionMux
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Reset
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_MakeTCPConnection
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_JoinAccessPoint
@@ -681,7 +681,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetWifiMode
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetDataTransmissionMode
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetConnectionMux
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Restore
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Reset
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_MakeTCPConnection
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_JoinAccessPoint
@@ -732,13 +732,12 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trevor_ESPTest
 </UL>
 
-<P><STRONG><a name="[91]"></a>ESP8266_SetConnectionMux</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, esp8266.o(i.ESP8266_SetConnectionMux))
-<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = ESP8266_SetConnectionMux &rArr; __2sprintf
+<P><STRONG><a name="[91]"></a>ESP8266_Restore</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, esp8266.o(i.ESP8266_Restore))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = ESP8266_Restore &rArr; SearchStart
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SearchStart
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DelayMsSearching
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DelayMs
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266SendCommand
-<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trevor_ESPTest
 </UL>
@@ -849,7 +848,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetWifiMode
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetDataTransmissionMode
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetConnectionMux
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Restore
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Reset
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_MakeTCPConnection
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_JoinAccessPoint
@@ -864,13 +863,13 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266FIFOtoBuffer
 </UL>
 
-<P><STRONG><a name="[a4]"></a>Trevor_ESPTest</STRONG> (Thumb, 170 bytes, Stack size 0 bytes, esp8266.o(i.Trevor_ESPTest))
+<P><STRONG><a name="[a4]"></a>Trevor_ESPTest</STRONG> (Thumb, 180 bytes, Stack size 0 bytes, esp8266.o(i.Trevor_ESPTest))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40 + Unknown Stack Size
 <LI>Call Chain = Trevor_ESPTest &rArr; ESP8266_SetWifiMode &rArr; __2sprintf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetWifiMode
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetDataTransmissionMode
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetConnectionMux
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Restore
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Reset
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_MakeTCPConnection
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_JoinAccessPoint
@@ -975,7 +974,6 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetWifiMode
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetDataTransmissionMode
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_SetConnectionMux
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_MakeTCPConnection
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_JoinAccessPoint
 </UL>

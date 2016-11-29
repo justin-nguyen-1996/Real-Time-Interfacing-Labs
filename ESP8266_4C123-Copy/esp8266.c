@@ -286,7 +286,7 @@ int ESP8266_Restore(void) {
 	return SUCCESS;
 }
 
-//---------ESP8266_Restore-----
+//---------ESP8266_Reset-----
 // Reset the ESP8266 module
 // Inputs: none
 // Outputs: 1 if success, 0 if fail
