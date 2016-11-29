@@ -108,8 +108,8 @@ void EntityList::update(uint16_t * tstick, uint16_t * accel) {
 		E->update();
 		if (E->type == SHIP)
 		{
-			E->Velocity.x = (int16_t) tstick[3] >> 2; //Thumbstick 2 X
-			E->Velocity.y = - (int16_t) tstick[2] >> 2; //Thumbstick 2 Y
+			E->Velocity.x = (int16_t) tstick[3] >> 1; //Thumbstick 2 X
+			E->Velocity.y = - (int16_t) tstick[2] >> 1; //Thumbstick 2 Y
 		}
 	}
 }
@@ -266,7 +266,7 @@ void EraseEntities(EntityList * L)
 	for (int i = 0; i < L->nextIndex; i++)
 	{	
 		Entity * E = L->List[i];
-		ST7735_FillRect((E->Bounds.x>>7), (E->Bounds.y>>7), (E->Bounds.w>>7)+1, (E->Bounds.h>>7)+1, ST7735_BLACK);
+		ST7735_FillRect((E->Bounds.x>>7), (E->Bounds.y>>7), (E->Bounds.w>>7), (E->Bounds.h>>7), ST7735_BLACK);
 	}
 }
 
