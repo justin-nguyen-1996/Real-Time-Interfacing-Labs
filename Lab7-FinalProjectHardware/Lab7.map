@@ -1,4 +1,4 @@
-ARM Linker, 5.03 [Build 76] [MDK-ARM Lite]
+ARM Linker, 5.03 [Build 76] [MDK-ARM Professional]
 
 ==============================================================================
 
@@ -370,6 +370,8 @@ Section Cross References
     gamerules.o(i._Z13GameRulesTestv) refers to gamerules.o(i._ZN8Quadtree8retrieveEP10EntityList9Rectangle) for Quadtree::retrieve(EntityList*, Rectangle)
     gamerules.o(i._Z13GameRulesTestv) refers to gamerules.o(i._Z12DrawEntitiesP10EntityList) for DrawEntities(EntityList*)
     gamerules.o(i._ZN10EntityList6updateEPtS0_) refers to gamerules.o(i._ZN6Entity6updateEv) for Entity::update()
+    gamerules.o(i._ZN10EntityList6updateEPtS0_) refers to st7735.o(i.ST7735_SetCursor) for ST7735_SetCursor
+    gamerules.o(i._ZN10EntityList6updateEPtS0_) refers to st7735.o(i.ST7735_OutUDec) for ST7735_OutUDec
     gamerules.o(i._ZN8Quadtree10drawBoundsEv) refers to graphics.o(i.ST7735_Line) for ST7735_Line
     gamerules.o(i._ZN8Quadtree5clearEv) refers to gamerules.o(i._ZN10EntityList5clearEv) for EntityList::clear()
     gamerules.o(i._ZN8Quadtree5splitEv) refers to new.o(i._Znwj) for operator new(unsigned)
@@ -425,6 +427,7 @@ Section Cross References
     main.o(i.main) refers to new.o(i._Znwj) for operator new(unsigned)
     main.o(i.main) refers to main.o(i._ZN10EntityListC1Ev) for EntityList::EntityList()
     main.o(i.main) refers to gamerules.o(i._ZN6VectorC1Ess) for Vector::Vector(short, short)
+    main.o(i.main) refers to main.o(i._ZN6EntityC1E9Rectangle6VectorS1_10EntityTypejj) for Entity::Entity(Rectangle, Vector, Vector, EntityType, unsigned, unsigned)
     main.o(i.main) refers to gamerules.o(i._ZN8Quadtree6insertEP6Entity) for Quadtree::insert(Entity*)
     main.o(i.main) refers to adc.o(i.ADC_In) for ADC_In
     main.o(i.main) refers to gamerules.o(i._Z21NormalizeAnalogInputsPtS_) for NormalizeAnalogInputs(unsigned short*, unsigned short*)
@@ -841,6 +844,7 @@ Section Cross References
     gamerules.o(.ARM.exidx) refers to gamerules.o(i._ZN9RectangleC1Esstt) for i._ZN9RectangleC1Esstt
     gamerules.o(.ARM.exidx) refers to gamerules.o(i._ZN8QuadtreeC1Eh9Rectangle) for i._ZN8QuadtreeC1Eh9Rectangle
     gamerules.o(.ARM.exidx) refers to gamerules.o(i._ZN6VectorC1Ess) for i._ZN6VectorC1Ess
+    main.o(.ARM.exidx) refers to main.o(i._ZN6EntityC1E9Rectangle6VectorS1_10EntityTypejj) for i._ZN6EntityC1E9Rectangle6VectorS1_10EntityTypejj
     main.o(.ARM.exidx) refers to main.o(i._ZN10EntityListC1Ev) for i._ZN10EntityListC1Ev
     bad_alloc_dtor.o(.constdata__ZTVSt9bad_alloc) refers to bad_alloc_dtor.o(.constdata__ZTISt9bad_alloc) for typeinfo for std::bad_alloc
     bad_alloc_dtor.o(.constdata__ZTVSt9bad_alloc) refers to bad_alloc_dtor.o(i._ZNSt9bad_allocD1Ev) for std::bad_alloc::~bad_alloc()
@@ -966,16 +970,12 @@ Removing Unused input sections from the image.
     Removing st7735.o(i.Output_On), (8 bytes).
     Removing st7735.o(i.ST7735_Color565), (24 bytes).
     Removing st7735.o(i.ST7735_DrawChar), (268 bytes).
-    Removing st7735.o(i.ST7735_DrawCharS), (244 bytes).
     Removing st7735.o(i.ST7735_DrawFastHLine), (124 bytes).
     Removing st7735.o(i.ST7735_DrawFastVLine), (124 bytes).
-    Removing st7735.o(i.ST7735_DrawPixel), (72 bytes).
-    Removing st7735.o(i.ST7735_DrawString), (86 bytes).
     Removing st7735.o(i.ST7735_InitB), (40 bytes).
     Removing st7735.o(i.ST7735_InvertDisplay), (22 bytes).
     Removing st7735.o(i.ST7735_OutChar), (212 bytes).
     Removing st7735.o(i.ST7735_OutString), (24 bytes).
-    Removing st7735.o(i.ST7735_OutUDec), (140 bytes).
     Removing st7735.o(i.ST7735_Output_Init), (16 bytes).
     Removing st7735.o(i.ST7735_PlotBar), (88 bytes).
     Removing st7735.o(i.ST7735_PlotClear), (92 bytes).
@@ -989,9 +989,6 @@ Removing Unused input sections from the image.
     Removing st7735.o(i.ST7735_SwapColor), (18 bytes).
     Removing st7735.o(i.ferror), (8 bytes).
     Removing st7735.o(i.fgetc), (6 bytes).
-    Removing st7735.o(i.fillmessage), (72 bytes).
-    Removing st7735.o(i.pushColor), (18 bytes).
-    Removing st7735.o(.bss), (12 bytes).
     Removing buttons.o(i.Buttons_Test), (96 bytes).
     Removing uart.o(i.Output_Init), (8 bytes).
     Removing uart.o(i.RxFifo_Get), (60 bytes).
@@ -1063,8 +1060,9 @@ Removing Unused input sections from the image.
     Removing gamerules.o(.ARM.exidx), (8 bytes).
     Removing gamerules.o(.ARM.exidx), (8 bytes).
     Removing main.o(.ARM.exidx), (8 bytes).
+    Removing main.o(.ARM.exidx), (8 bytes).
 
-137 unused section(s) (total 9474 bytes) removed from the image.
+131 unused section(s) (total 8838 bytes) removed from the image.
 
 ==============================================================================
 
@@ -1075,154 +1073,154 @@ Image Symbol Table
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
     RESET                                    0x00000000   Section      644  startup.o(RESET)
-    ../../../edgfe/lib_src/arm_exceptions.c  0x00000000   Number         0  arm_exceptions_terminate.o ABSOLUTE
     ../../../edgfe/lib_src/arm_exceptions.c  0x00000000   Number         0  arm_exceptions_globs.o ABSOLUTE
+    ../../../edgfe/lib_src/arm_exceptions.c  0x00000000   Number         0  arm_exceptions_terminate.o ABSOLUTE
     ../../../edgfe/lib_src/arm_exceptions.c  0x00000000   Number         0  arm_exceptions_mem.o ABSOLUTE
     ../../../edgfe/lib_src/arm_noexceptions.c 0x00000000   Number         0  arm_newhandler_noexceptions.o ABSOLUTE
     ../../../edgfe/lib_src/arm_noexceptions.c 0x00000000   Number         0  arm_callunex_noexceptions.o ABSOLUTE
     ../../../edgfe/lib_src/bad_alloc.c       0x00000000   Number         0  bad_alloc_dtor.o ABSOLUTE
     ../../../edgfe/lib_src/bad_alloc.c       0x00000000   Number         0  bad_alloc_what.o ABSOLUTE
     ../../../edgfe/lib_src/delete.c          0x00000000   Number         0  delete.o ABSOLUTE
-    ../../../edgfe/lib_src/exception.c       0x00000000   Number         0  exception_what.o ABSOLUTE
     ../../../edgfe/lib_src/exception.c       0x00000000   Number         0  exception_dtor.o ABSOLUTE
+    ../../../edgfe/lib_src/exception.c       0x00000000   Number         0  exception_what.o ABSOLUTE
     ../../../edgfe/lib_src/new.c             0x00000000   Number         0  new.o ABSOLUTE
     ../../../edgfe/lib_src/typeinfo.c        0x00000000   Number         0  type_info_dtor.o ABSOLUTE
     ../../../edgfe/lib_src/typeinfo.c        0x00000000   Number         0  lib_rtti_impl.o ABSOLUTE
+    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit1.o ABSOLUTE
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit2.o ABSOLUTE
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit3.o ABSOLUTE
     ../clib/angel/boardlib.s                 0x00000000   Number         0  boardshut.o ABSOLUTE
-    ../clib/angel/boardlib.s                 0x00000000   Number         0  boardinit1.o ABSOLUTE
-    ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_copy.o ABSOLUTE
     ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_zi.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  rtentry.o ABSOLUTE
+    ../clib/angel/handlers.s                 0x00000000   Number         0  __scatter_copy.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit2.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  rtentry.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  rtentry2.o ABSOLUTE
-    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit.o ABSOLUTE
     ../clib/angel/kernel.s                   0x00000000   Number         0  rtentry4.o ABSOLUTE
+    ../clib/angel/kernel.s                   0x00000000   Number         0  rtexit.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  rt_heap_descriptor.o ABSOLUTE
-    ../clib/angel/rt.s                       0x00000000   Number         0  rt_eh_globals_addr_intlibspace.o ABSOLUTE
+    ../clib/angel/rt.s                       0x00000000   Number         0  rt_heap_descriptor_intlibspace.o ABSOLUTE
+    ../clib/angel/rt.s                       0x00000000   Number         0  rt_new_handler_addr.o ABSOLUTE
+    ../clib/angel/rt.s                       0x00000000   Number         0  rt_new_handler_addr_intlibspace.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  rt_eh_globals_addr.o ABSOLUTE
+    ../clib/angel/rt.s                       0x00000000   Number         0  rt_eh_globals_addr_intlibspace.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  rt_errno_addr.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  rt_errno_addr_intlibspace.o ABSOLUTE
     ../clib/angel/rt.s                       0x00000000   Number         0  rt_raise.o ABSOLUTE
-    ../clib/angel/rt.s                       0x00000000   Number         0  rt_new_handler_addr.o ABSOLUTE
-    ../clib/angel/rt.s                       0x00000000   Number         0  rt_new_handler_addr_intlibspace.o ABSOLUTE
-    ../clib/angel/rt.s                       0x00000000   Number         0  rt_heap_descriptor_intlibspace.o ABSOLUTE
     ../clib/angel/scatter.s                  0x00000000   Number         0  __scatter.o ABSOLUTE
     ../clib/angel/startup.s                  0x00000000   Number         0  __main.o ABSOLUTE
-    ../clib/angel/sys.s                      0x00000000   Number         0  sys_stackheap_outer.o ABSOLUTE
-    ../clib/angel/sys.s                      0x00000000   Number         0  use_no_semi.o ABSOLUTE
-    ../clib/angel/sys.s                      0x00000000   Number         0  libspace.o ABSOLUTE
     ../clib/angel/sys.s                      0x00000000   Number         0  mutex_dummy.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  libspace.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  sys_stackheap_outer.o ABSOLUTE
     ../clib/angel/sys.s                      0x00000000   Number         0  indicate_semi.o ABSOLUTE
+    ../clib/angel/sys.s                      0x00000000   Number         0  use_no_semi.o ABSOLUTE
+    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_wrch.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_command.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_io.o ABSOLUTE
     ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_exit.o ABSOLUTE
-    ../clib/angel/sysapp.c                   0x00000000   Number         0  sys_wrch.o ABSOLUTE
-    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  no_argv.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  _get_argv_nomalloc.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
     ../clib/armsys.c                         0x00000000   Number         0  _get_argv.o ABSOLUTE
-    ../clib/armsys.c                         0x00000000   Number         0  _get_argv_nomalloc.o ABSOLUTE
-    ../clib/armsys.c                         0x00000000   Number         0  no_argv.o ABSOLUTE
+    ../clib/armsys.c                         0x00000000   Number         0  argv_veneer.o ABSOLUTE
+    ../clib/heap1.c                          0x00000000   Number         0  h1_extend.o ABSOLUTE
+    ../clib/heap1.c                          0x00000000   Number         0  h1_alloc.o ABSOLUTE
+    ../clib/heap1.c                          0x00000000   Number         0  h1_free_mt.o ABSOLUTE
     ../clib/heap1.c                          0x00000000   Number         0  h1_init_mt.o ABSOLUTE
     ../clib/heap1.c                          0x00000000   Number         0  h1_free.o ABSOLUTE
     ../clib/heap1.c                          0x00000000   Number         0  h1_init.o ABSOLUTE
-    ../clib/heap1.c                          0x00000000   Number         0  h1_extend.o ABSOLUTE
-    ../clib/heap1.c                          0x00000000   Number         0  h1_alloc.o ABSOLUTE
     ../clib/heap1.c                          0x00000000   Number         0  h1_alloc_mt.o ABSOLUTE
-    ../clib/heap1.c                          0x00000000   Number         0  h1_final.o ABSOLUTE
     ../clib/heap1.c                          0x00000000   Number         0  h1_final_mt.o ABSOLUTE
-    ../clib/heap1.c                          0x00000000   Number         0  h1_free_mt.o ABSOLUTE
+    ../clib/heap1.c                          0x00000000   Number         0  h1_final.o ABSOLUTE
     ../clib/heap1.c                          0x00000000   Number         0  h1_extend_mt.o ABSOLUTE
     ../clib/heap2.c                          0x00000000   Number         0  fdtree.o ABSOLUTE
     ../clib/heap2.c                          0x00000000   Number         0  heap2mt.o ABSOLUTE
     ../clib/heap2.c                          0x00000000   Number         0  heap2.o ABSOLUTE
-    ../clib/heapalloc.c                      0x00000000   Number         0  malloc.o ABSOLUTE
-    ../clib/heapalloc.c                      0x00000000   Number         0  term_alloc.o ABSOLUTE
-    ../clib/heapalloc.c                      0x00000000   Number         0  hrguard.o ABSOLUTE
     ../clib/heapalloc.c                      0x00000000   Number         0  heapstubs.o ABSOLUTE
-    ../clib/heapalloc.c                      0x00000000   Number         0  init_alloc.o ABSOLUTE
     ../clib/heapalloc.c                      0x00000000   Number         0  free.o ABSOLUTE
+    ../clib/heapalloc.c                      0x00000000   Number         0  init_alloc.o ABSOLUTE
     ../clib/heapalloc.c                      0x00000000   Number         0  hguard.o ABSOLUTE
+    ../clib/heapalloc.c                      0x00000000   Number         0  term_alloc.o ABSOLUTE
+    ../clib/heapalloc.c                      0x00000000   Number         0  malloc.o ABSOLUTE
+    ../clib/heapalloc.c                      0x00000000   Number         0  hrguard.o ABSOLUTE
     ../clib/heapalloc.c                      0x00000000   Number         0  maybetermalloc1.o ABSOLUTE
     ../clib/heapalloc.c                      0x00000000   Number         0  maybetermalloc1.o ABSOLUTE
     ../clib/heapalloc.c                      0x00000000   Number         0  maybetermalloc2.o ABSOLUTE
     ../clib/heapalloc.c                      0x00000000   Number         0  maybetermalloc2.o ABSOLUTE
     ../clib/heapaux.c                        0x00000000   Number         0  heapauxi.o ABSOLUTE
     ../clib/heapaux.c                        0x00000000   Number         0  heapauxa.o ABSOLUTE
+    ../clib/libinit.s                        0x00000000   Number         0  libshutdown2.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libshutdown.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libinit2.o ABSOLUTE
-    ../clib/libinit.s                        0x00000000   Number         0  libshutdown2.o ABSOLUTE
     ../clib/libinit.s                        0x00000000   Number         0  libinit.o ABSOLUTE
     ../clib/memcpset.s                       0x00000000   Number         0  rt_memcpy_w.o ABSOLUTE
     ../clib/memcpset.s                       0x00000000   Number         0  rt_memclr_w.o ABSOLUTE
-    ../clib/printf.c                         0x00000000   Number         0  __printf_ss.o ABSOLUTE
-    ../clib/printf.c                         0x00000000   Number         0  _printf_intcommon.o ABSOLUTE
-    ../clib/printf.c                         0x00000000   Number         0  _printf_str.o ABSOLUTE
-    ../clib/printf.c                         0x00000000   Number         0  __printf.o ABSOLUTE
-    ../clib/printf.c                         0x00000000   Number         0  noretval__2sprintf.o ABSOLUTE
-    ../clib/printf.c                         0x00000000   Number         0  noretval__2printf.o ABSOLUTE
-    ../clib/printf.c                         0x00000000   Number         0  __2sprintf.o ABSOLUTE
-    ../clib/printf.c                         0x00000000   Number         0  __2printf.o ABSOLUTE
     ../clib/printf.c                         0x00000000   Number         0  __printf_nopercent.o ABSOLUTE
-    ../clib/printf.c                         0x00000000   Number         0  _printf_char_common.o ABSOLUTE
-    ../clib/printf.c                         0x00000000   Number         0  _sputc.o ABSOLUTE
-    ../clib/printf.c                         0x00000000   Number         0  _printf_char.o ABSOLUTE
+    ../clib/printf.c                         0x00000000   Number         0  __2printf.o ABSOLUTE
+    ../clib/printf.c                         0x00000000   Number         0  __2sprintf.o ABSOLUTE
+    ../clib/printf.c                         0x00000000   Number         0  noretval__2sprintf.o ABSOLUTE
     ../clib/printf.c                         0x00000000   Number         0  _printf_char_file.o ABSOLUTE
-    ../clib/printf.c                         0x00000000   Number         0  __printf_flags.o ABSOLUTE
-    ../clib/printf.c                         0x00000000   Number         0  _printf_dec.o ABSOLUTE
+    ../clib/printf.c                         0x00000000   Number         0  noretval__2printf.o ABSOLUTE
+    ../clib/printf.c                         0x00000000   Number         0  _printf_char.o ABSOLUTE
+    ../clib/printf.c                         0x00000000   Number         0  _sputc.o ABSOLUTE
+    ../clib/printf.c                         0x00000000   Number         0  _printf_char_common.o ABSOLUTE
+    ../clib/printf.c                         0x00000000   Number         0  _printf_intcommon.o ABSOLUTE
     ../clib/printf.c                         0x00000000   Number         0  __printf_flags_ss_wp.o ABSOLUTE
+    ../clib/printf.c                         0x00000000   Number         0  __printf.o ABSOLUTE
     ../clib/printf.c                         0x00000000   Number         0  __printf_ss_wp.o ABSOLUTE
     ../clib/printf.c                         0x00000000   Number         0  __printf_flags_wp.o ABSOLUTE
     ../clib/printf.c                         0x00000000   Number         0  __printf_wp.o ABSOLUTE
     ../clib/printf.c                         0x00000000   Number         0  __printf_flags_ss.o ABSOLUTE
+    ../clib/printf.c                         0x00000000   Number         0  __printf_ss.o ABSOLUTE
+    ../clib/printf.c                         0x00000000   Number         0  __printf_flags.o ABSOLUTE
+    ../clib/printf.c                         0x00000000   Number         0  _printf_dec.o ABSOLUTE
+    ../clib/printf.c                         0x00000000   Number         0  _printf_str.o ABSOLUTE
     ../clib/printf_percent.s                 0x00000000   Number         0  _printf_percent_end.o ABSOLUTE
     ../clib/printf_percent.s                 0x00000000   Number         0  _printf_d.o ABSOLUTE
-    ../clib/printf_percent.s                 0x00000000   Number         0  _printf_percent.o ABSOLUTE
     ../clib/printf_percent.s                 0x00000000   Number         0  _printf_s.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_outer.o ABSOLUTE
+    ../clib/printf_percent.s                 0x00000000   Number         0  _printf_percent.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_other.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_pvfn_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_formal.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_abrt_outer.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_abrt_formal.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_rtred_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_outer.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtred_formal.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_segv_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_cppl_inner.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_stak_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  __raise.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_general.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_abrt_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_fpe_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_stak_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_pvfn_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_cppl_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_segv_inner.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_other.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_abrt_formal.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtred_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_exit.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_abrt_outer.o ABSOLUTE
+    ../clib/signal.c                         0x00000000   Number         0  defsig_rtmem_inner.o ABSOLUTE
     ../clib/signal.c                         0x00000000   Number         0  defsig_rtred_outer.o ABSOLUTE
-    ../clib/signal.c                         0x00000000   Number         0  defsig_rtred_formal.o ABSOLUTE
     ../clib/signal.s                         0x00000000   Number         0  defsig.o ABSOLUTE
-    ../clib/stdio.c                          0x00000000   Number         0  fopen.o ABSOLUTE
-    ../clib/stdio.c                          0x00000000   Number         0  initio.o ABSOLUTE
-    ../clib/stdio.c                          0x00000000   Number         0  fopen_locked.o ABSOLUTE
-    ../clib/stdio.c                          0x00000000   Number         0  setvbuf_locked.o ABSOLUTE
-    ../clib/stdio.c                          0x00000000   Number         0  fclose.o ABSOLUTE
-    ../clib/stdio.c                          0x00000000   Number         0  stdio_streams.o ABSOLUTE
     ../clib/stdio.c                          0x00000000   Number         0  streamlock.o ABSOLUTE
-    ../clib/stdio.c                          0x00000000   Number         0  stdio.o ABSOLUTE
+    ../clib/stdio.c                          0x00000000   Number         0  fopen.o ABSOLUTE
+    ../clib/stdio.c                          0x00000000   Number         0  fclose.o ABSOLUTE
+    ../clib/stdio.c                          0x00000000   Number         0  setvbuf_locked.o ABSOLUTE
+    ../clib/stdio.c                          0x00000000   Number         0  fopen_locked.o ABSOLUTE
     ../clib/stdio.c                          0x00000000   Number         0  fseek.o ABSOLUTE
     ../clib/stdio.c                          0x00000000   Number         0  ftell.o ABSOLUTE
-    ../clib/stdio.c                          0x00000000   Number         0  setvbuf.o ABSOLUTE
+    ../clib/stdio.c                          0x00000000   Number         0  stdio.o ABSOLUTE
+    ../clib/stdio.c                          0x00000000   Number         0  stdio_streams.o ABSOLUTE
+    ../clib/stdio.c                          0x00000000   Number         0  initio.o ABSOLUTE
     ../clib/stdio.c                          0x00000000   Number         0  initio_locked.o ABSOLUTE
-    ../clib/stdlib.c                         0x00000000   Number         0  abort.o ABSOLUTE
+    ../clib/stdio.c                          0x00000000   Number         0  setvbuf.o ABSOLUTE
     ../clib/stdlib.c                         0x00000000   Number         0  exit.o ABSOLUTE
+    ../clib/stdlib.c                         0x00000000   Number         0  abort.o ABSOLUTE
     ../clib/stdlib.c                         0x00000000   Number         0  bsearchnoex.o ABSOLUTE
     ../clib/string.c                         0x00000000   Number         0  strstr.o ABSOLUTE
     ../clib/string.c                         0x00000000   Number         0  strcpy.o ABSOLUTE
     ../clib/string.c                         0x00000000   Number         0  strlen.o ABSOLUTE
     ../clib/unwind_pr.c                      0x00000000   Number         0  unwind_pr0.o ABSOLUTE
     ../clib/unwind_pr.c                      0x00000000   Number         0  unwind_prcommon.o ABSOLUTE
-    ../clib/unwinder.c                       0x00000000   Number         0  unwinder.o ABSOLUTE
-    ../clib/unwinder.c                       0x00000000   Number         0  unwinder.o ABSOLUTE
     ../clib/unwinder.c                       0x00000000   Number         0  unwind_activity.o ABSOLUTE
     ../clib/unwinder.c                       0x00000000   Number         0  unwind_activity.o ABSOLUTE
+    ../clib/unwinder.c                       0x00000000   Number         0  unwinder.o ABSOLUTE
+    ../clib/unwinder.c                       0x00000000   Number         0  unwinder.o ABSOLUTE
     ../fplib/fpinit.s                        0x00000000   Number         0  fpinit.o ABSOLUTE
     ADC.c                                    0x00000000   Number         0  adc.o ABSOLUTE
     Accel.c                                  0x00000000   Number         0  accel.o ABSOLUTE
@@ -1336,70 +1334,79 @@ Image Symbol Table
     i.RxFifo_Put                             0x00000ca4   Section        0  uart.o(i.RxFifo_Put)
     i.RxFifo_Size                            0x00000ce0   Section        0  uart.o(i.RxFifo_Size)
     i.ST7735_DrawBitmap                      0x00000cf8   Section        0  st7735.o(i.ST7735_DrawBitmap)
-    i.ST7735_FillRect                        0x00000e18   Section        0  st7735.o(i.ST7735_FillRect)
-    i.ST7735_FillScreen                      0x00000ec4   Section        0  st7735.o(i.ST7735_FillScreen)
-    i.ST7735_InitR                           0x00000ee8   Section        0  st7735.o(i.ST7735_InitR)
-    i.ST7735_SetCursor                       0x00000f64   Section        0  st7735.o(i.ST7735_SetCursor)
-    i.ST7735_SetRotation                     0x00000f84   Section        0  st7735.o(i.ST7735_SetRotation)
-    i.SearchCheck                            0x00001058   Section        0  esp8266.o(i.SearchCheck)
-    i.ServerResponseSearchCheck              0x000010ac   Section        0  esp8266.o(i.ServerResponseSearchCheck)
-    i.Thumbstick_Init                        0x00001180   Section        0  thumbstick.o(i.Thumbstick_Init)
-    i.Timer2A_Handler                        0x000011c4   Section        0  buttons.o(i.Timer2A_Handler)
-    i.Timer2_Arm                             0x00001220   Section        0  buttons.o(i.Timer2_Arm)
-    i.Timer3A_Handler                        0x0000126c   Section        0  main.o(i.Timer3A_Handler)
-    i.TxFifo_Get                             0x00001280   Section        0  uart.o(i.TxFifo_Get)
-    i.TxFifo_Put                             0x000012bc   Section        0  uart.o(i.TxFifo_Put)
-    i.TxFifo_Size                            0x000012f8   Section        0  uart.o(i.TxFifo_Size)
-    i.UART0_Handler                          0x00001310   Section        0  uart.o(i.UART0_Handler)
-    i.UART1_Handler                          0x00001368   Section        0  esp8266.o(i.UART1_Handler)
-    i.UART_OutCharNonBlock                   0x00001398   Section        0  uart.o(i.UART_OutCharNonBlock)
-    i._Z12DrawEntitiesP10EntityList          0x000013cc   Section        0  gamerules.o(i._Z12DrawEntitiesP10EntityList)
-    i._Z13EraseEntitiesP10EntityList         0x00001410   Section        0  gamerules.o(i._Z13EraseEntitiesP10EntityList)
-    i._Z13GameTick_Initv                     0x00001444   Section        0  main.o(i._Z13GameTick_Initv)
-    i._Z21NormalizeAnalogInputsPtS_          0x000014a0   Section        0  gamerules.o(i._Z21NormalizeAnalogInputsPtS_)
-    i._ZN10EntityList12removeZeroesEv        0x000014fa   Section        0  gamerules.o(i._ZN10EntityList12removeZeroesEv)
-    i._ZN10EntityList4pushEP6Entity          0x00001520   Section        0  gamerules.o(i._ZN10EntityList4pushEP6Entity)
-    i._ZN10EntityList5clearEv                0x00001532   Section        0  gamerules.o(i._ZN10EntityList5clearEv)
-    i._ZN10EntityList6isFullEv               0x0000154a   Section        0  gamerules.o(i._ZN10EntityList6isFullEv)
-    i._ZN10EntityList6updateEPtS0_           0x0000155c   Section        0  gamerules.o(i._ZN10EntityList6updateEPtS0_)
-    i._ZN10EntityListC1Ev                    0x00001594   Section        0  main.o(i._ZN10EntityListC1Ev)
-    i._ZN6Entity13WallCollisionE9Rectangle   0x0000159c   Section        0  gamerules.o(i._ZN6Entity13WallCollisionE9Rectangle)
-    i._ZN6Entity6updateEv                    0x0000161a   Section        0  gamerules.o(i._ZN6Entity6updateEv)
-    i._ZN6VectorC1Ess                        0x00001650   Section        0  gamerules.o(i._ZN6VectorC1Ess)
-    i._ZN8Quadtree11getQuadrantE9Rectangle   0x00001656   Section        0  gamerules.o(i._ZN8Quadtree11getQuadrantE9Rectangle)
-    i._ZN8Quadtree5clearEv                   0x00001746   Section        0  gamerules.o(i._ZN8Quadtree5clearEv)
-    i._ZN8Quadtree5splitEv                   0x0000177c   Section        0  gamerules.o(i._ZN8Quadtree5splitEv)
-    i._ZN8Quadtree6insertEP10EntityList      0x00001880   Section        0  gamerules.o(i._ZN8Quadtree6insertEP10EntityList)
-    i._ZN8Quadtree6insertEP6Entity           0x000018d0   Section        0  gamerules.o(i._ZN8Quadtree6insertEP6Entity)
-    i._ZN8Quadtree8retrieveEP10EntityList9Rectangle 0x0000196e   Section        0  gamerules.o(i._ZN8Quadtree8retrieveEP10EntityList9Rectangle)
-    i._ZN8QuadtreeC1Eh9Rectangle             0x000019ba   Section        0  gamerules.o(i._ZN8QuadtreeC1Eh9Rectangle)
-    i._ZN9RectangleC1Esstt                   0x000019d8   Section        0  gamerules.o(i._ZN9RectangleC1Esstt)
-    i._Znwj                                  0x000019e8   Section        0  new.o(i._Znwj)
-    i.commandList                            0x00001a10   Section        0  st7735.o(i.commandList)
-    commandList                              0x00001a11   Thumb Code    86  st7735.o(i.commandList)
-    i.commonInit                             0x00001a68   Section        0  st7735.o(i.commonInit)
-    commonInit                               0x00001a69   Thumb Code   340  st7735.o(i.commonInit)
-    i.copyHardwareToSoftware                 0x00001bec   Section        0  uart.o(i.copyHardwareToSoftware)
-    copyHardwareToSoftware                   0x00001bed   Thumb Code    40  uart.o(i.copyHardwareToSoftware)
-    i.copySoftwareToHardware                 0x00001c18   Section        0  uart.o(i.copySoftwareToHardware)
-    copySoftwareToHardware                   0x00001c19   Thumb Code    38  uart.o(i.copySoftwareToHardware)
-    i.lc                                     0x00001c44   Section        0  esp8266.o(i.lc)
-    i.main                                   0x00001c54   Section        0  main.o(i.main)
-    i.setAddrWindow                          0x00001db8   Section        0  st7735.o(i.setAddrWindow)
-    setAddrWindow                            0x00001db9   Thumb Code   106  st7735.o(i.setAddrWindow)
-    i.writecommand                           0x00001e2c   Section        0  st7735.o(i.writecommand)
-    writecommand                             0x00001e2d   Thumb Code    40  st7735.o(i.writecommand)
-    i.writedata                              0x00001e5c   Section        0  st7735.o(i.writedata)
-    writedata                                0x00001e5d   Thumb Code    24  st7735.o(i.writedata)
-    .constdata                               0x00001e7c   Section     2018  st7735.o(.constdata)
-    Font                                     0x00001e7c   Data        1275  st7735.o(.constdata)
-    Bcmd                                     0x00002377   Data         103  st7735.o(.constdata)
-    Rcmd1                                    0x000023de   Data          59  st7735.o(.constdata)
-    Rcmd2green                               0x00002419   Data          13  st7735.o(.constdata)
-    Rcmd2red                                 0x00002426   Data          13  st7735.o(.constdata)
-    Rcmd3                                    0x00002433   Data          43  st7735.o(.constdata)
-    .constdata                               0x0000265e   Section      128  gamerules.o(.constdata)
-    Bitmap_Ship                              0x0000265e   Data         128  gamerules.o(.constdata)
+    i.ST7735_DrawCharS                       0x00000e18   Section        0  st7735.o(i.ST7735_DrawCharS)
+    i.ST7735_DrawPixel                       0x00000f0c   Section        0  st7735.o(i.ST7735_DrawPixel)
+    i.ST7735_DrawString                      0x00000f54   Section        0  st7735.o(i.ST7735_DrawString)
+    i.ST7735_FillRect                        0x00000fac   Section        0  st7735.o(i.ST7735_FillRect)
+    i.ST7735_FillScreen                      0x00001058   Section        0  st7735.o(i.ST7735_FillScreen)
+    i.ST7735_InitR                           0x0000107c   Section        0  st7735.o(i.ST7735_InitR)
+    i.ST7735_OutUDec                         0x000010f8   Section        0  st7735.o(i.ST7735_OutUDec)
+    i.ST7735_SetCursor                       0x00001184   Section        0  st7735.o(i.ST7735_SetCursor)
+    i.ST7735_SetRotation                     0x000011a4   Section        0  st7735.o(i.ST7735_SetRotation)
+    i.SearchCheck                            0x00001278   Section        0  esp8266.o(i.SearchCheck)
+    i.ServerResponseSearchCheck              0x000012cc   Section        0  esp8266.o(i.ServerResponseSearchCheck)
+    i.Thumbstick_Init                        0x000013a0   Section        0  thumbstick.o(i.Thumbstick_Init)
+    i.Timer2A_Handler                        0x000013e4   Section        0  buttons.o(i.Timer2A_Handler)
+    i.Timer2_Arm                             0x00001440   Section        0  buttons.o(i.Timer2_Arm)
+    i.Timer3A_Handler                        0x0000148c   Section        0  main.o(i.Timer3A_Handler)
+    i.TxFifo_Get                             0x000014a0   Section        0  uart.o(i.TxFifo_Get)
+    i.TxFifo_Put                             0x000014dc   Section        0  uart.o(i.TxFifo_Put)
+    i.TxFifo_Size                            0x00001518   Section        0  uart.o(i.TxFifo_Size)
+    i.UART0_Handler                          0x00001530   Section        0  uart.o(i.UART0_Handler)
+    i.UART1_Handler                          0x00001588   Section        0  esp8266.o(i.UART1_Handler)
+    i.UART_OutCharNonBlock                   0x000015b8   Section        0  uart.o(i.UART_OutCharNonBlock)
+    i._Z12DrawEntitiesP10EntityList          0x000015ec   Section        0  gamerules.o(i._Z12DrawEntitiesP10EntityList)
+    i._Z13EraseEntitiesP10EntityList         0x00001640   Section        0  gamerules.o(i._Z13EraseEntitiesP10EntityList)
+    i._Z13GameTick_Initv                     0x00001674   Section        0  main.o(i._Z13GameTick_Initv)
+    i._Z21NormalizeAnalogInputsPtS_          0x000016d0   Section        0  gamerules.o(i._Z21NormalizeAnalogInputsPtS_)
+    i._ZN10EntityList12removeZeroesEv        0x000017d6   Section        0  gamerules.o(i._ZN10EntityList12removeZeroesEv)
+    i._ZN10EntityList4pushEP6Entity          0x000017fc   Section        0  gamerules.o(i._ZN10EntityList4pushEP6Entity)
+    i._ZN10EntityList5clearEv                0x0000180e   Section        0  gamerules.o(i._ZN10EntityList5clearEv)
+    i._ZN10EntityList6isFullEv               0x00001826   Section        0  gamerules.o(i._ZN10EntityList6isFullEv)
+    i._ZN10EntityList6updateEPtS0_           0x00001838   Section        0  gamerules.o(i._ZN10EntityList6updateEPtS0_)
+    i._ZN10EntityListC1Ev                    0x000018aa   Section        0  main.o(i._ZN10EntityListC1Ev)
+    i._ZN6Entity13WallCollisionE9Rectangle   0x000018b2   Section        0  gamerules.o(i._ZN6Entity13WallCollisionE9Rectangle)
+    i._ZN6Entity6updateEv                    0x00001930   Section        0  gamerules.o(i._ZN6Entity6updateEv)
+    i._ZN6EntityC1E9Rectangle6VectorS1_10EntityTypejj 0x00001966   Section        0  main.o(i._ZN6EntityC1E9Rectangle6VectorS1_10EntityTypejj)
+    i._ZN6VectorC1Ess                        0x00001988   Section        0  gamerules.o(i._ZN6VectorC1Ess)
+    i._ZN8Quadtree11getQuadrantE9Rectangle   0x0000198e   Section        0  gamerules.o(i._ZN8Quadtree11getQuadrantE9Rectangle)
+    i._ZN8Quadtree5clearEv                   0x00001a7e   Section        0  gamerules.o(i._ZN8Quadtree5clearEv)
+    i._ZN8Quadtree5splitEv                   0x00001ab4   Section        0  gamerules.o(i._ZN8Quadtree5splitEv)
+    i._ZN8Quadtree6insertEP10EntityList      0x00001bb8   Section        0  gamerules.o(i._ZN8Quadtree6insertEP10EntityList)
+    i._ZN8Quadtree6insertEP6Entity           0x00001c08   Section        0  gamerules.o(i._ZN8Quadtree6insertEP6Entity)
+    i._ZN8Quadtree8retrieveEP10EntityList9Rectangle 0x00001ca6   Section        0  gamerules.o(i._ZN8Quadtree8retrieveEP10EntityList9Rectangle)
+    i._ZN8QuadtreeC1Eh9Rectangle             0x00001cf2   Section        0  gamerules.o(i._ZN8QuadtreeC1Eh9Rectangle)
+    i._ZN9RectangleC1Esstt                   0x00001d10   Section        0  gamerules.o(i._ZN9RectangleC1Esstt)
+    i._Znwj                                  0x00001d20   Section        0  new.o(i._Znwj)
+    i.commandList                            0x00001d48   Section        0  st7735.o(i.commandList)
+    commandList                              0x00001d49   Thumb Code    86  st7735.o(i.commandList)
+    i.commonInit                             0x00001da0   Section        0  st7735.o(i.commonInit)
+    commonInit                               0x00001da1   Thumb Code   340  st7735.o(i.commonInit)
+    i.copyHardwareToSoftware                 0x00001f24   Section        0  uart.o(i.copyHardwareToSoftware)
+    copyHardwareToSoftware                   0x00001f25   Thumb Code    40  uart.o(i.copyHardwareToSoftware)
+    i.copySoftwareToHardware                 0x00001f50   Section        0  uart.o(i.copySoftwareToHardware)
+    copySoftwareToHardware                   0x00001f51   Thumb Code    38  uart.o(i.copySoftwareToHardware)
+    i.fillmessage                            0x00001f7c   Section        0  st7735.o(i.fillmessage)
+    i.lc                                     0x00001fc4   Section        0  esp8266.o(i.lc)
+    i.main                                   0x00001fd4   Section        0  main.o(i.main)
+    i.pushColor                              0x00002198   Section        0  st7735.o(i.pushColor)
+    pushColor                                0x00002199   Thumb Code    18  st7735.o(i.pushColor)
+    i.setAddrWindow                          0x000021ac   Section        0  st7735.o(i.setAddrWindow)
+    setAddrWindow                            0x000021ad   Thumb Code   106  st7735.o(i.setAddrWindow)
+    i.writecommand                           0x00002220   Section        0  st7735.o(i.writecommand)
+    writecommand                             0x00002221   Thumb Code    40  st7735.o(i.writecommand)
+    i.writedata                              0x00002250   Section        0  st7735.o(i.writedata)
+    writedata                                0x00002251   Thumb Code    24  st7735.o(i.writedata)
+    .constdata                               0x00002270   Section     2018  st7735.o(.constdata)
+    Font                                     0x00002270   Data        1275  st7735.o(.constdata)
+    Bcmd                                     0x0000276b   Data         103  st7735.o(.constdata)
+    Rcmd1                                    0x000027d2   Data          59  st7735.o(.constdata)
+    Rcmd2green                               0x0000280d   Data          13  st7735.o(.constdata)
+    Rcmd2red                                 0x0000281a   Data          13  st7735.o(.constdata)
+    Rcmd3                                    0x00002827   Data          43  st7735.o(.constdata)
+    .constdata                               0x00002a52   Section      160  gamerules.o(.constdata)
+    Bitmap_Ship                              0x00002a52   Data         128  gamerules.o(.constdata)
+    Bitmap_GreenLaser                        0x00002ad2   Data          32  gamerules.o(.constdata)
     .data                                    0x20000000   Section       64  esp8266.o(.data)
     .data                                    0x20000040   Section       44  st7735.o(.data)
     _width                                   0x2000004a   Data           2  st7735.o(.data)
@@ -1412,19 +1419,20 @@ Image Symbol Table
     counter                                  0x2000006c   Data           4  buttons.o(.data)
     Last                                     0x20000070   Data           4  buttons.o(.data)
     .data                                    0x20000074   Section       16  uart.o(.data)
-    .data                                    0x20000084   Section       16  main.o(.data)
-    Flag_GameTick                            0x20000084   Data           1  main.o(.data)
-    tstick                                   0x20000086   Data           8  main.o(.data)
-    accel                                    0x2000008e   Data           6  main.o(.data)
+    .data                                    0x20000084   Section       15  main.o(.data)
+    tstick                                   0x20000084   Data           8  main.o(.data)
+    accel                                    0x2000008c   Data           6  main.o(.data)
+    Flag_GameTick                            0x20000092   Data           1  main.o(.data)
     .bss                                     0x20000094   Section     3104  esp8266.o(.bss)
-    .bss                                     0x20000cb4   Section     2048  uart.o(.bss)
-    RxFifo                                   0x20000cb4   Data        1024  uart.o(.bss)
-    TxFifo                                   0x200010b4   Data        1024  uart.o(.bss)
-    .bss                                     0x200014b4   Section       96  libspace.o(.bss)
-    HEAP                                     0x20001518   Section     1024  startup.o(HEAP)
-    HeapMem                                  0x20001518   Data           0  startup.o(HEAP)
-    STACK                                    0x20001918   Section     1024  startup.o(STACK)
-    StackMem                                 0x20001918   Data           0  startup.o(STACK)
+    .bss                                     0x20000cb4   Section       12  st7735.o(.bss)
+    .bss                                     0x20000cc0   Section     2048  uart.o(.bss)
+    RxFifo                                   0x20000cc0   Data        1024  uart.o(.bss)
+    TxFifo                                   0x200010c0   Data        1024  uart.o(.bss)
+    .bss                                     0x200014c0   Section       96  libspace.o(.bss)
+    HEAP                                     0x20001520   Section     1024  startup.o(HEAP)
+    HeapMem                                  0x20001520   Data           0  startup.o(HEAP)
+    STACK                                    0x20001920   Section     1024  startup.o(STACK)
+    StackMem                                 0x20001920   Data           0  startup.o(STACK)
 
     Global Symbols
 
@@ -1705,54 +1713,61 @@ Image Symbol Table
     RxFifo_Put                               0x00000ca5   Thumb Code    48  uart.o(i.RxFifo_Put)
     RxFifo_Size                              0x00000ce1   Thumb Code    14  uart.o(i.RxFifo_Size)
     ST7735_DrawBitmap                        0x00000cf9   Thumb Code   280  st7735.o(i.ST7735_DrawBitmap)
-    ST7735_FillRect                          0x00000e19   Thumb Code   164  st7735.o(i.ST7735_FillRect)
-    ST7735_FillScreen                        0x00000ec5   Thumb Code    28  st7735.o(i.ST7735_FillScreen)
-    ST7735_InitR                             0x00000ee9   Thumb Code    90  st7735.o(i.ST7735_InitR)
-    ST7735_SetCursor                         0x00000f65   Thumb Code    22  st7735.o(i.ST7735_SetCursor)
-    ST7735_SetRotation                       0x00000f85   Thumb Code   196  st7735.o(i.ST7735_SetRotation)
-    SearchCheck                              0x00001059   Thumb Code    68  esp8266.o(i.SearchCheck)
-    ServerResponseSearchCheck                0x000010ad   Thumb Code   180  esp8266.o(i.ServerResponseSearchCheck)
-    Thumbstick_Init                          0x00001181   Thumb Code    58  thumbstick.o(i.Thumbstick_Init)
-    Timer2A_Handler                          0x000011c5   Thumb Code    72  buttons.o(i.Timer2A_Handler)
-    Timer2_Arm                               0x00001221   Thumb Code    60  buttons.o(i.Timer2_Arm)
-    Timer3A_Handler                          0x0000126d   Thumb Code    12  main.o(i.Timer3A_Handler)
-    TxFifo_Get                               0x00001281   Thumb Code    46  uart.o(i.TxFifo_Get)
-    TxFifo_Put                               0x000012bd   Thumb Code    48  uart.o(i.TxFifo_Put)
-    TxFifo_Size                              0x000012f9   Thumb Code    14  uart.o(i.TxFifo_Size)
-    UART0_Handler                            0x00001311   Thumb Code    82  uart.o(i.UART0_Handler)
-    UART1_Handler                            0x00001369   Thumb Code    44  esp8266.o(i.UART1_Handler)
-    UART_OutCharNonBlock                     0x00001399   Thumb Code    46  uart.o(i.UART_OutCharNonBlock)
-    DrawEntities(EntityList*)                0x000013cd   Thumb Code    62  gamerules.o(i._Z12DrawEntitiesP10EntityList)
-    EraseEntities(EntityList*)               0x00001411   Thumb Code    52  gamerules.o(i._Z13EraseEntitiesP10EntityList)
-    GameTick_Init()                          0x00001445   Thumb Code    70  main.o(i._Z13GameTick_Initv)
-    NormalizeAnalogInputs(unsigned short*, unsigned short*) 0x000014a1   Thumb Code    90  gamerules.o(i._Z21NormalizeAnalogInputsPtS_)
-    EntityList::removeZeroes()               0x000014fb   Thumb Code    38  gamerules.o(i._ZN10EntityList12removeZeroesEv)
-    EntityList::push(Entity*)                0x00001521   Thumb Code    18  gamerules.o(i._ZN10EntityList4pushEP6Entity)
-    EntityList::clear()                      0x00001533   Thumb Code    24  gamerules.o(i._ZN10EntityList5clearEv)
-    EntityList::isFull()                     0x0000154b   Thumb Code    18  gamerules.o(i._ZN10EntityList6isFullEv)
-    EntityList::update(unsigned short*, unsigned short*) 0x0000155d   Thumb Code    56  gamerules.o(i._ZN10EntityList6updateEPtS0_)
-    EntityList::EntityList()                 0x00001595   Thumb Code     8  main.o(i._ZN10EntityListC1Ev)
-    EntityList::EntityList__sub_object()     0x00001595   Thumb Code     0  main.o(i._ZN10EntityListC1Ev)
-    Entity::WallCollision(Rectangle)         0x0000159d   Thumb Code   126  gamerules.o(i._ZN6Entity13WallCollisionE9Rectangle)
-    Entity::update()                         0x0000161b   Thumb Code    54  gamerules.o(i._ZN6Entity6updateEv)
-    Vector::Vector(short, short)             0x00001651   Thumb Code     6  gamerules.o(i._ZN6VectorC1Ess)
-    Vector::Vector__sub_object(short, short) 0x00001651   Thumb Code     0  gamerules.o(i._ZN6VectorC1Ess)
-    Quadtree::getQuadrant(Rectangle)         0x00001657   Thumb Code   240  gamerules.o(i._ZN8Quadtree11getQuadrantE9Rectangle)
-    Quadtree::clear()                        0x00001747   Thumb Code    54  gamerules.o(i._ZN8Quadtree5clearEv)
-    Quadtree::split()                        0x0000177d   Thumb Code   260  gamerules.o(i._ZN8Quadtree5splitEv)
-    Quadtree::insert(EntityList*)            0x00001881   Thumb Code    80  gamerules.o(i._ZN8Quadtree6insertEP10EntityList)
-    Quadtree::insert(Entity*)                0x000018d1   Thumb Code   158  gamerules.o(i._ZN8Quadtree6insertEP6Entity)
-    Quadtree::retrieve(EntityList*, Rectangle) 0x0000196f   Thumb Code    76  gamerules.o(i._ZN8Quadtree8retrieveEP10EntityList9Rectangle)
-    Quadtree::Quadtree(unsigned char, Rectangle) 0x000019bb   Thumb Code    30  gamerules.o(i._ZN8QuadtreeC1Eh9Rectangle)
-    Quadtree::Quadtree__sub_object(unsigned char, Rectangle) 0x000019bb   Thumb Code     0  gamerules.o(i._ZN8QuadtreeC1Eh9Rectangle)
-    Rectangle::Rectangle(short, short, unsigned short, unsigned short) 0x000019d9   Thumb Code    14  gamerules.o(i._ZN9RectangleC1Esstt)
-    Rectangle::Rectangle__sub_object(short, short, unsigned short, unsigned short) 0x000019d9   Thumb Code     0  gamerules.o(i._ZN9RectangleC1Esstt)
-    operator new(unsigned)                   0x000019e9   Thumb Code    34  new.o(i._Znwj)
-    lc                                       0x00001c45   Thumb Code    14  esp8266.o(i.lc)
-    main                                     0x00001c55   Thumb Code   350  main.o(i.main)
-    dBfs                                     0x0000245e   Data         512  st7735.o(.constdata)
-    Region$$Table$$Base                      0x000026e0   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x00002700   Number         0  anon$$obj.o(Region$$Table)
+    ST7735_DrawCharS                         0x00000e19   Thumb Code   232  st7735.o(i.ST7735_DrawCharS)
+    ST7735_DrawPixel                         0x00000f0d   Thumb Code    64  st7735.o(i.ST7735_DrawPixel)
+    ST7735_DrawString                        0x00000f55   Thumb Code    86  st7735.o(i.ST7735_DrawString)
+    ST7735_FillRect                          0x00000fad   Thumb Code   164  st7735.o(i.ST7735_FillRect)
+    ST7735_FillScreen                        0x00001059   Thumb Code    28  st7735.o(i.ST7735_FillScreen)
+    ST7735_InitR                             0x0000107d   Thumb Code    90  st7735.o(i.ST7735_InitR)
+    ST7735_OutUDec                           0x000010f9   Thumb Code   118  st7735.o(i.ST7735_OutUDec)
+    ST7735_SetCursor                         0x00001185   Thumb Code    22  st7735.o(i.ST7735_SetCursor)
+    ST7735_SetRotation                       0x000011a5   Thumb Code   196  st7735.o(i.ST7735_SetRotation)
+    SearchCheck                              0x00001279   Thumb Code    68  esp8266.o(i.SearchCheck)
+    ServerResponseSearchCheck                0x000012cd   Thumb Code   180  esp8266.o(i.ServerResponseSearchCheck)
+    Thumbstick_Init                          0x000013a1   Thumb Code    58  thumbstick.o(i.Thumbstick_Init)
+    Timer2A_Handler                          0x000013e5   Thumb Code    72  buttons.o(i.Timer2A_Handler)
+    Timer2_Arm                               0x00001441   Thumb Code    60  buttons.o(i.Timer2_Arm)
+    Timer3A_Handler                          0x0000148d   Thumb Code    12  main.o(i.Timer3A_Handler)
+    TxFifo_Get                               0x000014a1   Thumb Code    46  uart.o(i.TxFifo_Get)
+    TxFifo_Put                               0x000014dd   Thumb Code    48  uart.o(i.TxFifo_Put)
+    TxFifo_Size                              0x00001519   Thumb Code    14  uart.o(i.TxFifo_Size)
+    UART0_Handler                            0x00001531   Thumb Code    82  uart.o(i.UART0_Handler)
+    UART1_Handler                            0x00001589   Thumb Code    44  esp8266.o(i.UART1_Handler)
+    UART_OutCharNonBlock                     0x000015b9   Thumb Code    46  uart.o(i.UART_OutCharNonBlock)
+    DrawEntities(EntityList*)                0x000015ed   Thumb Code    76  gamerules.o(i._Z12DrawEntitiesP10EntityList)
+    EraseEntities(EntityList*)               0x00001641   Thumb Code    52  gamerules.o(i._Z13EraseEntitiesP10EntityList)
+    GameTick_Init()                          0x00001675   Thumb Code    70  main.o(i._Z13GameTick_Initv)
+    NormalizeAnalogInputs(unsigned short*, unsigned short*) 0x000016d1   Thumb Code   262  gamerules.o(i._Z21NormalizeAnalogInputsPtS_)
+    EntityList::removeZeroes()               0x000017d7   Thumb Code    38  gamerules.o(i._ZN10EntityList12removeZeroesEv)
+    EntityList::push(Entity*)                0x000017fd   Thumb Code    18  gamerules.o(i._ZN10EntityList4pushEP6Entity)
+    EntityList::clear()                      0x0000180f   Thumb Code    24  gamerules.o(i._ZN10EntityList5clearEv)
+    EntityList::isFull()                     0x00001827   Thumb Code    18  gamerules.o(i._ZN10EntityList6isFullEv)
+    EntityList::update(unsigned short*, unsigned short*) 0x00001839   Thumb Code   114  gamerules.o(i._ZN10EntityList6updateEPtS0_)
+    EntityList::EntityList()                 0x000018ab   Thumb Code     8  main.o(i._ZN10EntityListC1Ev)
+    EntityList::EntityList__sub_object()     0x000018ab   Thumb Code     0  main.o(i._ZN10EntityListC1Ev)
+    Entity::WallCollision(Rectangle)         0x000018b3   Thumb Code   126  gamerules.o(i._ZN6Entity13WallCollisionE9Rectangle)
+    Entity::update()                         0x00001931   Thumb Code    54  gamerules.o(i._ZN6Entity6updateEv)
+    Entity::Entity(Rectangle, Vector, Vector, EntityType, unsigned, unsigned) 0x00001967   Thumb Code    34  main.o(i._ZN6EntityC1E9Rectangle6VectorS1_10EntityTypejj)
+    Entity::Entity__sub_object(Rectangle, Vector, Vector, EntityType, unsigned, unsigned) 0x00001967   Thumb Code     0  main.o(i._ZN6EntityC1E9Rectangle6VectorS1_10EntityTypejj)
+    Vector::Vector(short, short)             0x00001989   Thumb Code     6  gamerules.o(i._ZN6VectorC1Ess)
+    Vector::Vector__sub_object(short, short) 0x00001989   Thumb Code     0  gamerules.o(i._ZN6VectorC1Ess)
+    Quadtree::getQuadrant(Rectangle)         0x0000198f   Thumb Code   240  gamerules.o(i._ZN8Quadtree11getQuadrantE9Rectangle)
+    Quadtree::clear()                        0x00001a7f   Thumb Code    54  gamerules.o(i._ZN8Quadtree5clearEv)
+    Quadtree::split()                        0x00001ab5   Thumb Code   260  gamerules.o(i._ZN8Quadtree5splitEv)
+    Quadtree::insert(EntityList*)            0x00001bb9   Thumb Code    80  gamerules.o(i._ZN8Quadtree6insertEP10EntityList)
+    Quadtree::insert(Entity*)                0x00001c09   Thumb Code   158  gamerules.o(i._ZN8Quadtree6insertEP6Entity)
+    Quadtree::retrieve(EntityList*, Rectangle) 0x00001ca7   Thumb Code    76  gamerules.o(i._ZN8Quadtree8retrieveEP10EntityList9Rectangle)
+    Quadtree::Quadtree(unsigned char, Rectangle) 0x00001cf3   Thumb Code    30  gamerules.o(i._ZN8QuadtreeC1Eh9Rectangle)
+    Quadtree::Quadtree__sub_object(unsigned char, Rectangle) 0x00001cf3   Thumb Code     0  gamerules.o(i._ZN8QuadtreeC1Eh9Rectangle)
+    Rectangle::Rectangle(short, short, unsigned short, unsigned short) 0x00001d11   Thumb Code    14  gamerules.o(i._ZN9RectangleC1Esstt)
+    Rectangle::Rectangle__sub_object(short, short, unsigned short, unsigned short) 0x00001d11   Thumb Code     0  gamerules.o(i._ZN9RectangleC1Esstt)
+    operator new(unsigned)                   0x00001d21   Thumb Code    34  new.o(i._Znwj)
+    fillmessage                              0x00001f7d   Thumb Code    64  st7735.o(i.fillmessage)
+    lc                                       0x00001fc5   Thumb Code    14  esp8266.o(i.lc)
+    main                                     0x00001fd5   Thumb Code   438  main.o(i.main)
+    dBfs                                     0x00002852   Data         512  st7735.o(.constdata)
+    Region$$Table$$Base                      0x00002af4   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00002b14   Number         0  anon$$obj.o(Region$$Table)
     RXBufferIndex                            0x20000000   Data           4  esp8266.o(.data)
     LastReturnIndex                          0x20000004   Data           4  esp8266.o(.data)
     CurrentReturnIndex                       0x20000008   Data           4  esp8266.o(.data)
@@ -1791,8 +1806,9 @@ Image Symbol Table
     TXBuffer                                 0x20000494   Data        1024  esp8266.o(.bss)
     ServerResponseBuffer                     0x20000894   Data        1024  esp8266.o(.bss)
     SearchString                             0x20000c94   Data          32  esp8266.o(.bss)
-    __libspace_start                         0x200014b4   Data          96  libspace.o(.bss)
-    __temporary_stack_top$libspace           0x20001514   Data           0  libspace.o(.bss)
+    Message                                  0x20000cb4   Data          12  st7735.o(.bss)
+    __libspace_start                         0x200014c0   Data          96  libspace.o(.bss)
+    __temporary_stack_top$libspace           0x20001520   Data           0  libspace.o(.bss)
 
 
 
@@ -1802,94 +1818,94 @@ Memory Map of the image
 
   Image Entry point : 0x0000026d
 
-  Load Region LR_1 (Base: 0x00000000, Size: 0x00002794, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x00000000, Size: 0x00002ba8, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_RO (Base: 0x00000000, Size: 0x00002700, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Base: 0x00000000, Size: 0x00002b14, Max: 0xffffffff, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x00000000   0x00000284   Code   RO            3  * RESET               startup.o
-    0x00000284   0x00000008   Code   RO         1316  * !!!main             c_w.l(__main.o)
-    0x0000028c   0x00000034   Code   RO         1818    !!!scatter          c_w.l(__scatter.o)
-    0x000002c0   0x0000001a   Code   RO         1820    !!handler_copy      c_w.l(__scatter_copy.o)
+    0x00000284   0x00000008   Code   RO         1320  * !!!main             c_w.l(__main.o)
+    0x0000028c   0x00000034   Code   RO         1822    !!!scatter          c_w.l(__scatter.o)
+    0x000002c0   0x0000001a   Code   RO         1824    !!handler_copy      c_w.l(__scatter_copy.o)
     0x000002da   0x00000002   PAD
-    0x000002dc   0x0000001c   Code   RO         1822    !!handler_zi        c_w.l(__scatter_zi.o)
-    0x000002f8   0x00000002   Code   RO         1694    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
-    0x000002fa   0x00000000   Code   RO         1479    .ARM.Collect$$libinit$$00000002  c_w.l(libinit2.o)
-    0x000002fa   0x00000008   Code   RO         1480    .ARM.Collect$$libinit$$00000003  c_w.l(libinit2.o)
-    0x00000302   0x00000000   Code   RO         1482    .ARM.Collect$$libinit$$00000008  c_w.l(libinit2.o)
-    0x00000302   0x00000000   Code   RO         1484    .ARM.Collect$$libinit$$0000000A  c_w.l(libinit2.o)
-    0x00000302   0x00000000   Code   RO         1486    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
-    0x00000302   0x00000000   Code   RO         1489    .ARM.Collect$$libinit$$0000000F  c_w.l(libinit2.o)
-    0x00000302   0x00000000   Code   RO         1491    .ARM.Collect$$libinit$$00000011  c_w.l(libinit2.o)
-    0x00000302   0x00000000   Code   RO         1493    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
-    0x00000302   0x00000000   Code   RO         1495    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
-    0x00000302   0x00000000   Code   RO         1497    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
-    0x00000302   0x00000000   Code   RO         1499    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
-    0x00000302   0x00000000   Code   RO         1501    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
-    0x00000302   0x00000000   Code   RO         1503    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
-    0x00000302   0x00000000   Code   RO         1505    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
-    0x00000302   0x00000000   Code   RO         1507    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
-    0x00000302   0x00000000   Code   RO         1509    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
-    0x00000302   0x00000000   Code   RO         1513    .ARM.Collect$$libinit$$0000002A  c_w.l(libinit2.o)
-    0x00000302   0x00000000   Code   RO         1515    .ARM.Collect$$libinit$$0000002C  c_w.l(libinit2.o)
-    0x00000302   0x00000000   Code   RO         1517    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
-    0x00000302   0x00000000   Code   RO         1519    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
-    0x00000302   0x00000002   Code   RO         1520    .ARM.Collect$$libinit$$00000031  c_w.l(libinit2.o)
-    0x00000304   0x00000002   Code   RO         1803    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
-    0x00000306   0x00000000   Code   RO         1697    .ARM.Collect$$libshutdown$$00000003  c_w.l(libshutdown2.o)
-    0x00000306   0x00000000   Code   RO         1700    .ARM.Collect$$libshutdown$$00000006  c_w.l(libshutdown2.o)
-    0x00000306   0x00000000   Code   RO         1703    .ARM.Collect$$libshutdown$$00000009  c_w.l(libshutdown2.o)
-    0x00000306   0x00000000   Code   RO         1705    .ARM.Collect$$libshutdown$$0000000B  c_w.l(libshutdown2.o)
-    0x00000306   0x00000000   Code   RO         1708    .ARM.Collect$$libshutdown$$0000000E  c_w.l(libshutdown2.o)
-    0x00000306   0x00000002   Code   RO         1709    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
-    0x00000308   0x00000000   Code   RO         1322    .ARM.Collect$$rtentry$$00000000  c_w.l(rtentry.o)
-    0x00000308   0x00000000   Code   RO         1425    .ARM.Collect$$rtentry$$00000002  c_w.l(rtentry2.o)
-    0x00000308   0x00000006   Code   RO         1437    .ARM.Collect$$rtentry$$00000004  c_w.l(rtentry4.o)
-    0x0000030e   0x00000000   Code   RO         1427    .ARM.Collect$$rtentry$$00000009  c_w.l(rtentry2.o)
-    0x0000030e   0x00000004   Code   RO         1428    .ARM.Collect$$rtentry$$0000000A  c_w.l(rtentry2.o)
-    0x00000312   0x00000000   Code   RO         1430    .ARM.Collect$$rtentry$$0000000C  c_w.l(rtentry2.o)
-    0x00000312   0x00000008   Code   RO         1431    .ARM.Collect$$rtentry$$0000000D  c_w.l(rtentry2.o)
-    0x0000031a   0x00000002   Code   RO         1739    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
-    0x0000031c   0x00000000   Code   RO         1774    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
-    0x0000031c   0x00000004   Code   RO         1775    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
-    0x00000320   0x00000006   Code   RO         1776    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
+    0x000002dc   0x0000001c   Code   RO         1826    !!handler_zi        c_w.l(__scatter_zi.o)
+    0x000002f8   0x00000002   Code   RO         1698    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
+    0x000002fa   0x00000000   Code   RO         1483    .ARM.Collect$$libinit$$00000002  c_w.l(libinit2.o)
+    0x000002fa   0x00000008   Code   RO         1484    .ARM.Collect$$libinit$$00000003  c_w.l(libinit2.o)
+    0x00000302   0x00000000   Code   RO         1486    .ARM.Collect$$libinit$$00000008  c_w.l(libinit2.o)
+    0x00000302   0x00000000   Code   RO         1488    .ARM.Collect$$libinit$$0000000A  c_w.l(libinit2.o)
+    0x00000302   0x00000000   Code   RO         1490    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
+    0x00000302   0x00000000   Code   RO         1493    .ARM.Collect$$libinit$$0000000F  c_w.l(libinit2.o)
+    0x00000302   0x00000000   Code   RO         1495    .ARM.Collect$$libinit$$00000011  c_w.l(libinit2.o)
+    0x00000302   0x00000000   Code   RO         1497    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
+    0x00000302   0x00000000   Code   RO         1499    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
+    0x00000302   0x00000000   Code   RO         1501    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
+    0x00000302   0x00000000   Code   RO         1503    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
+    0x00000302   0x00000000   Code   RO         1505    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
+    0x00000302   0x00000000   Code   RO         1507    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
+    0x00000302   0x00000000   Code   RO         1509    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
+    0x00000302   0x00000000   Code   RO         1511    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
+    0x00000302   0x00000000   Code   RO         1513    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
+    0x00000302   0x00000000   Code   RO         1517    .ARM.Collect$$libinit$$0000002A  c_w.l(libinit2.o)
+    0x00000302   0x00000000   Code   RO         1519    .ARM.Collect$$libinit$$0000002C  c_w.l(libinit2.o)
+    0x00000302   0x00000000   Code   RO         1521    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
+    0x00000302   0x00000000   Code   RO         1523    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
+    0x00000302   0x00000002   Code   RO         1524    .ARM.Collect$$libinit$$00000031  c_w.l(libinit2.o)
+    0x00000304   0x00000002   Code   RO         1807    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
+    0x00000306   0x00000000   Code   RO         1701    .ARM.Collect$$libshutdown$$00000003  c_w.l(libshutdown2.o)
+    0x00000306   0x00000000   Code   RO         1704    .ARM.Collect$$libshutdown$$00000006  c_w.l(libshutdown2.o)
+    0x00000306   0x00000000   Code   RO         1707    .ARM.Collect$$libshutdown$$00000009  c_w.l(libshutdown2.o)
+    0x00000306   0x00000000   Code   RO         1709    .ARM.Collect$$libshutdown$$0000000B  c_w.l(libshutdown2.o)
+    0x00000306   0x00000000   Code   RO         1712    .ARM.Collect$$libshutdown$$0000000E  c_w.l(libshutdown2.o)
+    0x00000306   0x00000002   Code   RO         1713    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
+    0x00000308   0x00000000   Code   RO         1326    .ARM.Collect$$rtentry$$00000000  c_w.l(rtentry.o)
+    0x00000308   0x00000000   Code   RO         1429    .ARM.Collect$$rtentry$$00000002  c_w.l(rtentry2.o)
+    0x00000308   0x00000006   Code   RO         1441    .ARM.Collect$$rtentry$$00000004  c_w.l(rtentry4.o)
+    0x0000030e   0x00000000   Code   RO         1431    .ARM.Collect$$rtentry$$00000009  c_w.l(rtentry2.o)
+    0x0000030e   0x00000004   Code   RO         1432    .ARM.Collect$$rtentry$$0000000A  c_w.l(rtentry2.o)
+    0x00000312   0x00000000   Code   RO         1434    .ARM.Collect$$rtentry$$0000000C  c_w.l(rtentry2.o)
+    0x00000312   0x00000008   Code   RO         1435    .ARM.Collect$$rtentry$$0000000D  c_w.l(rtentry2.o)
+    0x0000031a   0x00000002   Code   RO         1743    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
+    0x0000031c   0x00000000   Code   RO         1778    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
+    0x0000031c   0x00000004   Code   RO         1779    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
+    0x00000320   0x00000006   Code   RO         1780    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
     0x00000326   0x00000002   PAD
-    0x00000328   0x00000000   Code   RO         1653    .emb_text           c_w.l(maybetermalloc1.o)
+    0x00000328   0x00000000   Code   RO         1657    .emb_text           c_w.l(maybetermalloc1.o)
     0x00000328   0x00000034   Code   RO            4    .text               startup.o
-    0x0000035c   0x00000048   Code   RO         1308    .text               c_w.l(strcpy.o)
-    0x000003a4   0x00000006   Code   RO         1314    .text               c_w.l(heapauxi.o)
+    0x0000035c   0x00000048   Code   RO         1312    .text               c_w.l(strcpy.o)
+    0x000003a4   0x00000006   Code   RO         1318    .text               c_w.l(heapauxi.o)
     0x000003aa   0x00000002   PAD
-    0x000003ac   0x00000008   Code   RO         1326    .text               c_w.l(rt_new_handler_addr_intlibspace.o)
-    0x000003b4   0x0000005e   Code   RO         1330    .text               c_w.l(h1_alloc.o)
-    0x00000412   0x00000004   Code   RO         1406    .text               cpprt_w.l(arm_newhandler_noexceptions.o)
+    0x000003ac   0x00000008   Code   RO         1330    .text               c_w.l(rt_new_handler_addr_intlibspace.o)
+    0x000003b4   0x0000005e   Code   RO         1334    .text               c_w.l(h1_alloc.o)
+    0x00000412   0x00000004   Code   RO         1410    .text               cpprt_w.l(arm_newhandler_noexceptions.o)
     0x00000416   0x00000002   PAD
-    0x00000418   0x00000008   Code   RO         1419    .text               c_w.l(libspace.o)
-    0x00000420   0x00000008   Code   RO         1442    .text               c_w.l(rt_heap_descriptor_intlibspace.o)
-    0x00000428   0x00000004   Code   RO         1444    .text               c_w.l(hguard.o)
-    0x0000042c   0x0000008a   Code   RO         1446    .text               c_w.l(init_alloc.o)
-    0x000004b6   0x0000000e   Code   RO         1452    .text               c_w.l(h1_init.o)
-    0x000004c4   0x0000004e   Code   RO         1454    .text               c_w.l(h1_free.o)
-    0x00000512   0x0000001a   Code   RO         1526    .text               cpprt_w.l(arm_exceptions_terminate.o)
-    0x0000052c   0x0000004a   Code   RO         1649    .text               c_w.l(sys_stackheap_outer.o)
-    0x00000576   0x00000034   Code   RO         1655    .text               c_w.l(h1_extend.o)
-    0x000005aa   0x0000000c   Code   RO         1670    .text               c_w.l(exit.o)
-    0x000005b6   0x00000010   Code   RO         1672    .text               c_w.l(abort.o)
-    0x000005c6   0x0000000e   Code   RO         1678    .text               c_w.l(defsig_rtmem_outer.o)
-    0x000005d4   0x00000050   Code   RO         1716    .text               cpprt_w.l(arm_exceptions_globs.o)
-    0x00000624   0x0000000c   Code   RO         1734    .text               c_w.l(sys_exit.o)
-    0x00000630   0x00000002   Code   RO         1736    .text               c_w.l(use_no_semi.o)
-    0x00000632   0x00000000   Code   RO         1738    .text               c_w.l(indicate_semi.o)
+    0x00000418   0x00000008   Code   RO         1423    .text               c_w.l(libspace.o)
+    0x00000420   0x00000008   Code   RO         1446    .text               c_w.l(rt_heap_descriptor_intlibspace.o)
+    0x00000428   0x00000004   Code   RO         1448    .text               c_w.l(hguard.o)
+    0x0000042c   0x0000008a   Code   RO         1450    .text               c_w.l(init_alloc.o)
+    0x000004b6   0x0000000e   Code   RO         1456    .text               c_w.l(h1_init.o)
+    0x000004c4   0x0000004e   Code   RO         1458    .text               c_w.l(h1_free.o)
+    0x00000512   0x0000001a   Code   RO         1530    .text               cpprt_w.l(arm_exceptions_terminate.o)
+    0x0000052c   0x0000004a   Code   RO         1653    .text               c_w.l(sys_stackheap_outer.o)
+    0x00000576   0x00000034   Code   RO         1659    .text               c_w.l(h1_extend.o)
+    0x000005aa   0x0000000c   Code   RO         1674    .text               c_w.l(exit.o)
+    0x000005b6   0x00000010   Code   RO         1676    .text               c_w.l(abort.o)
+    0x000005c6   0x0000000e   Code   RO         1682    .text               c_w.l(defsig_rtmem_outer.o)
+    0x000005d4   0x00000050   Code   RO         1720    .text               cpprt_w.l(arm_exceptions_globs.o)
+    0x00000624   0x0000000c   Code   RO         1738    .text               c_w.l(sys_exit.o)
+    0x00000630   0x00000002   Code   RO         1740    .text               c_w.l(use_no_semi.o)
+    0x00000632   0x00000000   Code   RO         1742    .text               c_w.l(indicate_semi.o)
     0x00000632   0x00000002   PAD
-    0x00000634   0x00000008   Code   RO         1746    .text               c_w.l(rt_eh_globals_addr_intlibspace.o)
-    0x0000063c   0x0000000a   Code   RO         1756    .text               c_w.l(defsig_exit.o)
-    0x00000646   0x0000000e   Code   RO         1758    .text               c_w.l(defsig_abrt_outer.o)
-    0x00000654   0x00000050   Code   RO         1764    .text               c_w.l(defsig_rtmem_inner.o)
-    0x000006a4   0x0000003c   Code   RO         1770    .text               cpprt_w.l(arm_exceptions_mem.o)
-    0x000006e0   0x00000032   Code   RO         1788    .text               c_w.l(defsig_general.o)
+    0x00000634   0x00000008   Code   RO         1750    .text               c_w.l(rt_eh_globals_addr_intlibspace.o)
+    0x0000063c   0x0000000a   Code   RO         1760    .text               c_w.l(defsig_exit.o)
+    0x00000646   0x0000000e   Code   RO         1762    .text               c_w.l(defsig_abrt_outer.o)
+    0x00000654   0x00000050   Code   RO         1768    .text               c_w.l(defsig_rtmem_inner.o)
+    0x000006a4   0x0000003c   Code   RO         1774    .text               cpprt_w.l(arm_exceptions_mem.o)
+    0x000006e0   0x00000032   Code   RO         1792    .text               c_w.l(defsig_general.o)
     0x00000712   0x00000002   PAD
-    0x00000714   0x00000030   Code   RO         1790    .text               c_w.l(defsig_abrt_inner.o)
-    0x00000744   0x0000000e   Code   RO         1792    .text               c_w.l(sys_wrch.o)
+    0x00000714   0x00000030   Code   RO         1794    .text               c_w.l(defsig_abrt_inner.o)
+    0x00000744   0x0000000e   Code   RO         1796    .text               c_w.l(sys_wrch.o)
     0x00000752   0x00000002   PAD
     0x00000754   0x00000064   Code   RO          885    i.ADC_In            adc.o
     0x000007b8   0x00000098   Code   RO          886    i.ADC_Init          adc.o
@@ -1900,73 +1916,82 @@ Memory Map of the image
     0x00000a74   0x00000058   Code   RO          566    i.GPIOPortD_Handler  buttons.o
     0x00000acc   0x0000002c   Code   RO          567    i.GPIOPortE_Handler  buttons.o
     0x00000af8   0x0000007c   Code   RO           12    i.PLL_Init          pll.o
-    0x00000b74   0x00000002   Code   RO         1165    i.PortA_Init        portinit.o
+    0x00000b74   0x00000002   Code   RO         1169    i.PortA_Init        portinit.o
     0x00000b76   0x00000002   PAD
-    0x00000b78   0x00000024   Code   RO         1166    i.PortB_Init        portinit.o
-    0x00000b9c   0x00000024   Code   RO         1167    i.PortC_Init        portinit.o
+    0x00000b78   0x00000024   Code   RO         1170    i.PortB_Init        portinit.o
+    0x00000b9c   0x00000024   Code   RO         1171    i.PortC_Init        portinit.o
     0x00000bc0   0x0000003c   Code   RO          568    i.PortD_Arm         buttons.o
-    0x00000bfc   0x00000024   Code   RO         1168    i.PortD_Init        portinit.o
+    0x00000bfc   0x00000024   Code   RO         1172    i.PortD_Init        portinit.o
     0x00000c20   0x0000003c   Code   RO          569    i.PortE_Arm         buttons.o
-    0x00000c5c   0x00000024   Code   RO         1169    i.PortE_Init        portinit.o
-    0x00000c80   0x00000024   Code   RO         1170    i.PortF_Init        portinit.o
+    0x00000c5c   0x00000024   Code   RO         1173    i.PortE_Init        portinit.o
+    0x00000c80   0x00000024   Code   RO         1174    i.PortF_Init        portinit.o
     0x00000ca4   0x0000003c   Code   RO          632    i.RxFifo_Put        uart.o
     0x00000ce0   0x00000018   Code   RO          633    i.RxFifo_Size       uart.o
     0x00000cf8   0x00000120   Code   RO          304    i.ST7735_DrawBitmap  st7735.o
-    0x00000e18   0x000000ac   Code   RO          311    i.ST7735_FillRect   st7735.o
-    0x00000ec4   0x00000024   Code   RO          312    i.ST7735_FillScreen  st7735.o
-    0x00000ee8   0x0000007c   Code   RO          314    i.ST7735_InitR      st7735.o
-    0x00000f64   0x00000020   Code   RO          328    i.ST7735_SetCursor  st7735.o
-    0x00000f84   0x000000d4   Code   RO          329    i.ST7735_SetRotation  st7735.o
-    0x00001058   0x00000054   Code   RO           92    i.SearchCheck       esp8266.o
-    0x000010ac   0x000000d4   Code   RO           94    i.ServerResponseSearchCheck  esp8266.o
-    0x00001180   0x00000044   Code   RO          784    i.Thumbstick_Init   thumbstick.o
-    0x000011c4   0x0000005c   Code   RO          570    i.Timer2A_Handler   buttons.o
-    0x00001220   0x0000004c   Code   RO          571    i.Timer2_Arm        buttons.o
-    0x0000126c   0x00000014   Code   RO         1086    i.Timer3A_Handler   main.o
-    0x00001280   0x0000003c   Code   RO          634    i.TxFifo_Get        uart.o
-    0x000012bc   0x0000003c   Code   RO          636    i.TxFifo_Put        uart.o
-    0x000012f8   0x00000018   Code   RO          637    i.TxFifo_Size       uart.o
-    0x00001310   0x00000058   Code   RO          638    i.UART0_Handler     uart.o
-    0x00001368   0x00000030   Code   RO           96    i.UART1_Handler     esp8266.o
-    0x00001398   0x00000034   Code   RO          646    i.UART_OutCharNonBlock  uart.o
-    0x000013cc   0x00000044   Code   RO          912    i._Z12DrawEntitiesP10EntityList  gamerules.o
-    0x00001410   0x00000034   Code   RO          913    i._Z13EraseEntitiesP10EntityList  gamerules.o
-    0x00001444   0x0000005c   Code   RO         1088    i._Z13GameTick_Initv  main.o
-    0x000014a0   0x0000005a   Code   RO          915    i._Z21NormalizeAnalogInputsPtS_  gamerules.o
-    0x000014fa   0x00000026   Code   RO          916    i._ZN10EntityList12removeZeroesEv  gamerules.o
-    0x00001520   0x00000012   Code   RO          918    i._ZN10EntityList4pushEP6Entity  gamerules.o
-    0x00001532   0x00000018   Code   RO          919    i._ZN10EntityList5clearEv  gamerules.o
-    0x0000154a   0x00000012   Code   RO          920    i._ZN10EntityList6isFullEv  gamerules.o
-    0x0000155c   0x00000038   Code   RO          921    i._ZN10EntityList6updateEPtS0_  gamerules.o
-    0x00001594   0x00000008   Code   RO         1119    i._ZN10EntityListC1Ev  main.o
-    0x0000159c   0x0000007e   Code   RO          923    i._ZN6Entity13WallCollisionE9Rectangle  gamerules.o
-    0x0000161a   0x00000036   Code   RO          924    i._ZN6Entity6updateEv  gamerules.o
-    0x00001650   0x00000006   Code   RO         1053    i._ZN6VectorC1Ess   gamerules.o
-    0x00001656   0x000000f0   Code   RO          926    i._ZN8Quadtree11getQuadrantE9Rectangle  gamerules.o
-    0x00001746   0x00000036   Code   RO          927    i._ZN8Quadtree5clearEv  gamerules.o
-    0x0000177c   0x00000104   Code   RO          928    i._ZN8Quadtree5splitEv  gamerules.o
-    0x00001880   0x00000050   Code   RO          929    i._ZN8Quadtree6insertEP10EntityList  gamerules.o
-    0x000018d0   0x0000009e   Code   RO          930    i._ZN8Quadtree6insertEP6Entity  gamerules.o
-    0x0000196e   0x0000004c   Code   RO          931    i._ZN8Quadtree8retrieveEP10EntityList9Rectangle  gamerules.o
-    0x000019ba   0x0000001e   Code   RO         1047    i._ZN8QuadtreeC1Eh9Rectangle  gamerules.o
-    0x000019d8   0x0000000e   Code   RO         1041    i._ZN9RectangleC1Esstt  gamerules.o
-    0x000019e6   0x00000002   PAD
-    0x000019e8   0x00000028   Code   RO         1318    i._Znwj             cpprt_w.l(new.o)
-    0x00001a10   0x00000056   Code   RO          332    i.commandList       st7735.o
-    0x00001a66   0x00000002   PAD
-    0x00001a68   0x00000184   Code   RO          333    i.commonInit        st7735.o
-    0x00001bec   0x0000002c   Code   RO          650    i.copyHardwareToSoftware  uart.o
-    0x00001c18   0x0000002c   Code   RO          651    i.copySoftwareToHardware  uart.o
-    0x00001c44   0x0000000e   Code   RO           97    i.lc                esp8266.o
-    0x00001c52   0x00000002   PAD
-    0x00001c54   0x00000164   Code   RO         1089    i.main              main.o
-    0x00001db8   0x00000074   Code   RO          338    i.setAddrWindow     st7735.o
-    0x00001e2c   0x00000030   Code   RO          339    i.writecommand      st7735.o
-    0x00001e5c   0x00000020   Code   RO          340    i.writedata         st7735.o
-    0x00001e7c   0x000007e2   Data   RO          342    .constdata          st7735.o
-    0x0000265e   0x00000080   Data   RO          952    .constdata          gamerules.o
-    0x000026de   0x00000002   PAD
-    0x000026e0   0x00000020   Data   RO         1816    Region$$Table       anon$$obj.o
+    0x00000e18   0x000000f4   Code   RO          306    i.ST7735_DrawCharS  st7735.o
+    0x00000f0c   0x00000048   Code   RO          309    i.ST7735_DrawPixel  st7735.o
+    0x00000f54   0x00000056   Code   RO          310    i.ST7735_DrawString  st7735.o
+    0x00000faa   0x00000002   PAD
+    0x00000fac   0x000000ac   Code   RO          311    i.ST7735_FillRect   st7735.o
+    0x00001058   0x00000024   Code   RO          312    i.ST7735_FillScreen  st7735.o
+    0x0000107c   0x0000007c   Code   RO          314    i.ST7735_InitR      st7735.o
+    0x000010f8   0x0000008c   Code   RO          318    i.ST7735_OutUDec    st7735.o
+    0x00001184   0x00000020   Code   RO          328    i.ST7735_SetCursor  st7735.o
+    0x000011a4   0x000000d4   Code   RO          329    i.ST7735_SetRotation  st7735.o
+    0x00001278   0x00000054   Code   RO           92    i.SearchCheck       esp8266.o
+    0x000012cc   0x000000d4   Code   RO           94    i.ServerResponseSearchCheck  esp8266.o
+    0x000013a0   0x00000044   Code   RO          784    i.Thumbstick_Init   thumbstick.o
+    0x000013e4   0x0000005c   Code   RO          570    i.Timer2A_Handler   buttons.o
+    0x00001440   0x0000004c   Code   RO          571    i.Timer2_Arm        buttons.o
+    0x0000148c   0x00000014   Code   RO         1092    i.Timer3A_Handler   main.o
+    0x000014a0   0x0000003c   Code   RO          634    i.TxFifo_Get        uart.o
+    0x000014dc   0x0000003c   Code   RO          636    i.TxFifo_Put        uart.o
+    0x00001518   0x00000018   Code   RO          637    i.TxFifo_Size       uart.o
+    0x00001530   0x00000058   Code   RO          638    i.UART0_Handler     uart.o
+    0x00001588   0x00000030   Code   RO           96    i.UART1_Handler     esp8266.o
+    0x000015b8   0x00000034   Code   RO          646    i.UART_OutCharNonBlock  uart.o
+    0x000015ec   0x00000054   Code   RO          912    i._Z12DrawEntitiesP10EntityList  gamerules.o
+    0x00001640   0x00000034   Code   RO          913    i._Z13EraseEntitiesP10EntityList  gamerules.o
+    0x00001674   0x0000005c   Code   RO         1094    i._Z13GameTick_Initv  main.o
+    0x000016d0   0x00000106   Code   RO          915    i._Z21NormalizeAnalogInputsPtS_  gamerules.o
+    0x000017d6   0x00000026   Code   RO          916    i._ZN10EntityList12removeZeroesEv  gamerules.o
+    0x000017fc   0x00000012   Code   RO          918    i._ZN10EntityList4pushEP6Entity  gamerules.o
+    0x0000180e   0x00000018   Code   RO          919    i._ZN10EntityList5clearEv  gamerules.o
+    0x00001826   0x00000012   Code   RO          920    i._ZN10EntityList6isFullEv  gamerules.o
+    0x00001838   0x00000072   Code   RO          921    i._ZN10EntityList6updateEPtS0_  gamerules.o
+    0x000018aa   0x00000008   Code   RO         1131    i._ZN10EntityListC1Ev  main.o
+    0x000018b2   0x0000007e   Code   RO          923    i._ZN6Entity13WallCollisionE9Rectangle  gamerules.o
+    0x00001930   0x00000036   Code   RO          924    i._ZN6Entity6updateEv  gamerules.o
+    0x00001966   0x00000022   Code   RO         1125    i._ZN6EntityC1E9Rectangle6VectorS1_10EntityTypejj  main.o
+    0x00001988   0x00000006   Code   RO         1053    i._ZN6VectorC1Ess   gamerules.o
+    0x0000198e   0x000000f0   Code   RO          926    i._ZN8Quadtree11getQuadrantE9Rectangle  gamerules.o
+    0x00001a7e   0x00000036   Code   RO          927    i._ZN8Quadtree5clearEv  gamerules.o
+    0x00001ab4   0x00000104   Code   RO          928    i._ZN8Quadtree5splitEv  gamerules.o
+    0x00001bb8   0x00000050   Code   RO          929    i._ZN8Quadtree6insertEP10EntityList  gamerules.o
+    0x00001c08   0x0000009e   Code   RO          930    i._ZN8Quadtree6insertEP6Entity  gamerules.o
+    0x00001ca6   0x0000004c   Code   RO          931    i._ZN8Quadtree8retrieveEP10EntityList9Rectangle  gamerules.o
+    0x00001cf2   0x0000001e   Code   RO         1047    i._ZN8QuadtreeC1Eh9Rectangle  gamerules.o
+    0x00001d10   0x0000000e   Code   RO         1041    i._ZN9RectangleC1Esstt  gamerules.o
+    0x00001d1e   0x00000002   PAD
+    0x00001d20   0x00000028   Code   RO         1322    i._Znwj             cpprt_w.l(new.o)
+    0x00001d48   0x00000056   Code   RO          332    i.commandList       st7735.o
+    0x00001d9e   0x00000002   PAD
+    0x00001da0   0x00000184   Code   RO          333    i.commonInit        st7735.o
+    0x00001f24   0x0000002c   Code   RO          650    i.copyHardwareToSoftware  uart.o
+    0x00001f50   0x0000002c   Code   RO          651    i.copySoftwareToHardware  uart.o
+    0x00001f7c   0x00000048   Code   RO          336    i.fillmessage       st7735.o
+    0x00001fc4   0x0000000e   Code   RO           97    i.lc                esp8266.o
+    0x00001fd2   0x00000002   PAD
+    0x00001fd4   0x000001c4   Code   RO         1095    i.main              main.o
+    0x00002198   0x00000012   Code   RO          337    i.pushColor         st7735.o
+    0x000021aa   0x00000002   PAD
+    0x000021ac   0x00000074   Code   RO          338    i.setAddrWindow     st7735.o
+    0x00002220   0x00000030   Code   RO          339    i.writecommand      st7735.o
+    0x00002250   0x00000020   Code   RO          340    i.writedata         st7735.o
+    0x00002270   0x000007e2   Data   RO          342    .constdata          st7735.o
+    0x00002a52   0x000000a0   Data   RO          952    .constdata          gamerules.o
+    0x00002af2   0x00000002   PAD
+    0x00002af4   0x00000020   Data   RO         1820    Region$$Table       anon$$obj.o
 
 
     Execution Region ER_RW (Base: 0x20000000, Size: 0x00000094, Max: 0xffffffff, ABSOLUTE)
@@ -1977,19 +2002,19 @@ Memory Map of the image
     0x20000040   0x0000002c   Data   RW          343    .data               st7735.o
     0x2000006c   0x00000008   Data   RW          572    .data               buttons.o
     0x20000074   0x00000010   Data   RW          654    .data               uart.o
-    0x20000084   0x00000010   Data   RW         1094    .data               main.o
+    0x20000084   0x0000000f   Data   RW         1100    .data               main.o
 
 
-    Execution Region ER_ZI (Base: 0x20000094, Size: 0x00001c84, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_ZI (Base: 0x20000094, Size: 0x00001c8c, Max: 0xffffffff, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x20000094   0x00000c20   Zero   RW           98    .bss                esp8266.o
-    0x20000cb4   0x00000800   Zero   RW          653    .bss                uart.o
-    0x200014b4   0x00000060   Zero   RW         1420    .bss                c_w.l(libspace.o)
-    0x20001514   0x00000004   PAD
-    0x20001518   0x00000400   Zero   RW            2    HEAP                startup.o
-    0x20001918   0x00000400   Zero   RW            1    STACK               startup.o
+    0x20000cb4   0x0000000c   Zero   RW          341    .bss                st7735.o
+    0x20000cc0   0x00000800   Zero   RW          653    .bss                uart.o
+    0x200014c0   0x00000060   Zero   RW         1424    .bss                c_w.l(libspace.o)
+    0x20001520   0x00000400   Zero   RW            2    HEAP                startup.o
+    0x20001920   0x00000400   Zero   RW            1    STACK               startup.o
 
 
 ==============================================================================
@@ -1999,23 +2024,23 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-        96          8          0          0          0        413   accel.o
-       252         22          0          0          0       1348   adc.o
-       716        136          0          8          0       3326   buttons.o
-       482         76          0         64       3104       4761   esp8266.o
-      1462          6        128          0          0      18023   gamerules.o
-       476         36          0         16          0       5789   main.o
-       124          6          0          0          0       4707   pll.o
-       182         50          0          0          0       2414   portinit.o
-      1566        158       2018         44          0      10953   st7735.o
-       696        636          0          0       2048        996   startup.o
-        68         10          0          0          0        418   thumbstick.o
-       456         80          0         16       2048       5464   uart.o
+        96          8          0          0          0        381   accel.o
+       252         22          0          0          0       1248   adc.o
+       716        136          0          8          0       3062   buttons.o
+       482         76          0         64       3104       4509   esp8266.o
+      1708          8        160          0          0      17635   gamerules.o
+       606         44          0         15          0       5521   main.o
+       124          6          0          0          0       4639   pll.o
+       182         50          0          0          0       2198   portinit.o
+      2198        208       2018         44         12      13846   st7735.o
+       696        636          0          0       2048        932   startup.o
+        68         10          0          0          0        386   thumbstick.o
+       456         80          0         16       2048       5084   uart.o
 
     ----------------------------------------------------------------------
-      6584       1224       2180        148       7200      58612   Object Totals
+      7596       1284       2212        148       7212      59441   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-         8          0          2          0          0          0   (incl. Padding)
+        12          0          2          1          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -2067,8 +2092,8 @@ Image component sizes
         40          6          0          0          0         76   new.o
 
     ----------------------------------------------------------------------
-      1220        138          0          0        100       2524   Library Totals
-        14          0          0          0          4          0   (incl. Padding)
+      1220        138          0          0         96       2524   Library Totals
+        14          0          0          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -2078,7 +2103,7 @@ Image component sizes
        210         18          0          0          0        432   cpprt_w.l
 
     ----------------------------------------------------------------------
-      1220        138          0          0        100       2524   Library Totals
+      1220        138          0          0         96       2524   Library Totals
 
     ----------------------------------------------------------------------
 
@@ -2087,15 +2112,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      7804       1362       2180        148       7300      56300   Grand Totals
-      7804       1362       2180        148       7300      56300   ELF Image Totals
-      7804       1362       2180        148          0          0   ROM Totals
+      8816       1422       2212        148       7308      56765   Grand Totals
+      8816       1422       2212        148       7308      56765   ELF Image Totals
+      8816       1422       2212        148          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 9984 (   9.75kB)
-    Total RW  Size (RW Data + ZI Data)              7448 (   7.27kB)
-    Total ROM Size (Code + RO Data + RW Data)      10132 (   9.89kB)
+    Total RO  Size (Code + RO Data)                11028 (  10.77kB)
+    Total RW  Size (RW Data + ZI Data)              7456 (   7.28kB)
+    Total ROM Size (Code + RO Data + RW Data)      11176 (  10.91kB)
 
 ==============================================================================
 

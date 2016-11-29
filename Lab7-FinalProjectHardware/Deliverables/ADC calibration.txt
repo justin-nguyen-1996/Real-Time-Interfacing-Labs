@@ -3,7 +3,7 @@ tstick range: 4050 ... 0 - 4050
 
 accel x stationary: 2050
 accel y stationary: 2012
-accel z stationary: 2485
+accel z stationary: 1660
 
 tstick2 y stationary: 1960
 tstick2 x stationary: 2124

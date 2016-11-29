@@ -6,6 +6,8 @@
 #define TSTICK2_V  2
 #define TSTICK2_H  3
 
+// TSTICK2 --> left thumbstick, movement
+// TSTICK1 --> right thumbstick, firing direction
 void Thumbstick_Init(void);
 
 #endif
