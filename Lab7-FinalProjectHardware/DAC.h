@@ -18,5 +18,6 @@ void DAC_Out(uint16_t code);
 void Timer0A_Init(uint32_t period);
 void DAC_Test(int testNumber);
 void disableSound(void);
+void enableSound(void);
 
 #endif

@@ -123,6 +123,10 @@ void disableSound(void) {
   TIMER0_IMR_R = 0x00;    // disable timer
 }
 
+void enableSound(void) {
+  TIMER0_IMR_R = 0x01;    // enable timer
+}
+
 void DAC_Test(int testNumber) {
 	switch (testNumber)
 	{

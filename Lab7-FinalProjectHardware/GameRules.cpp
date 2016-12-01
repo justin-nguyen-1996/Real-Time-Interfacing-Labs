@@ -9,6 +9,7 @@ extern "C"{
 	#include "Accel.h"
   #include "Buttons.h"
   #include "bmp.h"
+  #include "Dac.h"
 }
 #include "GameRules.h"
 #define NULL       0
@@ -57,8 +58,9 @@ void Entity::WallCollision(Rectangle B)
 		if (right) { Bounds.x = B.x + B.w - Bounds.w; }
 		if (top) {Bounds.y = B.y;}
 		if (bottom) { Bounds.y = B.y + B.h - Bounds.h; }
-	}
-	else if (type == LASER && (left||bottom||top||right)) { dead = true; }
+	} 
+  else if (type == LASER && (left||bottom||top||right)) { dead = true; }
+  else if (type == MISSILE && (left||bottom||top||right)) { dead = true; }
 }
 
 uint8_t Entity::direction(void)
@@ -135,6 +137,7 @@ void EntityList::update(uint16_t * tstick, uint16_t * accel, uint32_t gameTick) 
             Vector(0,0), Vector(0,0), MISSILE, 0, 0
         );
         push(missile);
+        missileFlag = 0;
       }
 			if ( rand()%2 ) //create fire
 			{
@@ -158,11 +161,13 @@ void EntityList::update(uint16_t * tstick, uint16_t * accel, uint32_t gameTick) 
 						Vector(0,0), LASER, 0, 0
 					);
 					push(laser);
+          enableSound();
 			}
+      if (gameTick - E->data1 >= 5) { disableSound(); }
 
 		} else if (E->type == MISSILE) {
-			E->Velocity.x = (int16_t) accel[ACCEL_X];
-			E->Velocity.y = (int16_t) accel[ACCEL_Y];
+			E->Velocity.x = (int16_t) (accel[ACCEL_Y] << 1);
+			E->Velocity.y = -1 * ((int16_t) accel[ACCEL_X] << 1);
 		}
 		if (E->dead) { delete E; List[i] = NULL; }
 	}
@@ -362,24 +367,6 @@ void NormalizeAnalogInputs( uint16_t * tstick, uint16_t * accel )
 //  **************************
 //  *   Button Interrupts    *
 //  * ************************
-
-//extern EntityList AllEntities;
-//void fireMissile() {
-////  E->data1 = gameTick;
-////  Vector velocity( (int16_t) tstick[TSTICK1_V], - (int16_t) tstick[TSTICK1_H]);
-////  velocity.normalize(BULLET_SPEED);
-//  for (int i = 0; i < AllEntities.nextIndex; ++i) {
-//    Entity* E = AllEntities.List[i];
-//    if (E->type == SHIP) {
-//      Entity* missile = new Entity(
-//          Rectangle(E->Bounds.x + 500, E->Bounds.y, 4<<7, 4<<7),  // x + 500 so bullet fires from center instead of top left corner
-//    //      velocity,
-//          Vector(0,0), Vector(0,0), MISSILE, 0, 0
-//      );
-//      AllEntities.push(missile);
-//    }
-//  }
-//}
 
 extern volatile unsigned long Last;      // previous button state
 void GPIOPortD_Handler(void){

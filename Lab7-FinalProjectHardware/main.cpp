@@ -79,7 +79,7 @@ int main(void) {
 	Accel_Init();
 	ADC_Init();
 	GameTick_Init();
-  Timer0A_Init(8000);
+  Timer0A_Init(8000); disableSound();
 	EnableInterrupts();
 
 //	ST7735_Test();   waitForTouch(); Output_Clear();
@@ -97,7 +97,7 @@ int main(void) {
 			oldGameTick = Flag_GameTick; 
 			
       // read and normalize ADC inputs
-			ADC_In(tstick, accel);
+			ADC_In(tstick, accel); 
 			NormalizeAnalogInputs(tstick, accel);
 
 			// update entities
