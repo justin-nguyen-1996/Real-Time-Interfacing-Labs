@@ -4,6 +4,7 @@ extern "C"{
 	#include "../inc/tm4c123gh6pm.h"
 	#include "ST7735.h"
 	#include "Graphics.h"
+	#include <stdlib.h>
 	#include "Thumbstick.h"
 	#include "Accel.h"
   #include "bmp.h"
@@ -34,18 +35,29 @@ extern "C"{
 void Entity::update (void)
 {
   Bounds.x += Velocity.x; Bounds.y += Velocity.y;
-  Velocity += Acceleration;
+	Velocity += Acceleration;
+	if (type == PARTICLE) { if (--data1 <= 0) dead = 1; }
 }
 
 void Entity::WallCollision(Rectangle B)
 {
+	bool left = false;
+	bool right = false;
+	bool top = false;
+  bool bottom = false;
+	if (Bounds.x < B.x) {left = true;}
+	if (Bounds.x + Bounds.w > B.x + B.w) {right = true;}
+	if (Bounds.y < B.y) {top = true;}
+	if (Bounds.y + Bounds.h > B.y + B.h) {bottom = true;}
+
 	if (type == SHIP)
 	{
-		if (Bounds.x < B.x) {Bounds.x = B.x;}
-		if (Bounds.x + Bounds.w > B.x + B.w) { Bounds.x = B.x + B.w - Bounds.w; }
-		if (Bounds.y < B.y) {Bounds.y = B.y;}
-		if (Bounds.y + Bounds.h > B.y + B.h) { Bounds.y = B.y + B.h - Bounds.h; }
+		if (left) {Bounds.x = B.x;}
+		if (right) { Bounds.x = B.x + B.w - Bounds.w; }
+		if (top) {Bounds.y = B.y;}
+		if (bottom) { Bounds.y = B.y + B.h - Bounds.h; }
 	}
+	else if (type == LASER && (left||bottom||top||right)) { dead = true; }
 }
 
 uint8_t Entity::direction(void)
@@ -93,6 +105,8 @@ Entity * EntityList::pop (void) {
 }
 
 void EntityList::push (Entity * E) {
+	if (E == NULL) return; 
+	else if (isFull()) { delete E; return; }
   List[nextIndex++] = E;
 }
 
@@ -104,38 +118,45 @@ bool EntityList::isEmpty(void) {
 	return (!nextIndex);
 }
 
-#define BULLET_SPEED 15
-void EntityList::update(uint16_t * tstick, uint16_t * accel) {
+#define BULLET_SPEED 200 
+#define BULLET_SHOOT_RATE 100 //defined in terms of game ticks
+void EntityList::update(uint16_t * tstick, uint16_t * accel, uint32_t gameTick) {
 	for (int i = 0; i < nextIndex; i++) {
 		Entity * E = List[i];
 		E->update();
+		if (E->type == SHIP)
+		{
+			if ( rand()%2 ) //create fire
+			{
+				Rectangle R( E->Bounds.x + ((2 + rand()%5)<<7), E->Bounds.y + ((2 + rand()%5)<<7), 1<<7, 1<<7);
+				push( new Entity( R, Vector(0,0), Vector(0,0), PARTICLE, 10+rand()%5, 0 ));
+			}
 
-		if (E->type == SHIP) {
-			E->Velocity.x = (int16_t) tstick[TSTICK2_H] >> 2; // shift to slow ship movement
-			E->Velocity.y = (int16_t) tstick[TSTICK2_V] >> 2;
+			E->Velocity.x = (int16_t) tstick[TSTICK2_V] >> 2; // shift to slow ship movement
+			E->Velocity.y = - (int16_t) tstick[TSTICK2_H] >> 2;
 
 			// if thumbstick1 (right thumbstick) is not stationary --> add a laser entity to the list
-			if ((tstick[TSTICK1_H] < DEADZONE_TSTICK_MIN  ||  tstick[TSTICK1_H] > DEADZONE_TSTICK_MAX)
-					|| (tstick[TSTICK1_V] < DEADZONE_TSTICK_MIN  ||  tstick[TSTICK1_V] > DEADZONE_TSTICK_MAX))
+			//only generate bullet after rate
+			if ((tstick[TSTICK1_V] || tstick[TSTICK1_H]) && gameTick - E->data1 >= BULLET_SHOOT_RATE)
       {
-        for (int i = 0; i < 2; i++) { // normalize shoot direction
-          if (DEADZONE_TSTICK_MIN <= tstick[i] && DEADZONE_TSTICK_MAX >= tstick[i]) { tstick[i] = 0; }
-          else if (DEADZONE_TSTICK_MIN > tstick[i]) { tstick[i] =  -BULLET_SPEED; }
-          else { tstick[i] = BULLET_SPEED; }
-        }
-
-				Entity* laser = new Entity(
-					Rectangle(E->Bounds.x + 500, E->Bounds.y, 4<<7, 4<<7),  // x + 500 so bullet fires from center instead of top left corner
-          Vector(tstick[TSTICK1_H], tstick[TSTICK1_V]),  // velocity // TODO: direction is weird but corresponds to left thumbstick
-          Vector(0,0), LASER, 0, 0);
-				push(laser);
+					E->data1 = gameTick;
+					Vector velocity( (int16_t) tstick[TSTICK1_V], - (int16_t) tstick[TSTICK1_H]);
+					velocity.normalize(BULLET_SPEED);
+					Entity* laser = new Entity(
+						Rectangle(E->Bounds.x + 500, E->Bounds.y, 4<<7, 4<<7),  // x + 500 so bullet fires from center instead of top left corner
+						velocity,  // velocity // TODO: direction is weird but corresponds to left thumbstick
+						Vector(0,0), LASER, 0, 0
+					);
+					push(laser);
 			}
 
 		} else if (E->type == MISSILE) {
 			E->Velocity.x = (int16_t) accel[ACCEL_X];
 			E->Velocity.y = (int16_t) accel[ACCEL_Y];
 		}
+		if (E->dead) { delete E; List[i] = NULL; }
 	}
+	//removeZeroes();
 }
 
 void EntityList::clear(void) {
@@ -208,6 +229,7 @@ int8_t Quadtree::getQuadrant (Rectangle R)
 // recursively finds the smallest quadrant in which to insert the given entity
 void Quadtree::insert (Entity * E)
 {
+	if (E == NULL) return;
 	if (nodes[0] != NULL) // why nodes[0] -- Check if any are initialized. Since all get "new"-ed at the same time during split()
 	{
 		int8_t quadrant = getQuadrant(E->Bounds);
@@ -236,7 +258,7 @@ void Quadtree::insert (EntityList * L)
 {
 	for (int i = 0; i < L->nextIndex; i++)
 	{
-		if (L->List[i]->type == SHIP && getQuadrant(L->List[i]->Bounds) == -1) { L->List[i]->WallCollision(bounds); }
+		if (getQuadrant(L->List[i]->Bounds) == INVALID) { L->List[i]->WallCollision(bounds); }
 		insert(L->List[i]);
 	}
 }
@@ -273,6 +295,10 @@ void Quadtree::drawBounds (void)
 }
 
 
+/***************************
+ * Misc
+ * *************************/
+
 void DrawEntities(EntityList * L)
 {
 	for (int i = 0; i < L->nextIndex; i++)
@@ -282,6 +308,7 @@ void DrawEntities(EntityList * L)
 
 		if (E->type == SHIP) { bitmap = Bitmap_Ship[E->direction()]; }
 		else if (E->type == LASER) { bitmap = Bitmap_GreenLaser; }
+		else if (E->type == PARTICLE) { ST7735_DrawPixel(E->Bounds.x >> 7, E->Bounds.y >> 7, ST7735_RED); return;}
 
 		ST7735_DrawBitmap(E->Bounds.x >> 7, (E->Bounds.y + E->Bounds.h) >> 7, bitmap, E->Bounds.w >> 7, E->Bounds.h >> 7);
 	}
@@ -303,7 +330,7 @@ void NormalizeAnalogInputs( uint16_t * tstick, uint16_t * accel )
 	// second if clauses are checking for negative numbers ... stuff gets typecasted to signed numbers in update ... yeah we know it's bad
 	// third if clauses are similar --> simply check and calibrate
 
-	for (int i = 2; i < 4; i++) { // normalize thumbstick2 for movement calibration, no need for shoot direction calibration
+	for (int i = 0; i < 4; i++) { // normalize thumbstick2 for movement calibration, no need for shoot direction calibration
 		if (DEADZONE_TSTICK_MIN <= tstick[i] && DEADZONE_TSTICK_MAX >= tstick[i]) { tstick[i] = 0; }
 		else if (DEADZONE_TSTICK_MIN > tstick[i]) { tstick[i] = ((tstick[i] - DEADZONE_TSTICK_MIN) << 7) >> 10; }
 		else { tstick[i] = ((tstick[i] - DEADZONE_TSTICK_MAX) << 7) >> 10; }

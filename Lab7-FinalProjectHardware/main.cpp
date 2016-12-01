@@ -21,11 +21,10 @@ extern "C" {
 }
 #include "GameRules.h"
 
-
 //static const int BAUD_RATE = 115200;
 static uint16_t tstick[4] = {0,0,0,0}; 
 static uint16_t accel[3] = {0,0,0};
-static uint8_t Flag_GameTick = 0;
+static uint32_t Flag_GameTick = 0;
 
 void waitForTouch() {
 	while (RIGHTSWITCH == 0x01) {}
@@ -35,7 +34,7 @@ void waitForTouch() {
 extern "C" {
 	void Timer3A_Handler(void){
 		TIMER3_ICR_R = TIMER_ICR_TATOCINT;// acknowledge TIMER3A timeout
-		Flag_GameTick = 1;
+		Flag_GameTick += 1;
 	}
 }
 
@@ -111,10 +110,10 @@ int main(void) {
 	WorldSpace->insert(Player);
 	WorldSpace->insert(laser);
 	
-	uint32_t tick = 0;
+	uint32_t oldGameTick = 0;
 	while (1) {
-		if (Flag_GameTick) {
-			Flag_GameTick = 0;
+		if (oldGameTick != Flag_GameTick) {
+			oldGameTick = Flag_GameTick; 
 
 			//ST7735_SetCursor(0,0);
 			//	ST7735_OutUDec(tick++);
@@ -126,7 +125,7 @@ int main(void) {
 			EntityList AllEntities;
 			WorldSpace->retrieve(&AllEntities, Screen);
 			EraseEntities(&AllEntities);
-			AllEntities.update(tstick, accel);
+			AllEntities.update(tstick, accel, oldGameTick);
 			DrawEntities(&AllEntities);
 			WorldSpace->clear();
 			WorldSpace->insert(&AllEntities);
@@ -136,4 +135,5 @@ int main(void) {
 			// check for collisions
 		}
 	}
+
 }

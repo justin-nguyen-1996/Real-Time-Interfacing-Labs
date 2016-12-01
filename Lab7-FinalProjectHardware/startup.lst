@@ -79,8 +79,8 @@ ARM Macro Assembler    Page 2
    43 00000000         ;
    44 00000000         ;*******************************************************
                        ***********************
-   45 00000000 00000400 
-                       Heap    EQU              0x00000400
+   45 00000000 00004000 
+                       Heap    EQU              0x00004000
    46 00000000         
    47 00000000         ;*******************************************************
                        ***********************
@@ -107,26 +107,26 @@ ARM Macro Assembler    Page 2
    63 00000000         __heap_base
    64 00000000         HeapMem
    65 00000000                 SPACE            Heap
-   66 00000400         __heap_limit
-   67 00000400         
-   68 00000400         ;*******************************************************
+   66 00004000         __heap_limit
+   67 00004000         
+   68 00004000         ;*******************************************************
                        ***********************
-   69 00000400         ;
-   70 00000400         ; Indicate that the code in this file preserves 8-byte a
+   69 00004000         ;
+   70 00004000         ; Indicate that the code in this file preserves 8-byte a
                        lignment of the stack.
-   71 00000400         ;
-   72 00000400         ;*******************************************************
+   71 00004000         ;
+   72 00004000         ;*******************************************************
                        ***********************
-   73 00000400                 PRESERVE8
-   74 00000400         
-   75 00000400         ;*******************************************************
+   73 00004000                 PRESERVE8
+   74 00004000         
+   75 00004000         ;*******************************************************
                        ***********************
-   76 00000400         ;
-   77 00000400         ; Place code into the reset code section.
-   78 00000400         ;
-   79 00000400         ;*******************************************************
+   76 00004000         ;
+   77 00004000         ; Place code into the reset code section.
+   78 00004000         ;
+   79 00004000         ;*******************************************************
                        ***********************
-   80 00000400                 AREA             RESET, CODE, READONLY
+   80 00004000                 AREA             RESET, CODE, READONLY
    81 00000000                 THUMB
 
 
@@ -1088,11 +1088,12 @@ ARM Macro Assembler    Page 17
   674 00000024                 END
               00000000 
               00000400 
-              00000400 
+              00004000 
               00000000 
 Command Line: --debug --xref --cpu=Cortex-M4 --apcs=interwork --depend=.\startu
-p.d -o.\startup.o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\CMSIS\Include -IC:\Keil\
-ARM\Inc\Luminary --list=.\startup.lst startup.s
+p.d -o.\startup.o -I"C:\Program Files\Keil\ARM\RV31\INC" -I"C:\Program Files\Ke
+il\ARM\CMSIS\Include" -I"C:\Program Files\Keil\ARM\Inc\Luminary" --predefine="_
+_EVAL SETA 1" --list=.\startup.lst startup.s
 
 
 
@@ -1157,7 +1158,7 @@ Symbol: __heap_base
    Uses
       None
 Comment: __heap_base unused
-__heap_limit 00000400
+__heap_limit 00004000
 
 Symbol: __heap_limit
    Definitions
@@ -2496,7 +2497,7 @@ Comment: __user_initial_stackheap used once
 ARM Macro Assembler    Page 1 Alphabetic symbol ordering
 Absolute symbols
 
-Heap 00000400
+Heap 00004000
 
 Symbol: Heap
    Definitions
@@ -2539,4 +2540,4 @@ Symbol: __use_two_region_memory
       None
 Comment: __use_two_region_memory unused
 2 symbols
-479 symbols in table
+480 symbols in table
