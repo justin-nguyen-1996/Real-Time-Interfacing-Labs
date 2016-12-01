@@ -7,6 +7,7 @@ extern "C"{
 	#include <stdlib.h>
 	#include "Thumbstick.h"
 	#include "Accel.h"
+  #include "Buttons.h"
   #include "bmp.h"
 }
 #include "GameRules.h"
@@ -120,12 +121,21 @@ bool EntityList::isEmpty(void) {
 
 #define BULLET_SPEED 200 
 #define BULLET_SHOOT_RATE 100 //defined in terms of game ticks
+
+static uint8_t missileFlag = 0;
 void EntityList::update(uint16_t * tstick, uint16_t * accel, uint32_t gameTick) {
 	for (int i = 0; i < nextIndex; i++) {
 		Entity * E = List[i];
 		E->update();
-		if (E->type == SHIP)
+    if (E->type == SHIP)
 		{
+      if (missileFlag == 1) { 
+        Entity* missile = new Entity(
+            Rectangle(E->Bounds.x + 500, E->Bounds.y, 4<<7, 4<<7),  // x + 500 so bullet fires from center instead of top left corner
+            Vector(0,0), Vector(0,0), MISSILE, 0, 0
+        );
+        push(missile);
+      }
 			if ( rand()%2 ) //create fire
 			{
 				Rectangle R( E->Bounds.x + ((2 + rand()%5)<<7), E->Bounds.y + ((2 + rand()%5)<<7), 1<<7, 1<<7);
@@ -144,7 +154,7 @@ void EntityList::update(uint16_t * tstick, uint16_t * accel, uint32_t gameTick) 
 					velocity.normalize(BULLET_SPEED);
 					Entity* laser = new Entity(
 						Rectangle(E->Bounds.x + 500, E->Bounds.y, 4<<7, 4<<7),  // x + 500 so bullet fires from center instead of top left corner
-						velocity,  // velocity // TODO: direction is weird but corresponds to left thumbstick
+						velocity,
 						Vector(0,0), LASER, 0, 0
 					);
 					push(laser);
@@ -294,10 +304,9 @@ void Quadtree::drawBounds (void)
 	}
 }
 
-
-/***************************
- * Misc
- * *************************/
+//  **************************
+//  *         Misc           *
+//  * ************************
 
 void DrawEntities(EntityList * L)
 {
@@ -306,9 +315,10 @@ void DrawEntities(EntityList * L)
 		Entity * E = L->List[i];
 		const unsigned short* bitmap;
 
-		if (E->type == SHIP) { bitmap = Bitmap_Ship[E->direction()]; }
-		else if (E->type == LASER) { bitmap = Bitmap_GreenLaser; }
+		if (E->type == SHIP)          { bitmap = Bitmap_Ship[E->direction()]; }
+		else if (E->type == LASER)    { bitmap = Bitmap_GreenLaser; }
 		else if (E->type == PARTICLE) { ST7735_DrawPixel(E->Bounds.x >> 7, E->Bounds.y >> 7, ST7735_RED); return;}
+		else if (E->type == MISSILE)  { bitmap = Bitmap_OrangeMissile; }
 
 		ST7735_DrawBitmap(E->Bounds.x >> 7, (E->Bounds.y + E->Bounds.h) >> 7, bitmap, E->Bounds.w >> 7, E->Bounds.h >> 7);
 	}
@@ -338,17 +348,54 @@ void NormalizeAnalogInputs( uint16_t * tstick, uint16_t * accel )
 
     for (int i = 0; i < 3; ++i) { // normalize accelerometer
     	if (i < 2) {
-			if (DEADZONE_ACCEL_XY_MIN <= accel[i]  &&  accel[i] <= DEADZONE_ACCEL_XY_MAX) { accel[i] = 0; }
-			else if (accel[i] < DEADZONE_ACCEL_XY_MIN) { accel[i] = ((accel[i] - DEADZONE_ACCEL_XY_MIN) << 7) >> 10; }
-			else { accel[i] = ((accel[i] - DEADZONE_ACCEL_XY_MAX) << 7) >> 10; }
-		}
-		else {
-			if (DEADZONE_ACCEL_Z_MIN <= accel[i]  &&  accel[i]  <= DEADZONE_ACCEL_Z_MAX) { accel[i] = 0; }
-			else if (accel[i] < DEADZONE_ACCEL_Z_MIN) { accel[i] = ((accel[i] - DEADZONE_ACCEL_Z_MIN) << 7) >> 10; }
-			else { accel[i] = ((accel[i] - DEADZONE_ACCEL_Z_MAX) << 7) >> 10; }
-		}
+        if (DEADZONE_ACCEL_XY_MIN <= accel[i]  &&  accel[i] <= DEADZONE_ACCEL_XY_MAX) { accel[i] = 0; }
+        else if (accel[i] < DEADZONE_ACCEL_XY_MIN) { accel[i] = ((accel[i] - DEADZONE_ACCEL_XY_MIN) << 7) >> 10; }
+        else { accel[i] = ((accel[i] - DEADZONE_ACCEL_XY_MAX) << 7) >> 10; }
+      } else {
+        if (DEADZONE_ACCEL_Z_MIN <= accel[i]  &&  accel[i]  <= DEADZONE_ACCEL_Z_MAX) { accel[i] = 0; }
+        else if (accel[i] < DEADZONE_ACCEL_Z_MIN) { accel[i] = ((accel[i] - DEADZONE_ACCEL_Z_MIN) << 7) >> 10; }
+        else { accel[i] = ((accel[i] - DEADZONE_ACCEL_Z_MAX) << 7) >> 10; }
+      }
     }
 }
+
+//  **************************
+//  *   Button Interrupts    *
+//  * ************************
+
+//extern EntityList AllEntities;
+//void fireMissile() {
+////  E->data1 = gameTick;
+////  Vector velocity( (int16_t) tstick[TSTICK1_V], - (int16_t) tstick[TSTICK1_H]);
+////  velocity.normalize(BULLET_SPEED);
+//  for (int i = 0; i < AllEntities.nextIndex; ++i) {
+//    Entity* E = AllEntities.List[i];
+//    if (E->type == SHIP) {
+//      Entity* missile = new Entity(
+//          Rectangle(E->Bounds.x + 500, E->Bounds.y, 4<<7, 4<<7),  // x + 500 so bullet fires from center instead of top left corner
+//    //      velocity,
+//          Vector(0,0), Vector(0,0), MISSILE, 0, 0
+//      );
+//      AllEntities.push(missile);
+//    }
+//  }
+//}
+
+extern volatile unsigned long Last;      // previous button state
+void GPIOPortD_Handler(void){
+  GPIO_PORTD_IM_R &= ~0xF0;     // disarm interrupt on PD 7,6,5,4
+
+  // SW_A --> PD6,   SW_B --> PD7
+  if (Last) {
+    if      (SW_TSTICK_1) { } 
+    else if (SW_TSTICK_2) { }
+    else if (SW_A)        { missileFlag = 1; }
+    else if (SW_B)        { }
+  }
+    
+  Timer2_Arm(); // start one shot debouncing
+}
+
 
 void GameRulesTest(void)
 {

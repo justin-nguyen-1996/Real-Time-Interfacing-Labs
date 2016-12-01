@@ -49,6 +49,13 @@
 #include "DAC.h"
 #include "../inc/tm4c123gh6pm.h"
 
+void DisableInterrupts(void); // Disable interrupts
+void EnableInterrupts(void);  // Enable interrupts
+long StartCritical (void);    // previous I bit, disable interrupts
+void EndCritical(long sr);    // restore I bit to previous value
+void WaitForInterrupt(void);  // low power mode
+void (*PeriodicTask)(void);   // user function
+
 void DAC_Init(void) {
   SYSCTL_RCGCSSI_R |= 0x04;         // activate SSI2
   GPIO_PORTB_AMSEL_R &= ~0xFF;      // disable analog functionality on PB7-0
@@ -73,7 +80,7 @@ void DAC_Out(uint16_t code){
   //while((SSI2_SR_R&0x00000004)==0){};// SSI Receive FIFO Not Empty
 }
 
-const unsigned short SinewaveDAC[32] = {  
+const unsigned short Sinewave[32] = {  
   1024,1122,1215,1302,1378,1440,1486,1514,1524,1514,1486,
   1440,1378,1302,1215,1122,1024,926,833,746,670,608,
   562,534,524,534,562,608,670,746,833,926
@@ -81,13 +88,48 @@ const unsigned short SinewaveDAC[32] = {
 
 const unsigned short Sawtoothwave[8] = { 0, 512, 1024, 1536, 2048, 2560, 3072, 3584 };
 
+// ***************** Timer0A_Init ****************
+// Activate TIMER0 interrupts to run user task periodically
+// Inputs:  task is a pointer to a user function
+//          period in units (1/clockfreq), 32 bits
+// Outputs: none
+void Timer0A_Init(uint32_t period){
+  long sr = StartCritical(); 
+  SYSCTL_RCGCTIMER_R |= 0x01;   // 0) activate TIMER0
+  TIMER0_CTL_R = 0x00000000;    // 1) disable TIMER0A during setup
+  TIMER0_CFG_R = 0x00000000;    // 2) configure for 32-bit mode
+  TIMER0_TAMR_R = 0x00000002;   // 3) configure for periodic mode, default down-count settings
+  TIMER0_TAILR_R = period-1;    // 4) reload value
+  TIMER0_TAPR_R = 0;            // 5) bus clock resolution
+  TIMER0_ICR_R = 0x00000001;    // 6) clear TIMER0A timeout flag
+  TIMER0_IMR_R = 0x00000001;    // 7) arm timeout interrupt
+  NVIC_PRI4_R = (NVIC_PRI4_R&0x00FFFFFF)|0x80000000; // 8) priority 4
+// interrupts enabled in the main program after all devices initialized
+// vector number 35, interrupt number 19
+  NVIC_EN0_R = 1<<19;           // 9) enable IRQ 19 in NVIC
+  TIMER0_CTL_R = 0x00000001;    // 10) enable TIMER0A
+  EndCritical(sr);
+}
+
+static uint16_t sineIndex = 0;
+void Timer0A_Handler(void){
+  TIMER0_ICR_R = TIMER_ICR_TATOCINT;// acknowledge timer0A timeout
+	uint16_t value = Sinewave[sineIndex] << 2 ;
+	sineIndex = (sineIndex+1) & 0x1F;
+	DAC_Out(value);
+}
+
+void disableSound(void) {
+  TIMER0_IMR_R = 0x00;    // disable timer
+}
+
 void DAC_Test(int testNumber) {
 	switch (testNumber)
 	{
 		case 1:
             while (1) {
               for (int i = 0; i < 32; ++i) {
-                DAC_Out(SinewaveDAC[i]);
+                DAC_Out(Sinewave[i]);
                 for (int j = 0; j < 8096; ++j){}
               }
             }

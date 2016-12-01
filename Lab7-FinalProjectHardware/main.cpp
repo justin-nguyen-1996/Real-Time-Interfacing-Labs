@@ -53,27 +53,15 @@ void GameTick_Init(void) {
 	TIMER3_CTL_R = 0x00000001;    // enable TIMER3A
 }
 
+Quadtree* WorldSpace_Init() {
+  Rectangle Screen (0,0,160<<7,128<<7);
+	Quadtree * WorldSpace = new Quadtree(0, Screen); // initializes gamespace to the same size as screen
+	Entity * Player = new Entity(Rectangle(50<<7,50<<7,8<<7,8<<7), Vector(0,0), Vector(0,0), SHIP, 0, 0);
+	WorldSpace->insert(Player);
+  return WorldSpace;
+}
 
-
-//#define NVIC_ST_CTRL_COUNT      0x00010000  // Count flag
-//#define NVIC_ST_CTRL_CLK_SRC    0x00000004  // Clock Source
-//#define NVIC_ST_CTRL_INTEN      0x00000002  // Interrupt enable
-//#define NVIC_ST_CTRL_ENABLE     0x00000001  // Counter mode
-//
-//// Initialize SysTick with busy wait running at bus clock.
-//void SysTick_Init(void){
-//  NVIC_ST_CTRL_R = 0;                   // disable SysTick during setup
-//  NVIC_ST_RELOAD_R = 444444;  // maximum reload value
-//  NVIC_ST_CURRENT_R = 0;                // any write to current clears it
-//                                        // enable SysTick with core clock
-//  NVIC_ST_CTRL_R = NVIC_ST_CTRL_ENABLE+NVIC_ST_CTRL_INTEN+NVIC_ST_CTRL_CLK_SRC;
-//}
-//extern "C"{
-//void SysTick_Handler(void)
-//{
-//	Flag_GameTick = 1;
-//}
-//}
+//EntityList AllEntities;
 int main(void) {
 
 	PortA_Init();
@@ -84,45 +72,36 @@ int main(void) {
 	PortF_Init();
 
 	PLL_Init(Bus80MHz);
-	//  DAC_Init();
-	//  LED_Init();
-	//  ESP8266_Init(BAUD_RATE);
+	DAC_Init();
 	ST7735_InitR(INITR_REDTAB); ST7735_SetRotation(3);
 	Buttons_Init();
 	Thumbstick_Init();
 	Accel_Init();
 	ADC_Init();
 	GameTick_Init();
+  Timer0A_Init(8000);
 	EnableInterrupts();
 
-	//  ST7735_Test();   waitForTouch(); Output_Clear();
-	//  DAC_Test(2);     waitForTouch(); Output_Clear();
-	//  Buttons_Test();  waitForTouch(); Output_Clear();
-  //  ADC_Test();      waitForTouch(); Output_Clear();
-	//  ESP_Test();      waitForTouch(); Output_Clear();
-	//  GameRulesTest(); waitForTouch(); Output_Clear();
-
-	Rectangle Screen (0,0,160<<7,128<<7);
-	Quadtree * WorldSpace = new Quadtree(0, Screen); // initializes gamespace the same size as screen
-	
-	Entity * Player = new Entity(Rectangle(50<<7,50<<7,8<<7,8<<7), Vector(0,0), Vector(0,0), SHIP, 0, 0);
-	Entity * laser = new Entity(Rectangle(60<<7,60<<7,4<<7,4<<7), Vector(0,0), Vector(0,0), LASER, 0, 0); 
-	WorldSpace->insert(Player);
-	WorldSpace->insert(laser);
-	
+//	ST7735_Test();   waitForTouch(); Output_Clear();
+//	DAC_Test(2);     waitForTouch(); Output_Clear();
+//	Buttons_Test();  waitForTouch(); Output_Clear();
+//  ADC_Test();      waitForTouch(); Output_Clear();
+//	ESP_Test();      waitForTouch(); Output_Clear();
+//	GameRulesTest(); waitForTouch(); Output_Clear();
+  
+  Rectangle Screen (0,0,160<<7,128<<7);
+  Quadtree* WorldSpace = WorldSpace_Init();
 	uint32_t oldGameTick = 0;
 	while (1) {
 		if (oldGameTick != Flag_GameTick) {
 			oldGameTick = Flag_GameTick; 
-
-			//ST7735_SetCursor(0,0);
-			//	ST7735_OutUDec(tick++);
 			
+      // read and normalize ADC inputs
 			ADC_In(tstick, accel);
 			NormalizeAnalogInputs(tstick, accel);
 
 			// update entities
-			EntityList AllEntities;
+			EntityList AllEntities; // TODO: can we make this a global?
 			WorldSpace->retrieve(&AllEntities, Screen);
 			EraseEntities(&AllEntities);
 			AllEntities.update(tstick, accel, oldGameTick);

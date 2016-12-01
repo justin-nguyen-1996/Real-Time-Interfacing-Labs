@@ -3,15 +3,7 @@
 #include "Buttons.h"
 #include "Debug.h"
 
-#define SW_TSTICK_1   (*((volatile uint32_t *)0x40007040)) // SW = switch
-#define SW_TSTICK_2   (*((volatile uint32_t *)0x40007080))
-#define SW_A          (*((volatile uint32_t *)0x40007100))
-#define SW_B          (*((volatile uint32_t *)0x40007200))
-  
-#define SW_MISC       (*((volatile uint32_t *)0x40024040)) // miscellaneous button
-#define SW_START      (*((volatile uint32_t *)0x40024080)) // start button
-
-volatile static unsigned long Last;      // previous button state
+volatile unsigned long Last;      // previous button state
 
 void Buttons_Init(void) {
   GPIO_PORTD_LOCK_R = 0x4C4F434B;   // unlock GPIO Port D
@@ -71,23 +63,20 @@ void PortE_Arm(void){
   NVIC_EN0_R = 1<<4;      // enable interrupt 4 in NVIC  
 }
 
-// Interrupt on rising edges of PD 7,6,5,4
-static int counter = 0;
-void GPIOPortD_Handler(void){
-  GPIO_PORTD_IM_R &= ~0xF0;     // disarm interrupt on PD 7,6,5,4
-  
-  // TODO: arrange these in order of priority to decide what happens if more than one button is pressed at the same time
-  // TODO: fill these out based on action desired
-  // TODO: assign proper priorities to buttons on Port D & E
-  if (Last) {
-    if      (SW_TSTICK_1) { } 
-    else if (SW_TSTICK_2) { }
-    else if (SW_A)        { }
-    else if (SW_B)        { counter += 1; }
-  }
-    
-  Timer2_Arm(); // start one shot debouncing
-}
+//// Interrupt on rising edges of PD 7,6,5,4
+//void GPIOPortD_Handler(void){
+//  GPIO_PORTD_IM_R &= ~0xF0;     // disarm interrupt on PD 7,6,5,4
+//  
+//  // SW_A --> PD6,   SW_B --> PD7
+//  if (Last) {
+//    if      (SW_TSTICK_1) { } 
+//    else if (SW_TSTICK_2) { }
+//    else if (SW_A)        { fireMissile(); }
+//    else if (SW_B)        { }
+//  }
+//    
+//  Timer2_Arm(); // start one shot debouncing
+//}
 
 // Interrupt on rising edges of PE 5,4
 void GPIOPortE_Handler(void){
@@ -113,6 +102,7 @@ void Timer2A_Handler(void){
 #ifdef DEBUG
 #include "ST7735.h"   // TODO: remove me when done testing
 #include "PortInit.h" // TODO: remove me when done testing
+static int counter = 0;
 void Buttons_Test(void) {
 //  ST7735_SetCursor(0,0); ST7735_OutString("Counter:    "); ST7735_SetCursor(9,0); ST7735_OutUDec(counter);
 //  ST7735_OutString("\nPush TStick_1 button"); while(PD4 == 0){}; counter += 1;
@@ -120,7 +110,7 @@ void Buttons_Test(void) {
 //  ST7735_OutString("\nPush TStick_2 button"); while(PD5 == 0){}; counter += 1;
   while (1) {
     ST7735_SetCursor(0,0); ST7735_OutString("Counter:    "); ST7735_SetCursor(9,0); ST7735_OutUDec(counter);
-    ST7735_OutString("\nPush 'B' button"); while(PD7 == 0){};
+    ST7735_OutString("\nPush 'A' button"); while(PD6 == 0){};
   }
 //  ST7735_SetCursor(0,0); ST7735_OutString("Counter:    "); ST7735_SetCursor(9,0); ST7735_OutUDec(counter);
 //  ST7735_OutString("\nPush Start button"); while(PE5 == 0){}; counter += 1;

@@ -33,11 +33,12 @@ AddPointerFifo	FIFO.h	71;"	d
 As	Music.h	113;"	d
 B	Music.h	115;"	d
 BMP_H	bmp.h	2;"	d
-BOT_LEFT	GameRules.cpp	15;"	d	file:
-BOT_RIGHT	GameRules.cpp	17;"	d	file:
+BOT_LEFT	GameRules.cpp	16;"	d	file:
+BOT_RIGHT	GameRules.cpp	18;"	d	file:
 BS	UART.h	33;"	d
 BUFFER_SIZE	esp8266.c	64;"	d	file:
-BULLET_SPEED	GameRules.cpp	108;"	d	file:
+BULLET_SHOOT_RATE	GameRules.cpp	122;"	d	file:
+BULLET_SPEED	GameRules.cpp	121;"	d	file:
 BUTTONS_H	Buttons.h	2;"	d
 Bb	Music.h	114;"	d
 Bcmd	ST7735.c	/^  Bcmd[] = {                  \/\/ Initialization commands for 7735B screens$/;"	v	file:
@@ -280,7 +281,7 @@ FIFOSIZE	UART.c	67;"	d	file:
 FIFOSUCCESS	UART.c	68;"	d	file:
 FPU_Handler	startup.s	/^FPU_Handler$/;"	l
 Fan0_Handler	startup.s	/^Fan0_Handler$/;"	l
-Flag_GameTick	main.cpp	/^static uint8_t Flag_GameTick = 0;$/;"	v	file:
+Flag_GameTick	main.cpp	/^static uint32_t Flag_GameTick = 0;$/;"	v	file:
 FlashCtl_Handler	startup.s	/^FlashCtl_Handler$/;"	l
 Font	ST7735.c	/^static const uint8_t Font[] = {$/;"	v	file:
 Forte	Music.h	141;"	d
@@ -328,7 +329,7 @@ Gs	Music.h	110;"	d
 H	Music.h	126;"	d
 HTTP_ServePage	esp8266.c	/^void HTTP_ServePage(const char* body){$/;"	f
 Hd	Music.h	125;"	d
-Heap	startup.s	/^Heap    EQU     0x00000400$/;"	d
+Heap	startup.s	/^Heap    EQU     0x00004000$/;"	d
 HeapMem	startup.s	/^HeapMem$/;"	l
 Hibernate_Handler	startup.s	/^Hibernate_Handler$/;"	l
 Ht	Music.h	133;"	d
@@ -343,7 +344,7 @@ INITR_BLACKTAB	ST7735.h	/^  INITR_BLACKTAB$/;"	e	enum:initRFlags
 INITR_GREENTAB	ST7735.h	/^  INITR_GREENTAB,$/;"	e	enum:initRFlags
 INITR_REDTAB	ST7735.h	/^  INITR_REDTAB,$/;"	e	enum:initRFlags
 INIT_H	PortInit.h	7;"	d
-INVALID	GameRules.cpp	13;"	d	file:
+INVALID	GameRules.cpp	14;"	d	file:
 LASER	GameRules.h	/^  LASER,$/;"	e	enum:__anon1
 LASER_ENTITY	GameRules.h	6;"	d
 LED_BlueToggle	LED.c	/^void LED_BlueToggle(void){$/;"	f
@@ -370,19 +371,19 @@ MADCTL_RGB	ST7735.c	1210;"	d	file:
 MAXIMUM_X_PIXEL	Graphics.c	156;"	d	file:
 MAXIMUM_Y_PIXEL	Graphics.c	158;"	d	file:
 MAXTRY	esp8266.c	65;"	d	file:
-MAX_LEVELS	GameRules.h	71;"	d
-MAX_OBJECTS	GameRules.h	70;"	d
+MAX_LEVELS	GameRules.h	116;"	d
+MAX_OBJECTS	GameRules.h	115;"	d
 MAX_sDecOut3	Graphics.c	88;"	d	file:
 MAX_uBinOut8	Graphics.c	123;"	d	file:
 MINIMUM_X_PIXEL	Graphics.c	155;"	d	file:
 MINIMUM_Y_PIXEL	Graphics.c	157;"	d	file:
 MIN_sDecOut3	Graphics.c	87;"	d	file:
-MISSILE	GameRules.h	/^  MISSILE$/;"	e	enum:__anon1
+MISSILE	GameRules.h	/^  MISSILE,$/;"	e	enum:__anon1
 MISSILE_ENTITY	GameRules.h	7;"	d
 Message	ST7735.c	/^char Message[12];$/;"	v
 Messageindex	ST7735.c	/^uint32_t Messageindex;$/;"	v
 NMI_Handler	startup.s	/^NMI_Handler     PROC$/;"	l
-NULL	GameRules.cpp	12;"	d	file:
+NULL	GameRules.cpp	13;"	d	file:
 NVIC_EN0_INT5	UART.c	36;"	d	file:
 NormalizeAnalogInputs	GameRules.cpp	/^void NormalizeAnalogInputs( uint16_t * tstick, uint16_t * accel )$/;"	f
 Note	Music.h	/^} Note;$/;"	t	typeref:struct:__anon2
@@ -401,6 +402,7 @@ PA4	PortInit.h	25;"	d
 PA5	PortInit.h	26;"	d
 PA6	PortInit.h	27;"	d
 PA7	PortInit.h	28;"	d
+PARTICLE	GameRules.h	/^	PARTICLE$/;"	e	enum:__anon1
 PASSKEY	esp8266.c	61;"	d	file:
 PB0	PortInit.h	30;"	d
 PB1	PortInit.h	31;"	d
@@ -691,6 +693,7 @@ ServerResponseSearchString	esp8266.c	/^char ServerResponseSearchString[16]="+ipd
 Sinewave	Music.h	/^const unsigned short Sinewave[SINE_GRANULARITY] = {  $/;"	v
 SinewaveDAC	DAC.c	/^const unsigned short SinewaveDAC[32] = {  $/;"	v
 Song_Pirates	Music.h	/^const Note Song_Pirates[] = $/;"	v
+SquareRootTable	GameRules.h	/^const uint16_t SquareRootTable[301] = {$/;"	v
 StTextColor	ST7735.c	/^uint16_t StTextColor = ST7735_YELLOW;$/;"	v
 StX	ST7735.c	/^uint32_t StX=0; \/\/ position along the horizonal axis 0 to 20$/;"	v
 StY	ST7735.c	/^uint32_t StY=0; \/\/ position along the vertical axis 0 to 15$/;"	v
@@ -703,8 +706,8 @@ TFT_CS	ST7735.c	148;"	d	file:
 TFT_CS_HIGH	ST7735.c	150;"	d	file:
 TFT_CS_LOW	ST7735.c	149;"	d	file:
 THUBMSTICK_H	Thumbstick.h	2;"	d
-TOP_LEFT	GameRules.cpp	14;"	d	file:
-TOP_RIGHT	GameRules.cpp	16;"	d	file:
+TOP_LEFT	GameRules.cpp	15;"	d	file:
+TOP_RIGHT	GameRules.cpp	17;"	d	file:
 TSTICK1_H	Thumbstick.h	5;"	d
 TSTICK1_V	Thumbstick.h	4;"	d
 TSTICK2_H	Thumbstick.h	7;"	d
@@ -800,6 +803,7 @@ WideTimer4A_Handler	startup.s	/^WideTimer4A_Handler$/;"	l
 WideTimer4B_Handler	startup.s	/^WideTimer4B_Handler$/;"	l
 WideTimer5A_Handler	startup.s	/^WideTimer5A_Handler$/;"	l
 WideTimer5B_Handler	startup.s	/^WideTimer5B_Handler$/;"	l
+WorldSpace_Init	main.cpp	/^Quadtree* WorldSpace_Init() {$/;"	f
 X	ST7735.c	/^int32_t Ymax,Ymin,X;        \/\/ X goes from 0 to 127$/;"	v
 Ymax	ST7735.c	/^int32_t Ymax,Ymin,X;        \/\/ X goes from 0 to 127$/;"	v
 Ymin	ST7735.c	/^int32_t Ymax,Ymin,X;        \/\/ X goes from 0 to 127$/;"	v
@@ -807,26 +811,26 @@ Yrange	ST7735.c	/^int32_t Yrange; \/\/YrangeDiv2;$/;"	v
 [100]	Lab7.htm	/^<P><STRONG><a name="[100]"><\/a>__scatterload_null<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)$/;"	a
 [101]	Lab7.htm	/^<P><STRONG><a name="[101]"><\/a>__scatterload_zeroinit<\/STRONG> (Thumb, 28 bytes, Stack size unknown bytes, __scatter_zi.o(!!handler_zi), UNUSED)$/;"	a
 [102]	Lab7.htm	/^<P><STRONG><a name="[102]"><\/a>__rt_lib_init_fp_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000002))$/;"	a
-[103]	Lab7.htm	/^<P><STRONG><a name="[103]"><\/a>__rt_lib_init_alloca_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002C))$/;"	a
-[104]	Lab7.htm	/^<P><STRONG><a name="[104]"><\/a>__rt_lib_init_argv_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002A))$/;"	a
-[105]	Lab7.htm	/^<P><STRONG><a name="[105]"><\/a>__rt_lib_init_atexit_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000019))$/;"	a
-[106]	Lab7.htm	/^<P><STRONG><a name="[106]"><\/a>__rt_lib_init_clock_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001F))$/;"	a
-[107]	Lab7.htm	/^<P><STRONG><a name="[107]"><\/a>__rt_lib_init_cpp_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000030))$/;"	a
-[108]	Lab7.htm	/^<P><STRONG><a name="[108]"><\/a>__rt_lib_init_exceptions_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002E))$/;"	a
-[109]	Lab7.htm	/^<P><STRONG><a name="[109]"><\/a>__rt_lib_init_fp_trap_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001D))$/;"	a
+[103]	Lab7.htm	/^<P><STRONG><a name="[103]"><\/a>__rt_lib_init_heap_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000008))$/;"	a
+[104]	Lab7.htm	/^<P><STRONG><a name="[104]"><\/a>__rt_lib_init_user_alloc_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000A))$/;"	a
+[105]	Lab7.htm	/^<P><STRONG><a name="[105]"><\/a>__rt_lib_init_alloca_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002C))$/;"	a
+[106]	Lab7.htm	/^<P><STRONG><a name="[106]"><\/a>__rt_lib_init_argv_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002A))$/;"	a
+[107]	Lab7.htm	/^<P><STRONG><a name="[107]"><\/a>__rt_lib_init_atexit_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000019))$/;"	a
+[108]	Lab7.htm	/^<P><STRONG><a name="[108]"><\/a>__rt_lib_init_clock_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001F))$/;"	a
+[109]	Lab7.htm	/^<P><STRONG><a name="[109]"><\/a>__rt_lib_init_cpp_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000030))$/;"	a
 [10]	Lab7.htm	/^<P><STRONG><a name="[10]"><\/a>HardFault_Handler<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
-[10a]	Lab7.htm	/^<P><STRONG><a name="[10a]"><\/a>__rt_lib_init_getenv_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000021))$/;"	a
-[10b]	Lab7.htm	/^<P><STRONG><a name="[10b]"><\/a>__rt_lib_init_heap_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000008))$/;"	a
-[10c]	Lab7.htm	/^<P><STRONG><a name="[10c]"><\/a>__rt_lib_init_lc_collate_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000F))$/;"	a
-[10d]	Lab7.htm	/^<P><STRONG><a name="[10d]"><\/a>__rt_lib_init_lc_ctype_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000011))$/;"	a
-[10e]	Lab7.htm	/^<P><STRONG><a name="[10e]"><\/a>__rt_lib_init_lc_monetary_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000013))$/;"	a
-[10f]	Lab7.htm	/^<P><STRONG><a name="[10f]"><\/a>__rt_lib_init_lc_numeric_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000015))$/;"	a
-[110]	Lab7.htm	/^<P><STRONG><a name="[110]"><\/a>__rt_lib_init_lc_time_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000017))$/;"	a
-[111]	Lab7.htm	/^<P><STRONG><a name="[111]"><\/a>__rt_lib_init_rand_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000C))$/;"	a
-[112]	Lab7.htm	/^<P><STRONG><a name="[112]"><\/a>__rt_lib_init_return<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000031))$/;"	a
-[113]	Lab7.htm	/^<P><STRONG><a name="[113]"><\/a>__rt_lib_init_signal_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001B))$/;"	a
-[114]	Lab7.htm	/^<P><STRONG><a name="[114]"><\/a>__rt_lib_init_stdio_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000023))$/;"	a
-[115]	Lab7.htm	/^<P><STRONG><a name="[115]"><\/a>__rt_lib_init_user_alloc_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000A))$/;"	a
+[10a]	Lab7.htm	/^<P><STRONG><a name="[10a]"><\/a>__rt_lib_init_exceptions_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002E))$/;"	a
+[10b]	Lab7.htm	/^<P><STRONG><a name="[10b]"><\/a>__rt_lib_init_fp_trap_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001D))$/;"	a
+[10c]	Lab7.htm	/^<P><STRONG><a name="[10c]"><\/a>__rt_lib_init_getenv_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000021))$/;"	a
+[10d]	Lab7.htm	/^<P><STRONG><a name="[10d]"><\/a>__rt_lib_init_lc_collate_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000F))$/;"	a
+[10e]	Lab7.htm	/^<P><STRONG><a name="[10e]"><\/a>__rt_lib_init_lc_ctype_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000011))$/;"	a
+[10f]	Lab7.htm	/^<P><STRONG><a name="[10f]"><\/a>__rt_lib_init_lc_monetary_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000013))$/;"	a
+[110]	Lab7.htm	/^<P><STRONG><a name="[110]"><\/a>__rt_lib_init_lc_numeric_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000015))$/;"	a
+[111]	Lab7.htm	/^<P><STRONG><a name="[111]"><\/a>__rt_lib_init_lc_time_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000017))$/;"	a
+[112]	Lab7.htm	/^<P><STRONG><a name="[112]"><\/a>__rt_lib_init_rand_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000C))$/;"	a
+[113]	Lab7.htm	/^<P><STRONG><a name="[113]"><\/a>__rt_lib_init_return<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000031))$/;"	a
+[114]	Lab7.htm	/^<P><STRONG><a name="[114]"><\/a>__rt_lib_init_signal_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001B))$/;"	a
+[115]	Lab7.htm	/^<P><STRONG><a name="[115]"><\/a>__rt_lib_init_stdio_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000023))$/;"	a
 [116]	Lab7.htm	/^<P><STRONG><a name="[116]"><\/a>__rt_lib_shutdown_fp_trap_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000006))$/;"	a
 [117]	Lab7.htm	/^<P><STRONG><a name="[117]"><\/a>__rt_lib_shutdown_heap_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000E))$/;"	a
 [118]	Lab7.htm	/^<P><STRONG><a name="[118]"><\/a>__rt_lib_shutdown_return<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F))$/;"	a
@@ -855,7 +859,7 @@ Yrange	ST7735.c	/^int32_t Yrange; \/\/YrangeDiv2;$/;"	v
 [12d]	Lab7.htm	/^<P><STRONG><a name="[12d]"><\/a>__ARM_exceptions_buffer_allocate<\/STRONG> (Thumb, 22 bytes, Stack size 0 bytes, arm_exceptions_mem.o(.text), UNUSED)$/;"	a
 [12e]	Lab7.htm	/^<P><STRONG><a name="[12e]"><\/a>__ARM_exceptions_buffer_free<\/STRONG> (Thumb, 20 bytes, Stack size 0 bytes, arm_exceptions_mem.o(.text), UNUSED)$/;"	a
 [12f]	Lab7.htm	/^<P><STRONG><a name="[12f]"><\/a>EntityList::EntityList__sub_object()<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, main.o(i._ZN10EntityListC1Ev), UNUSED)$/;"	a
-[130]	Lab7.htm	/^<P><STRONG><a name="[130]"><\/a>Entity::Entity__sub_object(Rectangle, Vector, Vector, EntityType, unsigned, unsigned)<\/STRONG> (Thumb, 0 bytes, Stack size 32 bytes, main.o(i._ZN6EntityC1E9Rectangle6VectorS1_10EntityTypejj), UNUSED)$/;"	a
+[130]	Lab7.htm	/^<P><STRONG><a name="[130]"><\/a>Entity::Entity__sub_object(Rectangle, Vector, Vector, EntityType, unsigned, unsigned)<\/STRONG> (Thumb, 0 bytes, Stack size 32 bytes, gamerules.o(i._ZN6EntityC1E9Rectangle6VectorS1_10EntityTypejj), UNUSED)$/;"	a
 [131]	Lab7.htm	/^<P><STRONG><a name="[131]"><\/a>Vector::Vector__sub_object(short, short)<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, gamerules.o(i._ZN6VectorC1Ess), UNUSED)$/;"	a
 [132]	Lab7.htm	/^<P><STRONG><a name="[132]"><\/a>Quadtree::Quadtree__sub_object(unsigned char, Rectangle)<\/STRONG> (Thumb, 0 bytes, Stack size 24 bytes, gamerules.o(i._ZN8QuadtreeC1Eh9Rectangle), UNUSED)$/;"	a
 [133]	Lab7.htm	/^<P><STRONG><a name="[133]"><\/a>Rectangle::Rectangle__sub_object(short, short, unsigned short, unsigned short)<\/STRONG> (Thumb, 0 bytes, Stack size 8 bytes, gamerules.o(i._ZN9RectangleC1Esstt), UNUSED)$/;"	a
@@ -866,6 +870,7 @@ Yrange	ST7735.c	/^int32_t Yrange; \/\/YrangeDiv2;$/;"	v
 [17]	Lab7.htm	/^<P><STRONG><a name="[17]"><\/a>SysTick_Handler<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
 [18]	Lab7.htm	/^<P><STRONG><a name="[18]"><\/a>GPIOPortA_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
 [19]	Lab7.htm	/^<P><STRONG><a name="[19]"><\/a>GPIOPortB_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[1]	Lab7.htm	/^<P><STRONG><a name="[1]"><\/a>_init_user_alloc<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, init_alloc.o(.text), UNUSED)$/;"	a
 [1a]	Lab7.htm	/^<P><STRONG><a name="[1a]"><\/a>GPIOPortC_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
 [1b]	Lab7.htm	/^<P><STRONG><a name="[1b]"><\/a>GPIOPortD_Handler<\/STRONG> (Thumb, 60 bytes, Stack size 4 bytes, buttons.o(i.GPIOPortD_Handler))$/;"	a
 [1c]	Lab7.htm	/^<P><STRONG><a name="[1c]"><\/a>GPIOPortE_Handler<\/STRONG> (Thumb, 30 bytes, Stack size 4 bytes, buttons.o(i.GPIOPortE_Handler))$/;"	a
@@ -882,7 +887,6 @@ Yrange	ST7735.c	/^int32_t Yrange; \/\/YrangeDiv2;$/;"	v
 [27]	Lab7.htm	/^<P><STRONG><a name="[27]"><\/a>ADC0Seq1_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
 [28]	Lab7.htm	/^<P><STRONG><a name="[28]"><\/a>ADC0Seq2_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
 [29]	Lab7.htm	/^<P><STRONG><a name="[29]"><\/a>ADC0Seq3_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
-[2]	Lab7.htm	/^<P><STRONG><a name="[2]"><\/a>__rt_heap_expand<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)$/;"	a
 [2a]	Lab7.htm	/^<P><STRONG><a name="[2a]"><\/a>WDT_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
 [2b]	Lab7.htm	/^<P><STRONG><a name="[2b]"><\/a>Timer0A_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
 [2c]	Lab7.htm	/^<P><STRONG><a name="[2c]"><\/a>Timer0B_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
@@ -899,9 +903,8 @@ Yrange	ST7735.c	/^int32_t Yrange; \/\/YrangeDiv2;$/;"	v
 [37]	Lab7.htm	/^<P><STRONG><a name="[37]"><\/a>GPIOPortG_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
 [38]	Lab7.htm	/^<P><STRONG><a name="[38]"><\/a>GPIOPortH_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
 [39]	Lab7.htm	/^<P><STRONG><a name="[39]"><\/a>UART2_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
-[3]	Lab7.htm	/^<P><STRONG><a name="[3]"><\/a>__rt_heap_escrow<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)$/;"	a
 [3a]	Lab7.htm	/^<P><STRONG><a name="[3a]"><\/a>SSI1_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
-[3b]	Lab7.htm	/^<P><STRONG><a name="[3b]"><\/a>Timer3A_Handler<\/STRONG> (Thumb, 12 bytes, Stack size 0 bytes, main.o(i.Timer3A_Handler))$/;"	a
+[3b]	Lab7.htm	/^<P><STRONG><a name="[3b]"><\/a>Timer3A_Handler<\/STRONG> (Thumb, 18 bytes, Stack size 0 bytes, main.o(i.Timer3A_Handler))$/;"	a
 [3c]	Lab7.htm	/^<P><STRONG><a name="[3c]"><\/a>Timer3B_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
 [3d]	Lab7.htm	/^<P><STRONG><a name="[3d]"><\/a>I2C1_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
 [3e]	Lab7.htm	/^<P><STRONG><a name="[3e]"><\/a>Quadrature1_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
@@ -916,7 +919,7 @@ Yrange	ST7735.c	/^int32_t Yrange; \/\/YrangeDiv2;$/;"	v
 [47]	Lab7.htm	/^<P><STRONG><a name="[47]"><\/a>uDMA_Error<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
 [48]	Lab7.htm	/^<P><STRONG><a name="[48]"><\/a>ADC1Seq0_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
 [49]	Lab7.htm	/^<P><STRONG><a name="[49]"><\/a>ADC1Seq1_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
-[4]	Lab7.htm	/^<P><STRONG><a name="[4]"><\/a>__Heap_DescSize<\/STRONG> (Thumb, 4 bytes, Stack size 0 bytes, h1_init.o(.text), UNUSED)$/;"	a
+[4]	Lab7.htm	/^<P><STRONG><a name="[4]"><\/a>__rt_heap_expand<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)$/;"	a
 [4a]	Lab7.htm	/^<P><STRONG><a name="[4a]"><\/a>ADC1Seq2_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
 [4b]	Lab7.htm	/^<P><STRONG><a name="[4b]"><\/a>ADC1Seq3_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
 [4c]	Lab7.htm	/^<P><STRONG><a name="[4c]"><\/a>I2S0_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
@@ -933,6 +936,7 @@ Yrange	ST7735.c	/^int32_t Yrange; \/\/YrangeDiv2;$/;"	v
 [57]	Lab7.htm	/^<P><STRONG><a name="[57]"><\/a>UART7_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
 [58]	Lab7.htm	/^<P><STRONG><a name="[58]"><\/a>I2C2_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
 [59]	Lab7.htm	/^<P><STRONG><a name="[59]"><\/a>I2C3_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[5]	Lab7.htm	/^<P><STRONG><a name="[5]"><\/a>__rt_heap_escrow<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)$/;"	a
 [5a]	Lab7.htm	/^<P><STRONG><a name="[5a]"><\/a>Timer4A_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
 [5b]	Lab7.htm	/^<P><STRONG><a name="[5b]"><\/a>Timer4B_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
 [5c]	Lab7.htm	/^<P><STRONG><a name="[5c]"><\/a>Timer5A_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
@@ -949,6 +953,7 @@ Yrange	ST7735.c	/^int32_t Yrange; \/\/YrangeDiv2;$/;"	v
 [67]	Lab7.htm	/^<P><STRONG><a name="[67]"><\/a>WideTimer4B_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
 [68]	Lab7.htm	/^<P><STRONG><a name="[68]"><\/a>WideTimer5A_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
 [69]	Lab7.htm	/^<P><STRONG><a name="[69]"><\/a>WideTimer5B_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[6]	Lab7.htm	/^<P><STRONG><a name="[6]"><\/a>__Heap_DescSize<\/STRONG> (Thumb, 4 bytes, Stack size 0 bytes, h1_init.o(.text), UNUSED)$/;"	a
 [6a]	Lab7.htm	/^<P><STRONG><a name="[6a]"><\/a>FPU_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
 [6b]	Lab7.htm	/^<P><STRONG><a name="[6b]"><\/a>PECI0_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
 [6c]	Lab7.htm	/^<P><STRONG><a name="[6c]"><\/a>LPC0_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
@@ -965,7 +970,6 @@ Yrange	ST7735.c	/^int32_t Yrange; \/\/YrangeDiv2;$/;"	v
 [77]	Lab7.htm	/^<P><STRONG><a name="[77]"><\/a>GPIOPortP4_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
 [78]	Lab7.htm	/^<P><STRONG><a name="[78]"><\/a>GPIOPortP5_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
 [79]	Lab7.htm	/^<P><STRONG><a name="[79]"><\/a>GPIOPortP6_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
-[7]	Lab7.htm	/^<P><STRONG><a name="[7]"><\/a>_init_user_alloc<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, init_alloc.o(.text), UNUSED)$/;"	a
 [7a]	Lab7.htm	/^<P><STRONG><a name="[7a]"><\/a>GPIOPortP7_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
 [7b]	Lab7.htm	/^<P><STRONG><a name="[7b]"><\/a>GPIOPortQ_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
 [7c]	Lab7.htm	/^<P><STRONG><a name="[7c]"><\/a>GPIOPortQ1_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
@@ -993,112 +997,112 @@ Yrange	ST7735.c	/^int32_t Yrange; \/\/YrangeDiv2;$/;"	v
 [91]	Lab7.htm	/^<P><STRONG><a name="[91]"><\/a>__scatterload_copy<\/STRONG> (Thumb, 26 bytes, Stack size unknown bytes, __scatter_copy.o(!!handler_copy), UNUSED)$/;"	a
 [92]	Lab7.htm	/^<P><STRONG><a name="[92]"><\/a>__rt_lib_init_heap_2<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000003))$/;"	a
 [93]	Lab7.htm	/^<P><STRONG><a name="[93]"><\/a>_init_alloc<\/STRONG> (Thumb, 94 bytes, Stack size 24 bytes, init_alloc.o(.text))$/;"	a
-[94]	Lab7.htm	/^<P><STRONG><a name="[94]"><\/a>__rt_entry_sh<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry4.o(.ARM.Collect$$rtentry$$00000004))$/;"	a
-[95]	Lab7.htm	/^<P><STRONG><a name="[95]"><\/a>__user_setup_stackheap<\/STRONG> (Thumb, 74 bytes, Stack size 8 bytes, sys_stackheap_outer.o(.text))$/;"	a
-[96]	Lab7.htm	/^<P><STRONG><a name="[96]"><\/a>__rt_entry_li<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$0000000A))$/;"	a
-[97]	Lab7.htm	/^<P><STRONG><a name="[97]"><\/a>__rt_lib_init<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit.o(.ARM.Collect$$libinit$$00000000))$/;"	a
-[98]	Lab7.htm	/^<P><STRONG><a name="[98]"><\/a>__rt_entry_main<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$0000000D))$/;"	a
-[99]	Lab7.htm	/^<P><STRONG><a name="[99]"><\/a>main<\/STRONG> (Thumb, 438 bytes, Stack size 72 bytes, main.o(i.main))$/;"	a
-[9a]	Lab7.htm	/^<P><STRONG><a name="[9a]"><\/a>exit<\/STRONG> (Thumb, 12 bytes, Stack size 0 bytes, exit.o(.text))$/;"	a
-[9b]	Lab7.htm	/^<P><STRONG><a name="[9b]"><\/a>__rt_exit_ls<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000003))$/;"	a
-[9c]	Lab7.htm	/^<P><STRONG><a name="[9c]"><\/a>__rt_lib_shutdown<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown.o(.ARM.Collect$$libshutdown$$00000000))$/;"	a
-[9d]	Lab7.htm	/^<P><STRONG><a name="[9d]"><\/a>__rt_exit_exit<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000004))$/;"	a
-[9e]	Lab7.htm	/^<P><STRONG><a name="[9e]"><\/a>_sys_exit<\/STRONG> (Thumb, 8 bytes, Stack size 0 bytes, sys_exit.o(.text))$/;"	a
-[9f]	Lab7.htm	/^<P><STRONG><a name="[9f]"><\/a>malloc<\/STRONG> (Thumb, 94 bytes, Stack size 16 bytes, h1_alloc.o(.text))$/;"	a
-[a0]	Lab7.htm	/^<P><STRONG><a name="[a0]"><\/a>__rt_heap_descriptor<\/STRONG> (Thumb, 8 bytes, Stack size 0 bytes, rt_heap_descriptor_intlibspace.o(.text))$/;"	a
-[a1]	Lab7.htm	/^<P><STRONG><a name="[a1]"><\/a>__Heap_Full<\/STRONG> (Thumb, 34 bytes, Stack size 16 bytes, init_alloc.o(.text))$/;"	a
-[a2]	Lab7.htm	/^<P><STRONG><a name="[a2]"><\/a>std::terminate()<\/STRONG> (Thumb, 26 bytes, Stack size 8 bytes, arm_exceptions_terminate.o(.text))$/;"	a
-[a3]	Lab7.htm	/^<P><STRONG><a name="[a3]"><\/a>__Heap_ProvideMemory<\/STRONG> (Thumb, 52 bytes, Stack size 0 bytes, h1_extend.o(.text))$/;"	a
-[a4]	Lab7.htm	/^<P><STRONG><a name="[a4]"><\/a>__Heap_Broken<\/STRONG> (Thumb, 6 bytes, Stack size 0 bytes, init_alloc.o(.text), UNUSED)$/;"	a
-[a5]	Lab7.htm	/^<P><STRONG><a name="[a5]"><\/a>__rt_SIGRTMEM<\/STRONG> (Thumb, 14 bytes, Stack size 8 bytes, defsig_rtmem_outer.o(.text))$/;"	a
-[a6]	Lab7.htm	/^<P><STRONG><a name="[a6]"><\/a>__Heap_Initialize<\/STRONG> (Thumb, 10 bytes, Stack size 0 bytes, h1_init.o(.text))$/;"	a
-[a7]	Lab7.htm	/^<P><STRONG><a name="[a7]"><\/a>free<\/STRONG> (Thumb, 78 bytes, Stack size 16 bytes, h1_free.o(.text))$/;"	a
-[a8]	Lab7.htm	/^<P><STRONG><a name="[a8]"><\/a>__cxa_get_globals<\/STRONG> (Thumb, 62 bytes, Stack size 16 bytes, arm_exceptions_globs.o(.text))$/;"	a
-[a9]	Lab7.htm	/^<P><STRONG><a name="[a9]"><\/a>abort<\/STRONG> (Thumb, 16 bytes, Stack size 0 bytes, abort.o(.text))$/;"	a
-[aa]	Lab7.htm	/^<P><STRONG><a name="[aa]"><\/a>__user_perproc_libspace<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, libspace.o(.text))$/;"	a
-[ab]	Lab7.htm	/^<P><STRONG><a name="[ab]"><\/a>__user_initial_stackheap<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup.o(.text))$/;"	a
-[ac]	Lab7.htm	/^<P><STRONG><a name="[ac]"><\/a>__rt_exit<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit.o(.ARM.Collect$$rtexit$$00000000))$/;"	a
-[ad]	Lab7.htm	/^<P><STRONG><a name="[ad]"><\/a>__rt_SIGABRT<\/STRONG> (Thumb, 14 bytes, Stack size 8 bytes, defsig_abrt_outer.o(.text))$/;"	a
-[ae]	Lab7.htm	/^<P><STRONG><a name="[ae]"><\/a>__rt_SIGRTMEM_inner<\/STRONG> (Thumb, 22 bytes, Stack size 8 bytes, defsig_rtmem_inner.o(.text))$/;"	a
-[af]	Lab7.htm	/^<P><STRONG><a name="[af]"><\/a>__sig_exit<\/STRONG> (Thumb, 10 bytes, Stack size 0 bytes, defsig_exit.o(.text))$/;"	a
-[b0]	Lab7.htm	/^<P><STRONG><a name="[b0]"><\/a>__rt_eh_globals_addr<\/STRONG> (Thumb, 8 bytes, Stack size 0 bytes, rt_eh_globals_addr_intlibspace.o(.text))$/;"	a
-[b1]	Lab7.htm	/^<P><STRONG><a name="[b1]"><\/a>__ARM_exceptions_buffer_init<\/STRONG> (Thumb, 18 bytes, Stack size 8 bytes, arm_exceptions_mem.o(.text))$/;"	a
-[b2]	Lab7.htm	/^<P><STRONG><a name="[b2]"><\/a>__rt_SIGABRT_inner<\/STRONG> (Thumb, 14 bytes, Stack size 8 bytes, defsig_abrt_inner.o(.text))$/;"	a
-[b3]	Lab7.htm	/^<P><STRONG><a name="[b3]"><\/a>__default_signal_display<\/STRONG> (Thumb, 50 bytes, Stack size 16 bytes, defsig_general.o(.text))$/;"	a
-[b4]	Lab7.htm	/^<P><STRONG><a name="[b4]"><\/a>_ttywrch<\/STRONG> (Thumb, 14 bytes, Stack size 8 bytes, sys_wrch.o(.text))$/;"	a
-[b5]	Lab7.htm	/^<P><STRONG><a name="[b5]"><\/a>Buttons_Init<\/STRONG> (Thumb, 266 bytes, Stack size 4 bytes, buttons.o(i.Buttons_Init))$/;"	a
-[b6]	Lab7.htm	/^<P><STRONG><a name="[b6]"><\/a>PortD_Arm<\/STRONG> (Thumb, 46 bytes, Stack size 0 bytes, buttons.o(i.PortD_Arm))$/;"	a
-[b7]	Lab7.htm	/^<P><STRONG><a name="[b7]"><\/a>PortE_Arm<\/STRONG> (Thumb, 46 bytes, Stack size 0 bytes, buttons.o(i.PortE_Arm))$/;"	a
-[b8]	Lab7.htm	/^<P><STRONG><a name="[b8]"><\/a>ESP8266FIFOtoBuffer<\/STRONG> (Thumb, 100 bytes, Stack size 8 bytes, esp8266.o(i.ESP8266FIFOtoBuffer))$/;"	a
-[b9]	Lab7.htm	/^<P><STRONG><a name="[b9]"><\/a>UART_OutCharNonBlock<\/STRONG> (Thumb, 46 bytes, Stack size 8 bytes, uart.o(i.UART_OutCharNonBlock))$/;"	a
-[ba]	Lab7.htm	/^<P><STRONG><a name="[ba]"><\/a>SearchCheck<\/STRONG> (Thumb, 68 bytes, Stack size 4 bytes, esp8266.o(i.SearchCheck))$/;"	a
-[bb]	Lab7.htm	/^<P><STRONG><a name="[bb]"><\/a>ServerResponseSearchCheck<\/STRONG> (Thumb, 180 bytes, Stack size 8 bytes, esp8266.o(i.ServerResponseSearchCheck))$/;"	a
-[bc]	Lab7.htm	/^<P><STRONG><a name="[bc]"><\/a>Timer2_Arm<\/STRONG> (Thumb, 60 bytes, Stack size 0 bytes, buttons.o(i.Timer2_Arm))$/;"	a
-[bd]	Lab7.htm	/^<P><STRONG><a name="[bd]"><\/a>ST7735_DrawBitmap<\/STRONG> (Thumb, 280 bytes, Stack size 40 bytes, st7735.o(i.ST7735_DrawBitmap))$/;"	a
-[be]	Lab7.htm	/^<P><STRONG><a name="[be]"><\/a>setAddrWindow<\/STRONG> (Thumb, 106 bytes, Stack size 24 bytes, st7735.o(i.setAddrWindow))$/;"	a
-[bf]	Lab7.htm	/^<P><STRONG><a name="[bf]"><\/a>writedata<\/STRONG> (Thumb, 24 bytes, Stack size 0 bytes, st7735.o(i.writedata))$/;"	a
-[c0]	Lab7.htm	/^<P><STRONG><a name="[c0]"><\/a>ST7735_DrawCharS<\/STRONG> (Thumb, 232 bytes, Stack size 48 bytes, st7735.o(i.ST7735_DrawCharS))$/;"	a
-[c1]	Lab7.htm	/^<P><STRONG><a name="[c1]"><\/a>ST7735_DrawPixel<\/STRONG> (Thumb, 64 bytes, Stack size 24 bytes, st7735.o(i.ST7735_DrawPixel))$/;"	a
-[c2]	Lab7.htm	/^<P><STRONG><a name="[c2]"><\/a>ST7735_FillRect<\/STRONG> (Thumb, 164 bytes, Stack size 32 bytes, st7735.o(i.ST7735_FillRect))$/;"	a
-[c3]	Lab7.htm	/^<P><STRONG><a name="[c3]"><\/a>pushColor<\/STRONG> (Thumb, 18 bytes, Stack size 8 bytes, st7735.o(i.pushColor))$/;"	a
-[c4]	Lab7.htm	/^<P><STRONG><a name="[c4]"><\/a>ST7735_DrawString<\/STRONG> (Thumb, 86 bytes, Stack size 32 bytes, st7735.o(i.ST7735_DrawString))$/;"	a
-[c5]	Lab7.htm	/^<P><STRONG><a name="[c5]"><\/a>ST7735_FillScreen<\/STRONG> (Thumb, 28 bytes, Stack size 16 bytes, st7735.o(i.ST7735_FillScreen))$/;"	a
-[c6]	Lab7.htm	/^<P><STRONG><a name="[c6]"><\/a>ST7735_InitR<\/STRONG> (Thumb, 90 bytes, Stack size 8 bytes, st7735.o(i.ST7735_InitR))$/;"	a
-[c7]	Lab7.htm	/^<P><STRONG><a name="[c7]"><\/a>commonInit<\/STRONG> (Thumb, 340 bytes, Stack size 8 bytes, st7735.o(i.commonInit))$/;"	a
-[c8]	Lab7.htm	/^<P><STRONG><a name="[c8]"><\/a>commandList<\/STRONG> (Thumb, 86 bytes, Stack size 24 bytes, st7735.o(i.commandList))$/;"	a
-[c9]	Lab7.htm	/^<P><STRONG><a name="[c9]"><\/a>writecommand<\/STRONG> (Thumb, 40 bytes, Stack size 0 bytes, st7735.o(i.writecommand))$/;"	a
-[ca]	Lab7.htm	/^<P><STRONG><a name="[ca]"><\/a>ST7735_SetCursor<\/STRONG> (Thumb, 22 bytes, Stack size 0 bytes, st7735.o(i.ST7735_SetCursor))$/;"	a
-[cb]	Lab7.htm	/^<P><STRONG><a name="[cb]"><\/a>ST7735_OutChar<\/STRONG> (Thumb, 176 bytes, Stack size 16 bytes, st7735.o(i.ST7735_OutChar))$/;"	a
-[cc]	Lab7.htm	/^<P><STRONG><a name="[cc]"><\/a>ST7735_OutString<\/STRONG> (Thumb, 24 bytes, Stack size 8 bytes, st7735.o(i.ST7735_OutString))$/;"	a
-[cd]	Lab7.htm	/^<P><STRONG><a name="[cd]"><\/a>ST7735_OutUDec<\/STRONG> (Thumb, 118 bytes, Stack size 16 bytes, st7735.o(i.ST7735_OutUDec))$/;"	a
-[ce]	Lab7.htm	/^<P><STRONG><a name="[ce]"><\/a>fillmessage<\/STRONG> (Thumb, 64 bytes, Stack size 12 bytes, st7735.o(i.fillmessage))$/;"	a
-[cf]	Lab7.htm	/^<P><STRONG><a name="[cf]"><\/a>ST7735_SetRotation<\/STRONG> (Thumb, 196 bytes, Stack size 8 bytes, st7735.o(i.ST7735_SetRotation))$/;"	a
-[d0]	Lab7.htm	/^<P><STRONG><a name="[d0]"><\/a>lc<\/STRONG> (Thumb, 14 bytes, Stack size 0 bytes, esp8266.o(i.lc))$/;"	a
-[d1]	Lab7.htm	/^<P><STRONG><a name="[d1]"><\/a>strcpy<\/STRONG> (Thumb, 72 bytes, Stack size 12 bytes, strcpy.o(.text))$/;"	a
-[d2]	Lab7.htm	/^<P><STRONG><a name="[d2]"><\/a>copySoftwareToHardware<\/STRONG> (Thumb, 38 bytes, Stack size 8 bytes, uart.o(i.copySoftwareToHardware))$/;"	a
-[d3]	Lab7.htm	/^<P><STRONG><a name="[d3]"><\/a>TxFifo_Size<\/STRONG> (Thumb, 14 bytes, Stack size 0 bytes, uart.o(i.TxFifo_Size))$/;"	a
-[d4]	Lab7.htm	/^<P><STRONG><a name="[d4]"><\/a>copyHardwareToSoftware<\/STRONG> (Thumb, 40 bytes, Stack size 4 bytes, uart.o(i.copyHardwareToSoftware))$/;"	a
-[d5]	Lab7.htm	/^<P><STRONG><a name="[d5]"><\/a>TxFifo_Put<\/STRONG> (Thumb, 48 bytes, Stack size 0 bytes, uart.o(i.TxFifo_Put))$/;"	a
-[d6]	Lab7.htm	/^<P><STRONG><a name="[d6]"><\/a>DrawEntities(EntityList*)<\/STRONG> (Thumb, 86 bytes, Stack size 24 bytes, gamerules.o(i._Z12DrawEntitiesP10EntityList))$/;"	a
-[d7]	Lab7.htm	/^<P><STRONG><a name="[d7]"><\/a>Entity::direction()<\/STRONG> (Thumb, 156 bytes, Stack size 20 bytes, gamerules.o(i._ZN6Entity9directionEv))$/;"	a
-[d8]	Lab7.htm	/^<P><STRONG><a name="[d8]"><\/a>EraseEntities(EntityList*)<\/STRONG> (Thumb, 60 bytes, Stack size 24 bytes, gamerules.o(i._Z13EraseEntitiesP10EntityList))$/;"	a
-[d9]	Lab7.htm	/^<P><STRONG><a name="[d9]"><\/a>EntityList::update(unsigned short*, unsigned short*)<\/STRONG> (Thumb, 172 bytes, Stack size 24 bytes, gamerules.o(i._ZN10EntityList6updateEPtS0_))$/;"	a
-[da]	Lab7.htm	/^<P><STRONG><a name="[da]"><\/a>Entity::update()<\/STRONG> (Thumb, 54 bytes, Stack size 12 bytes, gamerules.o(i._ZN6Entity6updateEv))$/;"	a
-[db]	Lab7.htm	/^<P><STRONG><a name="[db]"><\/a>Quadtree::clear()<\/STRONG> (Thumb, 54 bytes, Stack size 12 bytes, gamerules.o(i._ZN8Quadtree5clearEv))$/;"	a
-[dc]	Lab7.htm	/^<P><STRONG><a name="[dc]"><\/a>EntityList::clear()<\/STRONG> (Thumb, 24 bytes, Stack size 0 bytes, gamerules.o(i._ZN10EntityList5clearEv))$/;"	a
-[dd]	Lab7.htm	/^<P><STRONG><a name="[dd]"><\/a>Quadtree::split()<\/STRONG> (Thumb, 260 bytes, Stack size 48 bytes, gamerules.o(i._ZN8Quadtree5splitEv))$/;"	a
-[de]	Lab7.htm	/^<P><STRONG><a name="[de]"><\/a>operator new(unsigned)<\/STRONG> (Thumb, 34 bytes, Stack size 8 bytes, new.o(i._Znwj))$/;"	a
-[df]	Lab7.htm	/^<P><STRONG><a name="[df]"><\/a>Rectangle::Rectangle(short, short, unsigned short, unsigned short)<\/STRONG> (Thumb, 14 bytes, Stack size 8 bytes, gamerules.o(i._ZN9RectangleC1Esstt))$/;"	a
-[e0]	Lab7.htm	/^<P><STRONG><a name="[e0]"><\/a>Quadtree::Quadtree(unsigned char, Rectangle)<\/STRONG> (Thumb, 30 bytes, Stack size 24 bytes, gamerules.o(i._ZN8QuadtreeC1Eh9Rectangle))$/;"	a
-[e1]	Lab7.htm	/^<P><STRONG><a name="[e1]"><\/a>Quadtree::insert(EntityList*)<\/STRONG> (Thumb, 80 bytes, Stack size 24 bytes, gamerules.o(i._ZN8Quadtree6insertEP10EntityList))$/;"	a
-[e2]	Lab7.htm	/^<P><STRONG><a name="[e2]"><\/a>Quadtree::getQuadrant(Rectangle)<\/STRONG> (Thumb, 240 bytes, Stack size 40 bytes, gamerules.o(i._ZN8Quadtree11getQuadrantE9Rectangle))$/;"	a
-[e3]	Lab7.htm	/^<P><STRONG><a name="[e3]"><\/a>Entity::WallCollision(Rectangle)<\/STRONG> (Thumb, 126 bytes, Stack size 16 bytes, gamerules.o(i._ZN6Entity13WallCollisionE9Rectangle))$/;"	a
-[e4]	Lab7.htm	/^<P><STRONG><a name="[e4]"><\/a>Quadtree::insert(Entity*)<\/STRONG> (Thumb, 158 bytes, Stack size 24 bytes, gamerules.o(i._ZN8Quadtree6insertEP6Entity))$/;"	a
-[e5]	Lab7.htm	/^<P><STRONG><a name="[e5]"><\/a>EntityList::isFull()<\/STRONG> (Thumb, 18 bytes, Stack size 0 bytes, gamerules.o(i._ZN10EntityList6isFullEv))$/;"	a
-[e6]	Lab7.htm	/^<P><STRONG><a name="[e6]"><\/a>EntityList::push(Entity*)<\/STRONG> (Thumb, 18 bytes, Stack size 0 bytes, gamerules.o(i._ZN10EntityList4pushEP6Entity))$/;"	a
-[e7]	Lab7.htm	/^<P><STRONG><a name="[e7]"><\/a>EntityList::removeZeroes()<\/STRONG> (Thumb, 38 bytes, Stack size 12 bytes, gamerules.o(i._ZN10EntityList12removeZeroesEv))$/;"	a
-[e8]	Lab7.htm	/^<P><STRONG><a name="[e8]"><\/a>Quadtree::retrieve(EntityList*, Rectangle)<\/STRONG> (Thumb, 76 bytes, Stack size 36 bytes, gamerules.o(i._ZN8Quadtree8retrieveEP10EntityList9Rectangle))$/;"	a
-[e9]	Lab7.htm	/^<P><STRONG><a name="[e9]"><\/a>__rt_new_handler_addr<\/STRONG> (Thumb, 8 bytes, Stack size 0 bytes, rt_new_handler_addr_intlibspace.o(.text))$/;"	a
-[ea]	Lab7.htm	/^<P><STRONG><a name="[ea]"><\/a>Delay1ms<\/STRONG> (Thumb, 32 bytes, Stack size 8 bytes, st7735.o(i.Delay1ms))$/;"	a
-[eb]	Lab7.htm	/^<P><STRONG><a name="[eb]"><\/a>RxFifo_Put<\/STRONG> (Thumb, 48 bytes, Stack size 0 bytes, uart.o(i.RxFifo_Put))$/;"	a
-[ec]	Lab7.htm	/^<P><STRONG><a name="[ec]"><\/a>RxFifo_Size<\/STRONG> (Thumb, 14 bytes, Stack size 0 bytes, uart.o(i.RxFifo_Size))$/;"	a
-[ed]	Lab7.htm	/^<P><STRONG><a name="[ed]"><\/a>TxFifo_Get<\/STRONG> (Thumb, 46 bytes, Stack size 0 bytes, uart.o(i.TxFifo_Get))$/;"	a
-[ee]	Lab7.htm	/^<P><STRONG><a name="[ee]"><\/a>PortA_Init<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, portinit.o(i.PortA_Init))$/;"	a
-[ef]	Lab7.htm	/^<P><STRONG><a name="[ef]"><\/a>PortB_Init<\/STRONG> (Thumb, 26 bytes, Stack size 0 bytes, portinit.o(i.PortB_Init))$/;"	a
-[f0]	Lab7.htm	/^<P><STRONG><a name="[f0]"><\/a>PortC_Init<\/STRONG> (Thumb, 26 bytes, Stack size 0 bytes, portinit.o(i.PortC_Init))$/;"	a
-[f1]	Lab7.htm	/^<P><STRONG><a name="[f1]"><\/a>PortD_Init<\/STRONG> (Thumb, 26 bytes, Stack size 0 bytes, portinit.o(i.PortD_Init))$/;"	a
-[f2]	Lab7.htm	/^<P><STRONG><a name="[f2]"><\/a>PortE_Init<\/STRONG> (Thumb, 26 bytes, Stack size 0 bytes, portinit.o(i.PortE_Init))$/;"	a
-[f3]	Lab7.htm	/^<P><STRONG><a name="[f3]"><\/a>PortF_Init<\/STRONG> (Thumb, 26 bytes, Stack size 0 bytes, portinit.o(i.PortF_Init))$/;"	a
-[f4]	Lab7.htm	/^<P><STRONG><a name="[f4]"><\/a>PLL_Init<\/STRONG> (Thumb, 118 bytes, Stack size 0 bytes, pll.o(i.PLL_Init))$/;"	a
-[f5]	Lab7.htm	/^<P><STRONG><a name="[f5]"><\/a>Thumbstick_Init<\/STRONG> (Thumb, 58 bytes, Stack size 0 bytes, thumbstick.o(i.Thumbstick_Init))$/;"	a
-[f6]	Lab7.htm	/^<P><STRONG><a name="[f6]"><\/a>Accel_Init<\/STRONG> (Thumb, 88 bytes, Stack size 0 bytes, accel.o(i.Accel_Init))$/;"	a
-[f7]	Lab7.htm	/^<P><STRONG><a name="[f7]"><\/a>ADC_Init<\/STRONG> (Thumb, 134 bytes, Stack size 0 bytes, adc.o(i.ADC_Init))$/;"	a
-[f8]	Lab7.htm	/^<P><STRONG><a name="[f8]"><\/a>GameTick_Init()<\/STRONG> (Thumb, 70 bytes, Stack size 0 bytes, main.o(i._Z13GameTick_Initv))$/;"	a
-[f9]	Lab7.htm	/^<P><STRONG><a name="[f9]"><\/a>EnableInterrupts<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup.o(.text))$/;"	a
+[94]	Lab7.htm	/^<P><STRONG><a name="[94]"><\/a>__rt_lib_init_rand_2<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000B))$/;"	a
+[95]	Lab7.htm	/^<P><STRONG><a name="[95]"><\/a>_rand_init<\/STRONG> (Thumb, 4 bytes, Stack size 0 bytes, rand.o(.text))$/;"	a
+[96]	Lab7.htm	/^<P><STRONG><a name="[96]"><\/a>__rt_entry_sh<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry4.o(.ARM.Collect$$rtentry$$00000004))$/;"	a
+[97]	Lab7.htm	/^<P><STRONG><a name="[97]"><\/a>__user_setup_stackheap<\/STRONG> (Thumb, 74 bytes, Stack size 8 bytes, sys_stackheap_outer.o(.text))$/;"	a
+[98]	Lab7.htm	/^<P><STRONG><a name="[98]"><\/a>__rt_entry_li<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$0000000A))$/;"	a
+[99]	Lab7.htm	/^<P><STRONG><a name="[99]"><\/a>__rt_lib_init<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit.o(.ARM.Collect$$libinit$$00000000))$/;"	a
+[9a]	Lab7.htm	/^<P><STRONG><a name="[9a]"><\/a>__rt_entry_main<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$0000000D))$/;"	a
+[9b]	Lab7.htm	/^<P><STRONG><a name="[9b]"><\/a>main<\/STRONG> (Thumb, 190 bytes, Stack size 416 bytes, main.o(i.main))$/;"	a
+[9c]	Lab7.htm	/^<P><STRONG><a name="[9c]"><\/a>exit<\/STRONG> (Thumb, 12 bytes, Stack size 0 bytes, exit.o(.text))$/;"	a
+[9d]	Lab7.htm	/^<P><STRONG><a name="[9d]"><\/a>__rt_exit_ls<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000003))$/;"	a
+[9e]	Lab7.htm	/^<P><STRONG><a name="[9e]"><\/a>__rt_lib_shutdown<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown.o(.ARM.Collect$$libshutdown$$00000000))$/;"	a
+[9f]	Lab7.htm	/^<P><STRONG><a name="[9f]"><\/a>__rt_exit_exit<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000004))$/;"	a
+[a0]	Lab7.htm	/^<P><STRONG><a name="[a0]"><\/a>_sys_exit<\/STRONG> (Thumb, 8 bytes, Stack size 0 bytes, sys_exit.o(.text))$/;"	a
+[a1]	Lab7.htm	/^<P><STRONG><a name="[a1]"><\/a>srand<\/STRONG> (Thumb, 42 bytes, Stack size 8 bytes, rand.o(.text))$/;"	a
+[a2]	Lab7.htm	/^<P><STRONG><a name="[a2]"><\/a>malloc<\/STRONG> (Thumb, 94 bytes, Stack size 16 bytes, h1_alloc.o(.text))$/;"	a
+[a3]	Lab7.htm	/^<P><STRONG><a name="[a3]"><\/a>__rt_heap_descriptor<\/STRONG> (Thumb, 8 bytes, Stack size 0 bytes, rt_heap_descriptor_intlibspace.o(.text))$/;"	a
+[a4]	Lab7.htm	/^<P><STRONG><a name="[a4]"><\/a>__Heap_Full<\/STRONG> (Thumb, 34 bytes, Stack size 16 bytes, init_alloc.o(.text))$/;"	a
+[a5]	Lab7.htm	/^<P><STRONG><a name="[a5]"><\/a>free<\/STRONG> (Thumb, 78 bytes, Stack size 16 bytes, h1_free.o(.text))$/;"	a
+[a6]	Lab7.htm	/^<P><STRONG><a name="[a6]"><\/a>std::terminate()<\/STRONG> (Thumb, 26 bytes, Stack size 8 bytes, arm_exceptions_terminate.o(.text))$/;"	a
+[a7]	Lab7.htm	/^<P><STRONG><a name="[a7]"><\/a>__Heap_ProvideMemory<\/STRONG> (Thumb, 52 bytes, Stack size 0 bytes, h1_extend.o(.text))$/;"	a
+[a8]	Lab7.htm	/^<P><STRONG><a name="[a8]"><\/a>__Heap_Broken<\/STRONG> (Thumb, 6 bytes, Stack size 0 bytes, init_alloc.o(.text), UNUSED)$/;"	a
+[a9]	Lab7.htm	/^<P><STRONG><a name="[a9]"><\/a>__rt_SIGRTMEM<\/STRONG> (Thumb, 14 bytes, Stack size 8 bytes, defsig_rtmem_outer.o(.text))$/;"	a
+[aa]	Lab7.htm	/^<P><STRONG><a name="[aa]"><\/a>__Heap_Initialize<\/STRONG> (Thumb, 10 bytes, Stack size 0 bytes, h1_init.o(.text))$/;"	a
+[ab]	Lab7.htm	/^<P><STRONG><a name="[ab]"><\/a>__cxa_get_globals<\/STRONG> (Thumb, 62 bytes, Stack size 16 bytes, arm_exceptions_globs.o(.text))$/;"	a
+[ac]	Lab7.htm	/^<P><STRONG><a name="[ac]"><\/a>abort<\/STRONG> (Thumb, 16 bytes, Stack size 0 bytes, abort.o(.text))$/;"	a
+[ad]	Lab7.htm	/^<P><STRONG><a name="[ad]"><\/a>__user_perproc_libspace<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, libspace.o(.text))$/;"	a
+[ae]	Lab7.htm	/^<P><STRONG><a name="[ae]"><\/a>__user_initial_stackheap<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup.o(.text))$/;"	a
+[af]	Lab7.htm	/^<P><STRONG><a name="[af]"><\/a>__rt_exit<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit.o(.ARM.Collect$$rtexit$$00000000))$/;"	a
+[b0]	Lab7.htm	/^<P><STRONG><a name="[b0]"><\/a>__rt_SIGABRT<\/STRONG> (Thumb, 14 bytes, Stack size 8 bytes, defsig_abrt_outer.o(.text))$/;"	a
+[b1]	Lab7.htm	/^<P><STRONG><a name="[b1]"><\/a>__rt_SIGRTMEM_inner<\/STRONG> (Thumb, 22 bytes, Stack size 8 bytes, defsig_rtmem_inner.o(.text))$/;"	a
+[b2]	Lab7.htm	/^<P><STRONG><a name="[b2]"><\/a>__sig_exit<\/STRONG> (Thumb, 10 bytes, Stack size 0 bytes, defsig_exit.o(.text))$/;"	a
+[b3]	Lab7.htm	/^<P><STRONG><a name="[b3]"><\/a>__rt_eh_globals_addr<\/STRONG> (Thumb, 8 bytes, Stack size 0 bytes, rt_eh_globals_addr_intlibspace.o(.text))$/;"	a
+[b4]	Lab7.htm	/^<P><STRONG><a name="[b4]"><\/a>__ARM_exceptions_buffer_init<\/STRONG> (Thumb, 18 bytes, Stack size 8 bytes, arm_exceptions_mem.o(.text))$/;"	a
+[b5]	Lab7.htm	/^<P><STRONG><a name="[b5]"><\/a>__rt_SIGABRT_inner<\/STRONG> (Thumb, 14 bytes, Stack size 8 bytes, defsig_abrt_inner.o(.text))$/;"	a
+[b6]	Lab7.htm	/^<P><STRONG><a name="[b6]"><\/a>__default_signal_display<\/STRONG> (Thumb, 50 bytes, Stack size 16 bytes, defsig_general.o(.text))$/;"	a
+[b7]	Lab7.htm	/^<P><STRONG><a name="[b7]"><\/a>_ttywrch<\/STRONG> (Thumb, 14 bytes, Stack size 8 bytes, sys_wrch.o(.text))$/;"	a
+[b8]	Lab7.htm	/^<P><STRONG><a name="[b8]"><\/a>Buttons_Init<\/STRONG> (Thumb, 266 bytes, Stack size 4 bytes, buttons.o(i.Buttons_Init))$/;"	a
+[b9]	Lab7.htm	/^<P><STRONG><a name="[b9]"><\/a>PortD_Arm<\/STRONG> (Thumb, 46 bytes, Stack size 0 bytes, buttons.o(i.PortD_Arm))$/;"	a
+[ba]	Lab7.htm	/^<P><STRONG><a name="[ba]"><\/a>PortE_Arm<\/STRONG> (Thumb, 46 bytes, Stack size 0 bytes, buttons.o(i.PortE_Arm))$/;"	a
+[bb]	Lab7.htm	/^<P><STRONG><a name="[bb]"><\/a>ESP8266FIFOtoBuffer<\/STRONG> (Thumb, 100 bytes, Stack size 8 bytes, esp8266.o(i.ESP8266FIFOtoBuffer))$/;"	a
+[bc]	Lab7.htm	/^<P><STRONG><a name="[bc]"><\/a>UART_OutCharNonBlock<\/STRONG> (Thumb, 46 bytes, Stack size 8 bytes, uart.o(i.UART_OutCharNonBlock))$/;"	a
+[bd]	Lab7.htm	/^<P><STRONG><a name="[bd]"><\/a>SearchCheck<\/STRONG> (Thumb, 68 bytes, Stack size 4 bytes, esp8266.o(i.SearchCheck))$/;"	a
+[be]	Lab7.htm	/^<P><STRONG><a name="[be]"><\/a>ServerResponseSearchCheck<\/STRONG> (Thumb, 180 bytes, Stack size 8 bytes, esp8266.o(i.ServerResponseSearchCheck))$/;"	a
+[bf]	Lab7.htm	/^<P><STRONG><a name="[bf]"><\/a>Timer2_Arm<\/STRONG> (Thumb, 60 bytes, Stack size 0 bytes, buttons.o(i.Timer2_Arm))$/;"	a
+[c0]	Lab7.htm	/^<P><STRONG><a name="[c0]"><\/a>ST7735_DrawBitmap<\/STRONG> (Thumb, 280 bytes, Stack size 40 bytes, st7735.o(i.ST7735_DrawBitmap))$/;"	a
+[c1]	Lab7.htm	/^<P><STRONG><a name="[c1]"><\/a>setAddrWindow<\/STRONG> (Thumb, 106 bytes, Stack size 24 bytes, st7735.o(i.setAddrWindow))$/;"	a
+[c2]	Lab7.htm	/^<P><STRONG><a name="[c2]"><\/a>writedata<\/STRONG> (Thumb, 24 bytes, Stack size 0 bytes, st7735.o(i.writedata))$/;"	a
+[c3]	Lab7.htm	/^<P><STRONG><a name="[c3]"><\/a>ST7735_DrawPixel<\/STRONG> (Thumb, 64 bytes, Stack size 24 bytes, st7735.o(i.ST7735_DrawPixel))$/;"	a
+[c4]	Lab7.htm	/^<P><STRONG><a name="[c4]"><\/a>pushColor<\/STRONG> (Thumb, 18 bytes, Stack size 8 bytes, st7735.o(i.pushColor))$/;"	a
+[c5]	Lab7.htm	/^<P><STRONG><a name="[c5]"><\/a>ST7735_FillRect<\/STRONG> (Thumb, 164 bytes, Stack size 32 bytes, st7735.o(i.ST7735_FillRect))$/;"	a
+[c6]	Lab7.htm	/^<P><STRONG><a name="[c6]"><\/a>ST7735_FillScreen<\/STRONG> (Thumb, 28 bytes, Stack size 16 bytes, st7735.o(i.ST7735_FillScreen))$/;"	a
+[c7]	Lab7.htm	/^<P><STRONG><a name="[c7]"><\/a>ST7735_InitR<\/STRONG> (Thumb, 90 bytes, Stack size 8 bytes, st7735.o(i.ST7735_InitR))$/;"	a
+[c8]	Lab7.htm	/^<P><STRONG><a name="[c8]"><\/a>commonInit<\/STRONG> (Thumb, 340 bytes, Stack size 8 bytes, st7735.o(i.commonInit))$/;"	a
+[c9]	Lab7.htm	/^<P><STRONG><a name="[c9]"><\/a>commandList<\/STRONG> (Thumb, 86 bytes, Stack size 24 bytes, st7735.o(i.commandList))$/;"	a
+[ca]	Lab7.htm	/^<P><STRONG><a name="[ca]"><\/a>writecommand<\/STRONG> (Thumb, 40 bytes, Stack size 0 bytes, st7735.o(i.writecommand))$/;"	a
+[cb]	Lab7.htm	/^<P><STRONG><a name="[cb]"><\/a>ST7735_SetCursor<\/STRONG> (Thumb, 22 bytes, Stack size 0 bytes, st7735.o(i.ST7735_SetCursor))$/;"	a
+[cc]	Lab7.htm	/^<P><STRONG><a name="[cc]"><\/a>ST7735_SetRotation<\/STRONG> (Thumb, 196 bytes, Stack size 8 bytes, st7735.o(i.ST7735_SetRotation))$/;"	a
+[cd]	Lab7.htm	/^<P><STRONG><a name="[cd]"><\/a>lc<\/STRONG> (Thumb, 14 bytes, Stack size 0 bytes, esp8266.o(i.lc))$/;"	a
+[ce]	Lab7.htm	/^<P><STRONG><a name="[ce]"><\/a>strcpy<\/STRONG> (Thumb, 72 bytes, Stack size 12 bytes, strcpy.o(.text))$/;"	a
+[cf]	Lab7.htm	/^<P><STRONG><a name="[cf]"><\/a>copySoftwareToHardware<\/STRONG> (Thumb, 38 bytes, Stack size 8 bytes, uart.o(i.copySoftwareToHardware))$/;"	a
+[d0]	Lab7.htm	/^<P><STRONG><a name="[d0]"><\/a>TxFifo_Size<\/STRONG> (Thumb, 14 bytes, Stack size 0 bytes, uart.o(i.TxFifo_Size))$/;"	a
+[d1]	Lab7.htm	/^<P><STRONG><a name="[d1]"><\/a>copyHardwareToSoftware<\/STRONG> (Thumb, 40 bytes, Stack size 4 bytes, uart.o(i.copyHardwareToSoftware))$/;"	a
+[d2]	Lab7.htm	/^<P><STRONG><a name="[d2]"><\/a>TxFifo_Put<\/STRONG> (Thumb, 48 bytes, Stack size 0 bytes, uart.o(i.TxFifo_Put))$/;"	a
+[d3]	Lab7.htm	/^<P><STRONG><a name="[d3]"><\/a>DrawEntities(EntityList*)<\/STRONG> (Thumb, 116 bytes, Stack size 24 bytes, gamerules.o(i._Z12DrawEntitiesP10EntityList))$/;"	a
+[d4]	Lab7.htm	/^<P><STRONG><a name="[d4]"><\/a>Entity::direction()<\/STRONG> (Thumb, 156 bytes, Stack size 20 bytes, gamerules.o(i._ZN6Entity9directionEv))$/;"	a
+[d5]	Lab7.htm	/^<P><STRONG><a name="[d5]"><\/a>EraseEntities(EntityList*)<\/STRONG> (Thumb, 60 bytes, Stack size 24 bytes, gamerules.o(i._Z13EraseEntitiesP10EntityList))$/;"	a
+[d6]	Lab7.htm	/^<P><STRONG><a name="[d6]"><\/a>WorldSpace_Init()<\/STRONG> (Thumb, 210 bytes, Stack size 96 bytes, main.o(i._Z15WorldSpace_Initv))$/;"	a
+[d7]	Lab7.htm	/^<P><STRONG><a name="[d7]"><\/a>Rectangle::Rectangle(short, short, unsigned short, unsigned short)<\/STRONG> (Thumb, 14 bytes, Stack size 8 bytes, gamerules.o(i._ZN9RectangleC1Esstt))$/;"	a
+[d8]	Lab7.htm	/^<P><STRONG><a name="[d8]"><\/a>operator new(unsigned)<\/STRONG> (Thumb, 34 bytes, Stack size 8 bytes, new.o(i._Znwj))$/;"	a
+[d9]	Lab7.htm	/^<P><STRONG><a name="[d9]"><\/a>EntityList::EntityList()<\/STRONG> (Thumb, 8 bytes, Stack size 0 bytes, main.o(i._ZN10EntityListC1Ev))$/;"	a
+[da]	Lab7.htm	/^<P><STRONG><a name="[da]"><\/a>Vector::Vector(short, short)<\/STRONG> (Thumb, 6 bytes, Stack size 0 bytes, gamerules.o(i._ZN6VectorC1Ess))$/;"	a
+[db]	Lab7.htm	/^<P><STRONG><a name="[db]"><\/a>Quadtree::insert(Entity*)<\/STRONG> (Thumb, 168 bytes, Stack size 24 bytes, gamerules.o(i._ZN8Quadtree6insertEP6Entity))$/;"	a
+[dc]	Lab7.htm	/^<P><STRONG><a name="[dc]"><\/a>EntityList::push(Entity*)<\/STRONG> (Thumb, 44 bytes, Stack size 16 bytes, gamerules.o(i._ZN10EntityList4pushEP6Entity))$/;"	a
+[dd]	Lab7.htm	/^<P><STRONG><a name="[dd]"><\/a>EntityList::isFull()<\/STRONG> (Thumb, 18 bytes, Stack size 0 bytes, gamerules.o(i._ZN10EntityList6isFullEv))$/;"	a
+[de]	Lab7.htm	/^<P><STRONG><a name="[de]"><\/a>operator delete (void*)<\/STRONG> (Thumb, 8 bytes, Stack size 8 bytes, delete.o(i._ZdlPv))$/;"	a
+[df]	Lab7.htm	/^<P><STRONG><a name="[df]"><\/a>EntityList::update(unsigned short*, unsigned short*, unsigned)<\/STRONG> (Thumb, 512 bytes, Stack size 88 bytes, gamerules.o(i._ZN10EntityList6updateEPtS0_j))$/;"	a
+[e0]	Lab7.htm	/^<P><STRONG><a name="[e0]"><\/a>Entity::update()<\/STRONG> (Thumb, 72 bytes, Stack size 12 bytes, gamerules.o(i._ZN6Entity6updateEv))$/;"	a
+[e1]	Lab7.htm	/^<P><STRONG><a name="[e1]"><\/a>rand<\/STRONG> (Thumb, 48 bytes, Stack size 0 bytes, rand.o(.emb_text))$/;"	a
+[e2]	Lab7.htm	/^<P><STRONG><a name="[e2]"><\/a>Entity::Entity(Rectangle, Vector, Vector, EntityType, unsigned, unsigned)<\/STRONG> (Thumb, 38 bytes, Stack size 32 bytes, gamerules.o(i._ZN6EntityC1E9Rectangle6VectorS1_10EntityTypejj))$/;"	a
+[e3]	Lab7.htm	/^<P><STRONG><a name="[e3]"><\/a>Quadtree::clear()<\/STRONG> (Thumb, 54 bytes, Stack size 12 bytes, gamerules.o(i._ZN8Quadtree5clearEv))$/;"	a
+[e4]	Lab7.htm	/^<P><STRONG><a name="[e4]"><\/a>EntityList::clear()<\/STRONG> (Thumb, 24 bytes, Stack size 0 bytes, gamerules.o(i._ZN10EntityList5clearEv))$/;"	a
+[e5]	Lab7.htm	/^<P><STRONG><a name="[e5]"><\/a>Quadtree::split()<\/STRONG> (Thumb, 290 bytes, Stack size 48 bytes, gamerules.o(i._ZN8Quadtree5splitEv))$/;"	a
+[e6]	Lab7.htm	/^<P><STRONG><a name="[e6]"><\/a>Quadtree::Quadtree(unsigned char, Rectangle)<\/STRONG> (Thumb, 34 bytes, Stack size 24 bytes, gamerules.o(i._ZN8QuadtreeC1Eh9Rectangle))$/;"	a
+[e7]	Lab7.htm	/^<P><STRONG><a name="[e7]"><\/a>Quadtree::insert(EntityList*)<\/STRONG> (Thumb, 74 bytes, Stack size 24 bytes, gamerules.o(i._ZN8Quadtree6insertEP10EntityList))$/;"	a
+[e8]	Lab7.htm	/^<P><STRONG><a name="[e8]"><\/a>Quadtree::getQuadrant(Rectangle)<\/STRONG> (Thumb, 240 bytes, Stack size 40 bytes, gamerules.o(i._ZN8Quadtree11getQuadrantE9Rectangle))$/;"	a
+[e9]	Lab7.htm	/^<P><STRONG><a name="[e9]"><\/a>Entity::WallCollision(Rectangle)<\/STRONG> (Thumb, 170 bytes, Stack size 32 bytes, gamerules.o(i._ZN6Entity13WallCollisionE9Rectangle))$/;"	a
+[ea]	Lab7.htm	/^<P><STRONG><a name="[ea]"><\/a>EntityList::removeZeroes()<\/STRONG> (Thumb, 38 bytes, Stack size 12 bytes, gamerules.o(i._ZN10EntityList12removeZeroesEv))$/;"	a
+[eb]	Lab7.htm	/^<P><STRONG><a name="[eb]"><\/a>Quadtree::retrieve(EntityList*, Rectangle)<\/STRONG> (Thumb, 82 bytes, Stack size 40 bytes, gamerules.o(i._ZN8Quadtree8retrieveEP10EntityList9Rectangle))$/;"	a
+[ec]	Lab7.htm	/^<P><STRONG><a name="[ec]"><\/a>__rt_new_handler_addr<\/STRONG> (Thumb, 8 bytes, Stack size 0 bytes, rt_new_handler_addr_intlibspace.o(.text))$/;"	a
+[ed]	Lab7.htm	/^<P><STRONG><a name="[ed]"><\/a>Delay1ms<\/STRONG> (Thumb, 32 bytes, Stack size 8 bytes, st7735.o(i.Delay1ms))$/;"	a
+[ee]	Lab7.htm	/^<P><STRONG><a name="[ee]"><\/a>RxFifo_Put<\/STRONG> (Thumb, 48 bytes, Stack size 0 bytes, uart.o(i.RxFifo_Put))$/;"	a
+[ef]	Lab7.htm	/^<P><STRONG><a name="[ef]"><\/a>RxFifo_Size<\/STRONG> (Thumb, 14 bytes, Stack size 0 bytes, uart.o(i.RxFifo_Size))$/;"	a
+[f0]	Lab7.htm	/^<P><STRONG><a name="[f0]"><\/a>TxFifo_Get<\/STRONG> (Thumb, 46 bytes, Stack size 0 bytes, uart.o(i.TxFifo_Get))$/;"	a
+[f1]	Lab7.htm	/^<P><STRONG><a name="[f1]"><\/a>PortA_Init<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, portinit.o(i.PortA_Init))$/;"	a
+[f2]	Lab7.htm	/^<P><STRONG><a name="[f2]"><\/a>PortB_Init<\/STRONG> (Thumb, 26 bytes, Stack size 0 bytes, portinit.o(i.PortB_Init))$/;"	a
+[f3]	Lab7.htm	/^<P><STRONG><a name="[f3]"><\/a>PortC_Init<\/STRONG> (Thumb, 26 bytes, Stack size 0 bytes, portinit.o(i.PortC_Init))$/;"	a
+[f4]	Lab7.htm	/^<P><STRONG><a name="[f4]"><\/a>PortD_Init<\/STRONG> (Thumb, 26 bytes, Stack size 0 bytes, portinit.o(i.PortD_Init))$/;"	a
+[f5]	Lab7.htm	/^<P><STRONG><a name="[f5]"><\/a>PortE_Init<\/STRONG> (Thumb, 26 bytes, Stack size 0 bytes, portinit.o(i.PortE_Init))$/;"	a
+[f6]	Lab7.htm	/^<P><STRONG><a name="[f6]"><\/a>PortF_Init<\/STRONG> (Thumb, 26 bytes, Stack size 0 bytes, portinit.o(i.PortF_Init))$/;"	a
+[f7]	Lab7.htm	/^<P><STRONG><a name="[f7]"><\/a>PLL_Init<\/STRONG> (Thumb, 118 bytes, Stack size 0 bytes, pll.o(i.PLL_Init))$/;"	a
+[f8]	Lab7.htm	/^<P><STRONG><a name="[f8]"><\/a>Thumbstick_Init<\/STRONG> (Thumb, 58 bytes, Stack size 0 bytes, thumbstick.o(i.Thumbstick_Init))$/;"	a
+[f9]	Lab7.htm	/^<P><STRONG><a name="[f9]"><\/a>Accel_Init<\/STRONG> (Thumb, 88 bytes, Stack size 0 bytes, accel.o(i.Accel_Init))$/;"	a
 [f]	Lab7.htm	/^<P><STRONG><a name="[f]"><\/a>NMI_Handler<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
-[fa]	Lab7.htm	/^<P><STRONG><a name="[fa]"><\/a>EntityList::EntityList()<\/STRONG> (Thumb, 8 bytes, Stack size 0 bytes, main.o(i._ZN10EntityListC1Ev))$/;"	a
-[fb]	Lab7.htm	/^<P><STRONG><a name="[fb]"><\/a>Vector::Vector(short, short)<\/STRONG> (Thumb, 6 bytes, Stack size 0 bytes, gamerules.o(i._ZN6VectorC1Ess))$/;"	a
-[fc]	Lab7.htm	/^<P><STRONG><a name="[fc]"><\/a>Entity::Entity(Rectangle, Vector, Vector, EntityType, unsigned, unsigned)<\/STRONG> (Thumb, 38 bytes, Stack size 32 bytes, main.o(i._ZN6EntityC1E9Rectangle6VectorS1_10EntityTypejj))$/;"	a
+[fa]	Lab7.htm	/^<P><STRONG><a name="[fa]"><\/a>ADC_Init<\/STRONG> (Thumb, 134 bytes, Stack size 0 bytes, adc.o(i.ADC_Init))$/;"	a
+[fb]	Lab7.htm	/^<P><STRONG><a name="[fb]"><\/a>GameTick_Init()<\/STRONG> (Thumb, 70 bytes, Stack size 0 bytes, main.o(i._Z13GameTick_Initv))$/;"	a
+[fc]	Lab7.htm	/^<P><STRONG><a name="[fc]"><\/a>EnableInterrupts<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup.o(.text))$/;"	a
 [fd]	Lab7.htm	/^<P><STRONG><a name="[fd]"><\/a>ADC_In<\/STRONG> (Thumb, 96 bytes, Stack size 0 bytes, adc.o(i.ADC_In))$/;"	a
 [fe]	Lab7.htm	/^<P><STRONG><a name="[fe]"><\/a>NormalizeAnalogInputs(unsigned short*, unsigned short*)<\/STRONG> (Thumb, 262 bytes, Stack size 8 bytes, gamerules.o(i._Z21NormalizeAnalogInputsPtS_))$/;"	a
 [ff]	Lab7.htm	/^<P><STRONG><a name="[ff]"><\/a>__scatterload_rt2_thumb_only<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)$/;"	a
@@ -1127,7 +1131,6 @@ convertedIndex	Graphics.c	/^static uint32_t convertedIndex;$/;"	v	file:
 copyHardwareToSoftware	UART.c	/^void static copyHardwareToSoftware(void){$/;"	f	file:
 copySoftwareToHardware	UART.c	/^void static copySoftwareToHardware(void){$/;"	f	file:
 counter	Buttons.c	/^static int counter = 0;$/;"	v	file:
-counter	GameRules.cpp	/^int counter = 0;$/;"	v
 dBfs	ST7735.c	/^uint8_t const dBfs[512]={$/;"	v
 data1	GameRules.h	/^	uint32_t data1;  \/\/ data will be a generic field used for sending data between objects$/;"	m	class:Entity
 data2	GameRules.h	/^	uint32_t data2;$/;"	m	class:Entity
@@ -1159,6 +1162,7 @@ main	main.cpp	/^int main(void) {$/;"	f
 nextIndex	GameRules.h	/^	uint8_t nextIndex;$/;"	m	class:EntityList
 nodes	GameRules.h	/^	Quadtree * nodes[4];$/;"	m	class:Quadtree
 none	ST7735.h	/^  none,$/;"	e	enum:initRFlags
+normalize	GameRules.h	/^	void normalize(int32_t scale)$/;"	f	class:Vector
 objects	GameRules.h	/^	EntityList objects; \/\/ list of all the entities in this quadtree$/;"	m	class:Quadtree
 operator +	GameRules.h	/^	Vector operator+(const Vector & v)$/;"	f	class:Vector
 operator +	Vector.h	/^	Vector operator+(const Vector & v)$/;"	f	class:Vector
@@ -1190,7 +1194,7 @@ uart_rename	UART.c	/^int uart_rename(const char *old_name, const char *new_name)
 uart_unlink	UART.c	/^int uart_unlink(const char * path){$/;"	f
 uart_write	UART.c	/^int uart_write(int dev_fd, const char *buf, unsigned count){ unsigned int num=count;$/;"	f
 update	GameRules.cpp	/^void Entity::update (void)$/;"	f	class:Entity
-update	GameRules.cpp	/^void EntityList::update(uint16_t * tstick, uint16_t * accel) {$/;"	f	class:EntityList
+update	GameRules.cpp	/^void EntityList::update(uint16_t * tstick, uint16_t * accel, uint32_t gameTick) {$/;"	f	class:EntityList
 vector	Graphics.c	/^typedef struct vector {$/;"	s	file:
 volume	Music.h	/^	uint8_t volume;$/;"	m	struct:__anon2
 w	GameRules.h	/^	uint16_t w;$/;"	m	class:Rectangle
