@@ -139,7 +139,7 @@ void EntityList::update(uint16_t * tstick, uint16_t * accel, uint32_t gameTick) 
         push(missile);
         missileFlag = 0;
       }
-			if ( rand()%2 ) //create fire
+			if ( rand()%2 && (E->velocity.x != 0 || E->Velocity.y != 0) ) //create fire
 			{
 				Rectangle R( E->Bounds.x + ((2 + rand()%5)<<7), E->Bounds.y + ((2 + rand()%5)<<7), 1<<7, 1<<7);
 				push( new Entity( R, Vector(0,0), Vector(0,0), PARTICLE, 10+rand()%5, 0 ));
@@ -322,7 +322,8 @@ void DrawEntities(EntityList * L)
 
 		if (E->type == SHIP)          { bitmap = Bitmap_Ship[E->direction()]; }
 		else if (E->type == LASER)    { bitmap = Bitmap_GreenLaser; }
-		else if (E->type == PARTICLE) { ST7735_DrawPixel(E->Bounds.x >> 7, E->Bounds.y >> 7, ST7735_RED); return;}
+		else if (E->type == PARTICLE) { bitmap = Bitmap_Fire; }
+				//ST7735_DrawPixel(E->Bounds.x >> 7, E->Bounds.y >> 7, ST7735_RED); return;}
 		else if (E->type == MISSILE)  { bitmap = Bitmap_OrangeMissile; }
 
 		ST7735_DrawBitmap(E->Bounds.x >> 7, (E->Bounds.y + E->Bounds.h) >> 7, bitmap, E->Bounds.w >> 7, E->Bounds.h >> 7);
