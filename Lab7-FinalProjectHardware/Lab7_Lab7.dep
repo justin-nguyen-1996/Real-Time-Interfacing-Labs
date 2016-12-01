@@ -57,7 +57,7 @@ I (Thumbstick.h)(0x583D3DFE)
 I (Debug.h)(0x581577EF)
 I (ST7735.h)(0x5806936D)
 I (PortInit.h)(0x58157C23)
-F (.\GameRules.cpp)(0x583D539A)(--cpp -c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\..-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\gamerules.o --omf_browse .\gamerules.crf --depend .\gamerules.d)
+F (.\GameRules.cpp)(0x583D53E0)(--cpp -c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\..-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\gamerules.o --omf_browse .\gamerules.crf --depend .\gamerules.d)
 I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C87C24)
 I (../inc/tm4c123gh6pm.h)(0x57FB0F73)
 I (ST7735.h)(0x5806936D)
