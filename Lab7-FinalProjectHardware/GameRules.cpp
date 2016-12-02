@@ -139,7 +139,7 @@ void EntityList::update(uint16_t * tstick, uint16_t * accel, uint32_t gameTick) 
         push(missile);
         missileFlag = 0;
       }
-			if ( rand()%2 && (E->velocity.x != 0 || E->Velocity.y != 0) ) //create fire
+			if ( rand()%2 && (E->Velocity.x != 0 || E->Velocity.y != 0) ) //create fire
 			{
 				Rectangle R( E->Bounds.x + ((2 + rand()%5)<<7), E->Bounds.y + ((2 + rand()%5)<<7), 1<<7, 1<<7);
 				push( new Entity( R, Vector(0,0), Vector(0,0), PARTICLE, 10+rand()%5, 0 ));

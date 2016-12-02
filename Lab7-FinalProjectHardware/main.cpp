@@ -101,17 +101,13 @@ int main(void) {
 			NormalizeAnalogInputs(tstick, accel);
 
 			// update entities
-			EntityList AllEntities; // TODO: can we make this a global?
+			EntityList AllEntities;
 			WorldSpace->retrieve(&AllEntities, Screen);
 			EraseEntities(&AllEntities);
 			AllEntities.update(tstick, accel, oldGameTick);
 			DrawEntities(&AllEntities);
 			WorldSpace->clear();
 			WorldSpace->insert(&AllEntities);
-
-			//WorldSpace->drawBounds();
-
-			// check for collisions
 		}
 	}
 
