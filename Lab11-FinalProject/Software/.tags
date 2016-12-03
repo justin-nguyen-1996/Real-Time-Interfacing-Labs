@@ -1,0 +1,1212 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+A	Music.h	112;"	d
+ACCEL_H	Accel.h	2;"	d
+ACCEL_X	Accel.h	4;"	d
+ACCEL_Y	Accel.h	5;"	d
+ACCEL_Z	Accel.h	6;"	d
+ADC0Seq0_Handler	startup.s	/^ADC0Seq0_Handler$/;"	l
+ADC0Seq1_Handler	startup.s	/^ADC0Seq1_Handler$/;"	l
+ADC0Seq2_Handler	startup.s	/^ADC0Seq2_Handler$/;"	l
+ADC0Seq3_Handler	startup.s	/^ADC0Seq3_Handler$/;"	l
+ADC0_InSeq3	ADCSWTrigger.c	/^uint32_t ADC0_InSeq3(void){  uint32_t result;$/;"	f
+ADC0_InitSWTriggerSeq3_Ch9	ADCSWTrigger.c	/^void ADC0_InitSWTriggerSeq3_Ch9(void){ $/;"	f
+ADC1Seq0_Handler	startup.s	/^ADC1Seq0_Handler$/;"	l
+ADC1Seq1_Handler	startup.s	/^ADC1Seq1_Handler$/;"	l
+ADC1Seq2_Handler	startup.s	/^ADC1Seq2_Handler$/;"	l
+ADC1Seq3_Handler	startup.s	/^ADC1Seq3_Handler$/;"	l
+ADC_H	ADC.h	2;"	d
+ADC_In	ADC.c	/^void ADC_In(uint16_t tstick[4], uint16_t accel[3]) { $/;"	f
+ADC_Init	ADC.c	/^void ADC_Init(void) {$/;"	f
+ADC_Test	ADC.c	/^void ADC_Test() {$/;"	f
+ASTEROID	GameRules.h	/^  ASTEROID,$/;"	e	enum:__anon1
+ASTEROID_ENTITY	GameRules.h	4;"	d
+Ab	Music.h	111;"	d
+Accel_Init	Accel.c	/^void Accel_Init(void) {$/;"	f
+Acceleration	GameRules.h	/^	Vector Acceleration;$/;"	m	class:Entity
+AddIndexFifo	FIFO.h	37;"	d
+AddPointerFifo	FIFO.h	71;"	d
+As	Music.h	113;"	d
+B	Music.h	115;"	d
+BMP_H	bmp.h	2;"	d
+BOT_LEFT	GameRules.cpp	16;"	d	file:
+BOT_RIGHT	GameRules.cpp	18;"	d	file:
+BS	UART.h	33;"	d
+BUFFER_SIZE	esp8266.c	64;"	d	file:
+BULLET_SHOOT_RATE	GameRules.cpp	122;"	d	file:
+BULLET_SPEED	GameRules.cpp	121;"	d	file:
+BUTTONS_H	Buttons.h	2;"	d
+Bb	Music.h	114;"	d
+Bcmd	ST7735.c	/^  Bcmd[] = {                  \/\/ Initialization commands for 7735B screens$/;"	v	file:
+Bitmap_GreenLaser	bmp.h	/^const unsigned short Bitmap_GreenLaser[] = {$/;"	v
+Bitmap_Ship	bmp.h	/^const unsigned short Bitmap_Ship[8][64] = $/;"	v
+Board_Input	LED.c	/^uint32_t Board_Input(void){$/;"	f
+Bounds	GameRules.h	/^	Rectangle Bounds;$/;"	m	class:Entity
+Bus10MHz	PLL.h	72;"	d
+Bus10_000MHz	PLL.h	71;"	d
+Bus10_256MHz	PLL.h	70;"	d
+Bus10_526MHz	PLL.h	69;"	d
+Bus10_811MHz	PLL.h	68;"	d
+Bus11_111MHz	PLL.h	67;"	d
+Bus11_429MHz	PLL.h	66;"	d
+Bus11_765MHz	PLL.h	65;"	d
+Bus12_121MHz	PLL.h	64;"	d
+Bus12_500MHz	PLL.h	63;"	d
+Bus12_903MHz	PLL.h	62;"	d
+Bus13_333MHz	PLL.h	61;"	d
+Bus13_793MHz	PLL.h	60;"	d
+Bus14_286MHz	PLL.h	59;"	d
+Bus14_815MHz	PLL.h	58;"	d
+Bus15_385MHz	PLL.h	57;"	d
+Bus16MHz	PLL.h	56;"	d
+Bus16_000MHz	PLL.h	55;"	d
+Bus16_667MHz	PLL.h	54;"	d
+Bus17_391MHz	PLL.h	53;"	d
+Bus18_182MHz	PLL.h	52;"	d
+Bus19_048MHz	PLL.h	51;"	d
+Bus20MHz	PLL.h	50;"	d
+Bus20_000MHz	PLL.h	49;"	d
+Bus21_053MHz	PLL.h	48;"	d
+Bus22_222MHz	PLL.h	47;"	d
+Bus23_529MHz	PLL.h	46;"	d
+Bus25MHz	PLL.h	45;"	d
+Bus25_000MHz	PLL.h	44;"	d
+Bus26_667MHz	PLL.h	43;"	d
+Bus28_571MHz	PLL.h	42;"	d
+Bus30_769MHz	PLL.h	41;"	d
+Bus33_333MHz	PLL.h	40;"	d
+Bus36_364MHz	PLL.h	39;"	d
+Bus3_125MHz	PLL.h	162;"	d
+Bus3_150MHz	PLL.h	161;"	d
+Bus3_175MHz	PLL.h	160;"	d
+Bus3_200MHz	PLL.h	159;"	d
+Bus3_226MHz	PLL.h	158;"	d
+Bus3_252MHz	PLL.h	157;"	d
+Bus3_279MHz	PLL.h	156;"	d
+Bus3_306MHz	PLL.h	155;"	d
+Bus3_333MHz	PLL.h	154;"	d
+Bus3_361MHz	PLL.h	153;"	d
+Bus3_390MHz	PLL.h	152;"	d
+Bus3_419MHz	PLL.h	151;"	d
+Bus3_448MHz	PLL.h	150;"	d
+Bus3_478MHz	PLL.h	149;"	d
+Bus3_509MHz	PLL.h	148;"	d
+Bus3_540MHz	PLL.h	147;"	d
+Bus3_571MHz	PLL.h	146;"	d
+Bus3_604MHz	PLL.h	145;"	d
+Bus3_636MHz	PLL.h	144;"	d
+Bus3_670MHz	PLL.h	143;"	d
+Bus3_704MHz	PLL.h	142;"	d
+Bus3_738MHz	PLL.h	141;"	d
+Bus3_774MHz	PLL.h	140;"	d
+Bus3_810MHz	PLL.h	139;"	d
+Bus3_846MHz	PLL.h	138;"	d
+Bus3_883MHz	PLL.h	137;"	d
+Bus3_922MHz	PLL.h	136;"	d
+Bus3_960MHz	PLL.h	135;"	d
+Bus40MHz	PLL.h	38;"	d
+Bus40_000MHz	PLL.h	37;"	d
+Bus44_444MHz	PLL.h	36;"	d
+Bus4MHz	PLL.h	134;"	d
+Bus4_000MHz	PLL.h	133;"	d
+Bus4_040MHz	PLL.h	132;"	d
+Bus4_082MHz	PLL.h	131;"	d
+Bus4_124MHz	PLL.h	130;"	d
+Bus4_167MHz	PLL.h	129;"	d
+Bus4_211MHz	PLL.h	128;"	d
+Bus4_255MHz	PLL.h	127;"	d
+Bus4_301MHz	PLL.h	126;"	d
+Bus4_348MHz	PLL.h	125;"	d
+Bus4_396MHz	PLL.h	124;"	d
+Bus4_444MHz	PLL.h	123;"	d
+Bus4_494MHz	PLL.h	122;"	d
+Bus4_545MHz	PLL.h	121;"	d
+Bus4_598MHz	PLL.h	120;"	d
+Bus4_651MHz	PLL.h	119;"	d
+Bus4_706MHz	PLL.h	118;"	d
+Bus4_762MHz	PLL.h	117;"	d
+Bus4_819MHz	PLL.h	116;"	d
+Bus4_878MHz	PLL.h	115;"	d
+Bus4_938MHz	PLL.h	114;"	d
+Bus50MHz	PLL.h	35;"	d
+Bus50_000MHz	PLL.h	34;"	d
+Bus5_000MHz	PLL.h	113;"	d
+Bus5_063MHz	PLL.h	112;"	d
+Bus5_128MHz	PLL.h	111;"	d
+Bus5_195MHz	PLL.h	110;"	d
+Bus5_263MHz	PLL.h	109;"	d
+Bus5_333MHz	PLL.h	108;"	d
+Bus5_405MHz	PLL.h	107;"	d
+Bus5_479MHz	PLL.h	106;"	d
+Bus5_556MHz	PLL.h	105;"	d
+Bus5_634MHz	PLL.h	104;"	d
+Bus5_714MHz	PLL.h	103;"	d
+Bus5_797MHz	PLL.h	102;"	d
+Bus5_882MHz	PLL.h	101;"	d
+Bus5_970MHz	PLL.h	100;"	d
+Bus66_667MHz	PLL.h	33;"	d
+Bus6_061MHz	PLL.h	99;"	d
+Bus6_154MHz	PLL.h	98;"	d
+Bus6_250MHz	PLL.h	97;"	d
+Bus6_349MHz	PLL.h	96;"	d
+Bus6_452MHz	PLL.h	95;"	d
+Bus6_557MHz	PLL.h	94;"	d
+Bus6_667MHz	PLL.h	93;"	d
+Bus6_780MHz	PLL.h	92;"	d
+Bus6_897MHz	PLL.h	91;"	d
+Bus7_018MHz	PLL.h	90;"	d
+Bus7_143MHz	PLL.h	89;"	d
+Bus7_273MHz	PLL.h	88;"	d
+Bus7_407MHz	PLL.h	87;"	d
+Bus7_547MHz	PLL.h	86;"	d
+Bus7_692MHz	PLL.h	85;"	d
+Bus7_843MHz	PLL.h	84;"	d
+Bus80MHz	PLL.h	31;"	d
+Bus80_000MHz	PLL.h	32;"	d
+Bus8MHz	PLL.h	83;"	d
+Bus8_000MHz	PLL.h	82;"	d
+Bus8_163MHz	PLL.h	81;"	d
+Bus8_333MHz	PLL.h	80;"	d
+Bus8_511MHz	PLL.h	79;"	d
+Bus8_696MHz	PLL.h	78;"	d
+Bus8_889MHz	PLL.h	77;"	d
+Bus9_091MHz	PLL.h	76;"	d
+Bus9_302MHz	PLL.h	75;"	d
+Bus9_524MHz	PLL.h	74;"	d
+Bus9_756MHz	PLL.h	73;"	d
+Buttons_Init	Buttons.c	/^void Buttons_Init(void) {$/;"	f
+Buttons_Test	Buttons.c	/^void Buttons_Test(void) {$/;"	f
+C	Music.h	99;"	d
+CAN0_Handler	startup.s	/^CAN0_Handler$/;"	l
+CAN1_Handler	startup.s	/^CAN1_Handler$/;"	l
+CAN2_Handler	startup.s	/^CAN2_Handler$/;"	l
+CR	UART.h	31;"	d
+Ch	Music.h	136;"	d
+ColStart	ST7735.c	/^static uint8_t ColStart, RowStart; \/\/ some displays need this changed$/;"	v	file:
+Comp0_Handler	startup.s	/^Comp0_Handler$/;"	l
+Comp1_Handler	startup.s	/^Comp1_Handler$/;"	l
+Comp2_Handler	startup.s	/^Comp2_Handler$/;"	l
+Cs	Music.h	100;"	d
+CurrentReturnIndex	esp8266.c	/^uint32_t CurrentReturnIndex = 0;$/;"	v
+D	Music.h	102;"	d
+DAC_Init	DAC.c	/^void DAC_Init(void) {$/;"	f
+DAC_Out	DAC.c	/^void DAC_Out(uint16_t code){   $/;"	f
+DAC_Test	DAC.c	/^void DAC_Test(int testNumber) {$/;"	f
+DC	ST7735.c	151;"	d	file:
+DC_COMMAND	ST7735.c	152;"	d	file:
+DC_DATA	ST7735.c	153;"	d	file:
+DEADZONE_ACCEL_XY_MAX	Accel.h	9;"	d
+DEADZONE_ACCEL_XY_MIN	Accel.h	8;"	d
+DEADZONE_ACCEL_Z_MAX	Accel.h	11;"	d
+DEADZONE_ACCEL_Z_MIN	Accel.h	10;"	d
+DEADZONE_TSTICK_MAX	Thumbstick.h	10;"	d
+DEADZONE_TSTICK_MIN	Thumbstick.h	9;"	d
+DEBUG	Debug.h	4;"	d
+DEBUG_H	Debug.h	2;"	d
+DEL	UART.h	36;"	d
+DELAY	ST7735.c	545;"	d	file:
+Db	Music.h	101;"	d
+Delay1ms	ST7735.c	/^void Delay1ms(uint32_t n){uint32_t volatile time;$/;"	f
+DelayMs	esp8266.c	/^void DelayMs(uint32_t n){$/;"	f
+DelayMsSearching	esp8266.c	/^void DelayMsSearching(uint32_t n){$/;"	f
+DisableInterrupts	startup.s	/^DisableInterrupts$/;"	l
+DrawEntities	GameRules.cpp	/^void DrawEntities(EntityList * L)$/;"	f
+Ds	Music.h	103;"	d
+E	Music.h	105;"	d
+ESC	UART.h	34;"	d
+ESP8266FIFOtoBuffer	esp8266.c	/^void ESP8266FIFOtoBuffer(void){$/;"	f
+ESP8266ProcessInput	esp8266.c	/^void ESP8266ProcessInput(const char* buffer){$/;"	f
+ESP8266SendCommand	esp8266.c	/^void ESP8266SendCommand(const char* inputString){$/;"	f
+ESP8266_APEnabled	esp8266.c	/^volatile bool ESP8266_APEnabled = false;$/;"	v
+ESP8266_ClientEnabled	esp8266.c	/^volatile bool ESP8266_ClientEnabled = false;$/;"	v
+ESP8266_CloseTCPConnection	esp8266.c	/^int ESP8266_CloseTCPConnection(void){$/;"	f
+ESP8266_ConfigureAccessPoint	esp8266.c	/^int ESP8266_ConfigureAccessPoint(const char* ssid, const char* password, uint8_t channel, uint8_t encryptMode){$/;"	f
+ESP8266_DisableRXInterrupt	esp8266.c	/^void ESP8266_DisableRXInterrupt(void){$/;"	f
+ESP8266_DisableServer	esp8266.c	/^int ESP8266_DisableServer(void){$/;"	f
+ESP8266_ENCRYPT_MODE_OPEN	esp8266.h	18;"	d
+ESP8266_ENCRYPT_MODE_WEP	esp8266.h	19;"	d
+ESP8266_ENCRYPT_MODE_WPA2_PSK	esp8266.h	21;"	d
+ESP8266_ENCRYPT_MODE_WPA_PSK	esp8266.h	20;"	d
+ESP8266_ENCRYPT_MODE_WPA_WPA2_PSK	esp8266.h	22;"	d
+ESP8266_EchoResponse	esp8266.c	/^volatile bool ESP8266_EchoResponse = false;$/;"	v
+ESP8266_EnableRXInterrupt	esp8266.c	/^void ESP8266_EnableRXInterrupt(void){$/;"	f
+ESP8266_EnableServer	esp8266.c	/^void ESP8266_EnableServer(uint16_t port){$/;"	f
+ESP8266_GetIPAddress	esp8266.c	/^int ESP8266_GetIPAddress(void){$/;"	f
+ESP8266_GetStatus	esp8266.c	/^int ESP8266_GetStatus(void){$/;"	f
+ESP8266_GetVersionNumber	esp8266.c	/^int ESP8266_GetVersionNumber(void){$/;"	f
+ESP8266_H	esp8266.h	16;"	d
+ESP8266_Init	esp8266.c	/^void ESP8266_Init(uint32_t baud){$/;"	f
+ESP8266_InitUART	esp8266.c	/^void ESP8266_InitUART(uint32_t baud, int echo){ volatile int delay;$/;"	f
+ESP8266_InputProcessingEnabled	esp8266.c	/^volatile bool ESP8266_InputProcessingEnabled = false;$/;"	v
+ESP8266_JoinAccessPoint	esp8266.c	/^int ESP8266_JoinAccessPoint(const char* ssid, const char* password){$/;"	f
+ESP8266_ListAccessPoints	esp8266.c	/^int ESP8266_ListAccessPoints(void){$/;"	f
+ESP8266_MakeTCPConnection	esp8266.c	/^int ESP8266_MakeTCPConnection(char *IPaddress){$/;"	f
+ESP8266_PageRequested	esp8266.c	/^volatile bool ESP8266_PageRequested = false;$/;"	v
+ESP8266_PrintChar	esp8266.c	/^void ESP8266_PrintChar(char input){$/;"	f
+ESP8266_ProcessBuffer	esp8266.c	/^volatile bool ESP8266_ProcessBuffer = false;$/;"	v
+ESP8266_QuitAccessPoint	esp8266.c	/^int ESP8266_QuitAccessPoint(void){$/;"	f
+ESP8266_Reset	esp8266.c	/^int ESP8266_Reset(){int try=MAXTRY;$/;"	f
+ESP8266_ResponseComplete	esp8266.c	/^volatile bool ESP8266_ResponseComplete = false;    $/;"	v
+ESP8266_SendTCP	esp8266.c	/^int ESP8266_SendTCP(char* fetch){$/;"	f
+ESP8266_ServerEnabled	esp8266.c	/^volatile bool ESP8266_ServerEnabled = false;$/;"	v
+ESP8266_ServerPort	esp8266.c	/^uint16_t ESP8266_ServerPort = 80;$/;"	v
+ESP8266_ServerTimeout	esp8266.c	/^uint16_t ESP8266_ServerTimeout = 28800; $/;"	v
+ESP8266_SetConnectionMux	esp8266.c	/^int ESP8266_SetConnectionMux(uint8_t enabled){$/;"	f
+ESP8266_SetDataTransmissionMode	esp8266.c	/^int ESP8266_SetDataTransmissionMode(uint8_t mode){$/;"	f
+ESP8266_SetServerTimeout	esp8266.c	/^void ESP8266_SetServerTimeout(uint16_t timeout){$/;"	f
+ESP8266_SetWifiMode	esp8266.c	/^int ESP8266_SetWifiMode(uint8_t mode){$/;"	f
+ESP8266_WIFI_MODE_AP	esp8266.h	25;"	d
+ESP8266_WIFI_MODE_AP_AND_CLIENT	esp8266.h	26;"	d
+ESP8266_WIFI_MODE_CLIENT	esp8266.h	24;"	d
+Eb	Music.h	104;"	d
+EnableInterrupts	startup.s	/^EnableInterrupts$/;"	l
+EndCritical	startup.s	/^EndCritical$/;"	l
+Entity	GameRules.h	/^	Entity (Rectangle B, Vector V, Vector A, EntityType t, uint32_t d1, uint32_t d2) : $/;"	f	class:Entity
+Entity	GameRules.h	/^class Entity {$/;"	c
+EntityList	GameRules.h	/^	EntityList(void) : nextIndex(0) {}$/;"	f	class:EntityList
+EntityList	GameRules.h	/^class EntityList {$/;"	c
+EntityType	GameRules.h	/^} EntityType;$/;"	t	typeref:enum:__anon1
+EraseEntities	GameRules.cpp	/^void EraseEntities(EntityList * L)$/;"	f
+Eth	Music.h	130;"	d
+Ethd	Music.h	129;"	d
+Ethernet_Handler	startup.s	/^Ethernet_Handler$/;"	l
+ExtBus_Handler	startup.s	/^ExtBus_Handler$/;"	l
+F	Music.h	106;"	d
+FIFOFAIL	UART.c	69;"	d	file:
+FIFOSIZE	UART.c	67;"	d	file:
+FIFOSUCCESS	UART.c	68;"	d	file:
+FPU_Handler	startup.s	/^FPU_Handler$/;"	l
+Fan0_Handler	startup.s	/^Fan0_Handler$/;"	l
+Flag_GameTick	main.cpp	/^static uint32_t Flag_GameTick = 0;$/;"	v	file:
+FlashCtl_Handler	startup.s	/^FlashCtl_Handler$/;"	l
+Font	ST7735.c	/^static const uint8_t Font[] = {$/;"	v	file:
+Forte	Music.h	141;"	d
+Fs	Music.h	107;"	d
+G	Music.h	109;"	d
+GAMERULES_H	GameRules.h	2;"	d
+GPIOPortA_Handler	startup.s	/^GPIOPortA_Handler$/;"	l
+GPIOPortB_Handler	startup.s	/^GPIOPortB_Handler$/;"	l
+GPIOPortC_Handler	startup.s	/^GPIOPortC_Handler$/;"	l
+GPIOPortD_Handler	Buttons.c	/^void GPIOPortD_Handler(void){$/;"	f
+GPIOPortD_Handler	startup.s	/^GPIOPortD_Handler$/;"	l
+GPIOPortE_Handler	Buttons.c	/^void GPIOPortE_Handler(void){$/;"	f
+GPIOPortE_Handler	startup.s	/^GPIOPortE_Handler$/;"	l
+GPIOPortF_Handler	startup.s	/^GPIOPortF_Handler$/;"	l
+GPIOPortG_Handler	startup.s	/^GPIOPortG_Handler$/;"	l
+GPIOPortH_Handler	startup.s	/^GPIOPortH_Handler$/;"	l
+GPIOPortJ_Handler	startup.s	/^GPIOPortJ_Handler$/;"	l
+GPIOPortK_Handler	startup.s	/^GPIOPortK_Handler$/;"	l
+GPIOPortL_Handler	startup.s	/^GPIOPortL_Handler$/;"	l
+GPIOPortM_Handler	startup.s	/^GPIOPortM_Handler$/;"	l
+GPIOPortN_Handler	startup.s	/^GPIOPortN_Handler$/;"	l
+GPIOPortP1_Handler	startup.s	/^GPIOPortP1_Handler$/;"	l
+GPIOPortP2_Handler	startup.s	/^GPIOPortP2_Handler$/;"	l
+GPIOPortP3_Handler	startup.s	/^GPIOPortP3_Handler$/;"	l
+GPIOPortP4_Handler	startup.s	/^GPIOPortP4_Handler$/;"	l
+GPIOPortP5_Handler	startup.s	/^GPIOPortP5_Handler$/;"	l
+GPIOPortP6_Handler	startup.s	/^GPIOPortP6_Handler$/;"	l
+GPIOPortP7_Handler	startup.s	/^GPIOPortP7_Handler$/;"	l
+GPIOPortP_Handler	startup.s	/^GPIOPortP_Handler$/;"	l
+GPIOPortQ1_Handler	startup.s	/^GPIOPortQ1_Handler$/;"	l
+GPIOPortQ2_Handler	startup.s	/^GPIOPortQ2_Handler$/;"	l
+GPIOPortQ3_Handler	startup.s	/^GPIOPortQ3_Handler$/;"	l
+GPIOPortQ4_Handler	startup.s	/^GPIOPortQ4_Handler$/;"	l
+GPIOPortQ5_Handler	startup.s	/^GPIOPortQ5_Handler$/;"	l
+GPIOPortQ6_Handler	startup.s	/^GPIOPortQ6_Handler$/;"	l
+GPIOPortQ7_Handler	startup.s	/^GPIOPortQ7_Handler$/;"	l
+GPIOPortQ_Handler	startup.s	/^GPIOPortQ_Handler$/;"	l
+GPIOPortR_Handler	startup.s	/^GPIOPortR_Handler$/;"	l
+GPIOPortS_Handler	startup.s	/^GPIOPortS_Handler$/;"	l
+GPIO_LOCK_KEY	LED.c	35;"	d	file:
+GameRulesTest	GameRules.cpp	/^void GameRulesTest(void)$/;"	f
+GameTick_Init	main.cpp	/^void GameTick_Init(void) {$/;"	f
+Gb	Music.h	108;"	d
+Gs	Music.h	110;"	d
+H	Music.h	126;"	d
+HTTP_ServePage	esp8266.c	/^void HTTP_ServePage(const char* body){$/;"	f
+Hd	Music.h	125;"	d
+Heap	startup.s	/^Heap    EQU     0x00004000$/;"	d
+HeapMem	startup.s	/^HeapMem$/;"	l
+Hibernate_Handler	startup.s	/^Hibernate_Handler$/;"	l
+Ht	Music.h	133;"	d
+I2C0_Handler	startup.s	/^I2C0_Handler$/;"	l
+I2C1_Handler	startup.s	/^I2C1_Handler$/;"	l
+I2C2_Handler	startup.s	/^I2C2_Handler$/;"	l
+I2C3_Handler	startup.s	/^I2C3_Handler$/;"	l
+I2C4_Handler	startup.s	/^I2C4_Handler$/;"	l
+I2C5_Handler	startup.s	/^I2C5_Handler$/;"	l
+I2S0_Handler	startup.s	/^I2S0_Handler$/;"	l
+INITR_BLACKTAB	ST7735.h	/^  INITR_BLACKTAB$/;"	e	enum:initRFlags
+INITR_GREENTAB	ST7735.h	/^  INITR_GREENTAB,$/;"	e	enum:initRFlags
+INITR_REDTAB	ST7735.h	/^  INITR_REDTAB,$/;"	e	enum:initRFlags
+INIT_H	PortInit.h	7;"	d
+INVALID	GameRules.cpp	14;"	d	file:
+LASER	GameRules.h	/^  LASER,$/;"	e	enum:__anon1
+LASER_ENTITY	GameRules.h	6;"	d
+LED_BlueToggle	LED.c	/^void LED_BlueToggle(void){$/;"	f
+LED_GreenOff	LED.c	/^void LED_GreenOff(void){$/;"	f
+LED_GreenOn	LED.c	/^void LED_GreenOn(void){$/;"	f
+LED_GreenToggle	LED.c	/^void LED_GreenToggle(void){$/;"	f
+LED_Init	LED.c	/^void LED_Init(void){       $/;"	f
+LED_RedOff	LED.c	/^void LED_RedOff(void){$/;"	f
+LED_RedOn	LED.c	/^void LED_RedOn(void){$/;"	f
+LED_RedToggle	LED.c	/^void LED_RedToggle(void){$/;"	f
+LEFTSWITCH	PortInit.h	18;"	d
+LF	UART.h	32;"	d
+LPC0_Handler	startup.s	/^LPC0_Handler$/;"	l
+Last	Buttons.c	/^volatile static unsigned long Last;      \/\/ previous button state$/;"	v	file:
+LastReturnIndex	esp8266.c	/^uint32_t LastReturnIndex = 0;$/;"	v
+List	GameRules.h	/^  Entity * List[MAX_OBJECTS];$/;"	m	class:EntityList
+MADCTL_BGR	ST7735.c	1211;"	d	file:
+MADCTL_MH	ST7735.c	1212;"	d	file:
+MADCTL_ML	ST7735.c	1209;"	d	file:
+MADCTL_MV	ST7735.c	1208;"	d	file:
+MADCTL_MX	ST7735.c	1207;"	d	file:
+MADCTL_MY	ST7735.c	1206;"	d	file:
+MADCTL_RGB	ST7735.c	1210;"	d	file:
+MAXIMUM_X_PIXEL	Graphics.c	156;"	d	file:
+MAXIMUM_Y_PIXEL	Graphics.c	158;"	d	file:
+MAXTRY	esp8266.c	65;"	d	file:
+MAX_LEVELS	GameRules.h	116;"	d
+MAX_OBJECTS	GameRules.h	115;"	d
+MAX_sDecOut3	Graphics.c	88;"	d	file:
+MAX_uBinOut8	Graphics.c	123;"	d	file:
+MINIMUM_X_PIXEL	Graphics.c	155;"	d	file:
+MINIMUM_Y_PIXEL	Graphics.c	157;"	d	file:
+MIN_sDecOut3	Graphics.c	87;"	d	file:
+MISSILE	GameRules.h	/^  MISSILE,$/;"	e	enum:__anon1
+MISSILE_ENTITY	GameRules.h	7;"	d
+Message	ST7735.c	/^char Message[12];$/;"	v
+Messageindex	ST7735.c	/^uint32_t Messageindex;$/;"	v
+NMI_Handler	startup.s	/^NMI_Handler     PROC$/;"	l
+NULL	GameRules.cpp	13;"	d	file:
+NVIC_EN0_INT5	UART.c	36;"	d	file:
+NormalizeAnalogInputs	GameRules.cpp	/^void NormalizeAnalogInputs( uint16_t * tstick, uint16_t * accel )$/;"	f
+Note	Music.h	/^} Note;$/;"	t	typeref:struct:__anon2
+Output_Clear	ST7735.c	/^void Output_Clear(void){ \/\/ Clears the display$/;"	f
+Output_Color	ST7735.c	/^void Output_Color(uint32_t newColor){ \/\/ Set color of future output$/;"	f
+Output_Init	UART.c	/^void Output_Init(void){$/;"	f
+Output_Init	UART.c	/^void Output_Init(void){int ret_val; FILE *fptr;$/;"	f
+Output_Off	ST7735.c	/^void Output_Off(void){   \/\/ Turns off the display$/;"	f
+Output_On	ST7735.c	/^void Output_On(void){ \/\/ Turns on the display$/;"	f
+P	Music.h	147;"	d
+PA0	PortInit.h	21;"	d
+PA1	PortInit.h	22;"	d
+PA2	PortInit.h	23;"	d
+PA3	PortInit.h	24;"	d
+PA4	PortInit.h	25;"	d
+PA5	PortInit.h	26;"	d
+PA6	PortInit.h	27;"	d
+PA7	PortInit.h	28;"	d
+PARTICLE	GameRules.h	/^	PARTICLE$/;"	e	enum:__anon1
+PASSKEY	esp8266.c	61;"	d	file:
+PB0	PortInit.h	30;"	d
+PB1	PortInit.h	31;"	d
+PB2	PortInit.h	32;"	d
+PB3	PortInit.h	33;"	d
+PB4	PortInit.h	34;"	d
+PB5	PortInit.h	35;"	d
+PB6	PortInit.h	36;"	d
+PB7	PortInit.h	37;"	d
+PC4	PortInit.h	43;"	d
+PC5	PortInit.h	44;"	d
+PC6	PortInit.h	45;"	d
+PC7	PortInit.h	46;"	d
+PD0	PortInit.h	48;"	d
+PD1	PortInit.h	49;"	d
+PD2	PortInit.h	50;"	d
+PD3	PortInit.h	51;"	d
+PD4	PortInit.h	52;"	d
+PD5	PortInit.h	53;"	d
+PD6	PortInit.h	54;"	d
+PD7	PortInit.h	55;"	d
+PE0	PortInit.h	57;"	d
+PE1	PortInit.h	58;"	d
+PE2	PortInit.h	59;"	d
+PE3	PortInit.h	60;"	d
+PE4	PortInit.h	61;"	d
+PE5	PortInit.h	62;"	d
+PECI0_Handler	startup.s	/^PECI0_Handler$/;"	l
+PF0	LED.c	36;"	d	file:
+PF0	PortInit.h	64;"	d
+PF1	LED.c	41;"	d	file:
+PF1	PortInit.h	65;"	d
+PF2	LED.c	42;"	d	file:
+PF2	PortInit.h	66;"	d
+PF3	LED.c	43;"	d	file:
+PF3	PortInit.h	67;"	d
+PF4	LED.c	37;"	d	file:
+PF4	PortInit.h	68;"	d
+PIN0	PortInit.h	9;"	d
+PIN1	PortInit.h	10;"	d
+PIN2	PortInit.h	11;"	d
+PIN3	PortInit.h	12;"	d
+PIN4	PortInit.h	13;"	d
+PIN5	PortInit.h	14;"	d
+PIN6	PortInit.h	15;"	d
+PIN7	PortInit.h	16;"	d
+PLL_Init	PLL.c	/^void PLL_Init(uint32_t freq){$/;"	f
+PWM0Fault_Handler	startup.s	/^PWM0Fault_Handler$/;"	l
+PWM0Generator0_Handler	startup.s	/^PWM0Generator0_Handler$/;"	l
+PWM0Generator1_Handler	startup.s	/^PWM0Generator1_Handler$/;"	l
+PWM0Generator2_Handler	startup.s	/^PWM0Generator2_Handler$/;"	l
+PWM0Generator3_Handler	startup.s	/^PWM0Generator3_Handler$/;"	l
+PWM1Fault_Handler	startup.s	/^PWM1Fault_Handler$/;"	l
+PWM1Generator0_Handler	startup.s	/^PWM1Generator0_Handler$/;"	l
+PWM1Generator1_Handler	startup.s	/^PWM1Generator1_Handler$/;"	l
+PWM1Generator2_Handler	startup.s	/^PWM1Generator2_Handler$/;"	l
+PWM1Generator3_Handler	startup.s	/^PWM1Generator3_Handler$/;"	l
+PendSV_Handler	startup.s	/^PendSV_Handler  PROC$/;"	l
+Piano	Music.h	144;"	d
+PortA_Init	PortInit.c	/^void PortA_Init(void){} \/\/ see commonInit() in ST7735.c$/;"	f
+PortB_Init	PortInit.c	/^void PortB_Init(void) {$/;"	f
+PortC_Init	PortInit.c	/^void PortC_Init(void) {$/;"	f
+PortD_Arm	Buttons.c	/^void PortD_Arm(void){$/;"	f
+PortD_Init	PortInit.c	/^void PortD_Init(void) {$/;"	f
+PortE_Arm	Buttons.c	/^void PortE_Arm(void){$/;"	f
+PortE_Init	PortInit.c	/^void PortE_Init(void) {$/;"	f
+PortF_Init	PortInit.c	/^void PortF_Init(void) {$/;"	f
+Q	Music.h	128;"	d
+Qd	Music.h	127;"	d
+Qt	Music.h	134;"	d
+Quadrature0_Handler	startup.s	/^Quadrature0_Handler$/;"	l
+Quadrature1_Handler	startup.s	/^Quadrature1_Handler$/;"	l
+Quadrature2_Handler	startup.s	/^Quadrature2_Handler$/;"	l
+Quadtree	GameRules.h	/^	Quadtree (uint8_t l, Rectangle b) : level(l), bounds(b) {}$/;"	f	class:Quadtree
+Quadtree	GameRules.h	/^class Quadtree {$/;"	c
+R	Music.h	119;"	d
+RESET	ST7735.c	154;"	d	file:
+RESET_HIGH	ST7735.c	156;"	d	file:
+RESET_LOW	ST7735.c	155;"	d	file:
+RIGHTSWITCH	PortInit.h	19;"	d
+RXBuffer	esp8266.c	/^char RXBuffer[BUFFER_SIZE];$/;"	v
+RXBufferIndex	esp8266.c	/^uint32_t RXBufferIndex = 0;$/;"	v
+Rcmd1	ST7735.c	/^  Rcmd1[] = {                 \/\/ Init for 7735R, part 1 (red or green tab)$/;"	v	file:
+Rcmd2green	ST7735.c	/^  Rcmd2green[] = {            \/\/ Init for 7735R, part 2 (green tab only)$/;"	v	file:
+Rcmd2red	ST7735.c	/^  Rcmd2red[] = {              \/\/ Init for 7735R, part 2 (red tab only)$/;"	v	file:
+Rcmd3	ST7735.c	/^  Rcmd3[] = {                 \/\/ Init for 7735R, part 3 (red or green tab)$/;"	v	file:
+Rectangle	GameRules.h	/^  Rectangle(int16_t xx, int16_t yy, uint16_t ww, uint16_t hh) : x(xx), y(yy), w(ww), h(hh) {}$/;"	f	class:Rectangle
+Rectangle	GameRules.h	/^class Rectangle {$/;"	c
+Reset_Handler	startup.s	/^Reset_Handler$/;"	l
+Rotation	ST7735.c	/^static uint8_t Rotation;           \/\/ 0 to 3$/;"	v	file:
+RowStart	ST7735.c	/^static uint8_t ColStart, RowStart; \/\/ some displays need this changed$/;"	v	file:
+RxFifo	FIFO.c	/^rxDataType static RxFifo[RXFIFOSIZE];$/;"	v	file:
+RxFifo_Get	FIFO.c	/^int RxFifo_Get(rxDataType *datapt){$/;"	f
+RxFifo_Init	FIFO.c	/^void RxFifo_Init(void){ long sr;$/;"	f
+RxFifo_Put	FIFO.c	/^int RxFifo_Put(rxDataType data){$/;"	f
+RxFifo_Size	FIFO.c	/^uint32_t RxFifo_Size(void){$/;"	f
+RxGetPt	FIFO.c	/^rxDataType volatile *RxGetPt; \/\/ get next$/;"	v
+RxPutPt	FIFO.c	/^rxDataType volatile *RxPutPt; \/\/ put next$/;"	v
+S	Music.h	132;"	d
+SERVER_RESPONSE_SIZE	esp8266.c	96;"	d	file:
+SHIP	GameRules.h	/^  SHIP,$/;"	e	enum:__anon1
+SHIP_ENTITY	GameRules.h	5;"	d
+SINE_GRANULARITY	Music.h	59;"	d
+SP	UART.h	35;"	d
+SSI0_Handler	startup.s	/^SSI0_Handler$/;"	l
+SSI1_Handler	startup.s	/^SSI1_Handler$/;"	l
+SSI2_Handler	startup.s	/^SSI2_Handler$/;"	l
+SSI3_Handler	startup.s	/^SSI3_Handler$/;"	l
+SSID_NAME	esp8266.c	60;"	d	file:
+SSI_CC_CS_M	ST7735.c	171;"	d	file:
+SSI_CC_CS_SYSPLL	ST7735.c	172;"	d	file:
+SSI_CPSR_CPSDVSR_M	ST7735.c	170;"	d	file:
+SSI_CR0_DSS_8	ST7735.c	164;"	d	file:
+SSI_CR0_DSS_M	ST7735.c	163;"	d	file:
+SSI_CR0_FRF_M	ST7735.c	161;"	d	file:
+SSI_CR0_FRF_MOTO	ST7735.c	162;"	d	file:
+SSI_CR0_SCR_M	ST7735.c	158;"	d	file:
+SSI_CR0_SPH	ST7735.c	159;"	d	file:
+SSI_CR0_SPO	ST7735.c	160;"	d	file:
+SSI_CR1_MS	ST7735.c	165;"	d	file:
+SSI_CR1_SSE	ST7735.c	166;"	d	file:
+SSI_SR_BSY	ST7735.c	168;"	d	file:
+SSI_SR_TNF	ST7735.c	169;"	d	file:
+ST7735_BLACK	ST7735.h	106;"	d
+ST7735_BLUE	ST7735.h	107;"	d
+ST7735_CASET	ST7735.c	116;"	d	file:
+ST7735_CASET	ST7735.c	194;"	d	file:
+ST7735_COLMOD	ST7735.c	122;"	d	file:
+ST7735_COLMOD	ST7735.c	200;"	d	file:
+ST7735_CYAN	ST7735.h	110;"	d
+ST7735_Color565	ST7735.c	/^uint16_t ST7735_Color565(uint8_t r, uint8_t g, uint8_t b) {$/;"	f
+ST7735_DISPOFF	ST7735.c	114;"	d	file:
+ST7735_DISPOFF	ST7735.c	192;"	d	file:
+ST7735_DISPON	ST7735.c	115;"	d	file:
+ST7735_DISPON	ST7735.c	193;"	d	file:
+ST7735_DISSET5	ST7735.c	129;"	d	file:
+ST7735_DISSET5	ST7735.c	207;"	d	file:
+ST7735_DrawBitmap	ST7735.c	/^void ST7735_DrawBitmap(int16_t x, int16_t y, const uint16_t *image, int16_t w, int16_t h){$/;"	f
+ST7735_DrawChar	ST7735.c	/^void ST7735_DrawChar(int16_t x, int16_t y, char c, int16_t textColor, int16_t bgColor, uint8_t size){$/;"	f
+ST7735_DrawCharS	ST7735.c	/^void ST7735_DrawCharS(int16_t x, int16_t y, char c, int16_t textColor, int16_t bgColor, uint8_t size){$/;"	f
+ST7735_DrawFastHLine	ST7735.c	/^void ST7735_DrawFastHLine(int16_t x, int16_t y, int16_t w, uint16_t color) {$/;"	f
+ST7735_DrawFastVLine	ST7735.c	/^void ST7735_DrawFastVLine(int16_t x, int16_t y, int16_t h, uint16_t color) {$/;"	f
+ST7735_DrawPixel	ST7735.c	/^void ST7735_DrawPixel(int16_t x, int16_t y, uint16_t color) {$/;"	f
+ST7735_DrawString	ST7735.c	/^uint32_t ST7735_DrawString(uint16_t x, uint16_t y, char *pt, int16_t textColor){$/;"	f
+ST7735_FRMCTR1	ST7735.c	125;"	d	file:
+ST7735_FRMCTR1	ST7735.c	203;"	d	file:
+ST7735_FRMCTR2	ST7735.c	126;"	d	file:
+ST7735_FRMCTR2	ST7735.c	204;"	d	file:
+ST7735_FRMCTR3	ST7735.c	127;"	d	file:
+ST7735_FRMCTR3	ST7735.c	205;"	d	file:
+ST7735_FillRect	ST7735.c	/^void ST7735_FillRect(int16_t x, int16_t y, int16_t w, int16_t h, uint16_t color) {$/;"	f
+ST7735_FillScreen	ST7735.c	/^void ST7735_FillScreen(uint16_t color) {$/;"	f
+ST7735_GMCTRN1	ST7735.c	146;"	d	file:
+ST7735_GMCTRN1	ST7735.c	224;"	d	file:
+ST7735_GMCTRP1	ST7735.c	145;"	d	file:
+ST7735_GMCTRP1	ST7735.c	223;"	d	file:
+ST7735_GREEN	ST7735.h	109;"	d
+ST7735_INVCTR	ST7735.c	128;"	d	file:
+ST7735_INVCTR	ST7735.c	206;"	d	file:
+ST7735_INVOFF	ST7735.c	112;"	d	file:
+ST7735_INVOFF	ST7735.c	190;"	d	file:
+ST7735_INVON	ST7735.c	113;"	d	file:
+ST7735_INVON	ST7735.c	191;"	d	file:
+ST7735_InitB	ST7735.c	/^void ST7735_InitB(void) {$/;"	f
+ST7735_InitR	ST7735.c	/^void ST7735_InitR(enum initRFlags option) {$/;"	f
+ST7735_InvertDisplay	ST7735.c	/^void ST7735_InvertDisplay(int i) {$/;"	f
+ST7735_Line	Graphics.c	/^void ST7735_Line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2) {$/;"	f
+ST7735_LineHelper	Graphics.c	/^static void ST7735_LineHelper(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2) {$/;"	f	file:
+ST7735_MADCTL	ST7735.c	123;"	d	file:
+ST7735_MADCTL	ST7735.c	201;"	d	file:
+ST7735_MAGENTA	ST7735.h	111;"	d
+ST7735_NOP	ST7735.c	102;"	d	file:
+ST7735_NOP	ST7735.c	180;"	d	file:
+ST7735_NORON	ST7735.c	110;"	d	file:
+ST7735_NORON	ST7735.c	188;"	d	file:
+ST7735_OutChar	ST7735.c	/^void ST7735_OutChar(char ch){$/;"	f
+ST7735_OutString	ST7735.c	/^void ST7735_OutString(char *ptr){$/;"	f
+ST7735_OutUDec	ST7735.c	/^void ST7735_OutUDec(uint32_t n){$/;"	f
+ST7735_Output_Init	ST7735.c	/^void ST7735_Output_Init(void){$/;"	f
+ST7735_PTLAR	ST7735.c	121;"	d	file:
+ST7735_PTLAR	ST7735.c	199;"	d	file:
+ST7735_PTLON	ST7735.c	109;"	d	file:
+ST7735_PTLON	ST7735.c	187;"	d	file:
+ST7735_PWCTR1	ST7735.c	131;"	d	file:
+ST7735_PWCTR1	ST7735.c	209;"	d	file:
+ST7735_PWCTR2	ST7735.c	132;"	d	file:
+ST7735_PWCTR2	ST7735.c	210;"	d	file:
+ST7735_PWCTR3	ST7735.c	133;"	d	file:
+ST7735_PWCTR3	ST7735.c	211;"	d	file:
+ST7735_PWCTR4	ST7735.c	134;"	d	file:
+ST7735_PWCTR4	ST7735.c	212;"	d	file:
+ST7735_PWCTR5	ST7735.c	135;"	d	file:
+ST7735_PWCTR5	ST7735.c	213;"	d	file:
+ST7735_PWCTR6	ST7735.c	143;"	d	file:
+ST7735_PWCTR6	ST7735.c	221;"	d	file:
+ST7735_PlotBar	ST7735.c	/^void ST7735_PlotBar(int32_t y){$/;"	f
+ST7735_PlotClear	ST7735.c	/^void ST7735_PlotClear(int32_t ymin, int32_t ymax){$/;"	f
+ST7735_PlotLine	ST7735.c	/^void ST7735_PlotLine(int32_t y){int32_t i,j;$/;"	f
+ST7735_PlotNext	ST7735.c	/^void ST7735_PlotNext(void){$/;"	f
+ST7735_PlotNextErase	ST7735.c	/^void ST7735_PlotNextErase(void){$/;"	f
+ST7735_PlotPoint	ST7735.c	/^void ST7735_PlotPoint(int32_t y){int32_t j;$/;"	f
+ST7735_PlotPoints	ST7735.c	/^void ST7735_PlotPoints(int32_t y1,int32_t y2){int32_t j;$/;"	f
+ST7735_PlotdBfs	ST7735.c	/^void ST7735_PlotdBfs(int32_t y){$/;"	f
+ST7735_RAMRD	ST7735.c	119;"	d	file:
+ST7735_RAMRD	ST7735.c	197;"	d	file:
+ST7735_RAMWR	ST7735.c	118;"	d	file:
+ST7735_RAMWR	ST7735.c	196;"	d	file:
+ST7735_RASET	ST7735.c	117;"	d	file:
+ST7735_RASET	ST7735.c	195;"	d	file:
+ST7735_RDDID	ST7735.c	104;"	d	file:
+ST7735_RDDID	ST7735.c	182;"	d	file:
+ST7735_RDDST	ST7735.c	105;"	d	file:
+ST7735_RDDST	ST7735.c	183;"	d	file:
+ST7735_RDID1	ST7735.c	138;"	d	file:
+ST7735_RDID1	ST7735.c	216;"	d	file:
+ST7735_RDID2	ST7735.c	139;"	d	file:
+ST7735_RDID2	ST7735.c	217;"	d	file:
+ST7735_RDID3	ST7735.c	140;"	d	file:
+ST7735_RDID3	ST7735.c	218;"	d	file:
+ST7735_RDID4	ST7735.c	141;"	d	file:
+ST7735_RDID4	ST7735.c	219;"	d	file:
+ST7735_RED	ST7735.h	108;"	d
+ST7735_SLPIN	ST7735.c	107;"	d	file:
+ST7735_SLPIN	ST7735.c	185;"	d	file:
+ST7735_SLPOUT	ST7735.c	108;"	d	file:
+ST7735_SLPOUT	ST7735.c	186;"	d	file:
+ST7735_SWRESET	ST7735.c	103;"	d	file:
+ST7735_SWRESET	ST7735.c	181;"	d	file:
+ST7735_SetCursor	ST7735.c	/^void ST7735_SetCursor(uint32_t newX, uint32_t newY){$/;"	f
+ST7735_SetRotation	ST7735.c	/^void ST7735_SetRotation(uint8_t m) {$/;"	f
+ST7735_SetTextColor	ST7735.c	/^void ST7735_SetTextColor(uint16_t color){$/;"	f
+ST7735_SwapColor	ST7735.c	/^uint16_t ST7735_SwapColor(uint16_t x) {$/;"	f
+ST7735_TFTHEIGHT	ST7735.c	178;"	d	file:
+ST7735_TFTHEIGHT	ST7735.h	102;"	d
+ST7735_TFTWIDTH	ST7735.c	177;"	d	file:
+ST7735_TFTWIDTH	ST7735.h	101;"	d
+ST7735_Test	Graphics.c	/^void ST7735_Test() {$/;"	f
+ST7735_VMCTR1	ST7735.c	136;"	d	file:
+ST7735_VMCTR1	ST7735.c	214;"	d	file:
+ST7735_WHITE	ST7735.h	113;"	d
+ST7735_XYplot	Graphics.c	/^void ST7735_XYplot(uint32_t num, int32_t bufX[], int32_t bufY[]) {$/;"	f
+ST7735_XYplotInit	Graphics.c	/^void ST7735_XYplotInit(char *title, int32_t minX, int32_t maxX, int32_t minY, int32_t maxY){$/;"	f
+ST7735_Xcount_Yplot	Graphics.c	/^void ST7735_Xcount_Yplot(uint32_t num, uint32_t bufY[]){$/;"	f
+ST7735_YELLOW	ST7735.h	112;"	d
+ST7735_sDecOut3	Graphics.c	/^void ST7735_sDecOut3(int32_t n){$/;"	f
+ST7735_uBinOut8	Graphics.c	/^void ST7735_uBinOut8(uint32_t n){$/;"	f
+SVC_Handler	startup.s	/^SVC_Handler     PROC$/;"	l
+SW1	LED.c	39;"	d	file:
+SW2	LED.c	40;"	d	file:
+SWITCHES	LED.c	38;"	d	file:
+SW_A	Buttons.c	8;"	d	file:
+SW_B	Buttons.c	9;"	d	file:
+SW_MISC	Buttons.c	11;"	d	file:
+SW_START	Buttons.c	12;"	d	file:
+SW_TSTICK_1	Buttons.c	6;"	d	file:
+SW_TSTICK_2	Buttons.c	7;"	d	file:
+SYSCTL_RCC2_BYPASS2	PLL.c	45;"	d	file:
+SYSCTL_RCC2_DIV400	PLL.c	40;"	d	file:
+SYSCTL_RCC2_OSCSRC2_M	PLL.c	46;"	d	file:
+SYSCTL_RCC2_OSCSRC2_MO	PLL.c	47;"	d	file:
+SYSCTL_RCC2_PWRDN2	PLL.c	44;"	d	file:
+SYSCTL_RCC2_SYSDIV2LSB	PLL.c	43;"	d	file:
+SYSCTL_RCC2_SYSDIV2_M	PLL.c	42;"	d	file:
+SYSCTL_RCC2_USERCC2	PLL.c	39;"	d	file:
+SYSCTL_RCC_XTAL_16MHZ	PLL.c	38;"	d	file:
+SYSCTL_RCC_XTAL_6MHZ	PLL.c	36;"	d	file:
+SYSCTL_RCC_XTAL_8MHZ	PLL.c	37;"	d	file:
+SYSCTL_RCC_XTAL_M	PLL.c	35;"	d	file:
+SYSCTL_RCGC1_SSI0	ST7735.c	175;"	d	file:
+SYSCTL_RCGC2_GPIOA	ST7735.c	176;"	d	file:
+SYSCTL_RIS_PLLLRIS	PLL.c	34;"	d	file:
+Sawtoothwave	DAC.c	/^const unsigned short Sawtoothwave[8] = { 0, 512, 1024, 1536, 2048, 2560, 3072, 3584 };$/;"	v
+Sd	Music.h	131;"	d
+SearchCheck	esp8266.c	/^void SearchCheck(char letter){$/;"	f
+SearchFound	esp8266.c	/^volatile bool SearchFound = false;$/;"	v
+SearchIndex	esp8266.c	/^volatile uint32_t SearchIndex = 0;$/;"	v
+SearchLooking	esp8266.c	/^volatile bool SearchLooking = false;$/;"	v
+SearchStart	esp8266.c	/^void SearchStart(char *pt){$/;"	f
+SearchString	esp8266.c	/^char SearchString[32];$/;"	v
+ServerResponseBuffer	esp8266.c	/^char ServerResponseBuffer[SERVER_RESPONSE_SIZE]; \/\/ characters after +IPD,$/;"	v
+ServerResponseIndex	esp8266.c	/^uint32_t ServerResponseIndex = 0;$/;"	v
+ServerResponseSearchCheck	esp8266.c	/^void ServerResponseSearchCheck(char letter){$/;"	f
+ServerResponseSearchFinished	esp8266.c	/^volatile uint32_t ServerResponseSearchFinished = false;$/;"	v
+ServerResponseSearchIndex	esp8266.c	/^volatile uint32_t ServerResponseSearchIndex = 0;$/;"	v
+ServerResponseSearchLooking	esp8266.c	/^volatile uint32_t ServerResponseSearchLooking = 0;$/;"	v
+ServerResponseSearchStart	esp8266.c	/^void ServerResponseSearchStart(void){$/;"	f
+ServerResponseSearchString	esp8266.c	/^char ServerResponseSearchString[16]="+ipd,";$/;"	v
+Sinewave	Music.h	/^const unsigned short Sinewave[SINE_GRANULARITY] = {  $/;"	v
+SinewaveDAC	DAC.c	/^const unsigned short SinewaveDAC[32] = {  $/;"	v
+Song_Pirates	Music.h	/^const Note Song_Pirates[] = $/;"	v
+SquareRootTable	GameRules.h	/^const uint16_t SquareRootTable[301] = {$/;"	v
+StTextColor	ST7735.c	/^uint16_t StTextColor = ST7735_YELLOW;$/;"	v
+StX	ST7735.c	/^uint32_t StX=0; \/\/ position along the horizonal axis 0 to 20$/;"	v
+StY	ST7735.c	/^uint32_t StY=0; \/\/ position along the vertical axis 0 to 15$/;"	v
+Stack	startup.s	/^Stack   EQU     0x00000400$/;"	d
+StackMem	startup.s	/^StackMem$/;"	l
+StartCritical	startup.s	/^StartCritical$/;"	l
+SysCtl_Handler	startup.s	/^SysCtl_Handler$/;"	l
+SysTick_Handler	startup.s	/^SysTick_Handler PROC$/;"	l
+TFT_CS	ST7735.c	148;"	d	file:
+TFT_CS_HIGH	ST7735.c	150;"	d	file:
+TFT_CS_LOW	ST7735.c	149;"	d	file:
+THUBMSTICK_H	Thumbstick.h	2;"	d
+TOP_LEFT	GameRules.cpp	15;"	d	file:
+TOP_RIGHT	GameRules.cpp	17;"	d	file:
+TSTICK1_H	Thumbstick.h	5;"	d
+TSTICK1_V	Thumbstick.h	4;"	d
+TSTICK2_H	Thumbstick.h	7;"	d
+TSTICK2_V	Thumbstick.h	6;"	d
+TXBuffer	esp8266.c	/^char TXBuffer[BUFFER_SIZE];$/;"	v
+TabColor	ST7735.c	/^static enum initRFlags TabColor;$/;"	v	typeref:enum:initRFlags	file:
+Tempo_Pirates	Music.h	/^ const uint32_t Tempo_Pirates[] = { 446428, 382653, 407608, 457317, 0 }; \/\/ 168, 196, 184, 164 BPM$/;"	v
+Thumbstick_Init	Thumbstick.c	/^void Thumbstick_Init(void){ $/;"	f
+Timer0A_Handler	startup.s	/^Timer0A_Handler$/;"	l
+Timer0B_Handler	startup.s	/^Timer0B_Handler$/;"	l
+Timer1A_Handler	startup.s	/^Timer1A_Handler$/;"	l
+Timer1B_Handler	startup.s	/^Timer1B_Handler$/;"	l
+Timer2A_Handler	Buttons.c	/^void Timer2A_Handler(void){$/;"	f
+Timer2A_Handler	startup.s	/^Timer2A_Handler$/;"	l
+Timer2B_Handler	startup.s	/^Timer2B_Handler$/;"	l
+Timer2_Arm	Buttons.c	/^void Timer2_Arm(void){$/;"	f
+Timer3A_Handler	main.cpp	/^	void Timer3A_Handler(void){$/;"	f
+Timer3A_Handler	startup.s	/^Timer3A_Handler$/;"	l
+Timer3B_Handler	startup.s	/^Timer3B_Handler$/;"	l
+Timer4A_Handler	startup.s	/^Timer4A_Handler$/;"	l
+Timer4B_Handler	startup.s	/^Timer4B_Handler$/;"	l
+Timer5A_Handler	startup.s	/^Timer5A_Handler$/;"	l
+Timer5B_Handler	startup.s	/^Timer5B_Handler$/;"	l
+Trumpetwave	Music.h	/^const unsigned short Trumpetwave[SINE_GRANULARITY]={$/;"	v
+TxFifo	FIFO.c	/^txDataType static TxFifo[TXFIFOSIZE];$/;"	v	file:
+TxFifo_Get	FIFO.c	/^int TxFifo_Get(txDataType *datapt){$/;"	f
+TxFifo_Init	FIFO.c	/^void TxFifo_Init(void){ $/;"	f
+TxFifo_Put	FIFO.c	/^int TxFifo_Put(txDataType data){$/;"	f
+TxFifo_Size	FIFO.c	/^uint32_t TxFifo_Size(void){$/;"	f
+TxGetI	FIFO.c	/^uint32_t volatile TxGetI;\/\/ get next$/;"	v
+TxPutI	FIFO.c	/^uint32_t volatile TxPutI;\/\/ put next$/;"	v
+UART0_Handler	UART.c	/^void UART0_Handler(void){$/;"	f
+UART0_Handler	startup.s	/^UART0_Handler$/;"	l
+UART1_Handler	esp8266.c	/^void UART1_Handler(void){$/;"	f
+UART1_Handler	startup.s	/^UART1_Handler$/;"	l
+UART2_Handler	startup.s	/^UART2_Handler$/;"	l
+UART3_Handler	startup.s	/^UART3_Handler$/;"	l
+UART4_Handler	startup.s	/^UART4_Handler$/;"	l
+UART5_Handler	startup.s	/^UART5_Handler$/;"	l
+UART6_Handler	startup.s	/^UART6_Handler$/;"	l
+UART7_Handler	startup.s	/^UART7_Handler$/;"	l
+UART_CTL_UARTEN	UART.c	43;"	d	file:
+UART_FR_RXFE	UART.c	40;"	d	file:
+UART_FR_RXFF	UART.c	38;"	d	file:
+UART_FR_TXFF	UART.c	39;"	d	file:
+UART_H	UART.h	29;"	d
+UART_ICR_RTIC	UART.c	56;"	d	file:
+UART_ICR_RXIC	UART.c	58;"	d	file:
+UART_ICR_TXIC	UART.c	57;"	d	file:
+UART_IFLS_RX1_8	UART.c	44;"	d	file:
+UART_IFLS_TX1_8	UART.c	45;"	d	file:
+UART_IM_RTIM	UART.c	46;"	d	file:
+UART_IM_RXIM	UART.c	49;"	d	file:
+UART_IM_TXIM	UART.c	48;"	d	file:
+UART_InChar	UART.c	/^char UART_InChar(void){$/;"	f
+UART_InCharNonBlock	UART.c	/^char UART_InCharNonBlock(void){$/;"	f
+UART_InString	UART.c	/^void UART_InString(char *bufPt, uint16_t max) {$/;"	f
+UART_InUDec	UART.c	/^uint32_t UART_InUDec(void){$/;"	f
+UART_InUHex	UART.c	/^uint32_t UART_InUHex(void){$/;"	f
+UART_Init	UART.c	/^void UART_Init(void){$/;"	f
+UART_LCRH_FEN	UART.c	42;"	d	file:
+UART_LCRH_WLEN_8	UART.c	41;"	d	file:
+UART_OutChar	UART.c	/^void UART_OutChar(char data){$/;"	f
+UART_OutCharNonBlock	UART.c	/^void UART_OutCharNonBlock(char data){$/;"	f
+UART_OutString	UART.c	/^void UART_OutString(char *pt){$/;"	f
+UART_OutUDec	UART.c	/^void UART_OutUDec(uint32_t n){$/;"	f
+UART_OutUHex	UART.c	/^void UART_OutUHex(uint32_t number){$/;"	f
+UART_RIS_RTRIS	UART.c	50;"	d	file:
+UART_RIS_RXRIS	UART.c	54;"	d	file:
+UART_RIS_TXRIS	UART.c	52;"	d	file:
+USB0_Handler	startup.s	/^USB0_Handler$/;"	l
+Vector	GameRules.h	/^  Vector() : x(0), y(0) {}$/;"	f	class:Vector
+Vector	GameRules.h	/^  Vector(int16_t xx, int16_t yy) : x(xx), y(yy) {}$/;"	f	class:Vector
+Vector	GameRules.h	/^class Vector {$/;"	c
+Vector	Graphics.c	/^} Vector;$/;"	t	typeref:struct:vector	file:
+Vector	Vector.h	/^  Vector() {$/;"	f	class:Vector
+Vector	Vector.h	/^public class Vector {$/;"	c
+Vector	Vector.h	/^} Vector;$/;"	v	typeref:class:Vector
+Velocity	GameRules.h	/^	Vector Velocity;$/;"	m	class:Entity
+W	Music.h	124;"	d
+WDT_Handler	startup.s	/^WDT_Handler$/;"	l
+WaitForInterrupt	startup.s	/^WaitForInterrupt$/;"	l
+WallCollision	GameRules.cpp	/^void Entity::WallCollision(Rectangle B)$/;"	f	class:Entity
+WideTimer0A_Handler	startup.s	/^WideTimer0A_Handler$/;"	l
+WideTimer0B_Handler	startup.s	/^WideTimer0B_Handler$/;"	l
+WideTimer1A_Handler	startup.s	/^WideTimer1A_Handler$/;"	l
+WideTimer1B_Handler	startup.s	/^WideTimer1B_Handler$/;"	l
+WideTimer2A_Handler	startup.s	/^WideTimer2A_Handler$/;"	l
+WideTimer2B_Handler	startup.s	/^WideTimer2B_Handler$/;"	l
+WideTimer3A_Handler	startup.s	/^WideTimer3A_Handler$/;"	l
+WideTimer3B_Handler	startup.s	/^WideTimer3B_Handler$/;"	l
+WideTimer4A_Handler	startup.s	/^WideTimer4A_Handler$/;"	l
+WideTimer4B_Handler	startup.s	/^WideTimer4B_Handler$/;"	l
+WideTimer5A_Handler	startup.s	/^WideTimer5A_Handler$/;"	l
+WideTimer5B_Handler	startup.s	/^WideTimer5B_Handler$/;"	l
+WorldSpace_Init	main.cpp	/^Quadtree* WorldSpace_Init() {$/;"	f
+X	ST7735.c	/^int32_t Ymax,Ymin,X;        \/\/ X goes from 0 to 127$/;"	v
+Ymax	ST7735.c	/^int32_t Ymax,Ymin,X;        \/\/ X goes from 0 to 127$/;"	v
+Ymin	ST7735.c	/^int32_t Ymax,Ymin,X;        \/\/ X goes from 0 to 127$/;"	v
+Yrange	ST7735.c	/^int32_t Yrange; \/\/YrangeDiv2;$/;"	v
+[100]	Lab7.htm	/^<P><STRONG><a name="[100]"><\/a>__scatterload_null<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)$/;"	a
+[101]	Lab7.htm	/^<P><STRONG><a name="[101]"><\/a>__scatterload_zeroinit<\/STRONG> (Thumb, 28 bytes, Stack size unknown bytes, __scatter_zi.o(!!handler_zi), UNUSED)$/;"	a
+[102]	Lab7.htm	/^<P><STRONG><a name="[102]"><\/a>__rt_lib_init_fp_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000002))$/;"	a
+[103]	Lab7.htm	/^<P><STRONG><a name="[103]"><\/a>__rt_lib_init_heap_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000008))$/;"	a
+[104]	Lab7.htm	/^<P><STRONG><a name="[104]"><\/a>__rt_lib_init_user_alloc_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000A))$/;"	a
+[105]	Lab7.htm	/^<P><STRONG><a name="[105]"><\/a>__rt_lib_init_alloca_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002C))$/;"	a
+[106]	Lab7.htm	/^<P><STRONG><a name="[106]"><\/a>__rt_lib_init_argv_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002A))$/;"	a
+[107]	Lab7.htm	/^<P><STRONG><a name="[107]"><\/a>__rt_lib_init_atexit_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000019))$/;"	a
+[108]	Lab7.htm	/^<P><STRONG><a name="[108]"><\/a>__rt_lib_init_clock_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001F))$/;"	a
+[109]	Lab7.htm	/^<P><STRONG><a name="[109]"><\/a>__rt_lib_init_cpp_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000030))$/;"	a
+[10]	Lab7.htm	/^<P><STRONG><a name="[10]"><\/a>HardFault_Handler<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[10a]	Lab7.htm	/^<P><STRONG><a name="[10a]"><\/a>__rt_lib_init_exceptions_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002E))$/;"	a
+[10b]	Lab7.htm	/^<P><STRONG><a name="[10b]"><\/a>__rt_lib_init_fp_trap_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001D))$/;"	a
+[10c]	Lab7.htm	/^<P><STRONG><a name="[10c]"><\/a>__rt_lib_init_getenv_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000021))$/;"	a
+[10d]	Lab7.htm	/^<P><STRONG><a name="[10d]"><\/a>__rt_lib_init_lc_collate_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000F))$/;"	a
+[10e]	Lab7.htm	/^<P><STRONG><a name="[10e]"><\/a>__rt_lib_init_lc_ctype_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000011))$/;"	a
+[10f]	Lab7.htm	/^<P><STRONG><a name="[10f]"><\/a>__rt_lib_init_lc_monetary_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000013))$/;"	a
+[110]	Lab7.htm	/^<P><STRONG><a name="[110]"><\/a>__rt_lib_init_lc_numeric_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000015))$/;"	a
+[111]	Lab7.htm	/^<P><STRONG><a name="[111]"><\/a>__rt_lib_init_lc_time_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000017))$/;"	a
+[112]	Lab7.htm	/^<P><STRONG><a name="[112]"><\/a>__rt_lib_init_rand_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000C))$/;"	a
+[113]	Lab7.htm	/^<P><STRONG><a name="[113]"><\/a>__rt_lib_init_return<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000031))$/;"	a
+[114]	Lab7.htm	/^<P><STRONG><a name="[114]"><\/a>__rt_lib_init_signal_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001B))$/;"	a
+[115]	Lab7.htm	/^<P><STRONG><a name="[115]"><\/a>__rt_lib_init_stdio_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000023))$/;"	a
+[116]	Lab7.htm	/^<P><STRONG><a name="[116]"><\/a>__rt_lib_shutdown_fp_trap_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000006))$/;"	a
+[117]	Lab7.htm	/^<P><STRONG><a name="[117]"><\/a>__rt_lib_shutdown_heap_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000E))$/;"	a
+[118]	Lab7.htm	/^<P><STRONG><a name="[118]"><\/a>__rt_lib_shutdown_return<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F))$/;"	a
+[119]	Lab7.htm	/^<P><STRONG><a name="[119]"><\/a>__rt_lib_shutdown_signal_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000009))$/;"	a
+[11]	Lab7.htm	/^<P><STRONG><a name="[11]"><\/a>MemManage_Handler<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[11a]	Lab7.htm	/^<P><STRONG><a name="[11a]"><\/a>__rt_lib_shutdown_stdio_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000003))$/;"	a
+[11b]	Lab7.htm	/^<P><STRONG><a name="[11b]"><\/a>__rt_lib_shutdown_user_alloc_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000B))$/;"	a
+[11c]	Lab7.htm	/^<P><STRONG><a name="[11c]"><\/a>__rt_entry_presh_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$00000002))$/;"	a
+[11d]	Lab7.htm	/^<P><STRONG><a name="[11d]"><\/a>__rt_entry_postsh_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$00000009))$/;"	a
+[11e]	Lab7.htm	/^<P><STRONG><a name="[11e]"><\/a>__rt_entry_postli_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$0000000C))$/;"	a
+[11f]	Lab7.htm	/^<P><STRONG><a name="[11f]"><\/a>__rt_exit_prels_1<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000002))$/;"	a
+[120]	Lab7.htm	/^<P><STRONG><a name="[120]"><\/a>DisableInterrupts<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup.o(.text), UNUSED)$/;"	a
+[121]	Lab7.htm	/^<P><STRONG><a name="[121]"><\/a>_maybe_terminate_alloc<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, maybetermalloc1.o(.emb_text), UNUSED)$/;"	a
+[122]	Lab7.htm	/^<P><STRONG><a name="[122]"><\/a>StartCritical<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup.o(.text), UNUSED)$/;"	a
+[123]	Lab7.htm	/^<P><STRONG><a name="[123]"><\/a>EndCritical<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup.o(.text), UNUSED)$/;"	a
+[124]	Lab7.htm	/^<P><STRONG><a name="[124]"><\/a>WaitForInterrupt<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup.o(.text), UNUSED)$/;"	a
+[125]	Lab7.htm	/^<P><STRONG><a name="[125]"><\/a>__use_two_region_memory<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)$/;"	a
+[126]	Lab7.htm	/^<P><STRONG><a name="[126]"><\/a>__user_libspace<\/STRONG> (Thumb, 8 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)$/;"	a
+[127]	Lab7.htm	/^<P><STRONG><a name="[127]"><\/a>__user_perthread_libspace<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)$/;"	a
+[128]	Lab7.htm	/^<P><STRONG><a name="[128]"><\/a>__use_no_heap<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, hguard.o(.text), UNUSED)$/;"	a
+[129]	Lab7.htm	/^<P><STRONG><a name="[129]"><\/a>__heap$guard<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, hguard.o(.text), UNUSED)$/;"	a
+[12]	Lab7.htm	/^<P><STRONG><a name="[12]"><\/a>BusFault_Handler<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[12a]	Lab7.htm	/^<P><STRONG><a name="[12a]"><\/a>__I$use$semihosting<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)$/;"	a
+[12b]	Lab7.htm	/^<P><STRONG><a name="[12b]"><\/a>__use_no_semihosting_swi<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)$/;"	a
+[12c]	Lab7.htm	/^<P><STRONG><a name="[12c]"><\/a>__semihosting_library_function<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, indicate_semi.o(.text), UNUSED)$/;"	a
+[12d]	Lab7.htm	/^<P><STRONG><a name="[12d]"><\/a>__ARM_exceptions_buffer_allocate<\/STRONG> (Thumb, 22 bytes, Stack size 0 bytes, arm_exceptions_mem.o(.text), UNUSED)$/;"	a
+[12e]	Lab7.htm	/^<P><STRONG><a name="[12e]"><\/a>__ARM_exceptions_buffer_free<\/STRONG> (Thumb, 20 bytes, Stack size 0 bytes, arm_exceptions_mem.o(.text), UNUSED)$/;"	a
+[12f]	Lab7.htm	/^<P><STRONG><a name="[12f]"><\/a>EntityList::EntityList__sub_object()<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, main.o(i._ZN10EntityListC1Ev), UNUSED)$/;"	a
+[130]	Lab7.htm	/^<P><STRONG><a name="[130]"><\/a>Entity::Entity__sub_object(Rectangle, Vector, Vector, EntityType, unsigned, unsigned)<\/STRONG> (Thumb, 0 bytes, Stack size 32 bytes, gamerules.o(i._ZN6EntityC1E9Rectangle6VectorS1_10EntityTypejj), UNUSED)$/;"	a
+[131]	Lab7.htm	/^<P><STRONG><a name="[131]"><\/a>Vector::Vector__sub_object(short, short)<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, gamerules.o(i._ZN6VectorC1Ess), UNUSED)$/;"	a
+[132]	Lab7.htm	/^<P><STRONG><a name="[132]"><\/a>Quadtree::Quadtree__sub_object(unsigned char, Rectangle)<\/STRONG> (Thumb, 0 bytes, Stack size 24 bytes, gamerules.o(i._ZN8QuadtreeC1Eh9Rectangle), UNUSED)$/;"	a
+[133]	Lab7.htm	/^<P><STRONG><a name="[133]"><\/a>Rectangle::Rectangle__sub_object(short, short, unsigned short, unsigned short)<\/STRONG> (Thumb, 0 bytes, Stack size 8 bytes, gamerules.o(i._ZN9RectangleC1Esstt), UNUSED)$/;"	a
+[13]	Lab7.htm	/^<P><STRONG><a name="[13]"><\/a>UsageFault_Handler<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[14]	Lab7.htm	/^<P><STRONG><a name="[14]"><\/a>SVC_Handler<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[15]	Lab7.htm	/^<P><STRONG><a name="[15]"><\/a>DebugMon_Handler<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[16]	Lab7.htm	/^<P><STRONG><a name="[16]"><\/a>PendSV_Handler<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[17]	Lab7.htm	/^<P><STRONG><a name="[17]"><\/a>SysTick_Handler<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[18]	Lab7.htm	/^<P><STRONG><a name="[18]"><\/a>GPIOPortA_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[19]	Lab7.htm	/^<P><STRONG><a name="[19]"><\/a>GPIOPortB_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[1]	Lab7.htm	/^<P><STRONG><a name="[1]"><\/a>_init_user_alloc<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, init_alloc.o(.text), UNUSED)$/;"	a
+[1a]	Lab7.htm	/^<P><STRONG><a name="[1a]"><\/a>GPIOPortC_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[1b]	Lab7.htm	/^<P><STRONG><a name="[1b]"><\/a>GPIOPortD_Handler<\/STRONG> (Thumb, 60 bytes, Stack size 4 bytes, buttons.o(i.GPIOPortD_Handler))$/;"	a
+[1c]	Lab7.htm	/^<P><STRONG><a name="[1c]"><\/a>GPIOPortE_Handler<\/STRONG> (Thumb, 30 bytes, Stack size 4 bytes, buttons.o(i.GPIOPortE_Handler))$/;"	a
+[1d]	Lab7.htm	/^<P><STRONG><a name="[1d]"><\/a>UART0_Handler<\/STRONG> (Thumb, 82 bytes, Stack size 8 bytes, uart.o(i.UART0_Handler))$/;"	a
+[1e]	Lab7.htm	/^<P><STRONG><a name="[1e]"><\/a>UART1_Handler<\/STRONG> (Thumb, 44 bytes, Stack size 8 bytes, esp8266.o(i.UART1_Handler))$/;"	a
+[1f]	Lab7.htm	/^<P><STRONG><a name="[1f]"><\/a>SSI0_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[20]	Lab7.htm	/^<P><STRONG><a name="[20]"><\/a>I2C0_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[21]	Lab7.htm	/^<P><STRONG><a name="[21]"><\/a>PWM0Fault_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[22]	Lab7.htm	/^<P><STRONG><a name="[22]"><\/a>PWM0Generator0_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[23]	Lab7.htm	/^<P><STRONG><a name="[23]"><\/a>PWM0Generator1_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[24]	Lab7.htm	/^<P><STRONG><a name="[24]"><\/a>PWM0Generator2_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[25]	Lab7.htm	/^<P><STRONG><a name="[25]"><\/a>Quadrature0_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[26]	Lab7.htm	/^<P><STRONG><a name="[26]"><\/a>ADC0Seq0_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[27]	Lab7.htm	/^<P><STRONG><a name="[27]"><\/a>ADC0Seq1_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[28]	Lab7.htm	/^<P><STRONG><a name="[28]"><\/a>ADC0Seq2_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[29]	Lab7.htm	/^<P><STRONG><a name="[29]"><\/a>ADC0Seq3_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[2a]	Lab7.htm	/^<P><STRONG><a name="[2a]"><\/a>WDT_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[2b]	Lab7.htm	/^<P><STRONG><a name="[2b]"><\/a>Timer0A_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[2c]	Lab7.htm	/^<P><STRONG><a name="[2c]"><\/a>Timer0B_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[2d]	Lab7.htm	/^<P><STRONG><a name="[2d]"><\/a>Timer1A_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[2e]	Lab7.htm	/^<P><STRONG><a name="[2e]"><\/a>Timer1B_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[2f]	Lab7.htm	/^<P><STRONG><a name="[2f]"><\/a>Timer2A_Handler<\/STRONG> (Thumb, 72 bytes, Stack size 4 bytes, buttons.o(i.Timer2A_Handler))$/;"	a
+[30]	Lab7.htm	/^<P><STRONG><a name="[30]"><\/a>Timer2B_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[31]	Lab7.htm	/^<P><STRONG><a name="[31]"><\/a>Comp0_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[32]	Lab7.htm	/^<P><STRONG><a name="[32]"><\/a>Comp1_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[33]	Lab7.htm	/^<P><STRONG><a name="[33]"><\/a>Comp2_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[34]	Lab7.htm	/^<P><STRONG><a name="[34]"><\/a>SysCtl_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[35]	Lab7.htm	/^<P><STRONG><a name="[35]"><\/a>FlashCtl_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[36]	Lab7.htm	/^<P><STRONG><a name="[36]"><\/a>GPIOPortF_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[37]	Lab7.htm	/^<P><STRONG><a name="[37]"><\/a>GPIOPortG_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[38]	Lab7.htm	/^<P><STRONG><a name="[38]"><\/a>GPIOPortH_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[39]	Lab7.htm	/^<P><STRONG><a name="[39]"><\/a>UART2_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[3a]	Lab7.htm	/^<P><STRONG><a name="[3a]"><\/a>SSI1_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[3b]	Lab7.htm	/^<P><STRONG><a name="[3b]"><\/a>Timer3A_Handler<\/STRONG> (Thumb, 18 bytes, Stack size 0 bytes, main.o(i.Timer3A_Handler))$/;"	a
+[3c]	Lab7.htm	/^<P><STRONG><a name="[3c]"><\/a>Timer3B_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[3d]	Lab7.htm	/^<P><STRONG><a name="[3d]"><\/a>I2C1_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[3e]	Lab7.htm	/^<P><STRONG><a name="[3e]"><\/a>Quadrature1_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[3f]	Lab7.htm	/^<P><STRONG><a name="[3f]"><\/a>CAN0_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[40]	Lab7.htm	/^<P><STRONG><a name="[40]"><\/a>CAN1_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[41]	Lab7.htm	/^<P><STRONG><a name="[41]"><\/a>CAN2_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[42]	Lab7.htm	/^<P><STRONG><a name="[42]"><\/a>Ethernet_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[43]	Lab7.htm	/^<P><STRONG><a name="[43]"><\/a>Hibernate_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[44]	Lab7.htm	/^<P><STRONG><a name="[44]"><\/a>USB0_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[45]	Lab7.htm	/^<P><STRONG><a name="[45]"><\/a>PWM0Generator3_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[46]	Lab7.htm	/^<P><STRONG><a name="[46]"><\/a>uDMA_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[47]	Lab7.htm	/^<P><STRONG><a name="[47]"><\/a>uDMA_Error<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[48]	Lab7.htm	/^<P><STRONG><a name="[48]"><\/a>ADC1Seq0_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[49]	Lab7.htm	/^<P><STRONG><a name="[49]"><\/a>ADC1Seq1_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[4]	Lab7.htm	/^<P><STRONG><a name="[4]"><\/a>__rt_heap_expand<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)$/;"	a
+[4a]	Lab7.htm	/^<P><STRONG><a name="[4a]"><\/a>ADC1Seq2_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[4b]	Lab7.htm	/^<P><STRONG><a name="[4b]"><\/a>ADC1Seq3_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[4c]	Lab7.htm	/^<P><STRONG><a name="[4c]"><\/a>I2S0_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[4d]	Lab7.htm	/^<P><STRONG><a name="[4d]"><\/a>ExtBus_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[4e]	Lab7.htm	/^<P><STRONG><a name="[4e]"><\/a>GPIOPortJ_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[4f]	Lab7.htm	/^<P><STRONG><a name="[4f]"><\/a>GPIOPortK_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[50]	Lab7.htm	/^<P><STRONG><a name="[50]"><\/a>GPIOPortL_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[51]	Lab7.htm	/^<P><STRONG><a name="[51]"><\/a>SSI2_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[52]	Lab7.htm	/^<P><STRONG><a name="[52]"><\/a>SSI3_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[53]	Lab7.htm	/^<P><STRONG><a name="[53]"><\/a>UART3_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[54]	Lab7.htm	/^<P><STRONG><a name="[54]"><\/a>UART4_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[55]	Lab7.htm	/^<P><STRONG><a name="[55]"><\/a>UART5_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[56]	Lab7.htm	/^<P><STRONG><a name="[56]"><\/a>UART6_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[57]	Lab7.htm	/^<P><STRONG><a name="[57]"><\/a>UART7_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[58]	Lab7.htm	/^<P><STRONG><a name="[58]"><\/a>I2C2_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[59]	Lab7.htm	/^<P><STRONG><a name="[59]"><\/a>I2C3_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[5]	Lab7.htm	/^<P><STRONG><a name="[5]"><\/a>__rt_heap_escrow<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)$/;"	a
+[5a]	Lab7.htm	/^<P><STRONG><a name="[5a]"><\/a>Timer4A_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[5b]	Lab7.htm	/^<P><STRONG><a name="[5b]"><\/a>Timer4B_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[5c]	Lab7.htm	/^<P><STRONG><a name="[5c]"><\/a>Timer5A_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[5d]	Lab7.htm	/^<P><STRONG><a name="[5d]"><\/a>Timer5B_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[5e]	Lab7.htm	/^<P><STRONG><a name="[5e]"><\/a>WideTimer0A_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[5f]	Lab7.htm	/^<P><STRONG><a name="[5f]"><\/a>WideTimer0B_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[60]	Lab7.htm	/^<P><STRONG><a name="[60]"><\/a>WideTimer1A_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[61]	Lab7.htm	/^<P><STRONG><a name="[61]"><\/a>WideTimer1B_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[62]	Lab7.htm	/^<P><STRONG><a name="[62]"><\/a>WideTimer2A_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[63]	Lab7.htm	/^<P><STRONG><a name="[63]"><\/a>WideTimer2B_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[64]	Lab7.htm	/^<P><STRONG><a name="[64]"><\/a>WideTimer3A_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[65]	Lab7.htm	/^<P><STRONG><a name="[65]"><\/a>WideTimer3B_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[66]	Lab7.htm	/^<P><STRONG><a name="[66]"><\/a>WideTimer4A_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[67]	Lab7.htm	/^<P><STRONG><a name="[67]"><\/a>WideTimer4B_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[68]	Lab7.htm	/^<P><STRONG><a name="[68]"><\/a>WideTimer5A_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[69]	Lab7.htm	/^<P><STRONG><a name="[69]"><\/a>WideTimer5B_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[6]	Lab7.htm	/^<P><STRONG><a name="[6]"><\/a>__Heap_DescSize<\/STRONG> (Thumb, 4 bytes, Stack size 0 bytes, h1_init.o(.text), UNUSED)$/;"	a
+[6a]	Lab7.htm	/^<P><STRONG><a name="[6a]"><\/a>FPU_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[6b]	Lab7.htm	/^<P><STRONG><a name="[6b]"><\/a>PECI0_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[6c]	Lab7.htm	/^<P><STRONG><a name="[6c]"><\/a>LPC0_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[6d]	Lab7.htm	/^<P><STRONG><a name="[6d]"><\/a>I2C4_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[6e]	Lab7.htm	/^<P><STRONG><a name="[6e]"><\/a>I2C5_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[6f]	Lab7.htm	/^<P><STRONG><a name="[6f]"><\/a>GPIOPortM_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[70]	Lab7.htm	/^<P><STRONG><a name="[70]"><\/a>GPIOPortN_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[71]	Lab7.htm	/^<P><STRONG><a name="[71]"><\/a>Quadrature2_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[72]	Lab7.htm	/^<P><STRONG><a name="[72]"><\/a>Fan0_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[73]	Lab7.htm	/^<P><STRONG><a name="[73]"><\/a>GPIOPortP_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[74]	Lab7.htm	/^<P><STRONG><a name="[74]"><\/a>GPIOPortP1_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[75]	Lab7.htm	/^<P><STRONG><a name="[75]"><\/a>GPIOPortP2_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[76]	Lab7.htm	/^<P><STRONG><a name="[76]"><\/a>GPIOPortP3_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[77]	Lab7.htm	/^<P><STRONG><a name="[77]"><\/a>GPIOPortP4_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[78]	Lab7.htm	/^<P><STRONG><a name="[78]"><\/a>GPIOPortP5_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[79]	Lab7.htm	/^<P><STRONG><a name="[79]"><\/a>GPIOPortP6_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[7a]	Lab7.htm	/^<P><STRONG><a name="[7a]"><\/a>GPIOPortP7_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[7b]	Lab7.htm	/^<P><STRONG><a name="[7b]"><\/a>GPIOPortQ_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[7c]	Lab7.htm	/^<P><STRONG><a name="[7c]"><\/a>GPIOPortQ1_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[7d]	Lab7.htm	/^<P><STRONG><a name="[7d]"><\/a>GPIOPortQ2_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[7e]	Lab7.htm	/^<P><STRONG><a name="[7e]"><\/a>GPIOPortQ3_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[7f]	Lab7.htm	/^<P><STRONG><a name="[7f]"><\/a>GPIOPortQ4_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[80]	Lab7.htm	/^<P><STRONG><a name="[80]"><\/a>GPIOPortQ5_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[81]	Lab7.htm	/^<P><STRONG><a name="[81]"><\/a>GPIOPortQ6_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[82]	Lab7.htm	/^<P><STRONG><a name="[82]"><\/a>GPIOPortQ7_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[83]	Lab7.htm	/^<P><STRONG><a name="[83]"><\/a>GPIOPortR_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[84]	Lab7.htm	/^<P><STRONG><a name="[84]"><\/a>GPIOPortS_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[85]	Lab7.htm	/^<P><STRONG><a name="[85]"><\/a>PWM1Generator0_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[86]	Lab7.htm	/^<P><STRONG><a name="[86]"><\/a>PWM1Generator1_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[87]	Lab7.htm	/^<P><STRONG><a name="[87]"><\/a>PWM1Generator2_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[88]	Lab7.htm	/^<P><STRONG><a name="[88]"><\/a>PWM1Generator3_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[89]	Lab7.htm	/^<P><STRONG><a name="[89]"><\/a>PWM1Fault_Handler<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[8]	Lab7.htm	/^<P><STRONG><a name="[8]"><\/a>_terminate_user_alloc<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, init_alloc.o(.text), UNUSED)$/;"	a
+[8a]	Lab7.htm	/^<P><STRONG><a name="[8a]"><\/a>__default_terminate_handler()<\/STRONG> (Thumb, 6 bytes, Stack size 8 bytes, arm_exceptions_globs.o(.text))$/;"	a
+[8b]	Lab7.htm	/^<P><STRONG><a name="[8b]"><\/a>__default_new_handler()<\/STRONG> (Thumb, 4 bytes, Stack size 0 bytes, arm_newhandler_noexceptions.o(.text))$/;"	a
+[8c]	Lab7.htm	/^<P><STRONG><a name="[8c]"><\/a>Reset_Handler<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup.o(RESET))$/;"	a
+[8d]	Lab7.htm	/^<P><STRONG><a name="[8d]"><\/a>__main<\/STRONG> (Thumb, 8 bytes, Stack size 0 bytes, __main.o(!!!main))$/;"	a
+[8e]	Lab7.htm	/^<P><STRONG><a name="[8e]"><\/a>__scatterload<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter))$/;"	a
+[8f]	Lab7.htm	/^<P><STRONG><a name="[8f]"><\/a>__rt_entry<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry.o(.ARM.Collect$$rtentry$$00000000))$/;"	a
+[90]	Lab7.htm	/^<P><STRONG><a name="[90]"><\/a>__scatterload_rt2<\/STRONG> (Thumb, 44 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)$/;"	a
+[91]	Lab7.htm	/^<P><STRONG><a name="[91]"><\/a>__scatterload_copy<\/STRONG> (Thumb, 26 bytes, Stack size unknown bytes, __scatter_copy.o(!!handler_copy), UNUSED)$/;"	a
+[92]	Lab7.htm	/^<P><STRONG><a name="[92]"><\/a>__rt_lib_init_heap_2<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000003))$/;"	a
+[93]	Lab7.htm	/^<P><STRONG><a name="[93]"><\/a>_init_alloc<\/STRONG> (Thumb, 94 bytes, Stack size 24 bytes, init_alloc.o(.text))$/;"	a
+[94]	Lab7.htm	/^<P><STRONG><a name="[94]"><\/a>__rt_lib_init_rand_2<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000B))$/;"	a
+[95]	Lab7.htm	/^<P><STRONG><a name="[95]"><\/a>_rand_init<\/STRONG> (Thumb, 4 bytes, Stack size 0 bytes, rand.o(.text))$/;"	a
+[96]	Lab7.htm	/^<P><STRONG><a name="[96]"><\/a>__rt_entry_sh<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry4.o(.ARM.Collect$$rtentry$$00000004))$/;"	a
+[97]	Lab7.htm	/^<P><STRONG><a name="[97]"><\/a>__user_setup_stackheap<\/STRONG> (Thumb, 74 bytes, Stack size 8 bytes, sys_stackheap_outer.o(.text))$/;"	a
+[98]	Lab7.htm	/^<P><STRONG><a name="[98]"><\/a>__rt_entry_li<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$0000000A))$/;"	a
+[99]	Lab7.htm	/^<P><STRONG><a name="[99]"><\/a>__rt_lib_init<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit.o(.ARM.Collect$$libinit$$00000000))$/;"	a
+[9a]	Lab7.htm	/^<P><STRONG><a name="[9a]"><\/a>__rt_entry_main<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtentry2.o(.ARM.Collect$$rtentry$$0000000D))$/;"	a
+[9b]	Lab7.htm	/^<P><STRONG><a name="[9b]"><\/a>main<\/STRONG> (Thumb, 190 bytes, Stack size 416 bytes, main.o(i.main))$/;"	a
+[9c]	Lab7.htm	/^<P><STRONG><a name="[9c]"><\/a>exit<\/STRONG> (Thumb, 12 bytes, Stack size 0 bytes, exit.o(.text))$/;"	a
+[9d]	Lab7.htm	/^<P><STRONG><a name="[9d]"><\/a>__rt_exit_ls<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000003))$/;"	a
+[9e]	Lab7.htm	/^<P><STRONG><a name="[9e]"><\/a>__rt_lib_shutdown<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown.o(.ARM.Collect$$libshutdown$$00000000))$/;"	a
+[9f]	Lab7.htm	/^<P><STRONG><a name="[9f]"><\/a>__rt_exit_exit<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000004))$/;"	a
+[a0]	Lab7.htm	/^<P><STRONG><a name="[a0]"><\/a>_sys_exit<\/STRONG> (Thumb, 8 bytes, Stack size 0 bytes, sys_exit.o(.text))$/;"	a
+[a1]	Lab7.htm	/^<P><STRONG><a name="[a1]"><\/a>srand<\/STRONG> (Thumb, 42 bytes, Stack size 8 bytes, rand.o(.text))$/;"	a
+[a2]	Lab7.htm	/^<P><STRONG><a name="[a2]"><\/a>malloc<\/STRONG> (Thumb, 94 bytes, Stack size 16 bytes, h1_alloc.o(.text))$/;"	a
+[a3]	Lab7.htm	/^<P><STRONG><a name="[a3]"><\/a>__rt_heap_descriptor<\/STRONG> (Thumb, 8 bytes, Stack size 0 bytes, rt_heap_descriptor_intlibspace.o(.text))$/;"	a
+[a4]	Lab7.htm	/^<P><STRONG><a name="[a4]"><\/a>__Heap_Full<\/STRONG> (Thumb, 34 bytes, Stack size 16 bytes, init_alloc.o(.text))$/;"	a
+[a5]	Lab7.htm	/^<P><STRONG><a name="[a5]"><\/a>free<\/STRONG> (Thumb, 78 bytes, Stack size 16 bytes, h1_free.o(.text))$/;"	a
+[a6]	Lab7.htm	/^<P><STRONG><a name="[a6]"><\/a>std::terminate()<\/STRONG> (Thumb, 26 bytes, Stack size 8 bytes, arm_exceptions_terminate.o(.text))$/;"	a
+[a7]	Lab7.htm	/^<P><STRONG><a name="[a7]"><\/a>__Heap_ProvideMemory<\/STRONG> (Thumb, 52 bytes, Stack size 0 bytes, h1_extend.o(.text))$/;"	a
+[a8]	Lab7.htm	/^<P><STRONG><a name="[a8]"><\/a>__Heap_Broken<\/STRONG> (Thumb, 6 bytes, Stack size 0 bytes, init_alloc.o(.text), UNUSED)$/;"	a
+[a9]	Lab7.htm	/^<P><STRONG><a name="[a9]"><\/a>__rt_SIGRTMEM<\/STRONG> (Thumb, 14 bytes, Stack size 8 bytes, defsig_rtmem_outer.o(.text))$/;"	a
+[aa]	Lab7.htm	/^<P><STRONG><a name="[aa]"><\/a>__Heap_Initialize<\/STRONG> (Thumb, 10 bytes, Stack size 0 bytes, h1_init.o(.text))$/;"	a
+[ab]	Lab7.htm	/^<P><STRONG><a name="[ab]"><\/a>__cxa_get_globals<\/STRONG> (Thumb, 62 bytes, Stack size 16 bytes, arm_exceptions_globs.o(.text))$/;"	a
+[ac]	Lab7.htm	/^<P><STRONG><a name="[ac]"><\/a>abort<\/STRONG> (Thumb, 16 bytes, Stack size 0 bytes, abort.o(.text))$/;"	a
+[ad]	Lab7.htm	/^<P><STRONG><a name="[ad]"><\/a>__user_perproc_libspace<\/STRONG> (Thumb, 0 bytes, Stack size 0 bytes, libspace.o(.text))$/;"	a
+[ae]	Lab7.htm	/^<P><STRONG><a name="[ae]"><\/a>__user_initial_stackheap<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup.o(.text))$/;"	a
+[af]	Lab7.htm	/^<P><STRONG><a name="[af]"><\/a>__rt_exit<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit.o(.ARM.Collect$$rtexit$$00000000))$/;"	a
+[b0]	Lab7.htm	/^<P><STRONG><a name="[b0]"><\/a>__rt_SIGABRT<\/STRONG> (Thumb, 14 bytes, Stack size 8 bytes, defsig_abrt_outer.o(.text))$/;"	a
+[b1]	Lab7.htm	/^<P><STRONG><a name="[b1]"><\/a>__rt_SIGRTMEM_inner<\/STRONG> (Thumb, 22 bytes, Stack size 8 bytes, defsig_rtmem_inner.o(.text))$/;"	a
+[b2]	Lab7.htm	/^<P><STRONG><a name="[b2]"><\/a>__sig_exit<\/STRONG> (Thumb, 10 bytes, Stack size 0 bytes, defsig_exit.o(.text))$/;"	a
+[b3]	Lab7.htm	/^<P><STRONG><a name="[b3]"><\/a>__rt_eh_globals_addr<\/STRONG> (Thumb, 8 bytes, Stack size 0 bytes, rt_eh_globals_addr_intlibspace.o(.text))$/;"	a
+[b4]	Lab7.htm	/^<P><STRONG><a name="[b4]"><\/a>__ARM_exceptions_buffer_init<\/STRONG> (Thumb, 18 bytes, Stack size 8 bytes, arm_exceptions_mem.o(.text))$/;"	a
+[b5]	Lab7.htm	/^<P><STRONG><a name="[b5]"><\/a>__rt_SIGABRT_inner<\/STRONG> (Thumb, 14 bytes, Stack size 8 bytes, defsig_abrt_inner.o(.text))$/;"	a
+[b6]	Lab7.htm	/^<P><STRONG><a name="[b6]"><\/a>__default_signal_display<\/STRONG> (Thumb, 50 bytes, Stack size 16 bytes, defsig_general.o(.text))$/;"	a
+[b7]	Lab7.htm	/^<P><STRONG><a name="[b7]"><\/a>_ttywrch<\/STRONG> (Thumb, 14 bytes, Stack size 8 bytes, sys_wrch.o(.text))$/;"	a
+[b8]	Lab7.htm	/^<P><STRONG><a name="[b8]"><\/a>Buttons_Init<\/STRONG> (Thumb, 266 bytes, Stack size 4 bytes, buttons.o(i.Buttons_Init))$/;"	a
+[b9]	Lab7.htm	/^<P><STRONG><a name="[b9]"><\/a>PortD_Arm<\/STRONG> (Thumb, 46 bytes, Stack size 0 bytes, buttons.o(i.PortD_Arm))$/;"	a
+[ba]	Lab7.htm	/^<P><STRONG><a name="[ba]"><\/a>PortE_Arm<\/STRONG> (Thumb, 46 bytes, Stack size 0 bytes, buttons.o(i.PortE_Arm))$/;"	a
+[bb]	Lab7.htm	/^<P><STRONG><a name="[bb]"><\/a>ESP8266FIFOtoBuffer<\/STRONG> (Thumb, 100 bytes, Stack size 8 bytes, esp8266.o(i.ESP8266FIFOtoBuffer))$/;"	a
+[bc]	Lab7.htm	/^<P><STRONG><a name="[bc]"><\/a>UART_OutCharNonBlock<\/STRONG> (Thumb, 46 bytes, Stack size 8 bytes, uart.o(i.UART_OutCharNonBlock))$/;"	a
+[bd]	Lab7.htm	/^<P><STRONG><a name="[bd]"><\/a>SearchCheck<\/STRONG> (Thumb, 68 bytes, Stack size 4 bytes, esp8266.o(i.SearchCheck))$/;"	a
+[be]	Lab7.htm	/^<P><STRONG><a name="[be]"><\/a>ServerResponseSearchCheck<\/STRONG> (Thumb, 180 bytes, Stack size 8 bytes, esp8266.o(i.ServerResponseSearchCheck))$/;"	a
+[bf]	Lab7.htm	/^<P><STRONG><a name="[bf]"><\/a>Timer2_Arm<\/STRONG> (Thumb, 60 bytes, Stack size 0 bytes, buttons.o(i.Timer2_Arm))$/;"	a
+[c0]	Lab7.htm	/^<P><STRONG><a name="[c0]"><\/a>ST7735_DrawBitmap<\/STRONG> (Thumb, 280 bytes, Stack size 40 bytes, st7735.o(i.ST7735_DrawBitmap))$/;"	a
+[c1]	Lab7.htm	/^<P><STRONG><a name="[c1]"><\/a>setAddrWindow<\/STRONG> (Thumb, 106 bytes, Stack size 24 bytes, st7735.o(i.setAddrWindow))$/;"	a
+[c2]	Lab7.htm	/^<P><STRONG><a name="[c2]"><\/a>writedata<\/STRONG> (Thumb, 24 bytes, Stack size 0 bytes, st7735.o(i.writedata))$/;"	a
+[c3]	Lab7.htm	/^<P><STRONG><a name="[c3]"><\/a>ST7735_DrawPixel<\/STRONG> (Thumb, 64 bytes, Stack size 24 bytes, st7735.o(i.ST7735_DrawPixel))$/;"	a
+[c4]	Lab7.htm	/^<P><STRONG><a name="[c4]"><\/a>pushColor<\/STRONG> (Thumb, 18 bytes, Stack size 8 bytes, st7735.o(i.pushColor))$/;"	a
+[c5]	Lab7.htm	/^<P><STRONG><a name="[c5]"><\/a>ST7735_FillRect<\/STRONG> (Thumb, 164 bytes, Stack size 32 bytes, st7735.o(i.ST7735_FillRect))$/;"	a
+[c6]	Lab7.htm	/^<P><STRONG><a name="[c6]"><\/a>ST7735_FillScreen<\/STRONG> (Thumb, 28 bytes, Stack size 16 bytes, st7735.o(i.ST7735_FillScreen))$/;"	a
+[c7]	Lab7.htm	/^<P><STRONG><a name="[c7]"><\/a>ST7735_InitR<\/STRONG> (Thumb, 90 bytes, Stack size 8 bytes, st7735.o(i.ST7735_InitR))$/;"	a
+[c8]	Lab7.htm	/^<P><STRONG><a name="[c8]"><\/a>commonInit<\/STRONG> (Thumb, 340 bytes, Stack size 8 bytes, st7735.o(i.commonInit))$/;"	a
+[c9]	Lab7.htm	/^<P><STRONG><a name="[c9]"><\/a>commandList<\/STRONG> (Thumb, 86 bytes, Stack size 24 bytes, st7735.o(i.commandList))$/;"	a
+[ca]	Lab7.htm	/^<P><STRONG><a name="[ca]"><\/a>writecommand<\/STRONG> (Thumb, 40 bytes, Stack size 0 bytes, st7735.o(i.writecommand))$/;"	a
+[cb]	Lab7.htm	/^<P><STRONG><a name="[cb]"><\/a>ST7735_SetCursor<\/STRONG> (Thumb, 22 bytes, Stack size 0 bytes, st7735.o(i.ST7735_SetCursor))$/;"	a
+[cc]	Lab7.htm	/^<P><STRONG><a name="[cc]"><\/a>ST7735_SetRotation<\/STRONG> (Thumb, 196 bytes, Stack size 8 bytes, st7735.o(i.ST7735_SetRotation))$/;"	a
+[cd]	Lab7.htm	/^<P><STRONG><a name="[cd]"><\/a>lc<\/STRONG> (Thumb, 14 bytes, Stack size 0 bytes, esp8266.o(i.lc))$/;"	a
+[ce]	Lab7.htm	/^<P><STRONG><a name="[ce]"><\/a>strcpy<\/STRONG> (Thumb, 72 bytes, Stack size 12 bytes, strcpy.o(.text))$/;"	a
+[cf]	Lab7.htm	/^<P><STRONG><a name="[cf]"><\/a>copySoftwareToHardware<\/STRONG> (Thumb, 38 bytes, Stack size 8 bytes, uart.o(i.copySoftwareToHardware))$/;"	a
+[d0]	Lab7.htm	/^<P><STRONG><a name="[d0]"><\/a>TxFifo_Size<\/STRONG> (Thumb, 14 bytes, Stack size 0 bytes, uart.o(i.TxFifo_Size))$/;"	a
+[d1]	Lab7.htm	/^<P><STRONG><a name="[d1]"><\/a>copyHardwareToSoftware<\/STRONG> (Thumb, 40 bytes, Stack size 4 bytes, uart.o(i.copyHardwareToSoftware))$/;"	a
+[d2]	Lab7.htm	/^<P><STRONG><a name="[d2]"><\/a>TxFifo_Put<\/STRONG> (Thumb, 48 bytes, Stack size 0 bytes, uart.o(i.TxFifo_Put))$/;"	a
+[d3]	Lab7.htm	/^<P><STRONG><a name="[d3]"><\/a>DrawEntities(EntityList*)<\/STRONG> (Thumb, 116 bytes, Stack size 24 bytes, gamerules.o(i._Z12DrawEntitiesP10EntityList))$/;"	a
+[d4]	Lab7.htm	/^<P><STRONG><a name="[d4]"><\/a>Entity::direction()<\/STRONG> (Thumb, 156 bytes, Stack size 20 bytes, gamerules.o(i._ZN6Entity9directionEv))$/;"	a
+[d5]	Lab7.htm	/^<P><STRONG><a name="[d5]"><\/a>EraseEntities(EntityList*)<\/STRONG> (Thumb, 60 bytes, Stack size 24 bytes, gamerules.o(i._Z13EraseEntitiesP10EntityList))$/;"	a
+[d6]	Lab7.htm	/^<P><STRONG><a name="[d6]"><\/a>WorldSpace_Init()<\/STRONG> (Thumb, 210 bytes, Stack size 96 bytes, main.o(i._Z15WorldSpace_Initv))$/;"	a
+[d7]	Lab7.htm	/^<P><STRONG><a name="[d7]"><\/a>Rectangle::Rectangle(short, short, unsigned short, unsigned short)<\/STRONG> (Thumb, 14 bytes, Stack size 8 bytes, gamerules.o(i._ZN9RectangleC1Esstt))$/;"	a
+[d8]	Lab7.htm	/^<P><STRONG><a name="[d8]"><\/a>operator new(unsigned)<\/STRONG> (Thumb, 34 bytes, Stack size 8 bytes, new.o(i._Znwj))$/;"	a
+[d9]	Lab7.htm	/^<P><STRONG><a name="[d9]"><\/a>EntityList::EntityList()<\/STRONG> (Thumb, 8 bytes, Stack size 0 bytes, main.o(i._ZN10EntityListC1Ev))$/;"	a
+[da]	Lab7.htm	/^<P><STRONG><a name="[da]"><\/a>Vector::Vector(short, short)<\/STRONG> (Thumb, 6 bytes, Stack size 0 bytes, gamerules.o(i._ZN6VectorC1Ess))$/;"	a
+[db]	Lab7.htm	/^<P><STRONG><a name="[db]"><\/a>Quadtree::insert(Entity*)<\/STRONG> (Thumb, 168 bytes, Stack size 24 bytes, gamerules.o(i._ZN8Quadtree6insertEP6Entity))$/;"	a
+[dc]	Lab7.htm	/^<P><STRONG><a name="[dc]"><\/a>EntityList::push(Entity*)<\/STRONG> (Thumb, 44 bytes, Stack size 16 bytes, gamerules.o(i._ZN10EntityList4pushEP6Entity))$/;"	a
+[dd]	Lab7.htm	/^<P><STRONG><a name="[dd]"><\/a>EntityList::isFull()<\/STRONG> (Thumb, 18 bytes, Stack size 0 bytes, gamerules.o(i._ZN10EntityList6isFullEv))$/;"	a
+[de]	Lab7.htm	/^<P><STRONG><a name="[de]"><\/a>operator delete (void*)<\/STRONG> (Thumb, 8 bytes, Stack size 8 bytes, delete.o(i._ZdlPv))$/;"	a
+[df]	Lab7.htm	/^<P><STRONG><a name="[df]"><\/a>EntityList::update(unsigned short*, unsigned short*, unsigned)<\/STRONG> (Thumb, 512 bytes, Stack size 88 bytes, gamerules.o(i._ZN10EntityList6updateEPtS0_j))$/;"	a
+[e0]	Lab7.htm	/^<P><STRONG><a name="[e0]"><\/a>Entity::update()<\/STRONG> (Thumb, 72 bytes, Stack size 12 bytes, gamerules.o(i._ZN6Entity6updateEv))$/;"	a
+[e1]	Lab7.htm	/^<P><STRONG><a name="[e1]"><\/a>rand<\/STRONG> (Thumb, 48 bytes, Stack size 0 bytes, rand.o(.emb_text))$/;"	a
+[e2]	Lab7.htm	/^<P><STRONG><a name="[e2]"><\/a>Entity::Entity(Rectangle, Vector, Vector, EntityType, unsigned, unsigned)<\/STRONG> (Thumb, 38 bytes, Stack size 32 bytes, gamerules.o(i._ZN6EntityC1E9Rectangle6VectorS1_10EntityTypejj))$/;"	a
+[e3]	Lab7.htm	/^<P><STRONG><a name="[e3]"><\/a>Quadtree::clear()<\/STRONG> (Thumb, 54 bytes, Stack size 12 bytes, gamerules.o(i._ZN8Quadtree5clearEv))$/;"	a
+[e4]	Lab7.htm	/^<P><STRONG><a name="[e4]"><\/a>EntityList::clear()<\/STRONG> (Thumb, 24 bytes, Stack size 0 bytes, gamerules.o(i._ZN10EntityList5clearEv))$/;"	a
+[e5]	Lab7.htm	/^<P><STRONG><a name="[e5]"><\/a>Quadtree::split()<\/STRONG> (Thumb, 290 bytes, Stack size 48 bytes, gamerules.o(i._ZN8Quadtree5splitEv))$/;"	a
+[e6]	Lab7.htm	/^<P><STRONG><a name="[e6]"><\/a>Quadtree::Quadtree(unsigned char, Rectangle)<\/STRONG> (Thumb, 34 bytes, Stack size 24 bytes, gamerules.o(i._ZN8QuadtreeC1Eh9Rectangle))$/;"	a
+[e7]	Lab7.htm	/^<P><STRONG><a name="[e7]"><\/a>Quadtree::insert(EntityList*)<\/STRONG> (Thumb, 74 bytes, Stack size 24 bytes, gamerules.o(i._ZN8Quadtree6insertEP10EntityList))$/;"	a
+[e8]	Lab7.htm	/^<P><STRONG><a name="[e8]"><\/a>Quadtree::getQuadrant(Rectangle)<\/STRONG> (Thumb, 240 bytes, Stack size 40 bytes, gamerules.o(i._ZN8Quadtree11getQuadrantE9Rectangle))$/;"	a
+[e9]	Lab7.htm	/^<P><STRONG><a name="[e9]"><\/a>Entity::WallCollision(Rectangle)<\/STRONG> (Thumb, 170 bytes, Stack size 32 bytes, gamerules.o(i._ZN6Entity13WallCollisionE9Rectangle))$/;"	a
+[ea]	Lab7.htm	/^<P><STRONG><a name="[ea]"><\/a>EntityList::removeZeroes()<\/STRONG> (Thumb, 38 bytes, Stack size 12 bytes, gamerules.o(i._ZN10EntityList12removeZeroesEv))$/;"	a
+[eb]	Lab7.htm	/^<P><STRONG><a name="[eb]"><\/a>Quadtree::retrieve(EntityList*, Rectangle)<\/STRONG> (Thumb, 82 bytes, Stack size 40 bytes, gamerules.o(i._ZN8Quadtree8retrieveEP10EntityList9Rectangle))$/;"	a
+[ec]	Lab7.htm	/^<P><STRONG><a name="[ec]"><\/a>__rt_new_handler_addr<\/STRONG> (Thumb, 8 bytes, Stack size 0 bytes, rt_new_handler_addr_intlibspace.o(.text))$/;"	a
+[ed]	Lab7.htm	/^<P><STRONG><a name="[ed]"><\/a>Delay1ms<\/STRONG> (Thumb, 32 bytes, Stack size 8 bytes, st7735.o(i.Delay1ms))$/;"	a
+[ee]	Lab7.htm	/^<P><STRONG><a name="[ee]"><\/a>RxFifo_Put<\/STRONG> (Thumb, 48 bytes, Stack size 0 bytes, uart.o(i.RxFifo_Put))$/;"	a
+[ef]	Lab7.htm	/^<P><STRONG><a name="[ef]"><\/a>RxFifo_Size<\/STRONG> (Thumb, 14 bytes, Stack size 0 bytes, uart.o(i.RxFifo_Size))$/;"	a
+[f0]	Lab7.htm	/^<P><STRONG><a name="[f0]"><\/a>TxFifo_Get<\/STRONG> (Thumb, 46 bytes, Stack size 0 bytes, uart.o(i.TxFifo_Get))$/;"	a
+[f1]	Lab7.htm	/^<P><STRONG><a name="[f1]"><\/a>PortA_Init<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, portinit.o(i.PortA_Init))$/;"	a
+[f2]	Lab7.htm	/^<P><STRONG><a name="[f2]"><\/a>PortB_Init<\/STRONG> (Thumb, 26 bytes, Stack size 0 bytes, portinit.o(i.PortB_Init))$/;"	a
+[f3]	Lab7.htm	/^<P><STRONG><a name="[f3]"><\/a>PortC_Init<\/STRONG> (Thumb, 26 bytes, Stack size 0 bytes, portinit.o(i.PortC_Init))$/;"	a
+[f4]	Lab7.htm	/^<P><STRONG><a name="[f4]"><\/a>PortD_Init<\/STRONG> (Thumb, 26 bytes, Stack size 0 bytes, portinit.o(i.PortD_Init))$/;"	a
+[f5]	Lab7.htm	/^<P><STRONG><a name="[f5]"><\/a>PortE_Init<\/STRONG> (Thumb, 26 bytes, Stack size 0 bytes, portinit.o(i.PortE_Init))$/;"	a
+[f6]	Lab7.htm	/^<P><STRONG><a name="[f6]"><\/a>PortF_Init<\/STRONG> (Thumb, 26 bytes, Stack size 0 bytes, portinit.o(i.PortF_Init))$/;"	a
+[f7]	Lab7.htm	/^<P><STRONG><a name="[f7]"><\/a>PLL_Init<\/STRONG> (Thumb, 118 bytes, Stack size 0 bytes, pll.o(i.PLL_Init))$/;"	a
+[f8]	Lab7.htm	/^<P><STRONG><a name="[f8]"><\/a>Thumbstick_Init<\/STRONG> (Thumb, 58 bytes, Stack size 0 bytes, thumbstick.o(i.Thumbstick_Init))$/;"	a
+[f9]	Lab7.htm	/^<P><STRONG><a name="[f9]"><\/a>Accel_Init<\/STRONG> (Thumb, 88 bytes, Stack size 0 bytes, accel.o(i.Accel_Init))$/;"	a
+[f]	Lab7.htm	/^<P><STRONG><a name="[f]"><\/a>NMI_Handler<\/STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup.o(RESET))$/;"	a
+[fa]	Lab7.htm	/^<P><STRONG><a name="[fa]"><\/a>ADC_Init<\/STRONG> (Thumb, 134 bytes, Stack size 0 bytes, adc.o(i.ADC_Init))$/;"	a
+[fb]	Lab7.htm	/^<P><STRONG><a name="[fb]"><\/a>GameTick_Init()<\/STRONG> (Thumb, 70 bytes, Stack size 0 bytes, main.o(i._Z13GameTick_Initv))$/;"	a
+[fc]	Lab7.htm	/^<P><STRONG><a name="[fc]"><\/a>EnableInterrupts<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, startup.o(.text))$/;"	a
+[fd]	Lab7.htm	/^<P><STRONG><a name="[fd]"><\/a>ADC_In<\/STRONG> (Thumb, 96 bytes, Stack size 0 bytes, adc.o(i.ADC_In))$/;"	a
+[fe]	Lab7.htm	/^<P><STRONG><a name="[fe]"><\/a>NormalizeAnalogInputs(unsigned short*, unsigned short*)<\/STRONG> (Thumb, 262 bytes, Stack size 8 bytes, gamerules.o(i._Z21NormalizeAnalogInputsPtS_))$/;"	a
+[ff]	Lab7.htm	/^<P><STRONG><a name="[ff]"><\/a>__scatterload_rt2_thumb_only<\/STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)$/;"	a
+_FIXEDH_	Graphics.h	8;"	d
+_ST7735H_	ST7735.h	91;"	d
+__FIFO_H__	FIFO.h	29;"	d
+__Vectors	startup.s	/^__Vectors$/;"	l
+__dach	DAC.h	2;"	d
+__heap_base	startup.s	/^__heap_base$/;"	l
+__heap_limit	startup.s	/^__heap_limit$/;"	l
+__initial_sp	startup.s	/^__initial_sp$/;"	l
+__musich	Music.h	49;"	d
+__user_initial_stackheap	startup.s	/^__user_initial_stackheap$/;"	l
+_height	ST7735.c	/^static int16_t _height = ST7735_TFTHEIGHT;$/;"	v	file:
+_width	ST7735.c	/^static int16_t _width = ST7735_TFTWIDTH;   \/\/ this could probably be a constant, except it is used in Adafruit_GFX and depends on image rotation$/;"	v	file:
+accel	main.cpp	/^static uint16_t accel[3] = {0,0,0};$/;"	v	file:
+bounds	GameRules.h	/^	Rectangle bounds;$/;"	m	class:Quadtree
+clear	GameRules.cpp	/^void EntityList::clear(void) {$/;"	f	class:EntityList
+clear	GameRules.cpp	/^void Quadtree::clear (void)$/;"	f	class:Quadtree
+clearConvertedIndex	Graphics.c	/^void clearConvertedIndex ( void ) {$/;"	f
+commandList	ST7735.c	/^void static commandList(const uint8_t *addr) {$/;"	f	file:
+commonInit	ST7735.c	/^void static commonInit(const uint8_t *cmdList) {$/;"	f	file:
+convertDec	Graphics.c	/^void convertDec(uint32_t n){$/;"	f
+converted	Graphics.c	/^static char converted[12];$/;"	v	file:
+convertedIndex	Graphics.c	/^static uint32_t convertedIndex;$/;"	v	file:
+copyHardwareToSoftware	UART.c	/^void static copyHardwareToSoftware(void){$/;"	f	file:
+copySoftwareToHardware	UART.c	/^void static copySoftwareToHardware(void){$/;"	f	file:
+counter	Buttons.c	/^static int counter = 0;$/;"	v	file:
+dBfs	ST7735.c	/^uint8_t const dBfs[512]={$/;"	v
+data1	GameRules.h	/^	uint32_t data1;  \/\/ data will be a generic field used for sending data between objects$/;"	m	class:Entity
+data2	GameRules.h	/^	uint32_t data2;$/;"	m	class:Entity
+dead	GameRules.h	/^	bool dead;$/;"	m	class:Entity
+direction	GameRules.cpp	/^uint8_t Entity::direction(void)$/;"	f	class:Entity
+drawBounds	GameRules.cpp	/^void Quadtree::drawBounds (void)$/;"	f	class:Quadtree
+envelope	Music.h	/^const uint16_t envelope[256] = { $/;"	v
+fForte	Music.h	140;"	d
+ferror	ST7735.c	/^int ferror(FILE *f){$/;"	f
+fgetc	ST7735.c	/^int fgetc (FILE *f){$/;"	f
+fillmessage	ST7735.c	/^void fillmessage(uint32_t n){$/;"	f
+formBody	esp8266.c	/^const char formBody[] = $/;"	v
+fputc	UART.c	/^int fputc(int ch, FILE *f){$/;"	f
+frequency	Music.h	/^	uint16_t frequency;$/;"	m	struct:__anon2
+getQuadrant	GameRules.cpp	/^int8_t Quadtree::getQuadrant (Rectangle R)$/;"	f	class:Quadtree
+h	GameRules.h	/^	uint16_t h;$/;"	m	class:Rectangle
+initRFlags	ST7735.h	/^enum initRFlags{$/;"	g
+insert	GameRules.cpp	/^void Quadtree::insert (Entity * E)$/;"	f	class:Quadtree
+insert	GameRules.cpp	/^void Quadtree::insert (EntityList * L)$/;"	f	class:Quadtree
+isEmpty	GameRules.cpp	/^bool EntityList::isEmpty(void) {$/;"	f	class:EntityList
+isFull	GameRules.cpp	/^bool EntityList::isFull(void) {$/;"	f	class:EntityList
+lastj	ST7735.c	/^int32_t lastj=0;$/;"	v
+lc	esp8266.c	/^char lc(char letter){$/;"	f
+length	Music.h	/^	uint16_t length;$/;"	m	struct:__anon2
+level	GameRules.h	/^	uint8_t level;      \/\/ the number of times this quadtree has been divided$/;"	m	class:Quadtree
+mForte	Music.h	142;"	d
+mPiano	Music.h	143;"	d
+main	main.cpp	/^int main(void) {$/;"	f
+nextIndex	GameRules.h	/^	uint8_t nextIndex;$/;"	m	class:EntityList
+nodes	GameRules.h	/^	Quadtree * nodes[4];$/;"	m	class:Quadtree
+none	ST7735.h	/^  none,$/;"	e	enum:initRFlags
+normalize	GameRules.h	/^	void normalize(int32_t scale)$/;"	f	class:Vector
+objects	GameRules.h	/^	EntityList objects; \/\/ list of all the entities in this quadtree$/;"	m	class:Quadtree
+operator +	GameRules.h	/^	Vector operator+(const Vector & v)$/;"	f	class:Vector
+operator +	Vector.h	/^	Vector operator+(const Vector & v)$/;"	f	class:Vector
+operator +=	GameRules.h	/^	Vector operator+=(const Vector & v)$/;"	f	class:Vector
+operator +=	Vector.h	/^	Vector operator+=(const Vector & v)$/;"	f	class:Vector
+pPiano	Music.h	145;"	d
+pop	GameRules.cpp	/^Entity * EntityList::pop (void) {$/;"	f	class:EntityList
+push	GameRules.cpp	/^void EntityList::push (Entity * E) {$/;"	f	class:EntityList
+pushColor	ST7735.c	/^void static pushColor(uint16_t color) {$/;"	f	file:
+rangeX	Graphics.c	/^static int32_t rangeX, rangeY;$/;"	v	file:
+rangeY	Graphics.c	/^static int32_t rangeX, rangeY;$/;"	v	file:
+removeZeroes	GameRules.cpp	/^void EntityList::removeZeroes (void)$/;"	f	class:EntityList
+retrieve	GameRules.cpp	/^EntityList * Quadtree::retrieve (EntityList * returnObjects, Rectangle R)$/;"	f	class:Quadtree
+setAddrWindow	ST7735.c	/^void static setAddrWindow(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1) {$/;"	f	file:
+setMaxX	Graphics.c	/^static int32_t setMinX, setMaxX, setMinY, setMaxY;$/;"	v	file:
+setMaxY	Graphics.c	/^static int32_t setMinX, setMaxX, setMinY, setMaxY;$/;"	v	file:
+setMinX	Graphics.c	/^static int32_t setMinX, setMaxX, setMinY, setMaxY;$/;"	v	file:
+setMinY	Graphics.c	/^static int32_t setMinX, setMaxX, setMinY, setMaxY;$/;"	v	file:
+split	GameRules.cpp	/^void Quadtree::split (void)$/;"	f	class:Quadtree
+tstick	main.cpp	/^static uint16_t tstick[4] = {0,0,0,0}; $/;"	v	file:
+type	GameRules.h	/^	EntityType type; \/\/ type will tell us which entity we are working with (shouldn't use Polymorphism in embedded systems)$/;"	m	class:Entity
+uDMA_Error	startup.s	/^uDMA_Error$/;"	l
+uDMA_Handler	startup.s	/^uDMA_Handler$/;"	l
+uart_close	UART.c	/^int uart_close( int dev_fd){$/;"	f
+uart_lseek	UART.c	/^off_t uart_lseek(int dev_fd, off_t ioffset, int origin){$/;"	f
+uart_open	UART.c	/^int uart_open(const char *path, unsigned flags, int llv_fd){$/;"	f
+uart_read	UART.c	/^int uart_read(int dev_fd, char *buf, unsigned count){char ch;$/;"	f
+uart_rename	UART.c	/^int uart_rename(const char *old_name, const char *new_name){$/;"	f
+uart_unlink	UART.c	/^int uart_unlink(const char * path){$/;"	f
+uart_write	UART.c	/^int uart_write(int dev_fd, const char *buf, unsigned count){ unsigned int num=count;$/;"	f
+update	GameRules.cpp	/^void Entity::update (void)$/;"	f	class:Entity
+update	GameRules.cpp	/^void EntityList::update(uint16_t * tstick, uint16_t * accel, uint32_t gameTick) {$/;"	f	class:EntityList
+vector	Graphics.c	/^typedef struct vector {$/;"	s	file:
+volume	Music.h	/^	uint8_t volume;$/;"	m	struct:__anon2
+w	GameRules.h	/^	uint16_t w;$/;"	m	class:Rectangle
+waitForTouch	main.cpp	/^void waitForTouch() {$/;"	f
+writecommand	ST7735.c	/^void static writecommand(uint8_t c) {$/;"	f	file:
+writedata	ST7735.c	/^void static writedata(uint8_t c) {$/;"	f	file:
+x	GameRules.h	/^	int16_t x;$/;"	m	class:Rectangle
+x	GameRules.h	/^	int16_t x;$/;"	m	class:Vector
+x	Graphics.c	/^  int32_t x; $/;"	m	struct:vector	file:
+x	Vector.h	/^	uint16_t x;$/;"	m	class:Vector
+y	GameRules.h	/^	int16_t y;$/;"	m	class:Rectangle
+y	GameRules.h	/^	int16_t y;$/;"	m	class:Vector
+y	Graphics.c	/^  int32_t y; $/;"	m	struct:vector	file:
+y	Vector.h	/^	uint16_t y;$/;"	m	class:Vector
+~EntityList	GameRules.h	/^	~EntityList(void) {}$/;"	f	class:EntityList
